@@ -1,0 +1,20 @@
+.netherlands-container{
+    background-image: url("netherlands-background.jpg");
+    height:800px;
+    padding-top:25px;
+}
+
+.netherlands-container p1{
+    font-size: 30px;
+}
+
+.netherlands-story{
+    margin-left:80px;
+    margin-right:80px;
+    height: 700px;
+    background-color: rgb(225,225,225,0.6);
+}
+
+.netherlands-story p{
+    line-height: 30px;
+}

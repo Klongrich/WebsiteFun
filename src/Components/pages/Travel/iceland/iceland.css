@@ -1,0 +1,37 @@
+.Iceland-container{
+    margin-top:-30px;
+    padding-top: 20px;
+    background-image: url("icelandbackground.jpg");
+    height: 1100px;
+    
+}
+
+.IcelandStory {
+    margin-left:80px;
+    margin-right:80px;
+    height: 1000px;
+    background-color: rgb(225,225,225,0.4);
+}
+
+.IcelandStory p{
+    line-height: 30px;
+}
+
+img#BlueLagoonSign {
+    margin-top: 30px;
+    height: 250px;
+    width: 367px;
+    float: left;
+}
+
+img#BlueLagoon {
+    width: 397px;
+    height: 250px;
+    float: left;
+}
+
+img#IcelandCity{
+    height: 250px;
+    width: 367px;
+    float: left;
+}
