@@ -18,9 +18,6 @@ import techinalspecs from './pages/Block-Chain/TechinalSpecs/techinalSpecs'
 
 import trading from './pages/Trading/trading'
 import ai from './pages/AI/ai'
-import weedscan from './pages/CompanyBeta/WeedScan/weedscan'
-
-
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -46,7 +43,6 @@ function App() {
 
             <Route path="/trading" exact component={trading}/>
             <Route path="/AI" exact component={ai}/>
-            <Route path="/weedscan" exact component={weedscan}/>
           </Switch>
       </BrowserRouter>
     </div>

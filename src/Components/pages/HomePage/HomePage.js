@@ -24,14 +24,22 @@ class HomePage extends React.Component {
 
                     <div class="middle">
                         <p>
-                            Welcome to My website! here I post My
-                            thoughts on subjects that interest me. 
-                            Mostly consist of Trading, Block-Chain, A.I.
-                            and Traveling for now. Enjoy! and feel free to
-                            message me. 
+                            Here I post My thoughts on subjects that interest me. 
+                            <p>
+                                Trading
+                            </p>
+                            <p>
+                                Block-Chain
+                            </p>
+                            <p>
+                                A.I.
+                            </p>
+                            <p>
+                                Traveling
+                            </p> 
                         </p>
                         <p1>
-                            Click the Menu button and navagate around!
+                            Click the Menu button and navagate around
                         </p1>
                     </div>
                 </div>   
