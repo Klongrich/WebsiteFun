@@ -1,6 +1,6 @@
 {
-  "name": "example",
-  "version": "0.1.0",
+  "name": "test",
+  "version": "7.1.4",
   "private": true,
   "dependencies": {
     "@mobiscroll/react-lite": "^4.7.3",
@@ -47,5 +47,16 @@
   },
   "devDependencies": {
     "webpack-cli": "^3.3.11"
+  },
+  "description": "fucking work",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Klongrich/WebsiteFun.git"
+  },
+  "author": "Kyle Longrich <longrichk@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Klongrich/WebsiteFun/issues"
   }
 }

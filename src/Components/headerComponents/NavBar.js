@@ -4,13 +4,14 @@ import { slide as Menu } from 'react-burger-menu'
 import Link from 'react-router-dom'
 import TravelPage from '../pages/Travel/travel'
 
-
-class NavBar extends React.Component {
-    showSettings (event) {
+var createReactClass = require('create-react-class');
+var NavBar = createReactClass ({
+    
+    showSettings: function (event) {
       event.preventDefault();
-    }
-  
-    render () {
+    },
+    
+    render: function () {
       return (
         <div class="NavBar">
         <Menu>
@@ -21,7 +22,7 @@ class NavBar extends React.Component {
         </Menu>
         </div>
       );
-    }
-  }
+    } 
+});
 
 export default NavBar;
