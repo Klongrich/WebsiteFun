@@ -1,9 +1,9 @@
+
+
 .container{
-    margin-top:-5px;
     background-image: url('./pics/worldmap.jpg');
     background-size:cover;
-    height: 670px;
-    overflow: hidden;
+    height: 100%;
 }
 
 .headers{
@@ -29,8 +29,9 @@ h2#wtv{
     margin-top:-10px
 }
 
-
 .visitedlist{
+    display: flex;
+    flex-direction: row;
     border-style: solid;
     border-color: black;
     border-width: 1px;
@@ -40,26 +41,6 @@ h2#wtv{
     margin-left: 50px;
     background-color: rgb(255, 255, 255, 0.4);
     float: left;
-}
-
-
-ul#firstrow li{
-    padding-top:15px;
-}
-
-ul#firstrow{
-    margin-right:170px;
-    list-style-type: none;
-}
-
-ul#secondrow li{
-    padding-top:15px;
-}
-
-ul#secondrow{
-    margin-left:130px;
-    margin-top:-380px;
-    list-style-type: none;
 }
 
 .visitedlist ul li a:hover{
@@ -75,6 +56,8 @@ ul{
 }
 
 .NotVisited{
+    display: flex;
+    flex-direction: row;
     border-style: solid;
     border-color: black;
     border-width: 1px;
@@ -83,30 +66,6 @@ ul{
     margin-left: 450px;
     margin-top: -10px;
     background-color: rgb(255, 255, 255, 0.4);
-}
-
-ul#nfirstrow{
-    margin-right:650px;
-}
-
-ul#nsecondrow{
-    margin-top:-380px;
-    margin-right: 360px;
-}
-
-ul#thridrow{
-    margin-top: -380px;
-    margin-right: 70px;
-}
-
-ul#fourthrow{
-    margin-top: -380px;
-    margin-right: -220px;
-}
-
-ul#fithrow{
-    margin-top: -380px;
-    margin-right: -510px;
 }
 
 a {

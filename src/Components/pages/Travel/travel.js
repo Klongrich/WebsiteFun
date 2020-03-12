@@ -5,7 +5,7 @@ import 'animate.css'
 
 
 class travel extends React.Component {
-     constructor(props) {
+    constructor(props) {
     super(props);
     this.state = {hovered: false};
   }
@@ -14,15 +14,19 @@ class travel extends React.Component {
       return (
             <div class="container">
                 <div class="headers">
+                    
                     <h2 id="ttravel"> Traveling </h2>
-                        <h2 id="number" class="animated bounce "> 22 / 195 Countries </h2>
+                    <h2 id="number" class="animated bounce "> 22 / 195 Countries </h2>
+
                 </div>
 
                 <div class="VisitedCountries">
-                    <h2 id="vsc"> Visted Countries (Click For Story)</h2>
 
+                    <h2 id="vsc"> Visted Countries (Click For Story)</h2>
                     <h2 id="wtv" >Want To visit Next</h2>
+
                      <div class= "visitedlist">
+                        
                         <ul id="firstrow">
                             <li><a href=""> United States</a></li>
                             <li><a href="/travel/iceland"> Iceland</a></li>
