@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './travel.css'
 import 'animate.css'
 
 
 
 class travel extends React.Component {
+   
     constructor(props) {
     super(props);
     this.state = {hovered: false};

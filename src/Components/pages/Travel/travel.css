@@ -1,9 +1,9 @@
-
-
 .container{
+    margin-top:-5px;
     background-image: url('./pics/worldmap.jpg');
     background-size:cover;
-    height: 100%;
+    height: 670px;
+    overflow: hidden;
 }
 
 .headers{
@@ -28,6 +28,7 @@ h2#vsc{
 h2#wtv{
     margin-top:-10px
 }
+
 
 .visitedlist{
     display: flex;
