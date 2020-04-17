@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 import {StyledIconBase} from '@styled-icons/styled-icon'
-import travelImg from  "./travelBackground2.png";
-
 
 
 export const BackgroudnImage = styled.div`
@@ -77,7 +75,7 @@ export const Box = styled.div`
   height: 100%;
   border-radius: 10px;
 
-  background-image: url(${travelImg});
+  background-image: url(${props => props.img});
   background-repeat: no-repeat;
   background-size: 275px 305px;
 
@@ -101,17 +99,18 @@ export const Box = styled.div`
   @media (min-width: 1024px) {
     width: ${px2vw(500)};
     min-height: ${px2vw(300)};
+
     height: 100%;
   }
 `;
 
 export const BoxTitle = styled.h3`
   color: #333;
-  font-size: 2rem;
+  font-size: 4rem;
   text-align: center;
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
 `;
 
@@ -119,6 +118,8 @@ export const BoxText = styled.p`
   margin-top: ${px2vw(20)};
   color: #666;
   font-size: 1.5rem;
+
+  color:light-grey;
 
   @media (min-width: 1024px) {
     font-size: 1rem;

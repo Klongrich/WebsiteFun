@@ -1,17 +1,20 @@
 import React from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
+import travelImage from "./styles/travelBackground2.png"
 
 import {Container, Box, BoxTitle, BoxText, Header, HeaderLinks, HeaderText,HeaderOffSet, BackgroudnImage} from "./styles/HomeStyles"
 
-const boxData = [
+
+
+export const boxData = [
   {
     id: 0,
     title: "Travel",
     text: "check out some Travel Stories!",
     bgColor: "#D5CAFA",
     hoverColor: "#e3dcfa",
-    image: "null",
+    image: travelImage,
     link: "travel"
   },
   {
@@ -78,7 +81,7 @@ export default function HomePage() {
     </Header>
     <Container>
       {boxData.map(box => (
-        <Box key={box.id} bgColor={box.bgColor} BackgroundImage={box.image} as="a" href={box.link}>
+        <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
           <BoxTitle>{box.title}</BoxTitle>
           <BoxText>{box.text}</BoxText>
         </Box>
