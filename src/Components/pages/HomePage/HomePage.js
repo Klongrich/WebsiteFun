@@ -2,9 +2,8 @@ import React from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
 import travelImage from "./styles/travelBackground2.png"
-
-import {Container, Box, BoxTitle, BoxText, Header, HeaderLinks, HeaderText,HeaderOffSet, BackgroudnImage} from "./styles/HomeStyles"
-
+import {Container, Box, BoxTitle, BoxText, BackgroudnImage} from "./styles/HomeStyles"
+import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
 
 
 export const boxData = [
