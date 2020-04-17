@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import './headerComponents/NavBar.css'
 import './pages/HomePage/HomePage'
@@ -22,11 +22,10 @@ import ai from './pages/AI/ai'
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 
-function App() {
-  return (
-    <div className="App">
+function App (){
+    return (
+      <div className="App">
       <BrowserRouter>
-      <NavBar />
         <Switch>
             <Route path="/" exact component={HomePage}/>
        
@@ -45,8 +44,8 @@ function App() {
             <Route path="/AI" exact component={ai}/>
           </Switch>
       </BrowserRouter>
-    </div>
-  );
-}
+      </div>
+    )
+  };
 
 export default App;

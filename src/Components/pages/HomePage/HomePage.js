@@ -1,51 +1,52 @@
-import React from 'react';
-import './homepage.css';
-import style from './homepage.css'
-import cogoToast from 'cogo-toast'
+import React from "react";
 
-import Fade from "react-reveal/Fade"
+import { Container, Box, BoxTitle, BoxText } from "../../../styles/HomeStyles"
 
-class HomePage extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-             hovering : false
-        };
-    }
-    
-    render () {
-        return(
-            <div class="master">
-                <div class="wordcontainer">
-                    <div class="header">
-                        <h2>Kyle Longrich</h2>  
-                    </div>
+import Global from "../../../styles/global";
 
-                    <div class="middle">
-                        <p>
-                            Here I post My thoughts on subjects that interest me. 
-                            <p>
-                                Trading
-                            </p>
-                            <p>
-                                Block-Chain
-                            </p>
-                            <p>
-                                A.I.
-                            </p>
-                            <p>
-                                Traveling
-                            </p> 
-                        </p>
-                        <p1>
-                            Click the Menu button and navagate around
-                        </p1>
-                    </div>
-                </div>   
-            </div>
-        );
-    }
+const lorem =
+  "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, sed iure blanditiis voluptatum nulla quidem minus quam tempora obcaecati necessitatibus inventore! Vitae totam quam pariatur facilis fugit maxime adipisci eaque.";
+
+const boxData = [
+  {
+    id: Math.random(),
+    title: "Box titulo 1",
+    text: lorem,
+    bgColor: "#D5CAFA"
+  },
+  {
+    id: Math.random(),
+    title: "Box titulo 2",
+    text: lorem,
+    bgColor: "#EDA9A9"
+  },
+  {
+    id: Math.random(),
+    title: "Box titulo 3",
+    text: lorem,
+    bgColor: "#F2EE8D"
+  },
+  {
+    id: Math.random(),
+    title: "Box titulo 4",
+    text: lorem,
+    bgColor: "#9FEACD"
   }
+];
 
-export default HomePage;
+
+export default function HomePage() {
+  return (
+    <>
+    <Global />
+    <Container>
+      {boxData.map(box => (
+        <Box key={box.id} bgColor={box.bgColor}>
+          <BoxTitle>{box.title}</BoxTitle>
+          <BoxText>{box.text}</BoxText>
+        </Box>
+      ))}
+    </Container>
+    </>
+  );
+}
