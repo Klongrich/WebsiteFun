@@ -2,6 +2,8 @@ import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 import {StyledIconBase} from '@styled-icons/styled-icon'
 
+
+
 export const IconStyleWrapper = styled.div`
   ${StyledIconBase} {
     height: 35px;
@@ -64,6 +66,16 @@ export const Box = styled.div`
   margin: ${px2vw(20)};
   background-color: ${props => props.bgColor};
   height: 100%;
+
+  &:hover {
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+    transform: scale(1.15);
+  }
+
+  transition-timing-function: ease-out;
+  transition: 0.25s;
+  transform: scale(1);
 
   @media (min-width: 768px) {
     width: ${px2vw(320, 768)};
