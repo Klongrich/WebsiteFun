@@ -36,7 +36,7 @@ function App (){
               <Route path="/travel/iceland" exact component={Iceland}/>
               <Route path="/travel/netherlands" exact component={netherlands}/>
             
-            <Route path="/about" exact component={Footer}/>
+           {/* <Route path="/about" exact component={Footer}/> */}
 
             <Route path="/block-chain" exact component={blockchain}/>
               <Route path="/block-chain/gettingstarted" exact component={gettingstarted}/>

@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 import {StyledIconBase} from '@styled-icons/styled-icon'
+import travelImg from  "./travelBackground2.png";
 
+
+
+export const BackgroudnImage = styled.div`
+    border: 1px solid #000;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 850px;;
+`;
 
 
 export const IconStyleWrapper = styled.div`
@@ -66,11 +75,17 @@ export const Box = styled.div`
   margin: ${px2vw(20)};
   background-color: ${props => props.bgColor};
   height: 100%;
+  border-radius: 10px;
+
+  background-image: url(${travelImg});
+  background-repeat: no-repeat;
+  background-size: 275px 305px;
 
   &:hover {
     transition-timing-function: ease-in;
     transition: 0.2s;
     transform: scale(1.15);
+    background-color: ${props => props.hoverColor};
   }
 
   transition-timing-function: ease-out;
