@@ -1,7 +1,11 @@
 import React from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
+
 import travelImage from "./styles/travelBackground2.png"
+import cryptoImage from "./styles/cryptoBackground4.png"
+import stockImage from "./styles/stockBackground.png"
+
 import {Container, Box, BoxTitle, BoxText, BackgroudnImage} from "./styles/HomeStyles"
 import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
 
@@ -20,9 +24,10 @@ export const boxData = [
     id: 1,
     title: "Crypto",
     text: "Thoughts and Information on Crypto",
-    bgColor: "#EDA9A9",
+    bgColor: "null",
     hoverColor: "#ebbebe",
-    image: "null",
+    image: cryptoImage,
+    headerColor: "black",
     link: "block-chain"
   },
   {
@@ -31,7 +36,7 @@ export const boxData = [
     text: "From penny stocks to Marco econmics",
     bgColor: "#F2EE8D",
     hoverColor: "#ebe8a4",
-    image: "null",
+    image: stockImage,
     link: "stocks"
   },
   {
@@ -81,7 +86,7 @@ export default function HomePage() {
     <Container>
       {boxData.map(box => (
         <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
-          <BoxTitle>{box.title}</BoxTitle>
+          <BoxTitle >{box.title}</BoxTitle>
           <BoxText>{box.text}</BoxText>
         </Box>
       ))}

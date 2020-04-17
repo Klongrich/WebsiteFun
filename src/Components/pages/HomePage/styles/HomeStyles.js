@@ -25,8 +25,11 @@ export const Box = styled.div`
   width: ${px2vw(320, 320)};
   min-height: ${px2vw(200, 320)};
   flex-direction: column;
+
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
+
+
   background-color: ${props => props.bgColor};
   height: 100%;
   border-radius: 10px;
@@ -64,6 +67,9 @@ export const BoxTitle = styled.h3`
   color: #333;
   font-size: 4rem;
   text-align: center;
+
+  color: ${props => props.headerColor};
+  
 
   @media (min-width: 1024px) {
     font-size: 3rem;
