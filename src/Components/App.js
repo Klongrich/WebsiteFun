@@ -47,6 +47,7 @@ function App (){
             <Route path="/AI" exact component={ai}/>
           </Switch>
       </BrowserRouter>
+      <Footer />
       </div>
     )
   };

@@ -1,27 +1,14 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
-import {Zap} from '@styled-icons/octicons'
-import {Github} from "@styled-icons/boxicons-logos/Github";
+import {StyledIconBase} from '@styled-icons/styled-icon'
 
-export const RedGit = styled(Github)`
-  color: red;
-  height: 35px;
-  width: 35px;
-  padding-left: ${px2vw(42)};
+export const IconStyleWrapper = styled.div`
+  ${StyledIconBase} {
+    height: 35px;
+    width: 35px;
+    padding-left: ${px2vw(42)};
+  }
 `
-
-export const footer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  
-  width: 100%;
-  height: 74px;
-  padding-top: ${px2vw(42)};
-  padding-left: ${px2vw(32)}; 
-  color: white;
-  background-color: black;
-  font-size: 42px;
-`;
 
 export const Header = styled.div`
   display: flex;
@@ -55,7 +42,8 @@ export const Box = styled.div`
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
   background-color: ${props => props.bgColor};
-  height: 100%;
+  height: 100%; 
+  href: google.com;
 
   @media (min-width: 768px) {
     width: ${px2vw(320, 768)};
