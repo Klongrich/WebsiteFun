@@ -1,5 +1,39 @@
 import styled from "styled-components";
-import px2vw from "../utils/px2vw";
+import px2vw from "../../../../utils/px2vw";
+import {Zap} from '@styled-icons/octicons'
+import {Github} from "@styled-icons/boxicons-logos/Github";
+
+export const RedGit = styled(Github)`
+  color: red;
+  height: 35px;
+  width: 35px;
+  padding-left: ${px2vw(42)};
+`
+
+export const footer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+  width: 100%;
+  height: 74px;
+  padding-top: ${px2vw(42)};
+  padding-left: ${px2vw(32)}; 
+  color: white;
+  background-color: black;
+  font-size: 42px;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+  width: 100%;
+  height: 74px;
+  padding-top: ${px2vw(42)};
+  padding-left: ${px2vw(32)};
+  color: black;
+  font-size: 42px;
+`;
 
 export const Container = styled.div`
   display: flex;

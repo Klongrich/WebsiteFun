@@ -21,9 +21,12 @@ import ai from './pages/AI/ai'
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
+import Global from "../styles/global"
+
 
 function App (){
     return (
+
       <div className="App">
       <BrowserRouter>
         <Switch>
