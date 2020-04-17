@@ -2,7 +2,7 @@ import React from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
 
-import {Container, Box, BoxTitle, BoxText, Header} from "./styles/HomeStyles"
+import {Container, Box, BoxTitle, BoxText, Header, HeaderLinks, HeaderText,HeaderOffSet} from "./styles/HomeStyles"
 
 const boxData = [
   {
@@ -35,13 +35,41 @@ const boxData = [
   }
 ];
 
+const headerData = [
+  {
+    id: 0,
+    text: "Articles",
+    link: "/articles"
+  } ,
+  {
+    id: 1,
+    text: "About",
+    link: "/about"
+  },
+  {
+    id: 2,
+    text: "Website Source Code",
+    link: "/about"
+  }
+]
+
 export default function HomePage() {
   return (
-    <>
+    <div class="background">
     <Header>
+      
+      <HeaderOffSet>
       Kyle Longrich
-    </Header>
+      </HeaderOffSet>
+      
+      {headerData.map(data => (
+        <HeaderLinks>
+          <HeaderText> {data.text} </HeaderText>
+        </HeaderLinks>
 
+      ))}
+
+    </Header>
     <Container>
       {boxData.map(box => (
         <Box key={box.id} bgColor={box.bgColor} as="a" href={box.link}>
@@ -50,6 +78,6 @@ export default function HomePage() {
         </Box>
       ))}
     </Container>   
-    </>
+    </div>
   );
 }

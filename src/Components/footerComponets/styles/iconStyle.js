@@ -7,7 +7,8 @@ export const IconStyleWrapper = styled.div`
   ${StyledIconBase} {
     height: 35px;
     width: 35px;
-    padding-left: ${px2vw(42)};
+    padding-left: ${px2vw(21)};
+    padding-right: ${px2vw(21)};
     margin-top: ${px2vw(42)};
   }
 `

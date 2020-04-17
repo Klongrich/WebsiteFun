@@ -14,11 +14,26 @@ class Footer extends React.Component {
         return(
             <>
                 <IconStyleWrapper>
-                    <Github />
-                    <Twitter color="#00acee"/>
-                    <Twitch color="#6441A4 " />
-                    <Instagram />
-                    <Snapchat color="#fffc00" />
+
+                    <a href="https://github.com/klongrich">
+                        <Github />
+                    </a>
+
+                    <a href="https://twitter.com/longrichk?lang=en">
+                        <Twitter color="#00acee"/>
+                    </a>
+
+                    <a href="https://www.twitch.tv/slyle714/">
+                        <Twitch color="#6441A4 " />
+                    </a>
+
+                    <a href="https://www.instagram.com/longrichk">
+                        <Instagram />
+                    </a>
+
+                    <a href="">
+                        <Snapchat color="#fffc00" />
+                    </a>
                 </IconStyleWrapper>
             </>
         );

@@ -22,6 +22,27 @@ export const Header = styled.div`
   font-size: 42px;
 `;
 
+export const HeaderOffSet = styled.div`
+  margin-right:${px2vw(680)};
+`;
+
+
+export const HeaderLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-left: ${px2vw(42)};
+  color: #bf4343;
+  font-size: 12px;
+  padding-top: ${px2vw(22)};
+`;
+
+export const HeaderText = styled.a`
+    font-size: 14px;
+    color: #bf4343;
+    text-decoration: underline;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -42,8 +63,7 @@ export const Box = styled.div`
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
   background-color: ${props => props.bgColor};
-  height: 100%; 
-  href: google.com;
+  height: 100%;
 
   @media (min-width: 768px) {
     width: ${px2vw(320, 768)};
