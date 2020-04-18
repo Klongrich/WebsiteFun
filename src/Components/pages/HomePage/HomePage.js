@@ -2,13 +2,13 @@ import React from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
 
+
 import travelImage from "./styles/travelBackground2.png"
 import cryptoImage from "./styles/cryptoBackground4.png"
 import stockImage from "./styles/stockBackground.png"
 
-import {Container, Box, BoxTitle, BoxText, BackgroudnImage} from "./styles/HomeStyles"
+import {Container, Box, BoxTitle, BoxText, BackgroundImage} from "./styles/HomeStyles"
 import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
-
 
 export const boxData = [
   {
@@ -72,6 +72,8 @@ export default function HomePage() {
   return (
     <div class="background">
 
+    <BackgroundImage>
+    
     <Header>
       <HeaderOffSet>
       Kyle Longrich
@@ -90,7 +92,9 @@ export default function HomePage() {
           <BoxText>{box.text}</BoxText>
         </Box>
       ))}
-    </Container>  
+    </Container> 
+
+    </BackgroundImage> 
     </div>
   );
 }

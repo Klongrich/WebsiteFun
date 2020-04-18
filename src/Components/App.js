@@ -18,6 +18,7 @@ import techinalspecs from './pages/Block-Chain/TechinalSpecs/techinalSpecs'
 
 import trading from './pages/Trading/trading'
 import ai from './pages/AI/ai'
+import articles from './pages/Articles/articles'
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -45,6 +46,8 @@ function App (){
 
             <Route path="/trading" exact component={trading}/>
             <Route path="/AI" exact component={ai}/>
+
+            <Route path="/articles" exact component={articles}/>
           </Switch>
       </BrowserRouter>
       <Footer/>

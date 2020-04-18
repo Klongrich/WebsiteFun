@@ -12,9 +12,8 @@ import {IconStyleWrapper} from "./styles/iconStyle"
 class Footer extends React.Component {
     render () {
         return(
-            <>
+            <>  
                 <IconStyleWrapper>
-
                     <a href="https://github.com/klongrich">
                         <Github />
                     </a>

@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
-export const BackgroudnImage = styled.div`
-    border: 1px solid #000;
-    background-repeat: no-repeat;
+export const BackgroundImage = styled.div`
     width: 100%;
-    height: 850px;;
+    height: 550px;
 `;
 
 export const Container = styled.div`
@@ -14,7 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   margin: ${px2vw(32)};
   max-width: 100%;
-
+  
   @media (min-width: 1024px) {
     flex-wrap: nowrap;
   }
@@ -36,7 +34,7 @@ export const Box = styled.div`
 
   background-image: url(${props => props.img});
   background-repeat: no-repeat;
-  background-size: 275px 305px;
+  background-size: 280px 310px;
 
   &:hover {
     transition-timing-function: ease-in;
