@@ -1,2 +1,2 @@
 # WebsiteFun
-Building a personal website.
+Building a personal website for fun
