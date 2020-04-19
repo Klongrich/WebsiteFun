@@ -34,7 +34,7 @@ export const Box = styled.div`
 
   background-image: url(${props => props.img});
   background-repeat: no-repeat;
-  background-size:${px2vw(300, 300)} ${px2vw(200, 320)};
+  background-size:${px2vw(320, 320)} ${px2vw(200, 320)};
 
   &:hover {
     transition-timing-function: ease-in;

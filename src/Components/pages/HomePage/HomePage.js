@@ -28,7 +28,7 @@ export const boxData = [
     hoverColor: "#ebbebe",
     image: cryptoImage,
     headerColor: "black",
-    link: "block-chain"
+    link: "Crypto"
   },
   {
     id: 2,
@@ -95,6 +95,7 @@ export default function HomePage() {
     </Container> 
 
     </BackgroundImage> 
+
     </div>
   );
 }

@@ -25,8 +25,19 @@ export default function articles () {
             title: "Why The Market Is In A Complete Bubble",
             link: "null",
             date: "04/17/2020"
-        }
-
+        },
+        {
+            id: 3,
+            title: "Future of the Crypto Economy",
+            link: "null",
+            date: "04/12/2020"
+        },
+        {
+            id: 4,
+            title: "Inflation Rates and Average Job Salaries",
+            link: "null",
+            date: "04/08/2020"
+        },
     ]
 
     return (

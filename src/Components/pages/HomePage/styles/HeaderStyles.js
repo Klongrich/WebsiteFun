@@ -11,6 +11,7 @@ export const Header = styled.div`
   padding-left: ${px2vw(32)};
   color: black;
   font-size: 42px;
+
 `;
 
 export const HeaderOffSet = styled.div`
