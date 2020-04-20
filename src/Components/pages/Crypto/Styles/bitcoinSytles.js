@@ -7,7 +7,7 @@ export const TopText = styled.div`
   
   text-algin: left;
 
-  width: 100%;
+
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(82)};
   color: black;

@@ -5,7 +5,7 @@ export const Header = styled.div`
   display: flex;
   flex-wrap: wrap;
   
-  width: 100%;
+  width: 50%;
   height: 74px;
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};
@@ -13,5 +13,4 @@ export const Header = styled.div`
   font-size: 42px;
 
 `;
-
 
