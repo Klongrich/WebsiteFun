@@ -43,6 +43,7 @@ export default function Crypto() {
           <Th>Scalabitliy <Sort size="15px" /></Th>
           <Th>Team <Sort size="15px" /></Th>
           <Th>Overall Rank <Sort size="15px" /></Th>
+          <Th>24hr Change <Sort size="15px" /></Th>
         </Tr>
       </Thead>
       <Tbody>
@@ -57,6 +58,7 @@ export default function Crypto() {
           <Td>6.2</Td>
           <Td>9.4</Td>
           <Td>8.25</Td>
+          <Td><a Style="color:green">7.14%</a> </Td>
         </Tr>
         <Tr>
         <Td>#2</Td>
@@ -69,6 +71,7 @@ export default function Crypto() {
           <Td>4.2</Td>
           <Td>8.1</Td>
           <Td>6.425</Td>
+          <Td><a Style="color:red">0.65%</a> </Td>
         </Tr>
         <Tr>
         <Td>#3</Td>
@@ -81,6 +84,7 @@ export default function Crypto() {
           <Td>9.2</Td>
           <Td>7.4</Td>
           <Td>5.475</Td>
+          <Td><a Style="color:red">1.42%</a> </Td>
         </Tr>
         <Tr>
         <Td>#4</Td>
@@ -93,6 +97,7 @@ export default function Crypto() {
           <Td>7.2</Td>
           <Td>7.4</Td>
           <Td>7.75</Td>
+          <Td><a Style="color:green">1.47%</a> </Td>
         </Tr>
       </Tbody>
     </Table>
