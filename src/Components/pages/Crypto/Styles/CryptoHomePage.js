@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
-export const Header = styled.div`
+export const Link = styled.a`
+  color: blue;
+  text-decoration: underline;
+`;
+
+export const Header = styled.a`
   display: flex;
   flex-wrap: wrap;
   

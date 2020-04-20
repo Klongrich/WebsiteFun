@@ -1,11 +1,17 @@
 import React from 'react'
 
-import {Header} from './Styles/CryptoHomePage'
+import {Header, Link} from './Styles/CryptoHomePage'
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
-import "./Styles/testing.css"
+
+import "./Styles/cryptoHome.css"
+
+import {Sort} from '@styled-icons/fa-solid/Sort'
+import {Twitch} from "@styled-icons/boxicons-logos/Twitch";
+
 
 export default function Crypto() {
+
 
     return (
         <>
@@ -16,23 +22,21 @@ export default function Crypto() {
       <Table>
       <Thead>
         <Tr>
-          <Th>Rank</Th>
-          <Th>Name</Th>
-          <Th>Ticker</Th>
-          <Th>Decentralizaton</Th>
-          <Th>Community</Th>
-          <Th>Scalabitliy</Th>
-          <Th>Team</Th>
-          <Th>Overall Rank</Th>
+          <Th>Rank <Sort size="15px" /></Th>
+          <Th>Name <Sort size="15px" /></Th>
+          <Th>Ticker <Sort size="15px" /></Th>
+          <Th>Decentralizaton <Sort size="15px" /></Th>
+          <Th>Community <Sort size="15px" /></Th>
+          <Th>Scalabitliy <Sort size="15px" /></Th>
+          <Th>Team <Sort size="15px" /></Th>
+          <Th>Overall Rank <Sort size="15px" /></Th>
         </Tr>
       </Thead>
       <Tbody>
         <Tr>
         <Td>#1</Td>
           <Td>
-
-            <a href="/Crypto/Etheruem"> Etheruem </a>
-          
+            <Link href="Crypto/Etheruem"> Etheruem </Link>
           </Td>
           <Td>ETH</Td>
           <Td>8.2</Td>
@@ -44,7 +48,7 @@ export default function Crypto() {
         <Tr>
         <Td>#2</Td>
           <Td>
-                <a href="/Crypto/Bitcoin/"> Bitcoin </a> 
+            <Link href="/Crypto/Bitcoin/"> Bitcoin </Link> 
           </Td>
           <Td>BTC</Td>
           <Td>6.2</Td>
@@ -55,7 +59,9 @@ export default function Crypto() {
         </Tr>
         <Tr>
         <Td>#3</Td>
-          <Td>Ripple</Td>
+          <Td>
+              <Link href="/Crpto/Ripple"> Ripple </Link>
+          </Td>
           <Td>XRP</Td>
           <Td>2.1</Td>
           <Td>3.2</Td>
