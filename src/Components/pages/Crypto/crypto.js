@@ -12,6 +12,19 @@ import {Twitch} from "@styled-icons/boxicons-logos/Twitch";
 
 export default function Crypto() {
 
+    const EthData = [
+        {
+            id: 0,
+            name: "Ethereum",
+            ticker: "ETH",
+            decentralization: 8.2,
+            coummunity: 9.2,
+            scalabitlity: 6.2,
+            team: 9.4,
+            overall: 8.25
+        }
+    ];
+        
 
     return (
         <>
@@ -22,7 +35,7 @@ export default function Crypto() {
       <Table>
       <Thead>
         <Tr>
-          <Th>Rank <Sort size="15px" /></Th>
+          <Th><Sort size="15px" /></Th>
           <Th>Name <Sort size="15px" /></Th>
           <Th>Ticker <Sort size="15px" /></Th>
           <Th>Decentralizaton <Sort size="15px" /></Th>
@@ -60,7 +73,7 @@ export default function Crypto() {
         <Tr>
         <Td>#3</Td>
           <Td>
-              <Link href="/Crpto/Ripple"> Ripple </Link>
+              <Link href="/Crypto/Ripple"> Ripple </Link>
           </Td>
           <Td>XRP</Td>
           <Td>2.1</Td>
@@ -68,6 +81,18 @@ export default function Crypto() {
           <Td>9.2</Td>
           <Td>7.4</Td>
           <Td>5.475</Td>
+        </Tr>
+        <Tr>
+        <Td>#4</Td>
+          <Td>
+              <Link href="/Crypto/BitcoinCash"> Bitcoin Cash </Link>
+          </Td>
+          <Td>BCH</Td>
+          <Td>7.2</Td>
+          <Td>9.2</Td>
+          <Td>7.2</Td>
+          <Td>7.4</Td>
+          <Td>7.75</Td>
         </Tr>
       </Tbody>
     </Table>
