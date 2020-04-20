@@ -11,10 +11,7 @@ import TravelPage from './pages/Travel/travel'
 import Iceland from './pages/Travel/iceland/iceland'  
 import netherlands from './pages/Travel/netherlands/netherlands'
 
-import Crypto from './pages/Crypto/blockchain'
-import gettingstarted from './pages/Crypto/GettingStarted/gettingStarted'
-import politics from './pages/Crypto/Politics/politics'
-import techinalspecs from './pages/Crypto/TechinalSpecs/techinalSpecs'
+import Crypto from './pages/Crypto/crypto'
 
 import trading from './pages/Trading/trading'
 import ai from './pages/AI/ai'
@@ -40,9 +37,6 @@ function App (){
            {/* <Route path="/about" exact component={Footer}/> */}
 
             <Route path="/Crypto" exact component={Crypto}/>
-              <Route path="/block-chain/gettingstarted" exact component={gettingstarted}/>
-              <Route path="/block-chain/politics" exact component={politics}/>
-              <Route path="/block-chain/techinalspecs" exact component={techinalspecs}/>
 
             <Route path="/trading" exact component={trading}/>
             <Route path="/AI" exact component={ai}/>
