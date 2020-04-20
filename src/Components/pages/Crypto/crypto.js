@@ -28,19 +28,7 @@ export default function Crypto() {
       </Thead>
       <Tbody>
         <Tr>
-          <Td>#1</Td>
-          <Td>
-                <a href="/Crypto/Bitcoin/"> Bitcoin </a> 
-          </Td>
-          <Td>BTC</Td>
-          <Td>6.2</Td>
-          <Td>7.2</Td>
-          <Td>4.2</Td>
-          <Td>8.1</Td>
-          <Td>6.425</Td>
-        </Tr>
-        <Tr>
-          <Td>#2</Td>
+        <Td>#1</Td>
           <Td>
 
             <a href="/Crypto/Etheruem"> Etheruem </a>
@@ -52,6 +40,18 @@ export default function Crypto() {
           <Td>6.2</Td>
           <Td>9.4</Td>
           <Td>8.25</Td>
+        </Tr>
+        <Tr>
+        <Td>#2</Td>
+          <Td>
+                <a href="/Crypto/Bitcoin/"> Bitcoin </a> 
+          </Td>
+          <Td>BTC</Td>
+          <Td>6.2</Td>
+          <Td>7.2</Td>
+          <Td>4.2</Td>
+          <Td>8.1</Td>
+          <Td>6.425</Td>
         </Tr>
         <Tr>
         <Td>#3</Td>
