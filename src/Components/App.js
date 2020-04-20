@@ -13,6 +13,7 @@ import netherlands from './pages/Travel/netherlands/netherlands'
 
 import Crypto from './pages/Crypto/crypto'
 import Bitcoin from './pages/Crypto/Bitcoin/Bitcoin'
+import Etheruem from './pages/Crypto/Etheruem/Etheruem'
 
 import trading from './pages/Trading/trading'
 import ai from './pages/AI/ai'
@@ -39,6 +40,7 @@ function App (){
 
             <Route path="/Crypto" exact component={Crypto}/>
             <Route path="/Crypto/Bitcoin" exact component={Bitcoin}/>
+            <Route path="/Crypto/Etheruem" exact component={Etheruem}/>
 
             <Route path="/trading" exact component={trading}/>
             <Route path="/AI" exact component={ai}/>

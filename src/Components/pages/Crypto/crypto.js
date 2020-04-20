@@ -41,7 +41,11 @@ export default function Crypto() {
         </Tr>
         <Tr>
           <Td>#2</Td>
-          <Td>Etheruem</Td>
+          <Td>
+
+            <a href="/Crypto/Etheruem"> Etheruem </a>
+          
+          </Td>
           <Td>ETH</Td>
           <Td>8.2</Td>
           <Td>9.2</Td>
