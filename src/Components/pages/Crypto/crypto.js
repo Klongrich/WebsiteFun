@@ -29,7 +29,9 @@ export default function Crypto() {
       <Tbody>
         <Tr>
           <Td>#1</Td>
-          <Td>Bitcoin</Td>
+          <Td>
+                <a href="/Crypto/Bitcoin/"> Bitcoin </a> 
+          </Td>
           <Td>BTC</Td>
           <Td>6.2</Td>
           <Td>7.2</Td>
@@ -48,9 +50,14 @@ export default function Crypto() {
           <Td>8.25</Td>
         </Tr>
         <Tr>
-          <Td>Tuscaloosa D3</Td>
-          <Td>29 June 2019</Td>
-          <Td>Github</Td>
+        <Td>#3</Td>
+          <Td>Ripple</Td>
+          <Td>XRP</Td>
+          <Td>2.1</Td>
+          <Td>3.2</Td>
+          <Td>9.2</Td>
+          <Td>7.4</Td>
+          <Td>5.475</Td>
         </Tr>
       </Tbody>
     </Table>

@@ -12,6 +12,7 @@ import Iceland from './pages/Travel/iceland/iceland'
 import netherlands from './pages/Travel/netherlands/netherlands'
 
 import Crypto from './pages/Crypto/crypto'
+import Bitcoin from './pages/Crypto/Bitcoin/Bitcoin'
 
 import trading from './pages/Trading/trading'
 import ai from './pages/AI/ai'
@@ -37,6 +38,7 @@ function App (){
            {/* <Route path="/about" exact component={Footer}/> */}
 
             <Route path="/Crypto" exact component={Crypto}/>
+            <Route path="/Crypto/Bitcoin" exact component={Bitcoin}/>
 
             <Route path="/trading" exact component={trading}/>
             <Route path="/AI" exact component={ai}/>

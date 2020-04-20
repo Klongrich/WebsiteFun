@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
+
+export const Header = styled.h2`
+    text-align: center;
+`
+
 export const ArticleBox = styled.div`
     display: flex;
     margin: 60px;
@@ -9,6 +14,8 @@ export const ArticleBox = styled.div`
     border-top-style: solid;
     border-width: 2px;
     border-color: black;
+
+    text-align: center;
 `;
 
 export const Title = styled.h3`

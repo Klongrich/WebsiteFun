@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import {StyledIconBase} from '@styled-icons/styled-icon'
 
 export const IconStyleWrapper = styled.div`
+
+text-align: center;
+
 ${StyledIconBase} {
     height: 35px;
     width: 35px;

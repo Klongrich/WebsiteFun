@@ -4,6 +4,8 @@
     background-size:cover;
     height: 670px;
     overflow: hidden;
+
+    text-align: center;
 }
 
 .headers{

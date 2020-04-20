@@ -1,6 +1,6 @@
 import React from "react";
 
-import {ArticleBox, Title, Date} from "./styles/styles"
+import {ArticleBox, Title, Date, Header} from "./styles/styles"
 
 
 export default function articles () {
@@ -42,7 +42,7 @@ export default function articles () {
 
     return (
         <>
-        <h2> Articles </h2>
+        <Header>Articles</Header>
             {blogData.map(data => (
                 <ArticleBox> 
                    <Title key={data.id} as="a" href="/blah">
