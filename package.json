@@ -11,6 +11,7 @@
     "flexbox": "^0.0.3",
     "gh-pages": "^2.1.1",
     "ngrok": "^3.2.7",
+    "pip": "0.0.1",
     "radium": "^0.25.2",
     "react": "^16.9.0",
     "react-animation": "^1.2.0",
@@ -28,7 +29,7 @@
     "styled-components": "^5.1.0",
     "styled-icons": "^10.2.1"
   },
-  "homepage": "http://kylelongrichsite.s3-website.us-east-2.amazonaws.com/",
+  "homepage": "http://www.longrichk.com.s3-website.us-east-2.amazonaws.com/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -53,7 +54,11 @@
     ]
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "@babel/preset-env": "^7.8.7"
+  },
+  "resolutions": {
+    "@babel/preset-env": "^7.8.7"
   },
   "description": "fucking work",
   "main": "./src/index.js",

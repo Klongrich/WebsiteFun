@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import './headerComponents/NavBar.css'
 import './pages/HomePage/HomePage'
 
-import NavBar from './headerComponents/NavBar'
 import Footer from './footerComponets/Footer';
 import HomePage from './pages/HomePage/HomePage'
 
