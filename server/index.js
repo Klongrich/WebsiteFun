@@ -10,14 +10,12 @@ app.use(cors());
 app.use(expressip().getIpInfoMiddleware);
 app.use(useragent.express());
 
-app.get('/', (req, res) => {
-  const ipInfo = req.ipInfo;
-  const browserInfo = req.useragent;
+app.get('/browserIfno', (req, res) => {
+  res.send(req.useragent);
+})
 
-  var browser = `On: ${browserInfo.browser}, Version: ${browserInfo.version}, OS: ${browserInfo.os}`;
-  var message = `Broswing from ${ipInfo.city}, ${ipInfo.country} ${browser}`;
-
-  res.send(message);
+app.get('/ipInfo', (req, res) => {
+  res.send(req.ipInfo);
 })
 
 app.listen(port, () => console.log("listening on localhost:3000"));
