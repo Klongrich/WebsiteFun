@@ -32,6 +32,7 @@
     "styled-icons": "^10.2.1"
   },
   "homepage": "http://www.longrichk.com.s3-website.us-east-2.amazonaws.com/",
+  "proxy": "http://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useEffect, useState} from "react";
 import Global from "../../../styles/global";
 import styled from "styled-components";
 
@@ -9,6 +9,7 @@ import stockImage from "./styles/stockBackground.png"
 
 import {Container, Box, BoxTitle, BoxText, BackgroundImage} from "./styles/HomeStyles"
 import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
+
 
 export const boxData = [
   {
@@ -68,7 +69,28 @@ const headerData = [
   }
 ]
 
+
 export default function HomePage() {
+
+  const [clientInfo, setclientInfo] = useState([]);
+
+  useEffect(() =>  {
+    fetch(`http://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/`, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                            "Content-Type": "application/json"
+                          },
+                },
+                ).then(response => {
+                if (response.ok) {
+                    response.json().then(json => { 
+                      setclientInfo(json);
+                    });
+                }
+            }).catch(error => alert("Hmm Thats Weird"));
+  }, []);
+
   return (
     <div class="background">
 
@@ -94,6 +116,10 @@ export default function HomePage() {
       ))}
     </Container> 
 
+        <p>Broswer: {clientInfo.browser} </p>
+        <p> Version: {clientInfo.version} </p>
+        <p> OS: {clientInfo.os} </p>
+        
     </BackgroundImage> 
 
     </div>
