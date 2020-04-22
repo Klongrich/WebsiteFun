@@ -5,6 +5,8 @@ const port = 3000;
 const expressip = require('express-ip');
 const cors = require('cors');
 const useragent = require('express-useragent');
+const fs = require('fs');
+const https = require('https');
 
 app.use(cors());
 app.use(expressip().getIpInfoMiddleware);
@@ -18,4 +20,10 @@ app.get('/ipInfo', (req, res) => {
   res.send(req.ipInfo);
 })
 
-app.listen(port, () => console.log("listening on localhost:3000"));
+https.createServer({
+  key: fs.readFileSynce('server.key'),
+  cert: fs.readFileSync('server.cert')
+}, app)
+.listen(port, function() {
+  console.log("listening on localhost:3000");
+})

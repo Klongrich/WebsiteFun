@@ -90,7 +90,7 @@ export default function HomePage() {
   
 
   useEffect(() =>  {
-    fetch(`http://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/browserInfo`, {
+    fetch(`https://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/browserInfo`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -105,7 +105,7 @@ export default function HomePage() {
           }
         }).catch(error => alert("Hmm Thats Weird"));
 
-    fetch(`http://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/ipInfo`, {
+    fetch(`https://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/ipInfo`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -146,8 +146,8 @@ export default function HomePage() {
       ))}
     </Container> 
 
-    <button Styles="margin-left: 2%" onClick={() => toggleInfoBox()}>
-        Show Info
+    <button Style="margin-left: 2%" onClick={() => toggleInfoBox()}>
+        Show Your Info
     </button>
 
     
