@@ -1,6 +1,25 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
+
+export const ClientInfoWrapper = styled.div`
+
+  visibility: ${props => props.show};
+  height: 120px;
+  width: 33%;
+  margin-left: 2%;
+  background-color: #db6b6b;
+  border-radius: 10px;
+
+`
+
+export const ClientInfo = styled.div`
+  float: left;
+
+  margin-left: 1%;
+  width: ${px2vw(220)};
+`
+
 export const BackgroundImage = styled.div`
     width: 100%;
     height: 550px;

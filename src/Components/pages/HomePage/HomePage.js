@@ -7,7 +7,7 @@ import travelImage from "./styles/travelBackground2.png"
 import cryptoImage from "./styles/cryptoBackground4.png"
 import stockImage from "./styles/stockBackground.png"
 
-import {Container, Box, BoxTitle, BoxText, BackgroundImage} from "./styles/HomeStyles"
+import {Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfo, ClientInfoWrapper} from "./styles/HomeStyles"
 import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
 
 
@@ -73,11 +73,21 @@ function getUserInfo(apiEndPoint) {
 
 }
 
+
 export default function HomePage() {
 
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
+  const [boxOpen, setboxOpen] = useState("hidden");
 
+  function toggleInfoBox() {
+      if (boxOpen == "hidden") {
+        setboxOpen("visible");
+      } else {
+        setboxOpen("hidden");
+      }
+  }
+  
 
   useEffect(() =>  {
     fetch(`http://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/browserInfo`, {
@@ -136,14 +146,24 @@ export default function HomePage() {
       ))}
     </Container> 
 
-        <p>Broswer: {browserInfo.browser} </p>
-        <p> Version: {browserInfo.version} </p>
-        <p> OS: {browserInfo.os} </p>
+    <button Styles="margin-left: 2%" onClick={() => toggleInfoBox()}>
+        Show Info
+    </button>
 
+    
+    <ClientInfoWrapper show={boxOpen} > 
+        <ClientInfo>
+        <p>Broswer: {browserInfo.browser} </p> 
+        <p> Version: {browserInfo.version} </p> 
+        <p> OS: {browserInfo.os} </p> <br/>
+        </ClientInfo>
+
+        <ClientInfo>
         <p>IP: {ipInfo.ip} </p>
-        <p>Country: {ipInfo.country} </p>
         <p>State: {ipInfo.region} </p>
         <p>City: {ipInfo.city} </p> 
+        </ClientInfo> 
+    </ClientInfoWrapper> 
 
     </BackgroundImage> 
 
