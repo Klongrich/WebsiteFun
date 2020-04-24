@@ -90,7 +90,7 @@ export default function HomePage() {
   
 
   useEffect(() =>  {
-    fetch(`https://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/browserInfo`, {
+    fetch(`https://longrichk.com:3010/browserInfo`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -105,7 +105,7 @@ export default function HomePage() {
           }
         }).catch(error => alert("Hmm Thats Weird"));
 
-    fetch(`https://ec2-52-14-245-223.us-east-2.compute.amazonaws.com:3010/ipInfo`, {
+    fetch(`https://longrichk.com:3010/ipInfo`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
