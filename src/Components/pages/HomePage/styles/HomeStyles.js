@@ -11,6 +11,18 @@ export const ClientInfoWrapper = styled.div`
   background-color: #db6b6b;
   border-radius: 10px;
 
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+    height: 350px;
+    width: 95%;
+    margin-left: 2%;
+    background-color: #db6b6b;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    visibility: visible;
+   }
+
 `
 
 export const ClientInfo = styled.div`
@@ -18,11 +30,24 @@ export const ClientInfo = styled.div`
 
   margin-left: 1%;
   width: ${px2vw(220)};
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+
+    margin-left: 4%;
+    width: ${px2vw(620)};
+    font-size: 42px;
+   }
 `
 
 export const BackgroundImage = styled.div`
     width: 100%;
-    height: 550px;
+    height: 100%;
+
+    @media only screen and (max-device-width: 480px) {
+      /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+      background-color:#363636;
+     }
 `;
 
 export const Container = styled.div`
@@ -80,9 +105,11 @@ export const Box = styled.div`
   @media only screen and (max-device-width: 480px) {
    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
    display: flex;
-   width: ${px2vw(300, 300)};
+   width: ${px2vw(200, 250)};
    min-height: ${px2vw(200, 320)};
+   margin-top: 100px;
    flex-direction: column;
+   background-size:${px2vw(240, 290)} ${px2vw(225, 345)};
   }
 
   @media only screen and (device-width: 768px) {
@@ -117,16 +144,40 @@ export const BoxTitle = styled.h3`
   @media (min-width: 1024px) {
     font-size: 3rem;
   }
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+    font-size: 130px;
+
+   }
 `;
 
 export const BoxText = styled.p`
   margin-top: ${px2vw(20)};
-  color: #666;
+  color: #333;
   font-size: 1.5rem;
 
   color:light-grey;
+  text-align: center;
 
   @media (min-width: 1024px) {
     font-size: 1rem;
   }
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+    font-size: 42px;
+    margin-top: 0px;
+   }
+
 `;
+
+export const InfoButton = styled.button `
+margin-left: 2%;
+
+@media only screen and (max-device-width: 480px) {
+  /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+  visibility: hidden;
+ 
+ }
+`

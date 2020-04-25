@@ -17,7 +17,7 @@ export const Header = styled.div`
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
     font-size: 70px;
     height: 200px;
-    padding-left: ${px2vw(82)};
+    padding-left: 30px;
     background-color: grey;
    }
 

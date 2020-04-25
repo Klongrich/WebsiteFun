@@ -9,6 +9,7 @@ import stockImage from "./styles/stockBackground.png"
 
 import {Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfo, ClientInfoWrapper} from "./styles/HomeStyles"
 import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./styles/HeaderStyles"
+import {InfoButton} from "./styles/HomeStyles"
 
 
 export const boxData = [
@@ -79,6 +80,7 @@ export default function HomePage() {
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
   const [boxOpen, setboxOpen] = useState("hidden");
+  const [ipAdress, setipAdress] = useState(0);
 
   function toggleInfoBox() {
       if (boxOpen == "hidden") {
@@ -116,6 +118,7 @@ export default function HomePage() {
           if (response.ok) {
             response.json().then(json => { 
               setipInfo(json);
+              setipAdress(json.ip.substring(7))
             });
           }
           }).catch(error => alert("Hmm Thats Weird"));
@@ -146,9 +149,9 @@ export default function HomePage() {
       ))}
     </Container> 
 
-    <button Style="margin-left: 2%" onClick={() => toggleInfoBox()}>
+    <InfoButton onClick={() => toggleInfoBox()}>
         Show Your Info
-    </button>
+    </InfoButton>
 
     
     <ClientInfoWrapper show={boxOpen} > 
@@ -159,7 +162,7 @@ export default function HomePage() {
         </ClientInfo>
 
         <ClientInfo>
-        <p>IP: {ipInfo.ip} </p>
+        <p>IP: {ipAdress} </p>
         <p>State: {ipInfo.region} </p>
         <p>City: {ipInfo.city} </p> 
         </ClientInfo> 
