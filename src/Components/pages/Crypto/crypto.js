@@ -7,7 +7,8 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import "./Styles/cryptoHome.css"
 
 import {Sort} from '@styled-icons/fa-solid/Sort'
-import {Twitch} from "@styled-icons/boxicons-logos/Twitch";
+import {Upvote} from '@styled-icons/boxicons-solid/Upvote'
+import {Downvote} from '@styled-icons/boxicons-solid/Downvote'
 
 const cryptoData = [
   {
@@ -102,7 +103,7 @@ export default function Crypto() {
           <Th>Scalabitliy <Sort size="15px" onClick={() => AscendScalability() } /></Th>
           <Th>Team <Sort size="15px" onClick={() => AscendTeam() } /></Th>
           <Th>Overall Rank <Sort size="15px" onClick={() => AscendOverall()} /></Th>
-          <Th>24hr Change <Sort size="15px" /></Th>
+          <Th>-------Votes-------</Th>
         </Tr>
       </Thead>
 
@@ -119,6 +120,7 @@ export default function Crypto() {
           <Td>{data.scalabitlity}</Td>
           <Td>{data.team}</Td>
           <Td>{data.overall}</Td>
+          <Td><Upvote size="20px" color="green"/> 5 <Downvote size="20px" color="red"/> 1 </Td>
         </Tr>  
       ))}
       </Tbody>
