@@ -13,6 +13,8 @@ import {Downvote} from '@styled-icons/boxicons-solid/Downvote'
 import {Ethereum} from '@styled-icons/fa-brands/Ethereum'
 import {Bitcoin} from '@styled-icons/boxicons-logos/Bitcoin'
 
+import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
+
 const cryptoData = [
   {
     id: <Ethereum size="18px" color="#3c3c3d"/>,
@@ -114,7 +116,10 @@ export default function Crypto() {
       <>
 
         <CryptoNavBar>
-            NavBar is comming soon... Don't judge 
+            NavBar is comming soon... Don't judge <br />
+            <a href="/" >
+              <ArrowBack size="28px" color="white" />
+            </a>
         </CryptoNavBar>
 
       <Header>
