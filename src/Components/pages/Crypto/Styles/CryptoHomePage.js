@@ -6,6 +6,14 @@ export const Link = styled.a`
   text-decoration: underline;
 `;
 
+export const CryptoNavBar = styled.div`
+  width: 100%;
+  height: 50px;
+  margin-top: 0px;
+  color: white;
+  background-color: black;
+`
+
 export const HeaderLink = styled.a`
   color: #bf4343;
   text-decoration: underline;
@@ -22,6 +30,7 @@ export const Header = styled.a`
   height: 74px;
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};
+  margin-top: -20px;
   color: black;
   font-size: 42px;
 `;

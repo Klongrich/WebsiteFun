@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import {Header, Link, HeaderLink} from './Styles/CryptoHomePage'
+import {Header, Link, HeaderLink, CryptoNavBar} from './Styles/CryptoHomePage'
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 
@@ -108,7 +108,12 @@ export default function Crypto() {
     }
 
     return (
-        <>
+      <>
+
+        <CryptoNavBar>
+            NavBar is comming soon... Don't judge 
+        </CryptoNavBar>
+
       <Header>
           Crypto
           <HeaderLink href="/Crypto/Discription">Ranking Explanation</HeaderLink> 
