@@ -14,11 +14,11 @@ export const ClientInfoWrapper = styled.div`
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
     height: 350px;
-    width: 95%;
-    margin-left: 2%;
+    width: 93.5%;
+    margin-left: 2.5%;
     background-color: #db6b6b;
-    border-radius: 10px;
-    margin-bottom: 50px;
+    border-radius: 10pxpadding-left: ${px2vw(21)};
+    padding-right: ${px2vw(21)};;
     margin-top: 20px;
     visibility: visible;
    }
@@ -34,7 +34,7 @@ export const ClientInfo = styled.div`
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
 
-    margin-left: 4%;
+    margin-left: 3%;
     width: ${px2vw(620)};
     font-size: 42px;
    }
@@ -105,7 +105,7 @@ export const Box = styled.div`
   @media only screen and (max-device-width: 480px) {
    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
    display: flex;
-   width: ${px2vw(200, 250)};
+   width: ${px2vw(160, 210)};
    min-height: ${px2vw(200, 320)};
    margin-top: 100px;
    flex-direction: column;

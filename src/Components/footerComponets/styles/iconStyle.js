@@ -36,10 +36,10 @@ text-align: center;
     ${StyledIconBase} {
       height: 75px;
       width: 75px;
-      padding-left: ${px2vw(21)};
-      padding-right: ${px2vw(21)};
-      margin-bottom: ${px2vw(42)};
-      margin-top: ${px2vw(42)};
+      margin-bottom: ${px2vw(62)};
+      margin-top: ${px2vw(62)};
+      padding-left: ${px2vw(62)};
+      padding-right: ${px2vw(62)};
 
     }
   }
@@ -56,6 +56,10 @@ text-align: center;
   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
     /* For landscape layouts only */
   }
+`
+
+export const SocialLink = styled.a`
+  margin-left: -510px;
 `
 
 

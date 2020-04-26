@@ -7,16 +7,16 @@ import {Twitch} from "@styled-icons/boxicons-logos/Twitch";
 import {Instagram} from "@styled-icons/boxicons-logos/Instagram";
 import {Snapchat} from "@styled-icons/boxicons-logos/Snapchat";
 
-import {IconStyleWrapper} from "./styles/iconStyle"
+import {IconStyleWrapper, SocialLink} from "./styles/iconStyle"
 
 class Footer extends React.Component {
     render () {
         return(
             <>  
                 <IconStyleWrapper>
-                    <a href="https://github.com/klongrich">
+                    <SocialLink href="https://github.com/klongrich">
                         <Github />
-                    </a>
+                    </SocialLink>
 
                     <a href="https://twitter.com/longrichk?lang=en">
                         <Twitter color="#00acee"/>
