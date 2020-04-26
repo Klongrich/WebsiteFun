@@ -59,7 +59,11 @@ text-align: center;
 `
 
 export const SocialLink = styled.a`
-  margin-left: -510px;
+
+  @media only screen and (max-device-width: 480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+    margin-left: -500px;
+   }
 `
 
 

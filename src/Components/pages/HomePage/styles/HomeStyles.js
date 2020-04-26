@@ -35,6 +35,7 @@ export const ClientInfo = styled.div`
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
 
     margin-left: 3%;
+
     width: ${px2vw(620)};
     font-size: 42px;
    }
