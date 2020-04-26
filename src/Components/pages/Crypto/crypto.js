@@ -10,9 +10,12 @@ import {Sort} from '@styled-icons/fa-solid/Sort'
 import {Upvote} from '@styled-icons/boxicons-solid/Upvote'
 import {Downvote} from '@styled-icons/boxicons-solid/Downvote'
 
+import {Ethereum} from '@styled-icons/fa-brands/Ethereum'
+import {Bitcoin} from '@styled-icons/boxicons-logos/Bitcoin'
+
 const cryptoData = [
   {
-    id: 1,
+    id: <Ethereum size="18px" color="#3c3c3d"/>,
     name: "Ethereum",
     ticker: "ETH",
     decentralization: 8.2,
@@ -25,7 +28,7 @@ const cryptoData = [
     link: "/Crypto/Etheruem"
   },
   {
-    id: 2,
+    id: <Bitcoin size="22px" color="#f2a900" />,
     name: "Bitcoin",
     ticker: "BTC",
     decentralization: 9.2,
