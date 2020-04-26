@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import {Header, Link} from './Styles/CryptoHomePage'
+import {Header, Link, HeaderLink} from './Styles/CryptoHomePage'
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 
@@ -20,6 +20,8 @@ const cryptoData = [
     scalabitlity: 6.2,
     team: 9.4,
     overall: 8.25,
+    rankUp: 7,
+    rankDown: 2,
     link: "/Crypto/Etheruem"
   },
   {
@@ -31,6 +33,8 @@ const cryptoData = [
     scalabitlity: 4.2,
     team: 8.1,
     overall: 6.425,
+    rankUp: 8,
+    rankDown: 4,
     link: "/Crypto/Bitcoin"
   },
   {
@@ -42,6 +46,8 @@ const cryptoData = [
     scalabitlity: 9.2,
     team: 7.4,
     overall: 5.475,
+    rankUp: 2,
+    rankDown: 8,
     link: "/Crypto/Ripple"
   },
   {
@@ -53,8 +59,23 @@ const cryptoData = [
     scalabitlity: 7.2,
     team: 7.4,
     overall: 7.75,
-    linke: "/Crypto/BitcoinCash"
+    rankUp: 3,
+    rankDown: 3,
+    link: "/Crypto/BitcoinCash"
   },
+  {
+    id: 5,
+    name: "More To Come",
+    ticker: "N/A",
+    decentralization: 0.1,
+    coummunity: 0.1,
+    scalabitlity: 0.1,
+    team: 0.1,
+    overall: 0.1,
+    rankUp: 9,
+    rankDown: 9,
+    linke: "/Crypto"
+  }
 ];
 
 export default function Crypto() {
@@ -90,6 +111,7 @@ export default function Crypto() {
         <>
       <Header>
           Crypto
+          <HeaderLink href="/Crypto/Discription">Ranking Explanation</HeaderLink> 
       </Header>
 
       <Table>
@@ -120,7 +142,10 @@ export default function Crypto() {
           <Td>{data.scalabitlity}</Td>
           <Td>{data.team}</Td>
           <Td>{data.overall}</Td>
-          <Td><Upvote size="20px" color="green"/> 5 <Downvote size="20px" color="red"/> 1 </Td>
+          <Td>
+            <Upvote size="20px" color="green"/> {data.rankUp} 
+            <Downvote size="20px" color="red"/> {data.rankDown} 
+          </Td>
         </Tr>  
       ))}
       </Tbody>

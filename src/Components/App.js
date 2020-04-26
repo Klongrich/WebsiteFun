@@ -11,6 +11,7 @@ import Iceland from './pages/Travel/iceland/iceland'
 import netherlands from './pages/Travel/netherlands/netherlands'
 
 import Crypto from './pages/Crypto/crypto'
+import Discription from './pages/Crypto/description/description'
 import Bitcoin from './pages/Crypto/Bitcoin/Bitcoin'
 import Etheruem from './pages/Crypto/Etheruem/Etheruem'
 import Ripple from './pages/Crypto/Ripple/Ripple'
@@ -39,6 +40,7 @@ function App (){
             
 
             <Route path="/Crypto" exact component={Crypto}/>
+              <Route path="/Crypto/Discription" exact component={Discription} />
               <Route path="/Crypto/Bitcoin" exact component={Bitcoin}/>
               <Route path="/Crypto/Etheruem" exact component={Etheruem}/>
               <Route path="/Crypto/Ripple" exact component={Ripple}/>
