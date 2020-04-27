@@ -1,20 +1,25 @@
 import React, {useState} from 'react';
 
-export default function SubmitEmail () {
 
-    const [payLoad, setPayLoad] = useState([]);
+
+export default function SubmitEmail () {
 
     const [name, setName] = useState("");
     const [data, setData] = useState("");
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        setPayLoad([...payLoad, {email: name, 
-                                  message: data}])
+       
+        const payload = {
+            email: name,
+            message: data,
+        }
+
+        console.log(payload);
 
         fetch('http://localhost:3010/email',{
             method: "POST",
-            body: JSON.stringify(payLoad),
+            body: JSON.stringify(payload),
                 headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
