@@ -18,6 +18,15 @@ export const Feedback = styled.textarea`
     resize:none;
 `
 
+export const EmailBox = styled.textarea`
+    visibility: ${props => props.isVisible};
+    height: ${props => props.setHeight};
+    width: 42%;
+    margin-left: ${px2vw(82)};   
+    resize:none;
+    font-size: 25px;
+`
+
 export const IconStyleWrapper = styled.div`
 
   ${StyledIconBase} {

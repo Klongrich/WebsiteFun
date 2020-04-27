@@ -70,11 +70,6 @@ const headerData = [
   }
 ]
 
-function getUserInfo(apiEndPoint) {
-
-}
-
-
 export default function HomePage() {
 
   const [browserInfo, setclientInfo] = useState([]);
@@ -90,7 +85,6 @@ export default function HomePage() {
       }
   }
   
-
   useEffect(() =>  {
     fetch(`https://longrichk.com:3010/browserInfo`, {
       method: 'GET',

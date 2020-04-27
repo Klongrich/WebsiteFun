@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import sendInfo from './sendInfo'
 
 
 
@@ -14,26 +15,8 @@ export default function SubmitEmail () {
             email: name,
             message: data,
         }
-
         console.log(payload);
-
-        fetch('http://localhost:3010/email',{
-            method: "POST",
-            body: JSON.stringify(payload),
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-        }).then(
-    	    (response) => (response.json())
-        ).then((response)=>{
-            if (response.status === 'success') {
-                alert("Message Sent."); 
-                this.resetForm()
-            } else {
-                alert("Message failed to send.")
-            }
-        })
+        sendInfo(payload);
     }
 
     return (
@@ -42,7 +25,7 @@ export default function SubmitEmail () {
                 <form onSubmit={handleSubmit}>
                    
                     <div className="form-group">
-                        <label>Name
+                        <label>Email
                         <input  type="text" 
                                 value={name} 
                                 onChange={e => setName(e.target.value)} 
@@ -52,12 +35,14 @@ export default function SubmitEmail () {
                     
 
                     <div className="form-group">
-                        <label htmlFor="message">Message</label>
+                        <label htmlFor="message">Message
                         <textarea 
                             type="text"
                             value={data}
                             onChange={e => setData(e.target.value)}
+                            height="150px"
                          />
+                         </label>
                     </div>
                     
                     <input type="submit" value="Submit" />

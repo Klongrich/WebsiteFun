@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-import {FullWrapper, IconStyleWrapper, Feedback, SubmitButton} from './styles/discStyle'
+import {FullWrapper, IconStyleWrapper, Feedback, SubmitButton, EmailBox} from './styles/discStyle'
 import {Paragraph, TopText} from '../Styles/bitcoinSytles'
 
 import {Link} from '../Styles/CryptoHomePage'
@@ -9,13 +9,16 @@ import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
 
 import {ArrowGoBack} from '@styled-icons/remix-line/ArrowGoBack'
 
-
+import sendInfo from './sendInfo'
 
 export default function Description () {
 
     const [boxOpen, setboxOpen] = useState("hidden");
     const [inputHeight, setinputHeight] = useState("0px");
     const [buttonHeight, setbuttonHeight] = useState("0px");
+
+    const [data, setData] = useState("");
+    const [email, setEmail] = useState("Enter Email Here");
 
 
     function toggleBox() {
@@ -30,6 +33,23 @@ export default function Description () {
         }
     }
 
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+       
+        const payload = {
+            email: email,
+            message: data
+        }
+        console.log(payload);
+        sendInfo(payload);
+
+        setboxOpen("hidden");
+        setinputHeight("0px");
+        setbuttonHeight("0px");
+        setData("")
+        setEmail("Enter Email Here")
+    }
+
     return(
         <>
         <IconStyleWrapper>
@@ -39,8 +59,26 @@ export default function Description () {
         </IconStyleWrapper>
         <FullWrapper>
             <Paragraph> <h2> Decentarlization </h2> <br /> To measure decentralization I first take into account how many nodes and / or miners are live on the network. I also look at electricity prices and locations of nodes or mining. Another thing is the amount and accessibility to Asic’s as they only allow people with that hardware to mine at a profitable rate. Then I try to look at the developer side of things. How open-source and “decentralized” are the teams working on the code base? How do they handle governance? In terms of measuring that numerical it is rather hard.<Link onClick={() => toggleBox()} >Add Suggestions</Link></Paragraph>
-            <Feedback setHeight={inputHeight} isVisible={boxOpen} type="text" name="name" /> <br />
+            
+        <form onSubmit={handleSubmit}>
+            <EmailBox isVisible={boxOpen}
+                      setHeight={buttonHeight}
+                      type="text"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      />
+
+            <Feedback setHeight={inputHeight} 
+                      isVisible={boxOpen} 
+                      type="text" 
+                      name="name"
+                      value={data}
+                      onChange={e => setData(e.target.value)}      
+                      /> 
+            
+            <br />
             <SubmitButton isVisible={boxOpen} setHeight={buttonHeight}>Submit Feedback</SubmitButton>
+        </form>
 
             <Paragraph><h2> Community </h2> <br /> TPS (Transactions Per Second), Transaction fees, and data storage fee’s are the main three points I look at when considering scalability. TPS is straightforward that you need the ability to handle large volumes of transactions. Fee’s also have to be reasonable if we plan on purchasing goods every day. I also do think that stability is another important factor if we are talking about a currency rather than a platform to run code on. Storage fees are how much per GB it costs to store on a smart contract. This measurement is mainly meant for Dapp platforms.<Link href="/" >Add Suggestions</Link> </Paragraph>            
             
