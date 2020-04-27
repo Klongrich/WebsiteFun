@@ -19,7 +19,7 @@ export const HeaderLink = styled.a`
   text-decoration: underline;
   font-size: 18px;
   margin-left: 71.5%;
-  margin-top: 25px;
+  margin-top: 0px;
 `
 
 export const Header = styled.a`

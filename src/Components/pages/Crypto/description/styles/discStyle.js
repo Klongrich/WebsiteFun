@@ -7,6 +7,7 @@ export const SubmitButton = styled.button`
     visibility: ${props => props.isVisible};
     height: ${props => props.setHeight};
     margin-top: 10px;   
+    border-raidus: 15px;
 `
 
 export const Feedback = styled.textarea`
