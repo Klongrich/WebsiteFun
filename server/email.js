@@ -9,13 +9,23 @@ var transport = {
     secure: true,
     auth: {
         user: 'longrichk@gmail.com',
-        pass: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        pass: 'XXXXXXXXXXXXXXXX'
   }
 }
 
-var transporter = nodemailer.createTransport(transport)
+var transporterToMe = nodemailer.createTransport(transport)
 
-transporter.verify((error, success) => {
+transporterToMe.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
+
+var transporterToSender = nodemailer.createTransport(transport)
+
+transporterToSender.verify((error, success) => {
   if (error) {
     console.log(error);
   } else {
@@ -27,14 +37,21 @@ router.post('/email', (req, res, next) => {
   var email = req.body.email
   var message = req.body.message
 
-  var mail = {
+  var mailToMe = {
     from: email,
     to: 'longrichk@gmail.com',  // Change to email address that you want to receive messages on
     subject: `New Message from ${email} `,
     text: message
   }
 
-  transporter.sendMail(mail, (err, data) => {
+  var mailToSender = {
+    from: "bot",
+    to: email,
+    subject: "Thank you for feedback",
+    text: "You message has been recived, thank you for your submission"
+  }
+
+  transporterToMe.sendMail(mailToMe, (err, data) => {
     if (err) {
       res.json({
         status: 'fail'
@@ -45,6 +62,23 @@ router.post('/email', (req, res, next) => {
       })
     }
   })
+
+  console.log(email);
+
+  transporterToSender.sendMail(mailToSender, (err, data) => {
+    if (err) {
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+
+
+
 })
 
 const app = express()
