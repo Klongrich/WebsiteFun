@@ -26,8 +26,6 @@ import softwarePage from './pages/Software/software'
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
-import SubmitEmail from './pages/Demo/SubmitEmail';
-
 function App (){
     return (
 
@@ -55,7 +53,6 @@ function App (){
             <Route path="/about" exact component={about}/>
             <Route path="/articles" exact component={articles}/>
 
-            <Route path="/demo" exact component={SubmitEmail} />
           </Switch>
       </BrowserRouter>
       <Footer/>

@@ -8,6 +8,7 @@
     "cogo-toast": "^3.2.1",
     "cors": "^2.8.5",
     "detect-browser": "^5.0.0",
+    "dotenv": "^8.2.0",
     "express-ip": "^1.0.4",
     "express-useragent": "^1.0.13",
     "flexbox": "^0.0.3",
