@@ -162,8 +162,19 @@ export default function Crypto() {
         </Tr>  
       ))}
       </Tbody>
-
     </Table>
+
+    <div Style="margin-left: 30px; margin-top: 25px; line-height: 2;">
+    <h2> Building The Community </h2>
+
+    <p> 
+        If you are reading this, welcome! Here my goal is to build a community that
+        has a focus of spreading accurate information of crypto-currency. No moon, No
+        price, etc. Just the facts of what is going on withing the space. Trying to make techinal
+        information easily understandable by the common person. Also make it so that anyone
+        who want's to get involed can. 
+    </p>
+    </div>
     </>
     )
 }

@@ -4,9 +4,10 @@ import {FullWrapper, IconStyleWrapper, Feedback, SubmitButton, EmailBox} from '.
 import {Paragraph, TopText} from '../Styles/bitcoinSytles'
 
 import {Link} from '../Styles/CryptoHomePage'
+import {ValidEmailLabel} from './styles/discStyle'
 
-import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
-
+import {Circle} from '@styled-icons/boxicons-solid/Circle'
+import {Check} from '@styled-icons/boxicons-regular/Check'
 import {ArrowGoBack} from '@styled-icons/remix-line/ArrowGoBack'
 
 import sendInfo from './sendInfo'
@@ -17,14 +18,17 @@ export default function Description () {
     const [inputHeight, setinputHeight] = useState("0px");
     const [buttonHeight, setbuttonHeight] = useState("0px");
 
+    const [emailText, setEmailText] = useState("Invalid Email");
+    const [emailColor, setEmailColor] = useState("red");
+    const [emailIcon, setEmailIcon] = useState(<Circle size="10px" color="red"/>);
+    
     const [data, setData] = useState("");
     const [email, setEmail] = useState("Enter Email Here");
-
 
     function toggleBox() {
         if (boxOpen == "hidden") {
           setboxOpen("visible");
-          setinputHeight("200px");
+          setinputHeight("174px");
           setbuttonHeight("40px");
         } else {
           setboxOpen("hidden");
@@ -33,21 +37,41 @@ export default function Description () {
         }
     }
 
+    function ValidateEmail(mail)  {
+        setEmail(mail);
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            console.log("true")
+            setEmailText("Valid Email");
+            setEmailColor("#008000");
+            setEmailIcon(<Check size="20px" color="#008000" />)
+            return (true)
+        } else {
+            console.log("false")
+            setEmailText("Invalid Email");
+            setEmailColor("red");
+            setEmailIcon(<Circle size="10px" color="red" />)
+            return(false)
+        }
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault();
-       
-        const payload = {
-            email: email,
-            message: data
-        }
-        console.log(payload);
-        sendInfo(payload);
+        if(ValidateEmail() == true) { 
+            const payload = {
+                email: email,
+                message: data
+            }
+          
+            sendInfo(payload);
 
-        setboxOpen("hidden");
-        setinputHeight("0px");
-        setbuttonHeight("0px");
-        setData("")
-        setEmail("Enter Email Here")
+            setboxOpen("hidden");
+            setinputHeight("0px");
+            setbuttonHeight("0px");
+            setData("")
+            setEmail("Enter Email Here")
+        } else {
+             alert("Invalid Email")
+        }
     }
 
     return(
@@ -65,8 +89,10 @@ export default function Description () {
                       setHeight={buttonHeight}
                       type="text"
                       value={email}
-                      onChange={e => setEmail(e.target.value)}
+                      onChange={e => ValidateEmail(e.target.value)}
+                      borderColor={emailColor}
                       />
+            <ValidEmailLabel isVisible={boxOpen} textColor={emailColor}> {emailIcon} {emailText}</ValidEmailLabel>
 
             <Feedback setHeight={inputHeight} 
                       isVisible={boxOpen} 
@@ -74,8 +100,7 @@ export default function Description () {
                       name="name"
                       value={data}
                       onChange={e => setData(e.target.value)}      
-                      /> 
-            
+                      />             
             <br />
             <SubmitButton isVisible={boxOpen} setHeight={buttonHeight}>Submit Feedback</SubmitButton>
         </form>

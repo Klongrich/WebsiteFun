@@ -86,7 +86,7 @@ export default function HomePage() {
   }
   
   useEffect(() =>  {
-    fetch(`https://longrichk.com:3010/browserInfo`, {
+    fetch(process.env.REACT_APP_API_BROSWERINFO, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -101,7 +101,7 @@ export default function HomePage() {
           }
         }).catch(error => alert("Hmm Thats Weird"));
 
-    fetch(`https://longrichk.com:3010/ipInfo`, {
+    fetch(process.env.REACT_APP_API_IPINFO, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -131,8 +131,8 @@ export default function HomePage() {
         <HeaderLinks>
           <HeaderText key={data.id} as="a" href={data.link}> {data.text} </HeaderText>
         </HeaderLinks>
-
       ))}
+
     </Header>
     <Container>
       {boxData.map(box => (

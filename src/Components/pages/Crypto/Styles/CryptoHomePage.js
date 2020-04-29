@@ -26,7 +26,7 @@ export const Header = styled.a`
   display: flex;
   flex-wrap: wrap;
   
-  width: 100%;
+  width: 96%;
   height: 74px;
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};

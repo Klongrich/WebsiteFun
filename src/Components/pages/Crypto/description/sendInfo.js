@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function sendInfo (payload) {
 
-    fetch('https://longrichk.com:3011/email',{
+    fetch('http://localhost:3010/email',{
             method: "POST",
             body: JSON.stringify(payload),
                 headers: {
@@ -14,8 +14,7 @@ export default function sendInfo (payload) {
     	    (response) => (response.json())
         ).then((response)=>{
             if (response.status === 'success') {
-                alert("Message Sent."); 
-                this.resetForm()
+                alert("Thank You! Message Sent.");
             } else {
                 alert("Message failed to send.")
             }
