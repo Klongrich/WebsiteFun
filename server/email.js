@@ -3,13 +3,15 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var cors = require('cors');
 
+require('dotenv').config()
+
 var transport = {
-    host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
-    port: 465,
+    host: process.env.HOST_PROVIDER,
+    port: process.env.SMPT_PORT,
     secure: true,
     auth: {
-        user: 'longrichk@gmail.com',
-        pass: 'XXXXXXXXXXXXXXXX'
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD
   }
 }
 
@@ -45,10 +47,10 @@ router.post('/email', (req, res, next) => {
   }
 
   var mailToSender = {
-    from: "bot",
+    from: email,
     to: email,
     subject: "Thank you for feedback",
-    text: "You message has been recived, thank you for your submission"
+    text: "You message has been recived Thank you for your submission"
   }
 
   transporterToMe.sendMail(mailToMe, (err, data) => {
@@ -63,8 +65,6 @@ router.post('/email', (req, res, next) => {
     }
   })
 
-  console.log(email);
-
   transporterToSender.sendMail(mailToSender, (err, data) => {
     if (err) {
       res.json({
@@ -76,9 +76,6 @@ router.post('/email', (req, res, next) => {
       })
     }
   })
-
-
-
 })
 
 const app = express()
