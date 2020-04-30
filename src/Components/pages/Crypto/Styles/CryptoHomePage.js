@@ -18,8 +18,8 @@ export const HeaderLink = styled.a`
   color: #bf4343;
   text-decoration: underline;
   font-size: 18px;
-  margin-left: 71.5%;
-  margin-top: 0px;
+  margin-left: 75%;
+  margin-top: 20px;
 `
 
 export const Header = styled.a`

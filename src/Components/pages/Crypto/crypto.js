@@ -15,6 +15,8 @@ import {Bitcoin} from '@styled-icons/boxicons-logos/Bitcoin'
 
 import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
 
+import Web3 from 'web3'
+
 const cryptoData = [
   {
     id: <Ethereum size="18px" color="#3c3c3d"/>,
@@ -79,11 +81,49 @@ const cryptoData = [
     overall: 0.1,
     rankUp: 9,
     rankDown: 9,
-    linke: "/Crypto"
+    link: "/Crypto"
   }
 ];
 
+
 export default function Crypto() {
+
+  const [ethAmount, setEthAmount] = useState(0);
+
+  useEffect(() => {
+
+    async function loadWeb3() {
+      if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum)
+        await window.ethereum.enable()
+      }
+      else if (window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider)
+      }
+      else {
+        window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+      }
+    }
+    async function getWalletData () {
+      const web3 = window.web3
+
+      const accounts = await web3.eth.getAccounts()
+      const address = {account: accounts[0]}.account;
+
+      web3.eth.getBalance(address, function (error, wei) {
+        if (!error) {
+            var balance = web3.utils.fromWei(wei, 'ether');
+            setEthAmount(balance);
+            console.log(balance + " ETH");
+        }
+    });
+    }
+
+    loadWeb3();
+    getWalletData();
+    
+  })
+  
 
     const [CryptoInfo, setCryptoInfo] = useState(cryptoData);
 
@@ -116,9 +156,21 @@ export default function Crypto() {
       <>
 
         <CryptoNavBar>
-            NavBar is comming soon... Don't judge <br />
+        NavBar coming soon... Don't judge<br />
             <a href="/" >
               <ArrowBack size="28px" color="white" />
+            </a>
+
+            <a href="/LogIn" Style="color:white; float:right; margin-right:25px">
+              ETH: {ethAmount}
+            </a>
+
+            <a href="/LogIn" Style="color:white; float:right; margin-right:25px">
+              Log In
+            </a>
+
+            <a href="/SignUp" Style="color:white; float:right; margin-right:25px">
+              Sign Up
             </a>
         </CryptoNavBar>
 
@@ -164,15 +216,16 @@ export default function Crypto() {
       </Tbody>
     </Table>
 
-    <div Style="margin-left: 30px; margin-top: 25px; line-height: 2;">
-    <h2> Building The Community </h2>
+    <div Style="margin-left: 30px; margin-top: 30px; line-height: 2; width:95.2%">
+    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> Building The Community </h2>
 
     <p> 
         If you are reading this, welcome! Here my goal is to build a community that
         has a focus of spreading accurate information of crypto-currency. No moon, No
-        price, etc. Just the facts of what is going on withing the space. Trying to make techinal
+        price, etc. Just the facts of what is going on within the space. Trying to make techinal
         information easily understandable by the common person. Also make it so that anyone
-        who want's to get involed can. 
+        who want's to get involed can. Also I do use these different parameters in order to make 
+        my investments. Not the price. 
     </p>
     </div>
     </>
