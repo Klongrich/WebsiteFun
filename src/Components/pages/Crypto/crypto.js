@@ -104,19 +104,22 @@ export default function Crypto() {
         window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
       }
     }
+
     async function getWalletData () {
       const web3 = window.web3
 
       const accounts = await web3.eth.getAccounts()
       const address = {account: accounts[0]}.account;
 
-      web3.eth.getBalance(address, function (error, wei) {
-        if (!error) {
-            var balance = web3.utils.fromWei(wei, 'ether');
-            setEthAmount(balance);
-            console.log(balance + " ETH");
-        }
-    });
+      if (address) {
+        web3.eth.getBalance(address, function (error, wei) {
+          if (!error) {
+              var balance = web3.utils.fromWei(wei, 'ether');
+              setEthAmount(balance);
+              console.log(balance + " ETH");
+          }
+        });
+      }
     }
 
     loadWeb3();
