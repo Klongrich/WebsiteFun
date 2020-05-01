@@ -22,6 +22,14 @@ var minABI = [
     "name":"balanceOf",
     "outputs":[{"name":"balance","type":"uint256"}],
     "type":"function"
+  },
+  // decimals
+  {
+    "constant":true,
+    "inputs":[],
+    "name":"decimals",
+    "outputs":[{"name":"","type":"uint8"}],
+    "type":"function"
   }
 ];
 
@@ -32,6 +40,7 @@ export default function EthAccount() {
     const [publicKey, setPublicKey] = useState("");
     const [txCount, setTxCount] = useState(0);
     const [ethPrice, setEthPrice] = useState(0);
+    const [daiBalance, setDaiBalance] = useState(0);
 
     function get_eth_price() {
 
@@ -92,13 +101,15 @@ export default function EthAccount() {
             const web3 = window.web3
 
             // Get ERC20 Token contract instance
-            const DAI_Token = await new web3.eth.Contract(minABI, tokenAddress);
-
+            const contract = await new web3.eth.Contract(minABI, tokenAddress);
+            
             // Call balanceOf function
-            var balance = await DAI_Token.methods.balanceOf(walletAddress);
+            
+            contract.methods.balanceOf(walletAddress).call(function(error, result){
+                var balance = web3.utils.fromWei(result, 'ether');
+                setDaiBalance(balance);
+            });
 
-            console.log(balance);
-      
             const accounts = await web3.eth.getAccounts()
             const address = {account: accounts[0]}.account;
 
@@ -129,6 +140,8 @@ export default function EthAccount() {
             Price: ${ethPrice} USD <br /> <br />
             <br /> <br />
             # of Transactions: {txCount} <br /> <br />
+
+            DAI: {daiBalance} <br /> <br />
         </div>
         </>
     );
