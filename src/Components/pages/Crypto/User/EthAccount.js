@@ -8,8 +8,6 @@ const API_KEY = 'SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK';
 const PUBlIC_KEY = '0x06C04508075c125cD65dAf686177fee2A945e2d8';
 const ACTION = 'txlist'
 
-const URL = 'https://api.etherscan.io/api?module=account&action=';
-
 let tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f"; //DAI
 let walletAddress = "0x06C04508075c125cD65dAf686177fee2A945e2d8";
 
@@ -41,6 +39,8 @@ export default function EthAccount() {
     const [txCount, setTxCount] = useState(0);
     const [ethPrice, setEthPrice] = useState(0);
     const [daiBalance, setDaiBalance] = useState(0);
+
+    const[wallet, setWallet] = useState(false);
 
     function get_eth_price() {
 
@@ -85,26 +85,26 @@ export default function EthAccount() {
             if (window.ethereum) {
                 window.web3 = new Web3(window.ethereum)
                 await window.ethereum.enable()
+                return(true);
             }
             else if (window.web3) {
                 window.web3 = new Web3(window.web3.currentProvider)
+                return(true);
             }
             else {
                 window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+                return(false);
             }
         }
 
         async function getWalletData () {
       
-            await loadWeb3();
-            
             const web3 = window.web3
 
             // Get ERC20 Token contract instance
             const contract = await new web3.eth.Contract(minABI, tokenAddress);
             
             // Call balanceOf function
-            
             contract.methods.balanceOf(walletAddress).call(function(error, result){
                 var balance = web3.utils.fromWei(result, 'ether');
                 setDaiBalance(balance);
@@ -126,9 +126,13 @@ export default function EthAccount() {
             }
           }
 
-          getWalletData();
-          get_txtCount();
-          get_eth_price();
+          var wallet = loadWeb3();
+
+          if (wallet) {
+            getWalletData();
+            get_txtCount();
+            get_eth_price();
+          }
     })
     
     return (

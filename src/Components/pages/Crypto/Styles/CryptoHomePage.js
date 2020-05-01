@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
+
+export const WalletLink = styled.a`
+  color:white; 
+  float:right;
+  margin-right:25px;
+  visibility: ${props => props.isVisible};
+`
+
 export const Link = styled.a`
   color: blue;
   text-decoration: underline;

@@ -90,6 +90,7 @@ const cryptoData = [
 export default function Crypto() {
 
   const [ethAmount, setEthAmount] = useState(0);
+  const [walletLink, setWalletLink] = useState("/Crypto");
 
   useEffect(() => {
 
@@ -97,37 +98,42 @@ export default function Crypto() {
       if (window.ethereum) {
         window.web3 = new Web3(window.ethereum)
         await window.ethereum.enable()
+        return(true);
       }
       else if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider)
+        return(true);
       }
       else {
-        window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+        setEthAmount("What Is a Web3 Wallet?");
+        setWalletLink("/Crypto/User/Web3Wallet")
+        return(false);
       }
     }
 
     async function getWalletData () {
       
-      await loadWeb3();
+      var wallet = await loadWeb3();
       
-      const web3 = window.web3
+      if (wallet) {
+        const web3 = window.web3
 
-      const accounts = await web3.eth.getAccounts()
-      const address = {account: accounts[0]}.account;
+        const accounts = await web3.eth.getAccounts()
+        const address = {account: accounts[0]}.account;
 
-      if (address) {
-        web3.eth.getBalance(address, function (error, wei) {
-          if (!error) {
-              var balance = web3.utils.fromWei(wei, 'ether');
-              setEthAmount(balance);
-              console.log(balance + " ETH");
-          }
-        });
+        if (address) {
+          web3.eth.getBalance(address, function (error, wei) {
+            if (!error) {
+                var balance = web3.utils.fromWei(wei, 'ether');
+                setEthAmount("ETH: " + balance);
+                setWalletLink("/Crypto/User/EthAccount");
+                console.log(balance + " ETH");
+            }
+          });
+        }
       }
     }
-
     getWalletData();
-    
   })
   
 
@@ -167,10 +173,8 @@ export default function Crypto() {
               <ArrowBack size="28px" color="white" />
             </a>
 
-            <a href="/Crypto/User/EthAccount" Style="color:white; float:right; margin-right:25px">
-              ETH: {ethAmount}
-              {/* What Is Web3 Wallet? */}
-
+            <a href={walletLink} Style="color:white; float:right; margin-right:25px">
+              {ethAmount}
             </a>
 
             <a href="/LogIn" Style="color:white; float:right; margin-right:25px">
