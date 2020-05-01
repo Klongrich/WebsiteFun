@@ -17,6 +17,7 @@ import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
 
 import Web3 from 'web3'
 
+
 const cryptoData = [
   {
     id: <Ethereum size="18px" color="#3c3c3d"/>,
@@ -106,6 +107,9 @@ export default function Crypto() {
     }
 
     async function getWalletData () {
+      
+      await loadWeb3();
+      
       const web3 = window.web3
 
       const accounts = await web3.eth.getAccounts()
@@ -122,7 +126,6 @@ export default function Crypto() {
       }
     }
 
-    loadWeb3();
     getWalletData();
     
   })
@@ -164,8 +167,10 @@ export default function Crypto() {
               <ArrowBack size="28px" color="white" />
             </a>
 
-            <a href="/LogIn" Style="color:white; float:right; margin-right:25px">
+            <a href="/Crypto/User/EthAccount" Style="color:white; float:right; margin-right:25px">
               ETH: {ethAmount}
+              {/* What Is Web3 Wallet? */}
+
             </a>
 
             <a href="/LogIn" Style="color:white; float:right; margin-right:25px">

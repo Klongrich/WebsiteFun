@@ -10,6 +10,7 @@
     "cryptocompare": "^1.0.0",
     "detect-browser": "^5.0.0",
     "dotenv": "^8.2.0",
+    "etherscan-api": "^10.0.5",
     "express-ip": "^1.0.4",
     "express-useragent": "^1.0.13",
     "flexbox": "^0.0.3",
