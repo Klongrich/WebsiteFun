@@ -4,6 +4,9 @@ export const LayoutLinks = styled.a`
     float:left;
     font-size: 20px; 
     padding-left: 230px;
+    color:blue;
+    text-decoration: underline;
+    font-weight: bold;
 `
 
 export const TopInfo = styled.div`
@@ -11,6 +14,7 @@ export const TopInfo = styled.div`
     margin-left: 50px;
     padding-bottom: 25px;
     width: 50%;
+    line-height: 2;
 `
 
 export const Web3WalletsBox = styled.div`
@@ -19,10 +23,6 @@ export const Web3WalletsBox = styled.div`
     height: 75%;
     text-align: center;
     margin-right: 5%;
-    margin-top: 5%;
+    margin-top: 1%;
     font-size: 20px;
-`
-
-export const Web3WalletIcons = styled.div`
-
 `
