@@ -26,6 +26,8 @@ import softwarePage from './pages/Software/software'
 
 import EthAccount from './pages/Crypto/User/EthAccount'
 
+import web3Info from './pages/Crypto/web3Info'
+
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 function App (){
@@ -48,6 +50,8 @@ function App (){
               <Route path="/Crypto/Ripple" exact component={Ripple}/>
               <Route path="/Crypto/BitcoinCash" exact component={BitcoinCash}/>
               <Route path="/Crypto/User/EthAccount" exact component={EthAccount} />
+
+            <Route path="/Crypto/web3Info" exact component={web3Info} />
 
             <Route path="/stocks" exact component={stocks}/>
 

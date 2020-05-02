@@ -106,7 +106,7 @@ export default function Crypto() {
       }
       else {
         setEthAmount("What Is a Web3 Wallet?");
-        setWalletLink("/Crypto/User/Web3Wallet")
+        setWalletLink("/Crypto/web3Info")
         return(false);
       }
     }
