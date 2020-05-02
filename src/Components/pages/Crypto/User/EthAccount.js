@@ -11,8 +11,10 @@ const ACTION = 'txlist'
 let tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f"; //DAI
 let walletAddress = "0x06C04508075c125cD65dAf686177fee2A945e2d8";
 
+const URL = '';
+
 // The minimum ABI to get ERC20 Token balance
-var minABI = [
+var ERC_20_ABI = [
   // balanceOf
   {
     "constant":true,
@@ -31,7 +33,6 @@ var minABI = [
   }
 ];
 
-
 export default function EthAccount() {
 
     const [ethAmount, setEthAmount] = useState(0);
@@ -40,7 +41,54 @@ export default function EthAccount() {
     const [ethPrice, setEthPrice] = useState(0);
     const [daiBalance, setDaiBalance] = useState(0);
 
-    const[wallet, setWallet] = useState(false);
+    const [erc721, setErc721] = useState([]);    
+    const [erc20, setErc20] = useState([]);
+
+    function get_erc_20() {
+        fetch('http://api.etherscan.io/api?module=account&action=tokentx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                    "Content-Type": "application/json"
+            },
+        },
+        ).then(response => {
+            if (response.ok) {
+                response.json().then(json => {
+                    //Do something with json
+                    
+                    console.log(json.result);
+
+                    {json.result.map(data => 
+                        console.log(data.tokenName) //Each Token name
+                    )}
+                })
+            }
+        })
+    }
+
+    function get_erc_721() {
+        fetch('http://api.etherscan.io/api?module=account&action=tokennfttx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                    "Content-Type": "application/json"
+            },
+        },
+        ).then(response => {
+            if (response.ok) {
+                response.json().then(json => {
+                    //Do something with json
+                    
+                    console.log(json.result);
+
+                    {json.result.map(data => 
+                        console.log(data.tokenName) //Each Token name
+                    )}
+                })
+            }
+        })
+    }
 
     function get_eth_price() {
 
@@ -79,6 +127,19 @@ export default function EthAccount() {
               }).catch(error => alert("Hmm Thats Weird"));
     }
 
+    async function get_token_balance() {
+        const web3 = window.web3
+        
+        // Get ERC20 Token contract instance
+        const contract = await new web3.eth.Contract(ERC_20_ABI, tokenAddress);
+        
+        // Call balanceOf function
+        contract.methods.balanceOf(walletAddress).call(function(error, result){
+            var balance = web3.utils.fromWei(result, 'ether');
+            setDaiBalance(balance);
+        });
+    }
+
     useEffect(() => {
 
         async function loadWeb3() {
@@ -100,15 +161,6 @@ export default function EthAccount() {
         async function getWalletData () {
       
             const web3 = window.web3
-
-            // Get ERC20 Token contract instance
-            const contract = await new web3.eth.Contract(minABI, tokenAddress);
-            
-            // Call balanceOf function
-            contract.methods.balanceOf(walletAddress).call(function(error, result){
-                var balance = web3.utils.fromWei(result, 'ether');
-                setDaiBalance(balance);
-            });
 
             const accounts = await web3.eth.getAccounts()
             const address = {account: accounts[0]}.account;
@@ -132,8 +184,11 @@ export default function EthAccount() {
             getWalletData();
             get_txtCount();
             get_eth_price();
+            get_erc_721();
+            get_erc_20();
+            get_token_balance();
           }
-    })
+    }, [])
     
     return (
         <>
@@ -143,9 +198,13 @@ export default function EthAccount() {
             ETH: {ethAmount} <br /> <br />
             Price: ${ethPrice} USD <br /> <br />
             <br /> <br />
+            <h2>ERC-20</h2> <br /> <br />
             # of Transactions: {txCount} <br /> <br />
 
             DAI: {daiBalance} <br /> <br />
+
+            <br /> <br />
+            <h2>ERC-721</h2> <br /> <br />
         </div>
         </>
     );
