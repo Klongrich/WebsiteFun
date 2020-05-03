@@ -21,7 +21,7 @@ export default function web3Info () {
                 <h2 Style="border-bottom: 2px solid black; padding-bottom: 15px;"> Web3 Wallets </h2>
 
                 <img src={meta_mask} Style="height: 100px; width:250px"/>
-                <img src={my_ether_wallet} Style="height: 150px; width:250px"/>
+                <img src={my_ether_wallet} Style="height: 150px; width:250px;"/>
                 <img src={my_crypto} Style="height: 120px; width:250px"/>       
         </Web3WalletsBox>
 
@@ -58,7 +58,14 @@ export default function web3Info () {
             <h2  Style="text-align:center; font-size:35px; padding-bottom:10px"> How to Download </h2>
 
             <div Style="margin-left: 50px; font-weight: bold; font-size: 18px">
-                <p Style="padding-bottom:10px;"> 1.) First you have to add on the extension to your current web-broswer </p>
+                <p Style="padding-bottom:10px;"> 
+
+                1.) First you have to add on the extension to your current web-broswer
+                (<a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en" Style="color:blue;"> Chrome </a>)
+                (<a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" Style="color:blue;"> FireFox </a>)
+                (<a href="https://play.google.com/store/apps/details?id=io.metamask" Style="color:blue"> Android </a>)
+                (<a href="https://testflight.apple.com/join/4cYoRF4M" Style="color:blue"> IOS </a>)
+                </p>
 
                 <img src={meta_mask_add} />
 
