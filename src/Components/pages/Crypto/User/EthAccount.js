@@ -33,13 +33,6 @@ var ERC_20_ABI = [
   }
 ];
 
-const initErc20 = [
-    {
-        name: "null",
-        contractAdress: "null"
-    }
-]
-
 export const get_token_balance = async (publicKey, tokenAddy) => {
     const web3 = window.web3
     var balance;
@@ -54,6 +47,7 @@ export const get_token_balance = async (publicKey, tokenAddy) => {
     return (balance);
 }
 
+
 export default function EthAccount() {
 
     const [ethAmount, setEthAmount] = useState(0);
@@ -63,10 +57,14 @@ export default function EthAccount() {
 
     const [daiBalance, setDaiBalance] = useState(0);
 
-    const [erc721, setErc721] = useState([]);    
-    const [erc20, setErc20] = useState(initErc20);
+    const [erc721, setErc721] = useState([]);   
+    
+    const [erc20, setErc20] = useState([]);
 
     function get_erc_20() {
+
+        let newArr = [...erc20]; // copying the old datas array
+
         fetch('http://api.etherscan.io/api?module=account&action=tokentx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
             method: 'GET',
             headers: {
@@ -78,13 +76,15 @@ export default function EthAccount() {
             if (response.ok) {
                 response.json().then(json => {
                     //Do something with json
-                    
                     console.log(json.result);
-
-                    {json.result.map(data => 
-                        //Each Token name
-                        console.log(data.tokenName + " " + data.contractAddress)
-                    )}
+                    json.result.map((data,index) => 
+                    setErc20({
+                        ...erc20,
+                        [data.tokenName]: data.tokenName
+                      })   
+                    );
+                    console.log(erc20);
+                    
                 })
             }
         })
@@ -201,11 +201,14 @@ export default function EthAccount() {
 
             get_token_balance(walletAddress, tokenAddress).then(result => {
                 console.log( "DIA Balance " + result);
+                setDaiBalance(result)
              })
 
             get_token_balance(walletAddress, "0xc12d1c73ee7dc3615ba4e37e4abfdbddfa38907e").then(result => {
                 console.log( "Kick Balance " + result);
+                console.log(erc20);
             })
+
           }
     }, [])
     
