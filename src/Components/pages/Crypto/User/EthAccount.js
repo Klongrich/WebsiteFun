@@ -47,7 +47,6 @@ export const get_token_balance = async (publicKey, tokenAddy) => {
     return (balance);
 }
 
-
 export default function EthAccount() {
 
     const [ethAmount, setEthAmount] = useState(0);
@@ -78,13 +77,8 @@ export default function EthAccount() {
                     //Do something with json
                     console.log(json.result);
                     json.result.map((data,index) => 
-                    setErc20({
-                        ...erc20,
-                        [data.tokenName]: data.tokenName
-                      })   
-                    );
-                    console.log(erc20);
-                    
+                        setErc20(erc20 => [...erc20, data])
+                    )
                 })
             }
         })
@@ -193,11 +187,11 @@ export default function EthAccount() {
           if (wallet) {
               var result;
 
+            get_erc_20();
             getWalletData();
             get_txtCount();
             get_eth_price();
             get_erc_721();
-            get_erc_20();
 
             get_token_balance(walletAddress, tokenAddress).then(result => {
                 console.log( "DIA Balance " + result);
@@ -208,7 +202,6 @@ export default function EthAccount() {
                 console.log( "Kick Balance " + result);
                 console.log(erc20);
             })
-
           }
     }, [])
     
@@ -224,7 +217,9 @@ export default function EthAccount() {
             # of Transactions: {txCount} <br /> <br />
 
             DAI: {daiBalance} <br /> <br />
-
+            ERC-20: {erc20.map(data =>
+                data.contractAddress + " " + data.tokenName + "\n"
+            )}
             <br /> <br />
             <h2>ERC-721</h2> <br /> <br />
         </div>
