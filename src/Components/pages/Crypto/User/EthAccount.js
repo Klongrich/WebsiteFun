@@ -43,7 +43,8 @@ export const get_token_balance = async (publicKey, tokenAddy) => {
     // Call balanceOf function
     await contract.methods.balanceOf(publicKey).call(function(error, result){
         balance = web3.utils.fromWei(result, 'ether');
-    });       
+    });     
+    console.log(balance);  
     return (balance);
 }
 
@@ -68,7 +69,7 @@ export default function EthAccount() {
 
 
 
-    function get_erc_20() {
+    async function get_erc_20() {
 
         fetch('http://api.etherscan.io/api?module=account&action=tokentx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
             method: 'GET',
@@ -83,10 +84,19 @@ export default function EthAccount() {
                     //Do something with json
                     console.log(json.result);
                     json.result.map((data,index) => 
-                        setErc20(erc20 => [...erc20, data.tokenName])
+                        get_token_balance(PUBlIC_KEY, data.contractAddress).then( result => {
+                            setErc20(erc20 => [...erc20, {
+                                name: data.tokenName, 
+                                contract: data.contractAddress,
+                                amount: result
+                            }])
+                        })
                     )
                     json.result.map((data,index) => 
-                        setContracts(contracts => [...contracts, data.contractAddress])
+                       // setContracts(contracts => [...contracts, data.contractAddress])
+                       get_token_balance(PUBlIC_KEY, data.contractAddress).then( result => {
+                            setContracts(contracts => [...contracts, result])
+                       })
                     )
                 })
             }
@@ -191,19 +201,19 @@ export default function EthAccount() {
                 }
               });
             }
+
+            await get_erc_20();
+            await get_erc_721();
           }
 
           var wallet = loadWeb3();
 
           if (wallet) {
-              var result;
-
-            get_erc_20();
+        
             getWalletData();
             get_txtCount();
             get_eth_price();
-            get_erc_721();
-
+        
             get_token_balance(walletAddress, tokenAddress).then(result => {
                 console.log( "DIA Balance " + result);
                 setDaiBalance(result)
@@ -213,6 +223,8 @@ export default function EthAccount() {
                 console.log( "Kick Balance " + result);
             })
           }
+
+
     }, [])
     
     return (
@@ -228,7 +240,7 @@ export default function EthAccount() {
 
             DAI: {daiBalance} <br /> <br />
             <h2>ERC-20: </h2> {uniqueNames(erc20).map(data =>
-               <p> {data} </p>
+               <p> {data.name} , {data.contract}, {data.amount} </p>
             )}
 
             <h2> Adress: </h2> {uniqueNames(contracts).map( data => 
