@@ -47,6 +47,11 @@ export const get_token_balance = async (publicKey, tokenAddy) => {
     return (balance);
 }
 
+export const uniqueNames = (array) => {
+    const uniqueNames = Array.from(new Set(array));
+    return(uniqueNames);
+}
+
 export default function EthAccount() {
 
     const [ethAmount, setEthAmount] = useState(0);
@@ -59,10 +64,11 @@ export default function EthAccount() {
     const [erc721, setErc721] = useState([]);   
     
     const [erc20, setErc20] = useState([]);
+    const [contracts, setContracts] = useState([]);
+
+
 
     function get_erc_20() {
-
-        let newArr = [...erc20]; // copying the old datas array
 
         fetch('http://api.etherscan.io/api?module=account&action=tokentx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
             method: 'GET',
@@ -77,11 +83,15 @@ export default function EthAccount() {
                     //Do something with json
                     console.log(json.result);
                     json.result.map((data,index) => 
-                        setErc20(erc20 => [...erc20, data])
+                        setErc20(erc20 => [...erc20, data.tokenName])
+                    )
+                    json.result.map((data,index) => 
+                        setContracts(contracts => [...contracts, data.contractAddress])
                     )
                 })
             }
         })
+
     }
 
     function get_erc_721() {
@@ -217,9 +227,15 @@ export default function EthAccount() {
             # of Transactions: {txCount} <br /> <br />
 
             DAI: {daiBalance} <br /> <br />
-            ERC-20: {erc20.map(data =>
-                data.contractAddress + " " + data.tokenName + "\n"
+            ERC-20: {uniqueNames(erc20).map(data =>
+               <p> {data} </p>
             )}
+
+            Address: {uniqueNames(contracts).map( data => 
+                <p> {data} </p>
+            )}
+
+
             <br /> <br />
             <h2>ERC-721</h2> <br /> <br />
         </div>
