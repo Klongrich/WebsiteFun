@@ -5,6 +5,7 @@
   "dependencies": {
     "@mobiscroll/react-lite": "^4.7.3",
     "animate.css": "^3.7.2",
+    "bignum": "^0.13.1",
     "cogo-toast": "^3.2.1",
     "cors": "^2.8.5",
     "cryptocompare": "^1.0.0",

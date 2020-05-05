@@ -33,6 +33,52 @@ var ERC_20_ABI = [
   }
 ];
 
+export const removeDuplicates = (arr) => {
+
+    const result = [];
+    const duplicatesIndices = [];
+
+    // Loop through each item in the original array
+    arr.forEach((current, index) => {
+    
+        if (duplicatesIndices.includes(index)) return;
+    
+        result.push(current);
+    
+        // Loop through each other item on array after the current one
+        for (let comparisonIndex = index + 1; comparisonIndex < arr.length; comparisonIndex++) {
+        
+            const comparison = arr[comparisonIndex];
+            const currentKeys = Object.keys(current);
+            const comparisonKeys = Object.keys(comparison);
+            
+            // Check number of keys in objects
+            if (currentKeys.length !== comparisonKeys.length) continue;
+            
+            // Check key names
+            const currentKeysString = currentKeys.sort().join("").toLowerCase();
+            const comparisonKeysString = comparisonKeys.sort().join("").toLowerCase();
+            if (currentKeysString !== comparisonKeysString) continue;
+            
+            // Check values
+            let valuesEqual = true;
+            for (let i = 0; i < currentKeys.length; i++) {
+                const key = currentKeys[i];
+                if ( current[key] !== comparison[key] ) {
+                    valuesEqual = false;
+                    break;
+                }
+            }
+            if (valuesEqual) duplicatesIndices.push(comparisonIndex);
+            
+        } // end for loop
+
+    }); // end arr.forEach()
+  
+    return result;
+}
+
+
 export const get_token_balance = async (publicKey, tokenAddy) => {
     const web3 = window.web3
     var balance;
@@ -239,8 +285,8 @@ export default function EthAccount() {
             # of Transactions: {txCount} <br /> <br />
 
             DAI: {daiBalance} <br /> <br />
-            <h2>ERC-20: </h2> {uniqueNames(erc20).map(data =>
-               <p> {data.name} , {data.contract}, {data.amount} </p>
+            <h2>ERC-20: </h2> {removeDuplicates(erc20).map(data =>
+               <p> {data.name} , {data.contract} , {data.amount} </p>
             )}
 
             <h2> Adress: </h2> {uniqueNames(contracts).map( data => 
