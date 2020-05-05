@@ -5,7 +5,7 @@ import Web3 from 'web3'
 var api = require('etherscan-api').init('SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK');
 
 const API_KEY = 'SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK';
-const PUBlIC_KEY = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
+const PUBlIC_KEY = '0x06C04508075c125cD65dAf686177fee2A945e2d8';
 const ACTION = 'txlist'
 
 let tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f"; //DAI
@@ -62,8 +62,8 @@ export default function EthAccount() {
     const [daiBalance, setDaiBalance] = useState(0);
 
     const [erc721, setErc721] = useState([]);   
-    
     const [erc20, setErc20] = useState([]);
+
     const [contracts, setContracts] = useState([]);
 
 
@@ -110,7 +110,8 @@ export default function EthAccount() {
                     console.log(json.result);
 
                     {json.result.map(data => 
-                        console.log(data.tokenName) //Each Token name
+                        setErc721(erc721 => [...erc721, data.tokenName])
+                       // console.log(data.tokenName) //Each Token name
                     )}
                 })
             }
@@ -210,7 +211,6 @@ export default function EthAccount() {
 
             get_token_balance(walletAddress, "0xc12d1c73ee7dc3615ba4e37e4abfdbddfa38907e").then(result => {
                 console.log( "Kick Balance " + result);
-                console.log(erc20);
             })
           }
     }, [])
@@ -235,9 +235,12 @@ export default function EthAccount() {
                 <p> {data} </p>
             )}
 
+            <h2>ERC-721</h2> {uniqueNames(erc721).map( data => 
+                <p> {data} </p>
+            )}
+            
+             <br /> <br />
 
-            <br /> <br />
-            <h2>ERC-721</h2> <br /> <br />
         </div>
         </>
     );
