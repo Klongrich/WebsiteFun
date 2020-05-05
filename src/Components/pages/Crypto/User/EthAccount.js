@@ -5,7 +5,7 @@ import Web3 from 'web3'
 var api = require('etherscan-api').init('SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK');
 
 const API_KEY = 'SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK';
-const PUBlIC_KEY = '0x06C04508075c125cD65dAf686177fee2A945e2d8';
+const PUBlIC_KEY = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
 const ACTION = 'txlist'
 
 let tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f"; //DAI
@@ -227,11 +227,11 @@ export default function EthAccount() {
             # of Transactions: {txCount} <br /> <br />
 
             DAI: {daiBalance} <br /> <br />
-            ERC-20: {uniqueNames(erc20).map(data =>
+            <h2>ERC-20: </h2> {uniqueNames(erc20).map(data =>
                <p> {data} </p>
             )}
 
-            Address: {uniqueNames(contracts).map( data => 
+            <h2> Adress: </h2> {uniqueNames(contracts).map( data => 
                 <p> {data} </p>
             )}
 
