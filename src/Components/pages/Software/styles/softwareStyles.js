@@ -40,7 +40,7 @@ export const ProjectInfo = styled.div`
 export const ProjectHeaders = styled.div`
     
     width: 90%;
-    height: 150px;
+    height: 100%;
     color:white;
     padding-bottom: 0px;
 
