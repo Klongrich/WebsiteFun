@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Header, ProjectInfo, ProjectHeaders, SourceLink} from './styles/softwareStyles'
+import {Container, Header, ProjectInfo, ProjectHeaders, SourceLink} from './styles/softwareStyles'
 
 import JavaStockImage from "./pics/stockSoftWare.png"
 import MinishellImage from "./pics/minishell.png"
@@ -37,6 +37,7 @@ export default function software () {
 
     return (
         <>  
+        <Container>
             <Header>
                 Software
             </Header>
@@ -44,7 +45,7 @@ export default function software () {
             {projectData.map(data => (
             <ProjectInfo>
                 <ProjectHeaders>
-                    <h3>{data.name}</h3> 
+                    <h3> {data.name} </h3> 
                     <h3>{data.language} </h3>
                     <h3>{data.discripton}</h3>
                 </ProjectHeaders>
@@ -54,6 +55,8 @@ export default function software () {
                 <SourceLink href={data.link}> <br/> Source Code </SourceLink>
             </ProjectInfo>
             ))}
+
+        </Container>
         </>
     )
 }

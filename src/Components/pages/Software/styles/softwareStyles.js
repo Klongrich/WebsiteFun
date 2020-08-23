@@ -4,6 +4,8 @@ import px2vw from "../../../../utils/px2vw";
 export const Header = styled.a`
   display: flex;
   flex-wrap: wrap;
+
+  color: white;
   
   width: 96%;
   height: 74px;
@@ -14,6 +16,13 @@ export const Header = styled.a`
   font-size: 42px;
 `;
 
+export const Container = styled.div` 
+
+    background-color: black;
+    width: 100%;
+    height: 100%;
+`;
+
 export const ProjectInfo = styled.div`
 
     width: 90%;
@@ -21,9 +30,10 @@ export const ProjectInfo = styled.div`
     
     background-color:black;
     margin-left: ${px2vw(70)};
-    margin-bottom: 50px;
-    padding-bottom: 25px;
-    
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+    border-bottom: 2px solid white;
     
 `
 
