@@ -120,6 +120,7 @@ export const Box = styled.div`
    height: 100%;
    background-size: ${px2vw(320, 768)} ${px2vw(200, 768)};
   }
+  
   /* different techniques for iPad screening */
   @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
     /* For portrait layouts only */

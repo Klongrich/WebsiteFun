@@ -2,16 +2,9 @@ import React , {useEffect, useState} from 'react'
 
 import Web3 from 'web3'
 
-var api = require('etherscan-api').init('SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK');
-
 const API_KEY = 'SGJRWYUZK9QJH2UUQ96JKTZAY4RAPIB5PK';
-const PUBlIC_KEY = '0x06C04508075c125cD65dAf686177fee2A945e2d8';
+const PUBlIC_KEY = '0x3F5AA308D0D27fD80479dbcD1012c8254da45820';
 const ACTION = 'txlist'
-
-let tokenAddress = "0x6b175474e89094c44da98b954eedeac495271d0f"; //DAI
-let walletAddress = "0x06C04508075c125cD65dAf686177fee2A945e2d8";
-
-const URL = '';
 
 // The minimum ABI to get ERC20 Token balance
 var ERC_20_ABI = [
@@ -73,11 +66,9 @@ export const removeDuplicates = (arr) => {
             
         } // end for loop
 
-    }); // end arr.forEach()
-  
+    }); // end arr.forEach()  
     return result;
 }
-
 
 export const get_token_balance = async (publicKey, tokenAddy) => {
     const web3 = window.web3
@@ -106,13 +97,8 @@ export default function EthAccount() {
     const [txCount, setTxCount] = useState(0);
     const [ethPrice, setEthPrice] = useState(0);
 
-    const [daiBalance, setDaiBalance] = useState(0);
-
     const [erc721, setErc721] = useState([]);   
     const [erc20, setErc20] = useState([]);
-
-    const [contracts, setContracts] = useState([]);
-
 
 
     async function get_erc_20() {
@@ -127,8 +113,6 @@ export default function EthAccount() {
         ).then(response => {
             if (response.ok) {
                 response.json().then(json => {
-                    //Do something with json
-                    console.log(json.result);
                     json.result.map((data,index) => 
                         get_token_balance(PUBlIC_KEY, data.contractAddress).then( result => {
                             setErc20(erc20 => [...erc20, {
@@ -138,19 +122,13 @@ export default function EthAccount() {
                             }])
                         })
                     )
-                    json.result.map((data,index) => 
-                       // setContracts(contracts => [...contracts, data.contractAddress])
-                       get_token_balance(PUBlIC_KEY, data.contractAddress).then( result => {
-                            setContracts(contracts => [...contracts, result])
-                       })
-                    )
                 })
             }
         })
 
     }
 
-    function get_erc_721() {
+    async function get_erc_721() {
         fetch('http://api.etherscan.io/api?module=account&action=tokennfttx&address=' + PUBlIC_KEY + '&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY , {
             method: 'GET',
             headers: {
@@ -160,14 +138,9 @@ export default function EthAccount() {
         },
         ).then(response => {
             if (response.ok) {
-                response.json().then(json => {
-                    //Do something with json
-                    
-                    console.log(json.result);
-
+                response.json().then(json => {                    
                     {json.result.map(data => 
                         setErc721(erc721 => [...erc721, data.tokenName])
-                       // console.log(data.tokenName) //Each Token name
                     )}
                 })
             }
@@ -193,7 +166,7 @@ export default function EthAccount() {
 
     }
 
-    function get_txtCount(){
+    async function get_txtCount(){
 
         fetch( 'https://api.etherscan.io/api?module=account&action=' + ACTION + '&address=' + PUBlIC_KEY +'&startblock=0&endblock=999999999&sort=asc&apikey=' + API_KEY ,{
             method: 'GET',
@@ -247,29 +220,17 @@ export default function EthAccount() {
                 }
               });
             }
-
+            await get_txtCount();
             await get_erc_20();
             await get_erc_721();
           }
 
           var wallet = loadWeb3();
-
+          
           if (wallet) {
-        
             getWalletData();
-            get_txtCount();
             get_eth_price();
-        
-            get_token_balance(walletAddress, tokenAddress).then(result => {
-                console.log( "DIA Balance " + result);
-                setDaiBalance(result)
-             })
-
-            get_token_balance(walletAddress, "0xc12d1c73ee7dc3615ba4e37e4abfdbddfa38907e").then(result => {
-                console.log( "Kick Balance " + result);
-            })
           }
-
 
     }, [])
     
@@ -280,25 +241,17 @@ export default function EthAccount() {
             PublicKey: {publicKey} <br /> <br />
             ETH: {ethAmount} <br /> <br />
             Price: ${ethPrice} USD <br /> <br />
-            <br /> <br />
-            <h2>ERC-20</h2> <br /> <br />
             # of Transactions: {txCount} <br /> <br />
 
-            DAI: {daiBalance} <br /> <br />
             <h2>ERC-20: </h2> {removeDuplicates(erc20).map(data =>
-               <p> {data.name} , {data.contract} , {data.amount} </p>
-            )}
-
-            <h2> Adress: </h2> {uniqueNames(contracts).map( data => 
-                <p> {data} </p>
+               <p> {data.name} : {data.amount} - ({data.contract}) </p>
             )}
 
             <h2>ERC-721</h2> {uniqueNames(erc721).map( data => 
                 <p> {data} </p>
             )}
-            
-             <br /> <br />
 
+            <br /> <br />
         </div>
         </>
     );

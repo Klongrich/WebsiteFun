@@ -10,8 +10,6 @@ import meta_mask_add from './Styles/pics/meta-mask-add.png'
 import meta_mask_seed from './Styles/pics/meta-mask-seed.png'
 import meta_mask_new_wallet from './Styles/pics/meta-mask-new-wallet.png'
 
-import {ArrowGoBack} from '@styled-icons/remix-line/ArrowGoBack'
-
 export default function web3Info () {
 
     return (
