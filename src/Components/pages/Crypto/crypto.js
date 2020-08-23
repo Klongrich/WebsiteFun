@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 import {Header, Link, HeaderLink, CryptoNavBar} from './Styles/CryptoHomePage'
+import {EmailBox, SubmitButton} from './description/styles/discStyle'
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 
@@ -70,6 +71,19 @@ const cryptoData = [
     rankUp: 3,
     rankDown: 3,
     link: "/Crypto/BitcoinCash"
+  },
+  {
+    id: 6,
+    name: "Chain-Link",
+    ticker: "Link",
+    decentralization: 7.2,
+    coummunity: 9.2,
+    scalabitlity: 7.2,
+    team: 7.4,
+    overall: 7.75,
+    rankUp: 3,
+    rankDown: 3,
+    link: "/Crypto/ChainLink"
   },
   {
     id: 5,
@@ -232,13 +246,29 @@ export default function Crypto() {
     <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> General Overveiw </h2>
 
     <p> 
-        If you are reading this, welcome! Here my goal is to build a community that
-        has a focus of spreading accurate information of crypto-currency. No moon, No
-        price, etc. Just the facts of what is going on within the space. Trying to make techinal
-        information easily understandable by the common person. Also make it so that anyone
-        who want's to get involed can. Also I do use these different parameters in order to make 
-        my investments. Not the price. 
+        For more information on each coloumn (Decentralization, Coummunity, Scalabitlity, and Team) 
+        please click the link in the top right conner labeled "Ranking Explained". If you would like
+        more information about each crypto feel free to click on it in the "Name" columon to pull up
+        some short articles I have written up about each one. These articles will provide a general
+        Overview of what each crypto is or, you can visit <a Style="color:blue;" href="https://www.coinmarketcap.com"> Coinmarketcap.com </a> to get even more information
     </p>
+
+    <p>
+      Also you can enter your email below and be added to an email list for free if you'd like. Not sure
+      How often I will send emails out. Would not be daily but depends on what the market is doing as
+      well as the developement community. Also it would also kind of just be for fun.
+    </p>
+    </div>
+
+    <div Style="margin-left: 30px; margin-top: 15px; line-height: 2; width:95.2%">
+    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> Sign Up </h2>
+
+    <EmailBox isVisible={true}
+                      setHeight={174}
+                      type="text"
+                      value={"enter Email"}
+                      />
+
     </div>
     </>
     )
