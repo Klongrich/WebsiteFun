@@ -22,6 +22,8 @@ export const ProjectInfo = styled.div`
     background-color:black;
     margin-left: ${px2vw(70)};
     margin-bottom: 50px;
+    padding-bottom: 25px;
+    
     
 `
 
@@ -30,14 +32,12 @@ export const ProjectHeaders = styled.div`
     width: 90%;
     height: 150px;
     color:white;
+    padding-bottom: 0px;
 
     padding-left: 5px;
 
-
-
 `
 export const SourceLink = styled.a`
-    padding-top: 50px;
     color:white;
     text-decoration: underline;
 `

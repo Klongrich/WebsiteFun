@@ -4,6 +4,7 @@ import {Header, ProjectInfo, ProjectHeaders, SourceLink} from './styles/software
 
 import JavaStockImage from "./pics/stockSoftWare.png"
 import MinishellImage from "./pics/minishell.png"
+import TradingBotImage from "./pics/tradingBot.png"
 
 export const projectData = [
     {
@@ -12,10 +13,18 @@ export const projectData = [
       discripton: "Desctiptoin: This is blah..... ",
       language: "Programming Langauge: Java",
       image: JavaStockImage,
-      link: "https://github.com/Klongrich/JavaStockPoject"
+      link: "https://github.com/Klongrich/ChartingSoftware"
     },
     {
         id: 1,
+        name: "Name: TradingBot",
+        discripton: "Desctiptoin: This is blah..... ",
+        language: "Programming Language: Python",
+        image: TradingBotImage,
+        link: "https://github.com/Klongrich/tradingbot"
+    },
+    {
+        id: 2,
         name: "Name: MiniShell",
         discripton: "Desctiptoin: This is blah..... ",
         language: "Programming Language: C",
@@ -39,8 +48,10 @@ export default function software () {
                     <h3>{data.language} </h3>
                     <h3>{data.discripton}</h3>
                 </ProjectHeaders>
+            
                 <img src={data.image} width="100%" height="100%"/>
-                <SourceLink href="https://www.github.com"> Source Code </SourceLink>
+    
+                <SourceLink href={data.link}> <br/> Source Code </SourceLink>
             </ProjectInfo>
             ))}
         </>
