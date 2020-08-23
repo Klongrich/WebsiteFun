@@ -10,24 +10,34 @@ export const Header = styled.a`
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};
   margin-top: -20px;
-  color: black;
+
   font-size: 42px;
 `;
 
 export const ProjectInfo = styled.div`
 
-    width: 80%;
-    height: 400px;
+    width: 90%;
+    height: 100%;
     
-    margin-left: ${px2vw(100)};
-    margin-bottom: 200px;
+    background-color:black;
+    margin-left: ${px2vw(70)};
+    margin-bottom: 50px;
+    
 `
 
 export const ProjectHeaders = styled.div`
     
-    width: 80%;
+    width: 90%;
     height: 150px;
     color:white;
-    background-color:black;
 
+    padding-left: 5px;
+
+
+
+`
+export const SourceLink = styled.a`
+    padding-top: 50px;
+    color:white;
+    text-decoration: underline;
 `

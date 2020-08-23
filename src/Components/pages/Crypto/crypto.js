@@ -229,7 +229,7 @@ export default function Crypto() {
     </Table>
 
     <div Style="margin-left: 30px; margin-top: 30px; line-height: 2; width:95.2%">
-    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> Building The Community </h2>
+    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> General Overveiw </h2>
 
     <p> 
         If you are reading this, welcome! Here my goal is to build a community that

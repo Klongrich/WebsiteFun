@@ -1,8 +1,9 @@
 import React from 'react'
 
-import {Header, ProjectInfo, ProjectHeaders} from './styles/softwareStyles'
+import {Header, ProjectInfo, ProjectHeaders, SourceLink} from './styles/softwareStyles'
 
 import JavaStockImage from "./pics/stockSoftWare.png"
+import MinishellImage from "./pics/minishell.png"
 
 export const projectData = [
     {
@@ -18,7 +19,7 @@ export const projectData = [
         name: "Name: MiniShell",
         discripton: "Desctiptoin: This is blah..... ",
         language: "Programming Language: C",
-        image: null,
+        image: MinishellImage,
         link: "https://github.com/Klongrich/minishell"
     }
   ];
@@ -39,6 +40,7 @@ export default function software () {
                     <h3>{data.discripton}</h3>
                 </ProjectHeaders>
                 <img src={data.image} width="100%" height="100%"/>
+                <SourceLink href="https://www.github.com"> Source Code </SourceLink>
             </ProjectInfo>
             ))}
         </>

@@ -44,7 +44,7 @@ export const boxData = [
   {
     id: 3,
     title: "Software",
-    text: "Projects that I have worked / working on",
+    text: "Side Projects/ Personal projects I have worked on for fun",
     bgColor: "#9FEACD",
     hoverColor: "#bce8d7",
     image: "null",
