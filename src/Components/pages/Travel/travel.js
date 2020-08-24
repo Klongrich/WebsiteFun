@@ -2,24 +2,17 @@ import React, {useState} from 'react';
 import './travel.css'
 import 'animate.css'
 
+import {Header, NotVisited} from './styles/travelStyles'
 
-
-class travel extends React.Component {
+export default function travel (){
    
-    constructor(props) {
-    super(props);
-    this.state = {hovered: false};
-  }
-
-    render () {
       return (
             <div class="container">
-                <div class="headers">
-                    
+
+                <Header>
                     <h2 id="ttravel"> Traveling </h2>
                     <h2 id="number" class="animated bounce "> 22 / 195 Countries </h2>
-
-                </div>
+                </Header>
 
                 <div class="VisitedCountries">
 
@@ -59,7 +52,7 @@ class travel extends React.Component {
                 </div>
 
                 
-                <div class="NotVisited">
+                <NotVisited>
                     <ul id="nfirstrow">
                         <li><a href=""> Brazil</a></li>
                         <li><a href=""> Argentina</a></li>
@@ -131,10 +124,7 @@ class travel extends React.Component {
                         <li><a href=""> India </a></li>
                         <li><a href=""> And Many More...... </a></li> 
                     </ul>        
-                </div>
+                    </NotVisited>
         </div>
       );
-    }
-  }
-
-export default travel;
+}

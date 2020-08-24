@@ -51,11 +51,13 @@ export default function about () {
             <li> I'm only 22 </li>
         </ul>
 
+        <div Style="margin-left:770px; margin-top:-55px;">
         <SimpleImageSlider
             width={450}
             height={280}
             images={images}
         />
+        </div>
       
         </>
     )

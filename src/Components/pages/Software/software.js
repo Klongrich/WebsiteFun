@@ -10,10 +10,10 @@ export const projectData = [
     {
         id: 2,
         name: "Name: MiniShell",
-        discripton: "Project that was completed as part of the 42 curiculm. A recreation of the computer shell \
-        Includes fully programed libaray functions from scracth. Supported creating and removing envoriment \
-        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manage \
-        memeory from each inputed from user, and built in exit() function. Most other functions just fork \
+        discripton: "Project that was completed as part of the 42 curriculum. A recreation of the computer shell \
+        Includes a fully programed libaray of functions from scracth, supports creating and removing envoriment \
+        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manages \
+        memeory from each input from user with out leaks, and built in exit() function. Most other functions just fork \
         a proccess from the /usr/bin folder (Or anywhere else in the $PATH) like a normal shell would",
         language: "Programming Language: C",
         image: MinishellImage,
@@ -22,12 +22,12 @@ export const projectData = [
     {
         id: 0,
         name: "Name: JavaStockProject",
-        discripton: "A project that I build in 2017. It is a fully functioning charting \
-        charting software written from strach in Java. I built webscrapers for most of the live data \
-        and used a few APIs, Programd each indicator from scratch, and drew the chart pixel by pixel! \
-        You could create and save daily watchlist for any stocks of your chosing as well. The scanner was \
-        Customly programmed to look for stocks that I would have an interest in tradding that day based on \
-        Paramters I inputed. Custom OverLays where aloud as well allowing you to pict the variable amounts \
+        discripton: "A project that I built in 2017. It is a fully functional charting \
+        software written from scratch in Java. I built webscrapers for most of the live data, \
+        used a few APIs for historical data, programed each indicator from scratch, and drew the main chart pixel by pixel! \
+        You can create and save daily watchlist for any stocks of your chosing as well. The scanner was \
+        customly programmed to look for stocks that I would have an interest in tradding that day based on \
+        paramters I inputed. Custom OverLays where aloud as well allowing you to pick the variable amounts \
         for each indicator / overlay. Multiple stock time frames where posted as well as volume of each \
         meauserment of time. Was able to eventually hook up a few brokerages to the back end allowing some \
         real time tradding to your account using an API key.",
@@ -75,6 +75,10 @@ export default function software () {
             ))}
 
         </Container>
+
+        <div Style="background-color:black; margin-top:-30px">
+            ads
+        </div>
         </>
     )
 }

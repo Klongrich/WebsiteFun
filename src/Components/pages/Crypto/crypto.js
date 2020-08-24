@@ -263,11 +263,7 @@ export default function Crypto() {
     <div Style="margin-left: 30px; margin-top: 15px; line-height: 2; width:95.2%">
     <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> Sign Up </h2>
 
-    <EmailBox isVisible={true}
-                      setHeight={174}
-                      type="text"
-                      value={"enter Email"}
-                      />
+
 
     </div>
     </>
