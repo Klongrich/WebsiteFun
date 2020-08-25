@@ -14,20 +14,9 @@ import * as Scroll from 'react-scroll';
 
 export const projectData = [
     {
-        id: 2,
-        name: "Name: MiniShell",
-        discripton: "Project that was completed as part of the 42 curriculum. A recreation of the computer shell \
-        Includes a fully programed libaray of functions from scracth, supports creating and removing envoriment \
-        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manages \
-        memeory from each input from user with out leaks, and built in exit() function. Most other functions just fork \
-        a proccess from the /usr/bin folder (Or anywhere else in the $PATH) like a normal shell would",
-        language: "Programming Language: C",
-        image: MinishellImage,
-        link: "https://github.com/Klongrich/minishell"
-    },
-    {
         id: 0,
         name: "Name: JavaStockProject",
+        impact: "($1.1+ Million in Live Trading Volume)",
         discripton: "A project that I built in 2017. It is a fully functional charting \
         software written from scratch in Java. I built webscrapers for most of the live data, \
         used a few APIs for historical data, programed each indicator from scratch, and drew the main chart pixel by pixel! \
@@ -37,13 +26,13 @@ export const projectData = [
         for each indicator / overlay. Multiple stock time frames where posted as well as volume of each \
         meauserment of time. Was able to eventually hook up a few brokerages to the back end allowing some \
         real time tradding to your account using an API key.",
-        language: "Programming Langauge: Java",
         image: JavaStockImage,
         link: "https://github.com/Klongrich/ChartingSoftware"
     },
     {
         id: 1,
         name: "Name: TradingBot",
+        impact: "(Over $20,000 generated in 2017)",
         discripton: "A trading bot written when Poloniex was still cool. I used their API to pull \
         data and cacluate real time the slippage between tradding pairs. For example Let's say BTC/USD \
         @ $2,000, ETH/BTC @ 0.085, and ETH/USD @ $200. If we multiple 0.085 * $2,000 (price of BTC) we \
@@ -54,6 +43,19 @@ export const projectData = [
         language: "Programming Language: Python",
         image: TradingBotImage,
         link: "https://github.com/Klongrich/tradingbot"
+    },
+    {
+        id: 2,
+        name: "Name: MiniShell",
+        impact: "(Useless)",
+        discripton: "Project that was completed as part of the 42 curriculum. A recreation of the computer shell \
+        Includes a fully programed libaray of functions from scracth, supports creating and removing envoriment \
+        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manages \
+        memeory from each input from user with out leaks, and built in exit() function. Most other functions just fork \
+        a proccess from the /usr/bin folder (Or anywhere else in the $PATH) like a normal shell would",
+        language: "Programming Language: C",
+        image: MinishellImage,
+        link: "https://github.com/Klongrich/minishell"
     }
   ];
 
@@ -85,15 +87,15 @@ export const NavBar = styled.div`
 export default function software () {
 
     const scrollToJavaStockProject = () => {
-        window.scrollTo({top: 1008, behavior: 'smooth'});
+        window.scrollTo({top: 75, behavior: 'smooth'});
       };
 
     const scrollToTradingBot = () => {
-        window.scrollTo({top: 1998, behavior: 'smooth'});
+        window.scrollTo({top: 1092, behavior: 'smooth'});
     };
 
     const scrollToMinishell = () => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({top: 2015, behavior: 'smooth'});
     };
 
     return (
@@ -106,9 +108,9 @@ export default function software () {
 
             <NavBar>
                 <ul>
-                    <li onClick={scrollToMinishell}>MiniShell</li>
                     <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
                     <li onClick={scrollToTradingBot}>TradingBot</li>
+                    <li onClick={scrollToMinishell}>MiniShell</li>
                 </ul>
             </NavBar>
 
@@ -117,13 +119,13 @@ export default function software () {
             <ProjectInfo>
                 <ProjectHeaders>
                     <h3> {data.name} </h3> 
-                    <h3>{data.language} </h3>
+                    <h3> {data.impact} </h3>
                     <h3>Descripton: </h3> <p> {data.discripton} </p>
                 </ProjectHeaders>
             
                 <img src={data.image} width="100%" height="100%"/>
     
-                <SourceLink href={data.link}> <br/> Source Code </SourceLink>
+                <SourceLink href={data.link}> <br/> <br/> Source Code </SourceLink>
             </ProjectInfo>
             ))}
 

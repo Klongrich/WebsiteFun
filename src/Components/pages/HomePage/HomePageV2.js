@@ -1,4 +1,5 @@
 import React , {useEffect, useState} from "react";
+
 import Global from "../../../styles/global";
 import styled from "styled-components";
 import * as Scroll from 'react-scroll';
@@ -28,6 +29,44 @@ import About from "../About/about"
 
 import Footer from "../../footerComponets/Footer"
 
+import Background2 from "./stylesV2/background4.jpg"
+
+import TestImage from './stylesV2/stocks2.jpeg'
+import TestImage2 from './stylesV2/coddingBackground.jpg'
+import TestImage3 from './stylesV2/crypto1.jpg'
+
+import TravelPage from '../Travel/travel'
+
+export const TestBackground = styled.div` 
+
+  height: 700px;
+  background-image:  ${props => `url(${props.Image})`};
+  background-size: 100% 100%;
+
+  border: 1px black solid;
+
+  color: white;
+
+  h2 {
+    font-size: 50px;
+    margin-left: 20px;
+  }
+
+  p{
+    text-align: center;
+    font-size: 20px;
+  }
+  
+`;
+
+
+export const SecondBackground = styled.div` 
+
+  margin:0px;
+  background-color: lightgrey;
+  border: 1px black solid;
+  
+`;
 
 export const boxData = [
   {
@@ -93,10 +132,8 @@ export default function HomePage() {
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
 
-  const [version, setVersion] = useState(0);
-
   const scrollTop = () => {
-    window.scrollTo({top: 700, behavior: 'smooth'});
+    window.scrollTo({top: 650, behavior: 'smooth'});
   };
 
   useEffect(() =>  {
@@ -178,6 +215,8 @@ export default function HomePage() {
 
     </BackgroundImage>
 
+
+  <SecondBackground>
     <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
     <Container>
       {boxData.map(box => (
@@ -186,8 +225,31 @@ export default function HomePage() {
           <BoxText>{box.text}</BoxText>
         </Box>
       ))}
-    </Container> 
-  
+    </Container>
+
+    </SecondBackground>
+
+
+{/*
+
+    <TestBackground Image={TestImage}>
+      <h2> Stocks </h2>
+      <p> Information That I have learned in the stock market over the past 5 years</p>
+    </TestBackground>
+
+    <TestBackground Image={TestImage2}>
+      <h2> Porgramming </h2>
+      <p> Projects that I've worked on over the past serveal years</p>
+    </TestBackground>
+
+    <TestBackground Image={TestImage3}>
+      <h2> Crypto </h2>
+      <p> Information about different crypto currencys</p>
+    </TestBackground>
+    
+    <TravelPage />
+*/}
+    
   <Footer />
 
     </div>

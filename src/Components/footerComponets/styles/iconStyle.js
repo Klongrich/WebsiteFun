@@ -7,7 +7,7 @@ export const IconStyleWrapper = styled.div`
 
 text-align: center;
 background-color:black;
-margin-top:60px;
+
 
 @media (min-width: 1024px) {
 

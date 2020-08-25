@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import styled from "styled-components";
+
 
 import {Header, Link, HeaderLink, CryptoNavBar} from './Styles/CryptoHomePage'
 import {EmailBox, SubmitButton} from './description/styles/discStyle'
@@ -18,6 +20,13 @@ import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
 
 import Web3 from 'web3'
 
+import CryptoImage from './Styles/pics/cryptoBackground2.png'
+
+export const Background = styled.div`
+
+  background-size: 100% 100%;
+
+`
 
 const cryptoData = [
   {
@@ -99,6 +108,7 @@ const cryptoData = [
     link: "/Crypto"
   }
 ];
+
 
 
 export default function Crypto() {
@@ -200,6 +210,8 @@ export default function Crypto() {
             </a>
         </CryptoNavBar>
 
+        <Background>
+
       <Header>
           Crypto
           <HeaderLink href="/Crypto/Discription">Ranking Explanation</HeaderLink> 
@@ -266,6 +278,7 @@ export default function Crypto() {
 
 
     </div>
+    </Background>
     </>
     )
 }

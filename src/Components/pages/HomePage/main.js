@@ -16,12 +16,21 @@ export const ImageSlider = styled.div`
     visibility: ${props => props.show};
 ` 
 
+export const Version = styled.p`
+
+    margin-bottom: -24px;
+    text-align: right;
+    padding-right: 6%;
+    color: ${props => props.color}
+`
+
 export default function MainPage () {
 
     const [version, setVersion] = useState(true);
     const [color, setColor] = useState("white");
     const [leftSlider, setLeftSlider] = useState ("hidden");
     const [rightSlider, setRightSlider] = useState ("visible")
+    const [vText, setVText] = useState("V2")
 
     const SampleComponent = () => {
         return <> {version ? <HomePageV2 /> : <HomePageV1 />} </>;
@@ -31,14 +40,17 @@ export default function MainPage () {
         if (version == true) {
           setVersion(false);
           setColor("black");
+          setVText("V1")
         } else {
           setVersion(true);
           setColor("white");
+          setVText("V2");
         }
     }
     
     return (
         <>
+            <Version color={color}>{vText}</Version>
             <ImageSlider show={leftSlider}>
                 <ToggleLeft size="40px" color={color} onClick={() => switchHomePage()}/>
             </ImageSlider>

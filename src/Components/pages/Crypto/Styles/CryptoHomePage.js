@@ -16,7 +16,7 @@ export const Link = styled.a`
 
 export const CryptoNavBar = styled.div`
   width: 100%;
-  height: 50px;
+  height: 70px;
   margin-top: 0px;
   color: white;
   background-color: black;
@@ -27,7 +27,6 @@ export const HeaderLink = styled.a`
   text-decoration: underline;
   font-size: 18px;
   margin-left: 75%;
-  margin-top: 20px;
 `
 
 export const Header = styled.a`
