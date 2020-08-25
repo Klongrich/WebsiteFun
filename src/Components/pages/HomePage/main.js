@@ -27,7 +27,6 @@ export default function MainPage () {
         return <> {version ? <HomePageV2 /> : <HomePageV1 />} </>;
     };
     
-
     function switchHomePage() {
         if (version == true) {
           setVersion(false);

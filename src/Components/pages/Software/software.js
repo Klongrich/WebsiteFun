@@ -6,6 +6,12 @@ import JavaStockImage from "./pics/stockSoftWare.png"
 import MinishellImage from "./pics/minishell.png"
 import TradingBotImage from "./pics/tradingBot.png"
 
+import styled from "styled-components";
+
+import * as Scroll from 'react-scroll';
+
+
+
 export const projectData = [
     {
         id: 2,
@@ -51,14 +57,61 @@ export const projectData = [
     }
   ];
 
+export const NavBar = styled.div`
+    
+  ul {
+        position: fixed;
+        padding-left: 60%;
+        padding-bottom: 5%;
+        top: 0px;
+  }
+
+  li {
+
+    text-decoration: underline;
+      color:white;
+      font-size: 17.5px;
+      float:left;
+      padding-left: 15.5%;
+  }
+
+  li:hover {
+      color: red;
+  }
+
+`
+
+
 export default function software () {
+
+    const scrollToJavaStockProject = () => {
+        window.scrollTo({top: 1008, behavior: 'smooth'});
+      };
+
+    const scrollToTradingBot = () => {
+        window.scrollTo({top: 1998, behavior: 'smooth'});
+    };
+
+    const scrollToMinishell = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
 
     return (
         <>  
         <Container>
-            <Header>
+
+        <Header>
                 Software
-            </Header>
+        </Header>
+
+            <NavBar>
+                <ul>
+                    <li onClick={scrollToMinishell}>MiniShell</li>
+                    <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
+                    <li onClick={scrollToTradingBot}>TradingBot</li>
+                </ul>
+            </NavBar>
+
 
             {projectData.map(data => (
             <ProjectInfo>

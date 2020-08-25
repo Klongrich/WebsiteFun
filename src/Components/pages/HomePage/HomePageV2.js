@@ -137,9 +137,7 @@ export default function HomePage() {
   return (
 
     <>
-    {/* <HomePageV1 /> */}
-
-
+ 
     <div class="background">
 
     <BackgroundImage>
@@ -167,20 +165,20 @@ export default function HomePage() {
     </div>
 
     <ClientInfoWrapper> 
-      <h2>Client Info</h2>
+      <h2> Client Info</h2>
         <ul>
-          <li> Broswer: {browserInfo.browser} </li> 
-          <li> Version: {browserInfo.version} </li> 
-          <li> OS: {browserInfo.os} </li> 
-          <li> IP: {ipAdress} </li>
-          <li> State: {ipInfo.region} </li>
-          <li> City: {ipInfo.city} </li> 
+          <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+          <li> Version: <b> {browserInfo.version} </b> </li> 
+          <li> OS: <b> {browserInfo.os} </b> </li> 
+          <li> IP: <b> {ipAdress} </b> </li>
+          <li> State: <b> {ipInfo.region} </b> </li>
+          <li> City: <b> {ipInfo.city} </b> </li> 
         </ul>
     </ClientInfoWrapper> 
 
     </BackgroundImage>
 
-    <h2 Style="margin-bottom: 100px; text-align:center; font-size:42px"> Areas Of Interest </h2>
+    <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
     <Container>
       {boxData.map(box => (
         <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>

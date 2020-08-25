@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
-import Wall_Papper from "./wall_papper.jpg";
 import spacepic from "./background.jpg";
 
 export const BackgroundImage = styled.div`
@@ -22,8 +21,13 @@ export const ClientInfoWrapper = styled.div`
   color: #149414;
   height: 150px;
   margin-top: 35px;
-  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
+
+  ul{
+    padding-right: 30px;
+    padding-top: 10px;
+  }
 
   li {
     font-size: 17.5px;
