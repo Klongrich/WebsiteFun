@@ -5,11 +5,12 @@ export const Header = styled.div`
   display: flex;
   flex-wrap: wrap;
   
+  color: white; 
+
   width: 97%;
   height: 74px;
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};
-  color: black;
   font-size: 42px;
 
 

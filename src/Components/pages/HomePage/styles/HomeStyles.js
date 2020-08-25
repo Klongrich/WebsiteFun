@@ -1,15 +1,37 @@
 import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
+import Wall_Papper from "./wall_papper.jpg";
+import spacepic from "./background.jpg";
+
+export const BackgroundImage = styled.div`
+ 
+
+    background-image: url(${spacepic});
+    background-size: 100% 100%;
+
+    @media only screen and (max-device-width: 480px) {
+      /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
+      background-color:#363636;
+     }
+`;
+
 
 export const ClientInfoWrapper = styled.div`
 
-  visibility: ${props => props.show};
-  height: 120px;
-  width: 33%;
-  margin-left: 2%;
-  background-color: #db6b6b;
-  border-radius: 10px;
+  color: #149414;
+  height: 160px;
+  margin-top: 35px;
+  padding-top: 5px;
+  text-align: center;
+
+
+
+  li {
+    font-size: 17.5px;
+    float:left;
+    padding-left: 5.5%;
+  }
 
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
@@ -40,16 +62,6 @@ export const ClientInfo = styled.div`
     font-size: 42px;
    }
 `
-
-export const BackgroundImage = styled.div`
-    width: 100%;
-    height: 100%;
-
-    @media only screen and (max-device-width: 480px) {
-      /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-      background-color:#363636;
-     }
-`;
 
 export const Container = styled.div`
   display: flex;
@@ -159,7 +171,7 @@ export const BoxText = styled.p`
   color: #333;
   font-size: 1.5rem;
 
-  color:light-grey;
+  color:black;
   text-align: center;
 
   @media (min-width: 1024px) {
@@ -173,13 +185,3 @@ export const BoxText = styled.p`
    }
 
 `;
-
-export const InfoButton = styled.button `
-margin-left: 2%;
-
-@media only screen and (max-device-width: 480px) {
-  /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-  visibility: hidden;
- 
- }
-`

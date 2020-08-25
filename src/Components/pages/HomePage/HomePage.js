@@ -74,17 +74,9 @@ export default function HomePage() {
 
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
-  const [boxOpen, setboxOpen] = useState("hidden");
   const [ipAdress, setipAdress] = useState(0);
 
-  function toggleInfoBox() {
-      if (boxOpen == "hidden") {
-        setboxOpen("visible");
-      } else {
-        setboxOpen("hidden");
-      }
-  }
-  
+
   useEffect(() =>  {
     fetch(process.env.REACT_APP_API_BROSWERINFO, {
       method: 'GET',
@@ -143,23 +135,18 @@ export default function HomePage() {
       ))}
     </Container> 
 
-    <InfoButton onClick={() => toggleInfoBox()}>
-        Show Your Info
-    </InfoButton>
 
-    
-    <ClientInfoWrapper show={boxOpen} > 
-        <ClientInfo>
-        <p>Broswer: {browserInfo.browser} </p> 
-        <p> Version: {browserInfo.version} </p> 
-        <p> OS: {browserInfo.os} </p> <br/>
-        </ClientInfo>
 
-        <ClientInfo>
-        <p>IP: {ipAdress} </p>
-        <p>State: {ipInfo.region} </p>
-        <p>City: {ipInfo.city} </p> 
-        </ClientInfo> 
+    <ClientInfoWrapper> 
+      <h2>Client Info</h2>
+        <ul>
+          <li> Broswer: {browserInfo.browser} </li> 
+          <li> Version: {browserInfo.version} </li> 
+          <li> OS: {browserInfo.os} </li> 
+          <li> IP: {ipAdress} </li>
+          <li> State: {ipInfo.region} </li>
+          <li> City: {ipInfo.city} </li> 
+        </ul>
     </ClientInfoWrapper> 
 
     </BackgroundImage> 

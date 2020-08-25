@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import './travel.css'
 import 'animate.css'
 
-import {Header, NotVisited} from './styles/travelStyles'
+import {Header, NotVisited, Visited, Container} from './styles/travelStyles'
 
 export default function travel (){
    
       return (
-            <div class="container">
+          <>
+            <Container>
 
                 <Header>
                     <h2 id="ttravel"> Traveling </h2>
@@ -19,7 +20,7 @@ export default function travel (){
                     <h2 id="vsc"> Visted Countries (Click For Story)</h2>
                     <h2 id="wtv" >Want To visit Next</h2>
 
-                     <div class= "visitedlist">
+                     <Visited>
                         
                         <ul id="firstrow">
                             <li><a href=""> United States</a></li>
@@ -48,7 +49,8 @@ export default function travel (){
                             <li><a href=""> Ireland</a></li>
                             <li><a href=""> Bahamas</a></li>
                         </ul>
-                    </div>
+                    
+                    </Visited>
                 </div>
 
                 
@@ -123,8 +125,10 @@ export default function travel (){
                         <li><a href=""> pakistan </a></li>
                         <li><a href=""> India </a></li>
                         <li><a href=""> And Many More...... </a></li> 
-                    </ul>        
-                    </NotVisited>
-        </div>
+                    </ul>
+                    </NotVisited> 
+                </Container>       
+                    
+        </>
       );
 }

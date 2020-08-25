@@ -1,13 +1,3 @@
-.container{
-    margin-top:-5px;
-    background-image: url('./pics/worldmap.jpg');
-    background-size:cover;
-    height: 670px;
-    overflow: hidden;
-
-    text-align: center;
-}
-
 h2#ttravel{
     margin-top:30px;
 }
@@ -28,20 +18,6 @@ h2#wtv{
 }
 
 
-.visitedlist{
-    display: flex;
-    flex-direction: row;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    height:420px;
-    width: 350px;
-    margin-top:-10px;
-    margin-left: 50px;
-    background-color: rgb(255, 255, 255, 0.4);
-    float: left;
-}
-
 .visitedlist ul li a:hover{
     color:blue;
 }
@@ -52,19 +28,6 @@ li{
 
 ul{
     list-style-type: none;
-}
-
-.NotVisited{
-    display: flex;
-    flex-direction: row;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    height:420px;
-    width: 800px;
-    margin-left: 450px;
-    margin-top: -10px;
-    background-color: rgb(255, 255, 255, 0.4);
 }
 
 a {

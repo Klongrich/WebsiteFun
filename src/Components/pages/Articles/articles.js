@@ -21,12 +21,6 @@ export default function articles () {
             date: "04/19/2020"
         },
         {
-            id: 2,
-            title: "Why The Market Is In A Complete Bubble",
-            link: "null",
-            date: "04/17/2020"
-        },
-        {
             id: 3,
             title: "Future of the Crypto Economy",
             link: "null",
@@ -38,6 +32,12 @@ export default function articles () {
             link: "null",
             date: "04/08/2020"
         },
+        {
+            id: 5,
+            title: "More To Come",
+            link: "null",
+            date: "07/14/2020"
+        }
     ]
 
     return (
