@@ -6,14 +6,16 @@ import {StyledIconBase} from '@styled-icons/styled-icon'
 export const IconStyleWrapper = styled.div`
 
 text-align: center;
+background-color:black;
+margin-top:70px;
 
 @media (min-width: 1024px) {
 
   ${StyledIconBase} {
       height: 35px;
       width: 35px;
-      padding-left: ${px2vw(21)};
-      padding-right: ${px2vw(21)};
+      padding-left: ${px2vw(50)};
+      padding-right: ${px2vw(50)};
       margin-top: ${px2vw(42)};
       margin-bottom: ${px2vw(42)};
     }

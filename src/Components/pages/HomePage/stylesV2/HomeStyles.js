@@ -20,12 +20,10 @@ export const BackgroundImage = styled.div`
 export const ClientInfoWrapper = styled.div`
 
   color: #149414;
-  height: 160px;
+  height: 150px;
   margin-top: 35px;
   padding-top: 5px;
   text-align: center;
-
-
 
   li {
     font-size: 17.5px;
@@ -79,11 +77,12 @@ export const Box = styled.div`
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
 
-  background-color: ${props => props.bgColor};
   height: 100%;
   border-radius: 10px;
 
+
   background-image: url(${props => props.img});
+
   background-repeat: no-repeat;
   background-size:${px2vw(320, 320)} ${px2vw(200, 320)};
 
@@ -148,12 +147,12 @@ export const Box = styled.div`
 `;
 
 export const BoxTitle = styled.h3`
-  color: #333;
+  color: black;
   font-size: 4rem;
   text-align: center;
 
   color: ${props => props.headerColor};
-  
+  margin-top: -90px;
 
   @media (min-width: 1024px) {
     font-size: 3rem;
@@ -167,15 +166,18 @@ export const BoxTitle = styled.h3`
 `;
 
 export const BoxText = styled.p`
-  margin-top: ${px2vw(20)};
+  margin-top: ${px2vw(150)};
   color: #333;
   font-size: 1.5rem;
 
-  color:black;
+
+  color:white;
+
   text-align: center;
 
   @media (min-width: 1024px) {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 
   @media only screen and (max-device-width: 480px) {

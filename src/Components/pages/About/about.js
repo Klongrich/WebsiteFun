@@ -11,7 +11,7 @@ import wallStreet from './wallStree.JPG'
 import SimpleImageSlider from "react-simple-image-slider"
 
 
-export default function about () {
+export default function About () {
     
     const images = [
         { url: myPhoto },

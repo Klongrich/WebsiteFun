@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import './headerComponents/NavBar.css'
-import './pages/HomePage/HomePage'
+import './pages/HomePage/HomePageV2'
 
 import Footer from './footerComponets/Footer';
-import HomePage from './pages/HomePage/HomePage'
 
 import TravelPage from './pages/Travel/travel'
 import Iceland from './pages/Travel/iceland/iceland'  
@@ -28,6 +27,8 @@ import EthAccount from './pages/Crypto/User/EthAccount'
 
 import web3Info from './pages/Crypto/web3Info'
 
+import MainPage from './pages/HomePage/main'
+
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 function App (){
@@ -36,7 +37,7 @@ function App (){
       <div className="App">
       <BrowserRouter>
         <Switch>
-            <Route path="/" exact component={HomePage}/>
+            <Route path="/" exact component={MainPage}/>
        
             <Route path="/travel" exact component={TravelPage}/>
               <Route path="/travel/iceland" exact component={Iceland}/>

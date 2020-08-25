@@ -15,7 +15,7 @@ class Footer extends React.Component {
             <>  
                 <IconStyleWrapper>
                     <SocialLink href="https://github.com/klongrich">
-                        <Github />
+                        <Github color="white"/>
                     </SocialLink>
 
                     <a href="https://twitter.com/longrichk?lang=en">
@@ -27,7 +27,7 @@ class Footer extends React.Component {
                     </a>
 
                     <a href="https://www.instagram.com/longrichk">
-                        <Instagram />
+                        <Instagram color="white"/>
                     </a>
 
                     <a href="">

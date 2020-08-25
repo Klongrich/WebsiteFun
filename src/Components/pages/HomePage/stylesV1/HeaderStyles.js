@@ -5,7 +5,7 @@ export const Header = styled.div`
   display: flex;
   flex-wrap: wrap;
   
-  color: white; 
+  color: black; 
 
   width: 97%;
   height: 74px;
