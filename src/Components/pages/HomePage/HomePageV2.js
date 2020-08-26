@@ -37,6 +37,8 @@ import {TestHeader} from './Header'
 
 import moblieBackground from './stylesV2/moblieBackground.jpg'
 
+import {GlobeAmericas} from '@styled-icons/fa-solid/GlobeAmericas'
+
 
 export const TestBackground = styled.div` 
 
@@ -74,7 +76,7 @@ export const boxData = [
   {
     id: 0,
     title: "Travel",
-    text: "check out some Travel Stories!",
+    text: "Check out some Travel Stories!",
     bgColor: "#D5CAFA",
     hoverColor: "#e3dcfa",
     image: travelImage,
@@ -116,7 +118,9 @@ export const MoblieAreaOfInterst = styled.div `
 
   h2 {
     padding-left: 10px;
- 
+    height: 30px;
+    width: 50%;
+
   };
 
   p {
@@ -137,26 +141,12 @@ export const BlackLine = styled.div `
 
 `
 
-export const Button = styled.a`
-  /* This renders the buttons above... Edit me! */
-  display: inline-block;
-  border-radius: 10px;
-  padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background-color: grey;
-  color: black;
-  border: 2px solid black;
-  width: 90%;
-  text-align: center;
-
-`
 
 export const MoblieBackground = styled.div`
 
+  background-image: linear-gradient(to bottom right, yellow, red);
  
   background-size: 100% 100%;
-
   border: 1px black solid;
 
 `
@@ -185,8 +175,9 @@ export default function HomePage() {
         </h2>
 
         {boxData.map(box => (
+          
           <MoblieAreaOfInterst key={box.id}>
-              <h2> {box.title} </h2>
+              <h2> {box.title} <GlobeAmericas size="21px" color="green" Styles="padding-bottom: 5px; margin-left:30px" /> </h2>
                 <BlackLine />
                  <p> {box.text} </p>
                 
