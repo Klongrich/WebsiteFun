@@ -35,6 +35,9 @@ import TravelPage from '../Travel/travel'
 
 import {TestHeader} from './Header'
 
+import moblieBackground from './stylesV2/moblieBackground.jpg'
+
+
 export const TestBackground = styled.div` 
 
   height: 700px;
@@ -90,7 +93,7 @@ export const boxData = [
   {
     id: 2,
     title: "Stocks",
-    text: "Information regarding the stock market and day trading",
+    text: "Information on the stock market and day trading",
     bgColor: "#F2EE8D",
     hoverColor: "#ebe8a4",
     image: stockImage,
@@ -99,13 +102,64 @@ export const boxData = [
   {
     id: 3,
     title: "Software",
-    text: "Side Projects/ Personal projects I have worked on for fun",
+    text: "Side / Personal projects I have worked on for fun",
     bgColor: "#9FEACD",
     hoverColor: "#bce8d7",
     image: codingImage,
     link: "software"
   }
 ];
+
+export const MoblieAreaOfInterst = styled.div `
+ 
+  margin-bottom: 30px;
+
+  h2 {
+    padding-left: 10px;
+ 
+  };
+
+  p {
+    padding-left: 20px;
+  };
+
+`
+
+export const BlackLine = styled.div `
+  
+  height: 2px;
+  width: 25%;
+  border: 1px black solid;
+  margin-left: 10px;
+  background-color: black;
+
+  margin-top: -10px;
+
+`
+
+export const Button = styled.a`
+  /* This renders the buttons above... Edit me! */
+  display: inline-block;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1rem;
+  width: 11rem;
+  background-color: grey;
+  color: black;
+  border: 2px solid black;
+  width: 90%;
+  text-align: center;
+
+`
+
+export const MoblieBackground = styled.div`
+
+ 
+  background-size: 100% 100%;
+
+  border: 1px black solid;
+
+`
 
 export default function HomePage() {
 
@@ -121,24 +175,44 @@ export default function HomePage() {
   });
 
   const GetContentVersion = () => {
-    return (
-    <>
-     {contentVersion ? (
 
-      <SecondBackground>
-      <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
-      <Container>
+    if (contentVersion && windowSize.width < 480) {
+      return (
+        <>
+        <MoblieBackground>
+        <h2 Style="margin-bottom: 10px; padding-left: 10px; font-size:35px; padding-top:10px;"> 
+          Areas Of Interest 
+        </h2>
+
         {boxData.map(box => (
-          <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
-            <BoxTitle>{box.title}</BoxTitle>
-            <BoxText>{box.text}</BoxText>
-        </Box>
-      ))}
-    </Container>
-
-      </SecondBackground>
-
-      ) : (
+          <MoblieAreaOfInterst key={box.id}>
+              <h2> {box.title} </h2>
+                <BlackLine />
+                 <p> {box.text} </p>
+                
+          </MoblieAreaOfInterst>
+        ))}
+        </MoblieBackground>
+        </>
+      );
+    } else if (contentVersion) {
+      return (
+        <>
+        <SecondBackground>
+        <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
+        <Container>
+          {boxData.map(box => (
+            <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
+              <BoxTitle>{box.title}</BoxTitle>
+              <BoxText>{box.text}</BoxText>
+            </Box>
+           ))}
+          </Container>
+        </SecondBackground>
+      </>
+      );
+    } else { 
+        return (
       <>
       <TestBackground Image={TestImage2}>
         <h2> Porgramming </h2>
@@ -160,10 +234,9 @@ export default function HomePage() {
       <TravelPage />
 
       </>
-      )} 
-    </> 
-    );
-  };
+      );
+    }  
+};
  
   const scrollTop = () => {
     window.scrollTo({top: 650, behavior: 'smooth'});
@@ -225,6 +298,36 @@ export default function HomePage() {
           }).catch(error => alert("Hmm Thats Weird"));
   }, []);
 
+  const MiddleInfo = () => {
+
+    if (windowSize.width > 480) {
+      return (
+        <>
+          <div Style="height: 330px; text-align:center;">
+          <p Style="color:white; font-size: 50px;">
+            Welcome To My Site
+          </p>
+  
+          <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
+       </div>
+       </>
+
+      );
+    } else {
+      return(
+        <>
+        <div Style="height: 240px; text-align:center; margin-top: 110px;">
+          <p Style="color:white; font-size: 35px;">
+            Welcome To My Site
+          </p>
+  
+          <ChevronDownCircle size="75px" color="white" onClick={scrollTop} />
+       </div>
+       </>
+      );
+    }
+
+  }
 
   const ClientInfo = () => {
 
@@ -283,14 +386,8 @@ export default function HomePage() {
     
     <TestHeader width={windowSize.width} height={windowSize.height}/>
 
-    <div Style="height: 330px; text-align:center; padding: 10px;">
-      <p Style="color:white; font-size: 50px;">
-        Welcome To My Site
-      </p>
-
-      <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
-    </div>
-
+    <MiddleInfo />
+    
     <ClientInfo />
 
     </BackgroundImage>
