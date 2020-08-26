@@ -4,7 +4,6 @@ import px2vw from "../../../../../utils/px2vw";
 import Wall_Papper from "./wall_papper.jpg"
 
 export const BackgroundImage = styled.div`
- 
 
     background-image: url(${Wall_Papper});
     background-size: 100% 100%;

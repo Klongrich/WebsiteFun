@@ -22,8 +22,6 @@ import {ChevronDownCircle} from '@styled-icons/boxicons-regular/ChevronDownCircl
 
 
 import {Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfoWrapper} from "./stylesV2/HomeStyles"
-import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./stylesV2/HeaderStyles"
-import {InfoButton} from "./stylesV2/HomeStyles"
 
 import About from "../About/about"
 
@@ -34,6 +32,8 @@ import TestImage2 from './stylesV2/coddingBackground.jpg'
 import TestImage3 from './stylesV2/crypto1.jpg'
 
 import TravelPage from '../Travel/travel'
+
+import {TestHeader} from './Header'
 
 export const TestBackground = styled.div` 
 
@@ -58,7 +58,6 @@ export const TestBackground = styled.div`
   }
   
 `;
-
 
 export const SecondBackground = styled.div` 
 
@@ -107,24 +106,6 @@ export const boxData = [
     link: "software"
   }
 ];
-
-const headerData = [
-  {
-    id: 0,
-    text: "Articles",
-    link: "/articles"
-  } ,
-  {
-    id: 1,
-    text: "About",
-    link: "/about"
-  },
-  {
-    id: 2,
-    text: "Website Source Code",
-    link: "https://github.com/Klongrich/WebsiteFun"
-  }
-]
 
 export default function HomePage() {
 
@@ -245,6 +226,39 @@ export default function HomePage() {
   }, []);
 
 
+  const ClientInfo = () => {
+    if(windowSize.width > 480) {
+      return (
+        <>
+          <ClientInfoWrapper> 
+            <h2> Client Info</h2>
+              <ul>
+                <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+                <li> Version: <b> {browserInfo.version} </b> </li> 
+                <li> OS: <b> {browserInfo.os} </b> </li> 
+                <li> IP: <b> {ipAdress} </b> </li>
+                <li> State: <b> {ipInfo.region} </b> </li>
+                <li> City: <b> {ipInfo.city} </b> </li> 
+              </ul>
+          </ClientInfoWrapper> 
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h2> Client Info</h2>
+            <ul>
+              <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+              <li> Version: <b> {browserInfo.version} </b> </li> 
+              <li> OS: <b> {browserInfo.os} </b> </li> 
+              <li> IP: <b> {ipAdress} </b> </li>
+              <li> State: <b> {ipInfo.region} </b> </li>
+              <li> City: <b> {ipInfo.city} </b> </li> 
+            </ul>
+        </>
+      );
+    }
+  }
 
   return (
 
@@ -253,19 +267,7 @@ export default function HomePage() {
 
     <BackgroundImage>
     
-    <Header> 
-      <HeaderOffSet>
-      Kyle Longrich
-      </HeaderOffSet>
-      
-      {headerData.map(data => (
-        <HeaderLinks>
-          <HeaderText key={data.id} as="a" href={data.link}> {data.text} </HeaderText>
-        </HeaderLinks>
-      ))}
-
-
-    </Header>
+    <TestHeader width={windowSize.width} height={windowSize.height}/>
 
     <div Style="height: 330px; text-align:center">
       <p Style="color:white; font-size: 50px;">
@@ -276,16 +278,16 @@ export default function HomePage() {
     </div>
 
     <ClientInfoWrapper> 
-      <h2> Client Info</h2>
-        <ul>
-          <li> Broswer: <b>{browserInfo.browser} </b> </li> 
-          <li> Version: <b> {browserInfo.version} </b> </li> 
-          <li> OS: <b> {browserInfo.os} </b> </li> 
-          <li> IP: <b> {ipAdress} </b> </li>
-          <li> State: <b> {ipInfo.region} </b> </li>
-          <li> City: <b> {ipInfo.city} </b> </li> 
-        </ul>
-    </ClientInfoWrapper> 
+            <h2> Client Info</h2>
+              <ul>
+                <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+                <li> Version: <b> {browserInfo.version} </b> </li> 
+                <li> OS: <b> {browserInfo.os} </b> </li> 
+                <li> IP: <b> {ipAdress} </b> </li>
+                <li> State: <b> {ipInfo.region} </b> </li>
+                <li> City: <b> {ipInfo.city} </b> </li> 
+              </ul>
+    </ClientInfoWrapper>
 
     </BackgroundImage>
 
@@ -297,7 +299,7 @@ export default function HomePage() {
 
     <GetContentVersion />
 
-  <Footer />
+    <Footer />
 
     </div>
     </>

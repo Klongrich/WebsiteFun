@@ -11,7 +11,7 @@ export const Header = styled.div`
   height: 74px;
   padding-top: ${px2vw(42)};
   padding-left: ${px2vw(32)};
-  font-size: 42px;
+  font-size: 38px;
 
 
   @media only screen and (max-device-width: 480px) {
