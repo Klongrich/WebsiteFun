@@ -40,11 +40,11 @@ export const ClientInfoWrapper = styled.div`
 export const ClientInfoMoblie = styled.div`
   color: #149414;
   margin-top: 10px;
-  height: 230px;
+  height: 268px;
   
   h2 {
     text-align: center;
-    margin-top: -10px;
+    margin-top: -30px;
     margin-bottom: -10px;
   }
 

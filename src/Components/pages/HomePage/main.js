@@ -11,7 +11,7 @@ import {StyledIconBase} from '@styled-icons/styled-icon'
 
 export const ImageSlider = styled.div`
 
-    padding-left: 95%;
+    padding-left: 90%;
     margin-bottom: -45px;
     visibility: ${props => props.show};
 ` 
@@ -20,7 +20,7 @@ export const Version = styled.p`
 
     margin-bottom: -24px;
     text-align: right;
-    padding-right: 6%;
+    padding-right: 11%;
     color: ${props => props.color}
 `
 

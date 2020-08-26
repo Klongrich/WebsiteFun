@@ -39,6 +39,8 @@ import moblieBackground from './stylesV2/moblieBackground.jpg'
 
 import {GlobeAmericas} from '@styled-icons/fa-solid/GlobeAmericas'
 
+import {ArrowForward} from '@styled-icons/evaicons-solid/ArrowForward'
+
 
 export const TestBackground = styled.div` 
 
@@ -144,9 +146,9 @@ export const BlackLine = styled.div `
 
 export const MoblieBackground = styled.div`
 
-  background-image: linear-gradient(to bottom right, yellow, red);
+  background-image: linear-gradient(to bottom right, #a6c8ff, #0d2b5c);
  
-  background-size: 100% 100%;
+  background-size: 100% 800px;
   border: 1px black solid;
 
 `
@@ -170,16 +172,20 @@ export default function HomePage() {
       return (
         <>
         <MoblieBackground>
-        <h2 Style="margin-bottom: 10px; padding-left: 10px; font-size:35px; padding-top:10px;"> 
+        <h2 Style="padding-left: 10px; font-size:35px; height: 50px; "> 
           Areas Of Interest 
         </h2>
 
         {boxData.map(box => (
-          
-          <MoblieAreaOfInterst key={box.id}>
-              <h2> {box.title} <GlobeAmericas size="21px" color="green" Styles="padding-bottom: 5px; margin-left:30px" /> </h2>
+            <MoblieAreaOfInterst key={box.id}>
+              <h2> {box.title} </h2>
                 <BlackLine />
-                 <p> {box.text} </p>
+                 <p> {box.text} 
+                 
+                 <a href={box.link}>
+                  <ArrowForward size="22px" Styles="padding-bottom: 3px;" /> 
+                 </a>
+                 </p>
                 
           </MoblieAreaOfInterst>
         ))}
@@ -383,12 +389,13 @@ export default function HomePage() {
 
     </BackgroundImage>
 
+{/*
     <div Style="margin-bottom:-32px; margin-left:91%">
       <a Style="color: blue; text-decoration:underline; margin-top:2px;" onClick={() => switchContentVersion()}>
         {buttonText}
       </a>
     </div>
-
+*/}
     <GetContentVersion />
 
     <Footer />
