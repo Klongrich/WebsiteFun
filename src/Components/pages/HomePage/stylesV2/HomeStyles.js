@@ -9,10 +9,9 @@ export const BackgroundImage = styled.div`
     background-image: url(${spacepic});
     background-size: 100% 100%;
 
-    @media only screen and (max-device-width: 480px) {
-      /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-      background-color:#363636;
-     }
+     @media only screen and (max-device-width: 480px) {
+      margin-top: 0px;
+    }
 `;
 
 
@@ -39,23 +38,26 @@ export const ClientInfoWrapper = styled.div`
 
 export const ClientInfoMoblie = styled.div`
   color: #149414;
-  margin-top: 10px;
-  height: 268px;
+  margin-top: -30px;
+  height: 697.84px;
+
   
+  padding-top: 50px;
+
   h2 {
     text-align: center;
-    margin-top: -30px;
+    font-size: 3.57em;
     margin-bottom: -10px;
   }
 
   ul{
     float: left;
-    padding-right: 0px;
+    padding-left: 70.4px;
   }
 
   li {
     font-size: ${props => props.fontSize};
-    padding-top: 30px;
+    padding-top: 42.4px;
   }
 
 `

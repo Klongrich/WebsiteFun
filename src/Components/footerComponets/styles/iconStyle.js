@@ -19,11 +19,11 @@ ${StyledIconBase} {
 
   @media only screen and (max-device-width: 480px) {
    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-   background-color:#363636;
+   background-color: black;
 
     ${StyledIconBase} {
-      height: 75px;
-      width: 75px;
+      height: 83.3px;
+      width: 83.3px;
       margin-bottom: ${px2vw(62)};
       margin-top: ${px2vw(62)};
       padding-left: ${px2vw(62)};
@@ -37,7 +37,7 @@ export const SocialLink = styled.a`
 
   @media only screen and (max-device-width: 480px) {
     /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-    margin-left: -500px;
+    margin-left: 0px;
    }
 `
 

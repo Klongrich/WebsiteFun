@@ -79,6 +79,7 @@ export const boxData = [
     id: 0,
     title: "Travel",
     text: "Check out some Travel Stories!",
+    moblieText: "Travel Stories",
     bgColor: "#D5CAFA",
     hoverColor: "#e3dcfa",
     image: travelImage,
@@ -88,6 +89,7 @@ export const boxData = [
     id: 1,
     title: "Crypto",
     text: "Thoughts and Information on Crypto",
+    moblieText: "Information On Crypto",
     bgColor: "null",
     hoverColor: "#ebbebe",
     image: cryptoImage,
@@ -98,6 +100,7 @@ export const boxData = [
     id: 2,
     title: "Stocks",
     text: "Information on the stock market and day trading",
+    moblieText: "The Stock Market",
     bgColor: "#F2EE8D",
     hoverColor: "#ebe8a4",
     image: stockImage,
@@ -107,6 +110,7 @@ export const boxData = [
     id: 3,
     title: "Software",
     text: "Side / Personal projects I have worked on for fun",
+    moblieText: "Side / Personal Projects",
     bgColor: "#9FEACD",
     hoverColor: "#bce8d7",
     image: codingImage,
@@ -116,30 +120,31 @@ export const boxData = [
 
 export const MoblieAreaOfInterst = styled.div `
  
-  margin-bottom: 30px;
+  margin-bottom: 71.4px;
 
   h2 {
-    padding-left: 10px;
-    height: 30px;
+    padding-left: 23.8px;
+    height: 71.4px;
     width: 50%;
-
+    font-size: 4.57em;
   };
 
   p {
-    padding-left: 20px;
+    padding-left: 47.6px;
+    font-size: 2.57em;
   };
 
 `
 
 export const BlackLine = styled.div `
   
-  height: 2px;
+  height: 4.76px;
   width: 25%;
-  border: 1px black solid;
-  margin-left: 10px;
+  border: 2.38px black solid;
+  margin-left: 23.8px;
   background-color: black;
 
-  margin-top: -10px;
+  margin-top: -23.8px;
 
 `
 
@@ -148,8 +153,33 @@ export const MoblieBackground = styled.div`
 
   background-image: linear-gradient(to bottom right, #a6c8ff, #0d2b5c);
  
-  background-size: 100% 800px;
-  border: 1px black solid;
+  background-size: 100% 100%;
+  border: 2.38px black solid;
+
+`
+
+export const MoblieButton = styled.div`
+
+  margin-top: 40px;
+  margin-left: 5%;
+
+ padding-top: 0px;
+
+  font-size: 2.57em;
+  text-align: center;
+
+  width: 80%;
+
+  height: 80px;
+  border-radius: 80px;
+  border: 7px #6685ff solid;
+
+  padding-left: 47.6px;
+  font-size: 3em;
+
+  font-family: sans-serif;
+  color: white;
+  background-color: #0336ff
 
 `
 
@@ -168,11 +198,11 @@ export default function HomePage() {
 
   const GetContentVersion = () => {
 
-    if (contentVersion && windowSize.width < 480) {
+    if (contentVersion && windowSize.width < 999) {
       return (
         <>
         <MoblieBackground>
-        <h2 Style="padding-left: 10px; font-size:35px; height: 50px; "> 
+        <h2 Style="padding-left: 23.8px; font-size:83.3px; height: 119px; "> 
           Areas Of Interest 
         </h2>
 
@@ -180,12 +210,11 @@ export default function HomePage() {
             <MoblieAreaOfInterst key={box.id}>
               <h2> {box.title} </h2>
                 <BlackLine />
-                 <p> {box.text} 
-                 
-                 <a href={box.link}>
-                  <ArrowForward size="22px" Styles="padding-bottom: 3px;" /> 
+                  <a href={box.link}>
+                    <MoblieButton>
+                      {box.moblieText} <ArrowForward size="82px" /> 
+                    </MoblieButton>
                  </a>
-                 </p>
                 
           </MoblieAreaOfInterst>
         ))}
@@ -236,8 +265,12 @@ export default function HomePage() {
 };
  
   const scrollTop = () => {
-    window.scrollTo({top: 650, behavior: 'smooth'});
+    window.scrollTo({top: 665, behavior: 'smooth'});
   };
+
+  const scrollMoblie = () => {
+    window.scrollTo({top: 1747, behavior: 'smooth'});
+  }
 
   function switchContentVersion() {
     if (contentVersion == true) {
@@ -297,7 +330,7 @@ export default function HomePage() {
 
   const MiddleInfo = () => {
 
-    if (windowSize.width > 480) {
+    if (windowSize.width > 999) {
       return (
         <>
           <div Style="height: 330px; text-align:center;">
@@ -313,12 +346,13 @@ export default function HomePage() {
     } else {
       return(
         <>
-        <div Style="height: 240px; text-align:center; margin-top: 110px;">
-          <p Style="color:white; font-size: 35px;">
+        <div Style="height: 531.2px; text-align:center; margin-top: 100.8px; padding-top:40px">
+          <p Style="color:white; font-size: 90.2px;">
             Welcome To My Site
           </p>
-  
-          <ChevronDownCircle size="75px" color="white" onClick={scrollTop} />
+          <div Style="margin-top: 0px;">
+          <ChevronDownCircle size="158.5px" color="white" onClick={scrollMoblie} />
+          </div>
        </div>
        </>
       );
@@ -328,15 +362,9 @@ export default function HomePage() {
 
   const ClientInfo = () => {
 
-    var fontsize;
+    var fontsize = "42.08px"
 
-    if (windowSize.width < 400) {
-      fontsize = "14px"
-    } else {
-      fontsize = "16px"
-    }
-
-    if(windowSize.width > 480) {
+    if(windowSize.width > 999) {
       return (
         <>
           <ClientInfoWrapper> 

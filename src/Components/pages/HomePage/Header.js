@@ -31,23 +31,23 @@ export const HeaderLinks = styled.div`
 
 export const MoblieHeader = styled.div`
 
-  padding-top: 25px;
-  padding-left: 15px;
+  padding-top: 59.5px;
+  padding-left: 35.7px;
 
   color: white;
-  font-size: 42px;
+  font-size: 100px;
 
 `;
 
 export const MoblieLinks = styled.div`
 
    float: left;
-   padding-top: 30px;
-   padding-bottom: 30px;
+   padding-top: 71.4px;
+   padding-bottom: 71.4px;
 
     a {
-        padding-left: 15px;
-        font-size: 18px;
+        padding-left: 35.7px;
+        font-size: 42px;
         color: #bf4343;
         text-decoration: underline;
     }
@@ -64,7 +64,7 @@ const Links = () => {
 }
 
 export const TestHeader = ({width, height}) => {
-    if (width > 480) {
+    if (width > 999) {
         return (
             <>
             <Header>
