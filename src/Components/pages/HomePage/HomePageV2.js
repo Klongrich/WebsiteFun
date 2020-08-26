@@ -29,9 +29,7 @@ import About from "../About/about"
 
 import Footer from "../../footerComponets/Footer"
 
-import Background2 from "./stylesV2/background4.jpg"
-
-import TestImage from './stylesV2/stocks2.jpeg'
+import TestImage from './stylesV2/data-original.jpg'
 import TestImage2 from './stylesV2/coddingBackground.jpg'
 import TestImage3 from './stylesV2/crypto1.jpg'
 
@@ -55,6 +53,8 @@ export const TestBackground = styled.div`
   p{
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
   }
   
 `;
@@ -131,12 +131,87 @@ export default function HomePage() {
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
+  const [contentVersion, setContentVersion] = useState(true);
+  const [buttonText, setButtonText] = useState("Version 2.1");
 
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  const GetContentVersion = () => {
+    return (
+    <>
+     {contentVersion ? (
+
+      <SecondBackground>
+      <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
+      <Container>
+        {boxData.map(box => (
+          <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
+            <BoxTitle>{box.title}</BoxTitle>
+            <BoxText>{box.text}</BoxText>
+        </Box>
+      ))}
+    </Container>
+
+      </SecondBackground>
+
+      ) : (
+      <>
+      <TestBackground Image={TestImage2}>
+        <h2> Porgramming </h2>
+        <p> Projects that I've worked on over the past serveal years</p>
+        <br />
+        <p Style="font-size:25px;">(Expermential Not sure If I like the one page format or not)</p>
+      </TestBackground>
+
+      <TestBackground Image={TestImage3}>
+        <h2> Crypto </h2>
+        <p> Information about different crypto currencys</p>
+      </TestBackground>
+
+      <TestBackground Image={TestImage}>
+        <h2> Stocks </h2>
+        <p> Information That I have learned in the stock market over the past 5 years</p>
+      </TestBackground>
+      
+      <TravelPage />
+
+      </>
+      )} 
+    </> 
+    );
+  };
+ 
   const scrollTop = () => {
     window.scrollTo({top: 650, behavior: 'smooth'});
   };
 
+  function switchContentVersion() {
+    if (contentVersion == true) {
+      setContentVersion(false);
+      setButtonText("Version2.2");
+    } else {
+      setContentVersion(true);
+      setButtonText("Version2.1");
+    }
+}
+
   useEffect(() =>  {
+
+    function handleResize() {
+
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+  }
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
     fetch(process.env.REACT_APP_API_BROSWERINFO, {
       method: 'GET',
       headers: {
@@ -169,12 +244,11 @@ export default function HomePage() {
           }).catch(error => alert("Hmm Thats Weird"));
   }, []);
 
- 
+
 
   return (
 
     <>
- 
     <div class="background">
 
     <BackgroundImage>
@@ -215,41 +289,14 @@ export default function HomePage() {
 
     </BackgroundImage>
 
+    <div Style="margin-bottom:-32px; margin-left:91%">
+      <a Style="color: blue; text-decoration:underline; margin-top:2px;" onClick={() => switchContentVersion()}>
+        {buttonText}
+      </a>
+    </div>
 
-  <SecondBackground>
-    <h2 Style="margin-bottom: 110px; text-align:center; font-size:42px; padding-top:10px;"> Areas Of Interest </h2>
-    <Container>
-      {boxData.map(box => (
-        <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
-          <BoxTitle>{box.title}</BoxTitle>
-          <BoxText>{box.text}</BoxText>
-        </Box>
-      ))}
-    </Container>
+    <GetContentVersion />
 
-    </SecondBackground>
-
-
-{/*
-
-    <TestBackground Image={TestImage}>
-      <h2> Stocks </h2>
-      <p> Information That I have learned in the stock market over the past 5 years</p>
-    </TestBackground>
-
-    <TestBackground Image={TestImage2}>
-      <h2> Porgramming </h2>
-      <p> Projects that I've worked on over the past serveal years</p>
-    </TestBackground>
-
-    <TestBackground Image={TestImage3}>
-      <h2> Crypto </h2>
-      <p> Information about different crypto currencys</p>
-    </TestBackground>
-    
-    <TravelPage />
-*/}
-    
   <Footer />
 
     </div>

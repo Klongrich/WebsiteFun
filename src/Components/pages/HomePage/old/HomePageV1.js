@@ -1,5 +1,5 @@
 import React , {useEffect, useState} from "react";
-import Global from "../../../styles/global";
+import Global from "../../../../styles/global";
 import styled from "styled-components";
 
 

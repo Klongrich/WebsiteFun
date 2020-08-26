@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from "react";
 
 import HomePageV2 from "./HomePageV2"
-import HomePageV1 from "./HomePageV1"
+import HomePageV1 from "./old/HomePageV1"
 
 import {ToggleLeft} from '@styled-icons/boxicons-solid/ToggleLeft'
 import {ToggleRight} from '@styled-icons/boxicons-solid/ToggleRight'
@@ -30,7 +30,7 @@ export default function MainPage () {
     const [color, setColor] = useState("white");
     const [leftSlider, setLeftSlider] = useState ("hidden");
     const [rightSlider, setRightSlider] = useState ("visible")
-    const [vText, setVText] = useState("V2")
+    const [vText, setVText] = useState("V2");    
 
     const SampleComponent = () => {
         return <> {version ? <HomePageV2 /> : <HomePageV1 />} </>;
@@ -41,15 +41,21 @@ export default function MainPage () {
           setVersion(false);
           setColor("black");
           setVText("V1")
+          setRightSlider("hidden");
+          setLeftSlider("visible");
         } else {
           setVersion(true);
           setColor("white");
           setVText("V2");
+          setLeftSlider("hidden");
+          setRightSlider("visible");
         }
     }
     
     return (
         <>
+
+
             <Version color={color}>{vText}</Version>
             <ImageSlider show={leftSlider}>
                 <ToggleLeft size="40px" color={color} onClick={() => switchHomePage()}/>

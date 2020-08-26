@@ -21,7 +21,7 @@ export const ClientInfoWrapper = styled.div`
   color: #149414;
   height: 150px;
   margin-top: 35px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   text-align: center;
 
   ul{
@@ -35,18 +35,6 @@ export const ClientInfoWrapper = styled.div`
     padding-left: 5.5%;
   }
 
-  @media only screen and (max-device-width: 480px) {
-    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-    height: 350px;
-    width: 93.5%;
-    margin-left: 2.5%;
-    background-color: #db6b6b;
-    border-radius: 10pxpadding-left: ${px2vw(21)};
-    padding-right: ${px2vw(21)};;
-    margin-top: 20px;
-    visibility: visible;
-   }
-
 `
 
 export const ClientInfo = styled.div`
@@ -54,27 +42,15 @@ export const ClientInfo = styled.div`
 
   margin-left: 1%;
   width: ${px2vw(220)};
-
-  @media only screen and (max-device-width: 480px) {
-    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-
-    margin-left: 3%;
-
-    width: ${px2vw(620)};
-    font-size: 42px;
-   }
 `
 
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-   margin-bottom: 5%;
+  margin-bottom: 5%;
   max-width: 100%;
-  
-  @media (min-width: 1024px) {
-    flex-wrap: nowrap;
-  }
+  flex-wrap: nowrap;
 `;
 
 export const Box = styled.div`
@@ -107,47 +83,6 @@ export const Box = styled.div`
     height: 100%;
     background-size: ${px2vw(310)} ${px2vw(340)};
   }
-
-  @media only screen and (min-width: 960px) {
-    /* styles for browsers larger than 960px; */
-  }
-  @media only screen and (min-width: 1440px) {
-    /* styles for browsers larger than 1440px; */
-  }
-  @media only screen and (min-width: 2000px) {
-    /* for sumo sized (mac) screens */
-  }
-
-  @media only screen and (max-device-width: 480px) {
-   /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-   display: flex;
-   width: ${px2vw(160, 210)};
-   min-height: ${px2vw(200, 320)};
-   margin-top: 100px;
-   flex-direction: column;
-   background-size:${px2vw(240, 290)} ${px2vw(225, 345)};
-  }
-
-  @media only screen and (device-width: 768px) {
-   /* default iPad screens */
-   width: ${px2vw(320, 768)};
-   min-height: ${px2vw(200, 768)};
-   height: 100%;
-   background-size: ${px2vw(320, 768)} ${px2vw(200, 768)};
-  }
-  
-  /* different techniques for iPad screening */
-  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-    /* For portrait layouts only */
-    width: ${px2vw(320, 768)};
-    min-height: ${px2vw(200, 768)};
-    height: 100%;
-    background-size: ${px2vw(320, 768)} ${px2vw(200, 768)};
-  }
-
-  @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-    /* For landscape layouts only */
-  }
 `;
 
 export const BoxTitle = styled.h3`
@@ -161,12 +96,6 @@ export const BoxTitle = styled.h3`
   @media (min-width: 1024px) {
     font-size: 3rem;
   }
-
-  @media only screen and (max-device-width: 480px) {
-    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-    font-size: 130px;
-
-   }
 `;
 
 export const BoxText = styled.p`
@@ -183,11 +112,5 @@ export const BoxText = styled.p`
     font-size: 1.2rem;
     font-weight: bold;
   }
-
-  @media only screen and (max-device-width: 480px) {
-    /* styles for mobile browsers smaller than 480px; (iPhone) or other phones */
-    font-size: 42px;
-    margin-top: 0px;
-   }
 
 `;
