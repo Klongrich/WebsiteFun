@@ -37,6 +37,29 @@ export const ClientInfoWrapper = styled.div`
 
 `
 
+export const ClientInfoMoblie = styled.div`
+  color: #149414;
+  margin-top: 10px;
+  height: 230px;
+  
+  h2 {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  ul{
+    float: left;
+    padding-right: 0px;
+  }
+
+  li {
+    font-size: ${props => props.fontSize};
+    padding-top: 30px;
+  }
+
+`
+
 export const ClientInfo = styled.div`
   float: left;
 

@@ -21,7 +21,7 @@ import {ToggleRight} from '@styled-icons/boxicons-solid/ToggleRight'
 import {ChevronDownCircle} from '@styled-icons/boxicons-regular/ChevronDownCircle'
 
 
-import {Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfoWrapper} from "./stylesV2/HomeStyles"
+import {ClientInfoMoblie, Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfoWrapper} from "./stylesV2/HomeStyles"
 
 import About from "../About/about"
 
@@ -227,6 +227,15 @@ export default function HomePage() {
 
 
   const ClientInfo = () => {
+
+    var fontsize;
+
+    if (windowSize.width < 400) {
+      fontsize = "14px"
+    } else {
+      fontsize = "16px"
+    }
+
     if(windowSize.width > 480) {
       return (
         <>
@@ -246,15 +255,20 @@ export default function HomePage() {
     } else {
       return (
         <>
+          <ClientInfoMoblie fontSize={fontsize}>
           <h2> Client Info</h2>
             <ul>
               <li> Broswer: <b>{browserInfo.browser} </b> </li> 
               <li> Version: <b> {browserInfo.version} </b> </li> 
-              <li> OS: <b> {browserInfo.os} </b> </li> 
+              <li> OS: <b> {browserInfo.os} </b> </li>
+            </ul>
+
+            <ul> 
               <li> IP: <b> {ipAdress} </b> </li>
               <li> State: <b> {ipInfo.region} </b> </li>
               <li> City: <b> {ipInfo.city} </b> </li> 
             </ul>
+          </ClientInfoMoblie>
         </>
       );
     }
@@ -269,7 +283,7 @@ export default function HomePage() {
     
     <TestHeader width={windowSize.width} height={windowSize.height}/>
 
-    <div Style="height: 330px; text-align:center">
+    <div Style="height: 330px; text-align:center; padding: 10px;">
       <p Style="color:white; font-size: 50px;">
         Welcome To My Site
       </p>
@@ -277,17 +291,7 @@ export default function HomePage() {
       <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
     </div>
 
-    <ClientInfoWrapper> 
-            <h2> Client Info</h2>
-              <ul>
-                <li> Broswer: <b>{browserInfo.browser} </b> </li> 
-                <li> Version: <b> {browserInfo.version} </b> </li> 
-                <li> OS: <b> {browserInfo.os} </b> </li> 
-                <li> IP: <b> {ipAdress} </b> </li>
-                <li> State: <b> {ipInfo.region} </b> </li>
-                <li> City: <b> {ipInfo.city} </b> </li> 
-              </ul>
-    </ClientInfoWrapper>
+    <ClientInfo />
 
     </BackgroundImage>
 

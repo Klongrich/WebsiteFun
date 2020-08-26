@@ -42,8 +42,8 @@ export const MoblieHeader = styled.div`
 export const MoblieLinks = styled.div`
 
    float: left;
-   padding-top: 20px;
-   padding-bottom: 50px;
+   padding-top: 30px;
+   padding-bottom: 30px;
 
     a {
         padding-left: 15px;
