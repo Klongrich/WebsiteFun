@@ -7,6 +7,8 @@ import ETHpic from './ETH2.jpeg'
 
 import Footer from '../../footerComponets/Footer'
 
+import {PageContent} from './blogpage'
+
 
 const mainPost = {
     title: "DeFi and It's Current State",
@@ -118,62 +120,87 @@ export const BlogPost = styled.div`
       transform: scale(1);
 `
 
-
 export default function Crypto () {
 
-    return (
-        <>
-        <Header>
-            <h2>Crypto Blog</h2>
-        </Header>
-        
-        <Container>
+    const [veiwingPage, setVeiwingPage] = useState(true);
 
+    function updatePage() {
 
-        <BlogPost Image={DeFiPic}
-                  width="40%"
-                  height="340px"
-                  marginLeft="8%"
+        if (veiwingPage) {
+            setVeiwingPage(false);
+        } else {
+            setVeiwingPage(true);
+        }
+    
+    }
+
+    if (veiwingPage == false) {
+        return (
+            <>
+            <Header>
+                <h2> Crypto Blog </h2>
+            </Header>
+            <button onClick={() => updatePage()}>
+                Go back
+            </button>
+            <PageContent />
+
+            <Footer />
+            </>
+        );
+    } else {
+        return (
+            <>
+            <Header>
+                <h2> Crypto Blog </h2>
+            </Header>
+
+            <Container>
+            <BlogPost Image={DeFiPic}
+                      width="40%"
+                      height="340px"
+                      marginLeft="8%"
+                      onClick={() => updatePage()} 
                       >
-            <BlogPostTitles> 
-                <h2>DeFi and It's Current State</h2>
-                <p>09/24/2020</p>
-            </BlogPostTitles>
-        </BlogPost>
-
-        {secondPost.map( data => (
-            <BlogPost Image={ICOpic} 
-                      width="35%"
-                      height="150px"
-                      marginLeft="8%">
-
-                <BlogPostTitles fontSize="14px"
-                                >
-                    <h2>{data.title}</h2>
-                    <p>{data.date}</p>
+                <BlogPostTitles> 
+                    <h2>DeFi and It's Current State</h2>
+                    <p>09/24/2020</p>
                 </BlogPostTitles>
-
             </BlogPost>
-        ))}
-
-        {thridPost.map( data => (
-            <BlogPost Image={data.image} 
-                      width="15%"
-                      height="150px"
-                      marginLeft="8%">
-
-                <BlogPostTitles fontSize="12px"
-                                >
-                    <h2>{data.title}</h2>
-                    <p>{data.date}</p>
-                </BlogPostTitles>
-
-            </BlogPost>
-        ))}
-
-        </Container>
-
+    
+            {secondPost.map( data => (
+                <BlogPost Image={ICOpic} 
+                          width="35%"
+                          height="150px"
+                          marginLeft="8%">
+    
+                    <BlogPostTitles fontSize="14px"
+                                    >
+                        <h2>{data.title}</h2>
+                        <p>{data.date}</p>
+                    </BlogPostTitles>
+    
+                </BlogPost>
+            ))}
+    
+            {thridPost.map( data => (
+                <BlogPost Image={data.image} 
+                          width="15%"
+                          height="150px"
+                          marginLeft="8%">
+    
+                    <BlogPostTitles fontSize="12px"
+                                    >
+                        <h2>{data.title}</h2>
+                        <p>{data.date}</p>
+                    </BlogPostTitles>
+    
+                </BlogPost>
+            ))}
+    
+            </Container>
         <Footer />
-        </>
-    );
+                </>
+        );
+    }
 }
