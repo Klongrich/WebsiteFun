@@ -120,7 +120,10 @@ export default function HomePage() {
     } else {
       return(
         <>
-        <div Style="height: 1271.2px; text-align:center; margin-top: 300.8px; padding-top:40px">
+        <div Style="height: 1271.2px; 
+                    text-align:center; 
+                    margin-top: 300.8px; 
+                    padding-top:40px">
           <p Style="color:#e0e0e0; font-size: 90.2px;">
             Welcome To My Site
           </p>

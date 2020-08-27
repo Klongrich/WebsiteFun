@@ -1,286 +1,179 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
+import DeFiPic from './DeFi.jpg'
+import ICOpic from './ICO2.jpeg'
+import ETHpic from './ETH2.jpeg'
 
-import {Header, Link, HeaderLink, CryptoNavBar} from './Styles/CryptoHomePage'
-import {EmailBox, SubmitButton} from './description/styles/discStyle'
+import Footer from '../../footerComponets/Footer'
 
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 
-import "./Styles/cryptoHome.css"
+const mainPost = {
+    title: "DeFi and It's Current State",
+    date: "09/6/2020",
+    image: DeFiPic
+}
 
-import {Sort} from '@styled-icons/fa-solid/Sort'
-import {Upvote} from '@styled-icons/boxicons-solid/Upvote'
-import {Downvote} from '@styled-icons/boxicons-solid/Downvote'
+const secondPost = [ 
+    {
+        title: "The ICO Craze Of 2017", 
+        date: "08/10/2020",
+        image: ICOpic
+    },
+    {
+        title: "Another Title",
+        date: "07/12/2020",
+        image: null
+    }
+]
 
-import {Ethereum} from '@styled-icons/fa-brands/Ethereum'
-import {Bitcoin} from '@styled-icons/boxicons-logos/Bitcoin'
+const thridPost = [
+    {
+        title: "Ethereum Current State", 
+        date: "08/10/2020",
+        image: ETHpic
+    },
+    {
+        title: "Another Title",
+        date: "07/12/2020",
+        image: null
+    },
+    {
+        title: "Another Title",
+        date: "05/23/2020",
+        image: null
+    },
+    {
+        title: "Another Title",
+        date: "05/23/2020",
+        image: null
+    }
+]
 
-import {ArrowBack} from '@styled-icons/boxicons-regular/ArrowBack'
+export const Container = styled.div`
 
-import Web3 from 'web3'
-
-import CryptoImage from './Styles/pics/cryptoBackground2.png'
-
-export const Background = styled.div`
-
-  background-size: 100% 100%;
+    background-color: blue;
+    border: 1px black solid;
+    height: 610px;
 
 `
 
-const cryptoData = [
-  {
-    id: <Ethereum size="18px" color="#3c3c3d"/>,
-    name: "Ethereum",
-    ticker: "ETH",
-    decentralization: 8.2,
-    coummunity: 9.2,
-    scalabitlity: 6.2,
-    team: 9.4,
-    overall: 8.25,
-    rankUp: 7,
-    rankDown: 2,
-    link: "/Crypto/Etheruem"
-  },
-  {
-    id: <Bitcoin size="22px" color="#f2a900" />,
-    name: "Bitcoin",
-    ticker: "BTC",
-    decentralization: 9.2,
-    coummunity: 7.2,
-    scalabitlity: 4.2,
-    team: 8.1,
-    overall: 6.425,
-    rankUp: 8,
-    rankDown: 4,
-    link: "/Crypto/Bitcoin"
-  },
-  {
-    id: 3,
-    name: "Ripple",
-    ticker: "XRP",
-    decentralization: 2.1,
-    coummunity: 3.2,
-    scalabitlity: 9.2,
-    team: 7.4,
-    overall: 5.475,
-    rankUp: 2,
-    rankDown: 8,
-    link: "/Crypto/Ripple"
-  },
-  {
-    id: 4,
-    name: "Bitcoin Cash",
-    ticker: "BCH",
-    decentralization: 7.2,
-    coummunity: 9.2,
-    scalabitlity: 7.2,
-    team: 7.4,
-    overall: 7.75,
-    rankUp: 3,
-    rankDown: 3,
-    link: "/Crypto/BitcoinCash"
-  },
-  {
-    id: 6,
-    name: "Chain-Link",
-    ticker: "Link",
-    decentralization: 7.2,
-    coummunity: 9.2,
-    scalabitlity: 7.2,
-    team: 7.4,
-    overall: 7.75,
-    rankUp: 3,
-    rankDown: 3,
-    link: "/Crypto/ChainLink"
-  },
-  {
-    id: 5,
-    name: "More To Come",
-    ticker: "N/A",
-    decentralization: 0.1,
-    coummunity: 0.1,
-    scalabitlity: 0.1,
-    team: 0.1,
-    overall: 0.1,
-    rankUp: 9,
-    rankDown: 9,
-    link: "/Crypto"
-  }
-];
+export const Header = styled.div`
 
+    background-color: black;
+    color: white;
 
+    height: 50px;
+    border: 1px black solid;
 
-export default function Crypto() {
+    margin-top: -10px;
 
-  const [ethAmount, setEthAmount] = useState(0);
-  const [walletLink, setWalletLink] = useState("/Crypto");
+`
 
-  useEffect(() => {
+export const BlogPostTitles = styled.div`
 
-    async function loadWeb3() {
-      if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum)
-        await window.ethereum.enable()
-        return(true);
+    background-color: black;
+    color: white;
+
+    opacity: 0.7;
+
+    padding-top: 1px;
+    
+    width: 100%;
+
+    font-size: ${props => props.fontSize};
+
+    position: absolute; 
+    bottom: 0;
+
+`
+
+export const BlogPost = styled.div`
+
+    posistion: realtive; 
+
+    text-align: center;
+    width: ${props => props.width};
+
+    height: ${props => props.height};
+    border: 1px black solid;
+    border-radius: 5px;
+
+    margin-left: ${props => props.marginLeft};
+    margin-top: 3%;
+
+    background-image: url(${props => props.Image});
+    background-size: 100% 100%;
+
+    float: left;
+
+    &:hover {
+        transition-timing-function: ease-in;
+        transition: 0.2s;
+        transform: scale(1.05);
       }
-      else if (window.web3) {
-        window.web3 = new Web3(window.web3.currentProvider)
-        return(true);
-      }
-      else {
-        setEthAmount("What Is a Web3 Wallet?");
-        setWalletLink("/Crypto/web3Info")
-        return(false);
-      }
-    }
+    
+      transition-timing-function: ease-out;
+      transition: 0.25s;
+      transform: scale(1);
+`
 
-    async function getWalletData () {
-      
-      var wallet = await loadWeb3();
-      
-      if (wallet) {
-        const web3 = window.web3
 
-        const accounts = await web3.eth.getAccounts()
-        const address = {account: accounts[0]}.account;
-
-        if (address) {
-          web3.eth.getBalance(address, function (error, wei) {
-            if (!error) {
-                var balance = web3.utils.fromWei(wei, 'ether');
-                setEthAmount("ETH: " + balance);
-                setWalletLink("/Crypto/User/EthAccount");
-                console.log(balance + " ETH");
-            }
-          });
-        }
-      }
-    }
-    getWalletData();
-  })
-  
-
-    const [CryptoInfo, setCryptoInfo] = useState(cryptoData);
-
-    function AscendOverall() {
-      setCryptoInfo([... CryptoInfo].sort((a, b) => b.overall - a.overall)) 
-       console.log(CryptoInfo) 
-    }
-
-    function AscendDecentralization() {
-      setCryptoInfo([... CryptoInfo].sort((a, b) => b.decentralization - a.decentralization)) 
-       console.log(CryptoInfo) 
-    }
-
-    function AscendCommunity() {
-      setCryptoInfo([... CryptoInfo].sort((a, b) => b.coummunity - a.coummunity)) 
-       console.log(CryptoInfo) 
-    }
-
-    function AscendScalability() {
-      setCryptoInfo([... CryptoInfo].sort((a, b) => b.scalabitlity - a.scalabitlity)) 
-       console.log(CryptoInfo) 
-    }
-
-    function AscendTeam() {
-      setCryptoInfo([... CryptoInfo].sort((a, b) => b.team - a.team)) 
-       console.log(CryptoInfo) 
-    }
+export default function Crypto () {
 
     return (
-      <>
-
-        <CryptoNavBar>
-        NavBar coming soon... Don't judge<br />
-            <a href="/" >
-              <ArrowBack size="28px" color="white" />
-            </a>
-
-            <a href={walletLink} Style="color:white; float:right; margin-right:25px">
-              {ethAmount}
-            </a>
-
-            <a href="/LogIn" Style="color:white; float:right; margin-right:25px">
-              Log In
-            </a>
-
-            <a href="/SignUp" Style="color:white; float:right; margin-right:25px">
-              Sign Up
-            </a>
-        </CryptoNavBar>
-
-        <Background>
-
-      <Header>
-          Crypto
-          <HeaderLink href="/Crypto/Discription">Ranking Explanation</HeaderLink> 
-      </Header>
-
-      <Table>
-      <Thead>
-        <Tr>
-          <Th> <Sort size="15px" /></Th>
-          <Th>Name <Sort size="15px" /></Th>
-          <Th>Ticker <Sort size="15px" /></Th>
-          <Th>Decentralizaton <Sort size="15px" onClick={() => AscendDecentralization()} /></Th>
-          <Th>Community <Sort size="15px" onClick={() => AscendCommunity() } /></Th>
-          <Th>Scalabitliy <Sort size="15px" onClick={() => AscendScalability() } /></Th>
-          <Th>Team <Sort size="15px" onClick={() => AscendTeam() } /></Th>
-          <Th>Overall Rank <Sort size="15px" onClick={() => AscendOverall()} /></Th>
-          <Th>-------Votes-------</Th>
-        </Tr>
-      </Thead>
-
-      <Tbody>
-      {CryptoInfo.map(data => (
-        <Tr>
-          <Td>{data.id}</Td>
-          <Td>
-              <Link href={data.link}>{data.name}</Link>
-          </Td>
-          <Td>{data.ticker}</Td>
-          <Td>{data.decentralization}</Td>
-          <Td>{data.coummunity}</Td>
-          <Td>{data.scalabitlity}</Td>
-          <Td>{data.team}</Td>
-          <Td>{data.overall}</Td>
-          <Td>
-            <Upvote size="20px" color="green"/> {data.rankUp} 
-            <Downvote size="20px" color="red"/> {data.rankDown} 
-          </Td>
-        </Tr>  
-      ))}
-      </Tbody>
-    </Table>
-
-    <div Style="margin-left: 30px; margin-top: 30px; line-height: 2; width:95.2%">
-    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> General Overveiw </h2>
-
-    <p> 
-        For more information on each coloumn (Decentralization, Coummunity, Scalabitlity, and Team) 
-        please click the link in the top right conner labeled "Ranking Explained". If you would like
-        more information about each crypto feel free to click on it in the "Name" columon to pull up
-        some short articles I have written up about each one. These articles will provide a general
-        Overview of what each crypto is or, you can visit <a Style="color:blue;" href="https://www.coinmarketcap.com"> Coinmarketcap.com </a> to get even more information
-    </p>
-
-    <p>
-      Also you can enter your email below and be added to an email list for free if you'd like. Not sure
-      How often I will send emails out. Would not be daily but depends on what the market is doing as
-      well as the developement community. Also it would also kind of just be for fun.
-    </p>
-    </div>
-
-    <div Style="margin-left: 30px; margin-top: 15px; line-height: 2; width:95.2%">
-    <h2 Style="border-bottom: 1px black solid; padding-bottom:15px"> Sign Up </h2>
+        <>
+        <Header>
+            <h2>Crypto Blog</h2>
+        </Header>
+        
+        <Container>
 
 
+        <BlogPost Image={DeFiPic}
+                  width="40%"
+                  height="340px"
+                  marginLeft="8%"
+                      >
+            <BlogPostTitles> 
+                <h2>DeFi and It's Current State</h2>
+                <p>09/24/2020</p>
+            </BlogPostTitles>
+        </BlogPost>
 
-    </div>
-    </Background>
-    </>
-    )
+        {secondPost.map( data => (
+            <BlogPost Image={ICOpic} 
+                      width="35%"
+                      height="150px"
+                      marginLeft="8%">
+
+                <BlogPostTitles fontSize="14px"
+                                >
+                    <h2>{data.title}</h2>
+                    <p>{data.date}</p>
+                </BlogPostTitles>
+
+            </BlogPost>
+        ))}
+
+        {thridPost.map( data => (
+            <BlogPost Image={data.image} 
+                      width="15%"
+                      height="150px"
+                      marginLeft="8%">
+
+                <BlogPostTitles fontSize="12px"
+                                >
+                    <h2>{data.title}</h2>
+                    <p>{data.date}</p>
+                </BlogPostTitles>
+
+            </BlogPost>
+        ))}
+
+        </Container>
+
+        <Footer />
+        </>
+    );
 }
-
-

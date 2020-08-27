@@ -2,9 +2,11 @@ import styled from "styled-components";
 import px2vw from "../../../../utils/px2vw";
 
 import spacepic from "./background.jpg";
+import test from "./test2.jpeg"
 
 export const BackgroundImage = styled.div`
  
+
     background-image: url(${spacepic});
     background-size: 100% 100%;
 

@@ -124,6 +124,8 @@ export const MoblieAreaOfInterst = styled.div `
     height: 71.4px;
     width: 50%;
     font-size: 4.57em;
+    font-weight: 800;
+    color: #171717;
   };
   p {
     padding-left: 47.6px;
@@ -137,7 +139,7 @@ export const BlackLine = styled.div `
   width: 25%;
   border: 2.38px black solid;
   margin-left: 23.8px;  
-  background-color: black;
+  background-color: #171717;
 
   margin-top: -23.8px;
 
@@ -148,7 +150,8 @@ export const MoblieButton = styled.div`
   margin-top: 40px;
   margin-left: 5%;
 
- padding-top: 0px;
+ padding-top: 10px;
+ padding-bottom: 10px;
 
   font-size: 2.57em;
   text-align: center;
@@ -166,6 +169,9 @@ export const MoblieButton = styled.div`
   color: #c4c4c4;
   background-color: #0336ff
 
+  box-shadow: 1px 2px;
+  
+
 `
 
 export const GetAreasOfIntrest = ( {width, contentVersion, browserInfo, ipAdress, ipInfo}) => {
@@ -174,13 +180,15 @@ export const GetAreasOfIntrest = ( {width, contentVersion, browserInfo, ipAdress
       return (
         <>
         <MoblieBackground>
-        <h2 Style="padding-left: 23.8px; font-size:83.3px; height: 119px; font-weight: bold "> 
+        <h2 Style="padding-left: 23.8px; 
+                   font-size:83.3px;"
+                   > 
           Areas Of Interest 
         </h2>
 
         {areaOfIntrestData.map(data => (
             <MoblieAreaOfInterst key={data.id}>
-              <h2 Sytle=" font-weight: normal;"> {data.title} </h2>
+              <h2> {data.title} </h2>
                 <BlackLine />
                   <a href={data.link}>
                     <MoblieButton>
