@@ -6,6 +6,8 @@ import {Header, NotVisited, Visited, TravelContainer} from './styles/travelStyle
 import MoblieTravel from './moblieTravel'
 import DesktopTravel from './desktopTravel'
 
+import NewMoblieTravel from './newMoblieTravel'
+
 
 
 export const GetTravelPage = ({width}) => {
@@ -17,7 +19,7 @@ export const GetTravelPage = ({width}) => {
       } else {
         return (
         <>
-            <MoblieTravel />
+            <NewMoblieTravel />
         </>
         );
     }

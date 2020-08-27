@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import 'animate.css'
 
-import mapPic from './pics/worldmap.jpg'
+import mapPic from './pics/worldmap.png'
 
 
 export const TravelContainer = styled.div`
@@ -15,12 +15,10 @@ export const TravelContainer = styled.div`
     background-size: cover;
     text-align: center;
 
-    margin-top: -40px;
-
     padding-top: 80px;
 
     h2 {
-      margin-top: 10px;
+      margin-top: 0px;
       font-size: 50px;
     }
 
@@ -74,7 +72,7 @@ export const ListOfCountries = styled.div`
 
 `
 
-export default function DesktopTravel (){
+export default function MoblieTravel (){
    
       return (
           <>
