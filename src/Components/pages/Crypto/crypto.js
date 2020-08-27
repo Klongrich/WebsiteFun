@@ -6,7 +6,8 @@ import ICOpic from './ICO2.jpeg'
 import ETHpic from './ETH2.jpeg'
 import yamETH from './yamETH3.jpeg'
 import miningPic from './mining.jpeg'
-import bitcoinPic from './bitcoin.jpeg'
+import chainlinkPic from './chainlink4.jpg'
+import btcPic from './btc.jpeg'
 
 import Footer from '../../footerComponets/Footer'
 
@@ -26,9 +27,9 @@ const secondPost = [
         image: ICOpic
     },
     {
-        title: "A Message To Bitcoin Maxi's",
+        title: "What is $LINK?",
         date: "07/12/2020",
-        image: bitcoinPic
+        image: chainlinkPic
     }
 ]
 
@@ -49,9 +50,9 @@ const thridPost = [
         image: miningPic
     },
     {
-        title: "Another Title",
+        title: "Bitcoin",
         date: "05/23/2020",
-        image: null
+        image: btcPic
     }
 ]
 
