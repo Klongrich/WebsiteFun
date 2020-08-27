@@ -17,7 +17,7 @@ import stocks from './pages/Stocks/stocksHomePage'
 
 import softwarePage from './pages/Software/software'
 
-import crypto from './pages/Crypto/crypto'
+import Crypto from './pages/Crypto/crypto'
 
 import MainPage from './pages/HomePage/main'
 
@@ -36,7 +36,7 @@ function App (){
               <Route path="/travel/netherlands" exact component={netherlands}/>
             
 
-            <Route path="/Crypto" exact component={crypto}/>
+            <Route path="/Crypto" exact component={Crypto}/>
 
 
             <Route path="/stocks" exact component={stocks}/>

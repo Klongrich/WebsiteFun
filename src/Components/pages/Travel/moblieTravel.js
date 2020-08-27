@@ -94,7 +94,7 @@ export default function DesktopTravel (){
                             <li><a href="/travel/netherlands"> Netherlands</a></li>
                             <li><a href=""> Belguim</a></li>
                             <li><a href=""> France</a></li>
-                            <li><a href=""> Swtizerland</a></li>
+                            <li><a href=""> Switzerland</a></li>
                             <li><a href=""> Italy</a></li>
                             <li><a href=""> Germany</a></li>
                             <li><a href=""> Denmark</a></li>
