@@ -4,6 +4,9 @@ import styled from "styled-components";
 import DeFiPic from './DeFi.jpg'
 import ICOpic from './ICO2.jpeg'
 import ETHpic from './ETH2.jpeg'
+import yamETH from './yamETH3.jpeg'
+import miningPic from './mining.jpeg'
+import bitcoinPic from './bitcoin.jpeg'
 
 import Footer from '../../footerComponets/Footer'
 
@@ -23,27 +26,27 @@ const secondPost = [
         image: ICOpic
     },
     {
-        title: "Another Title",
+        title: "A Message To Bitcoin Maxi's",
         date: "07/12/2020",
-        image: null
+        image: bitcoinPic
     }
 ]
 
 const thridPost = [
     {
-        title: "Ethereum Current State", 
+        title: "Ethereum", 
         date: "08/10/2020",
         image: ETHpic
     },
     {
-        title: "Another Title",
+        title: "What is $YAM?",
         date: "07/12/2020",
-        image: null
+        image: yamETH
     },
     {
-        title: "Another Title",
+        title: "Mining Explained",
         date: "05/23/2020",
-        image: null
+        image: miningPic
     },
     {
         title: "Another Title",
@@ -54,21 +57,31 @@ const thridPost = [
 
 export const Container = styled.div`
 
-    background-color: blue;
-    border: 1px black solid;
+    background-color: #759ce6;
+    border: 1px black #525252;
     height: 610px;
 
 `
 
 export const Header = styled.div`
 
-    background-color: black;
+    background-color: #20448a;
     color: white;
 
-    height: 50px;
-    border: 1px black solid;
+    height: 60px;
+    border: 1px #525252 solid;
 
     margin-top: -10px;
+
+    h2 { 
+        margin-left: 15px;
+    }
+
+    p {
+        text-align: right;
+        margin-top: -45px;
+        margin-right: 30px;
+    }
 
 `
 
@@ -148,10 +161,13 @@ export default function Crypto () {
             <>
             <Header>
                 <h2> Crypto Blog </h2>
+                <p> V1 </p>
             </Header>
-            <button onClick={() => updatePage()}>
+
+            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
                 Go back
             </button>
+
             <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
             <Footer />
@@ -162,6 +178,7 @@ export default function Crypto () {
             <>
             <Header>
                 <h2> Crypto Blog </h2>
+                <p> V1 </p>
             </Header>
 
             <Container>
@@ -172,7 +189,7 @@ export default function Crypto () {
                       onClick={() => updatePage(
                         mainPost.title,
                         mainPost.date,
-                        "This is some random content"
+                        "Content coming soon ........"
                       )} 
                       >
                 <BlogPostTitles> 
@@ -182,14 +199,14 @@ export default function Crypto () {
             </BlogPost>
     
             {secondPost.map( data => (
-                <BlogPost Image={ICOpic} 
+                <BlogPost Image={data.image} 
                           width="35%"
                           height="150px"
                           marginLeft="8%"
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            "This is some random content"
+                            "Content coming soon ........"
                           )} >
     
                     <BlogPostTitles fontSize="14px"
@@ -209,7 +226,7 @@ export default function Crypto () {
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            "This is some random content"
+                            "Content coming soon ........"
                           )}>
     
                     <BlogPostTitles fontSize="12px"
