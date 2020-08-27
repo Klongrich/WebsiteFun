@@ -5,7 +5,6 @@ import spacepic from "./background.jpg";
 
 export const BackgroundImage = styled.div`
  
-
     background-image: url(${spacepic});
     background-size: 100% 100%;
 
@@ -14,60 +13,6 @@ export const BackgroundImage = styled.div`
     }
 `;
 
-
-export const ClientInfoWrapper = styled.div`
-
-  color: #149414;
-  height: 150px;
-  margin-top: 35px;
-  padding-bottom: 10px;
-  text-align: center;
-
-  ul{
-    padding-right: 30px;
-    padding-top: 10px;
-  }
-
-  li {
-    font-size: 17.5px;
-    float:left;
-    padding-left: 5.5%;
-  }
-
-`
-
-export const ClientInfoMoblie = styled.div`
-  color: #149414;
-  margin-top: -30px;
-  height: 697.84px;
-
-  
-  padding-top: 50px;
-
-  h2 {
-    text-align: center;
-    font-size: 3.57em;
-    margin-bottom: -10px;
-  }
-
-  ul{
-    float: left;
-    padding-left: 70.4px;
-  }
-
-  li {
-    font-size: ${props => props.fontSize};
-    padding-top: 42.4px;
-  }
-
-`
-
-export const ClientInfo = styled.div`
-  float: left;
-
-  margin-left: 1%;
-  width: ${px2vw(220)};
-`
 
 export const Container = styled.div`
   display: flex;
@@ -84,7 +29,6 @@ export const Box = styled.div`
 
   height: 100%;
   border-radius: 10px;
-
 
   background-image: url(${props => props.img});
 
@@ -127,7 +71,6 @@ export const BoxText = styled.p`
   margin-top: ${px2vw(150)};
   color: #333;
   font-size: 1.5rem;
-
 
   color:white;
 

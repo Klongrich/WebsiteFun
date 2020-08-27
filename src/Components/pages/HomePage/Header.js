@@ -12,6 +12,7 @@ export const Header = styled.div`
   
   color: white;
   font-size: 42px;
+
 `;
 
 export const HeaderLinks = styled.div`
@@ -37,19 +38,24 @@ export const MoblieHeader = styled.div`
   color: white;
   font-size: 100px;
 
+  font-weigth: 900;
+
 `;
 
 export const MoblieLinks = styled.div`
+
 
    float: left;
    padding-top: 71.4px;
    padding-bottom: 71.4px;
 
+   font-family: sans-serif;
+
     a {
         padding-left: 35.7px;
         font-size: 42px;
         color: #bf4343;
-        text-decoration: underline;
+        text-decoration: none;
     }
 `
 
