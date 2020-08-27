@@ -122,19 +122,28 @@ export const BlogPost = styled.div`
 
 export default function Crypto () {
 
-    const [veiwingPage, setVeiwingPage] = useState(true);
+    const [veiwingPage, setVeiwingPage] = useState(false);
 
-    function updatePage() {
+    const [pageTitle, setPageTitle] = useState("Title");
+    const [pageDate, setPageDate] = useState("Date");
+    const [pageContent, setPageContent] = useState("Put Content Here");
+
+
+    function updatePage(title, date, content) {
 
         if (veiwingPage) {
             setVeiwingPage(false);
         } else {
+            setPageTitle(title);
+            setPageDate(date);
+            setPageContent(content);
+            
             setVeiwingPage(true);
         }
     
     }
 
-    if (veiwingPage == false) {
+    if (veiwingPage) {
         return (
             <>
             <Header>
@@ -143,7 +152,7 @@ export default function Crypto () {
             <button onClick={() => updatePage()}>
                 Go back
             </button>
-            <PageContent />
+            <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
             <Footer />
             </>
@@ -160,7 +169,11 @@ export default function Crypto () {
                       width="40%"
                       height="340px"
                       marginLeft="8%"
-                      onClick={() => updatePage()} 
+                      onClick={() => updatePage(
+                        mainPost.title,
+                        mainPost.date,
+                        "This is some random content"
+                      )} 
                       >
                 <BlogPostTitles> 
                     <h2>DeFi and It's Current State</h2>
@@ -172,7 +185,12 @@ export default function Crypto () {
                 <BlogPost Image={ICOpic} 
                           width="35%"
                           height="150px"
-                          marginLeft="8%">
+                          marginLeft="8%"
+                          onClick={() => updatePage(
+                            data.title,
+                            data.date,
+                            "This is some random content"
+                          )} >
     
                     <BlogPostTitles fontSize="14px"
                                     >
@@ -187,7 +205,12 @@ export default function Crypto () {
                 <BlogPost Image={data.image} 
                           width="15%"
                           height="150px"
-                          marginLeft="8%">
+                          marginLeft="8%"
+                          onClick={() => updatePage(
+                            data.title,
+                            data.date,
+                            "This is some random content"
+                          )}>
     
                     <BlogPostTitles fontSize="12px"
                                     >

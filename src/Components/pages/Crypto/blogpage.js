@@ -13,10 +13,14 @@ export const Content = styled.div`
 
 `
 
-export const PageContent = () => {
+export const PageContent = ({title, date, content}) => {
     return (
+        <>
         <Content> 
-            <h2>This is some filler text</h2>
+            <h2> {title} </h2>
+            <h1> {date} </h1>
+            <p>  {content} </p>
         </Content>
+        </>
     );
 }
