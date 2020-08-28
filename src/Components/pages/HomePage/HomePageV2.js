@@ -6,6 +6,7 @@ import * as Scroll from 'react-scroll';
 
 import {ChevronDownCircle} from '@styled-icons/boxicons-regular/ChevronDownCircle'
 
+import FadeIn from 'react-fade-in';
 
 import {BackgroundImage} from "./stylesV2/HomeStyles"
 
@@ -102,11 +103,14 @@ export default function HomePage() {
       return (
         <>
           <div Style="height: 330px; text-align:center;">
+
+        <FadeIn transitionDuration="1600" delay="600"> 
           <p Style="color:white; font-size: 50px;">
             Welcome To My Site
           </p>
-  
+
           <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
+        </FadeIn>
        </div>
 
        <ClientInfo width={windowSize.width} 
@@ -124,12 +128,17 @@ export default function HomePage() {
                     text-align:center; 
                     margin-top: 300.8px; 
                     padding-top:40px">
+          
+          <FadeIn transitionDuration="1600" delay="600"> 
+
           <p Style="color:#e0e0e0; font-size: 90.2px;">
             Welcome To My Site
           </p>
           <div Style="margin-top: 0px;">
           <ChevronDownCircle size="158.5px" color="#e0e0e0" onClick={scrollMoblie} />
+          
           </div>
+          </FadeIn>
        </div>
        </>
       );
@@ -144,7 +153,9 @@ export default function HomePage() {
 
     <BackgroundImage>
     
-    <TestHeader width={windowSize.width} height={windowSize.height}/>
+    <FadeIn transitionDuration="1600" delay="0">
+      <TestHeader width={windowSize.width} height={windowSize.height}/>
+    </FadeIn>
 
     <MiddleInfo />
 

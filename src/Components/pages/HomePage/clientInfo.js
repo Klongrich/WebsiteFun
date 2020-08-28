@@ -1,6 +1,9 @@
 import React , {useEffect, useState} from "react";
 import styled from "styled-components";
 
+import FadeIn from 'react-fade-in';
+
+
 export const ClientInfoWrapper = styled.div`
 
   color: #149414;
@@ -61,14 +64,34 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
           return (
             <>
               <ClientInfoWrapper> 
+
+              <FadeIn transitionDuration="1600" delay="1250">
                 <h2> Client Info</h2>
+                </FadeIn>
                   <ul>
-                    <li> Broswer: <b>{browserInfo.browser} </b> </li> 
-                    <li> Version: <b> {browserInfo.version} </b> </li> 
+                    <FadeIn transitionDuration="1600" delay="1250">
+                      <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+                    </FadeIn>
+
+                    <FadeIn transitionDuration="1600" delay="1500">
+                      <li> Version: <b> {browserInfo.version} </b> </li>
+                    </FadeIn> 
+
+                    <FadeIn transitionDuration="1600" delay="1750">
                     <li> OS: <b> {browserInfo.os} </b> </li> 
+                    </FadeIn>
+
+                    <FadeIn transitionDuration="1600" delay="2000">
                     <li> IP: <b> {ipAdress} </b> </li>
+                    </FadeIn>
+
+                    <FadeIn transitionDuration="1600" delay="2250">
                     <li> State: <b> {ipInfo.region} </b> </li>
+                    </FadeIn>
+
+                    <FadeIn transitionDuration="1600" delay="2500">
                     <li> City: <b> {ipInfo.city} </b> </li> 
+                    </FadeIn>
                   </ul>
               </ClientInfoWrapper> 
             </>
