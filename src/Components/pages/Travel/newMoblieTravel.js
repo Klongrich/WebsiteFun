@@ -210,7 +210,7 @@ const EasternEurop = [
 
 export const Container = styled.div`
 
-    background-color: #3ebd6b;
+    background-color: #5ca848;
     border: 1px black #309152;
     height: 110%;
 
@@ -275,22 +275,46 @@ export const BlogPost = styled.div`
 
 export const RegionChoice = styled.div`
 
-    background-color: grey;
-
-    height: 330px;
+    height: 270px;
     width: 100%;
 
     text-align: center;
 
-    ul{
-        font-size: 60px;
-        list-style-type: none;
-        margin-right: 60px;
+    font-family: Helvetica;
+
+    margin-top: 70px;
+
+
+`
+
+export const RegionButton = styled.div`
+
+    border: 3px #1d4d1b solid;
+
+    border-bottom: 8px #1d4d1b solid; 
+
+    border-radius: 10px;
+
+    background-color: #2d8029;
+    color: white;
+    font-size: 48px;
+    
+    margin-bottom: 45px;
+    margin-left: 60px;
+
+    height: 90px;
+
+    p {
+        margin-top: 15px;
     }
 
-    li {
-        padding-top: 10px;
+    &:hover {
+        background-color: #42bf3d;
     }
+
+    width: 40%;
+
+    float: left;
 
 `
 
@@ -306,8 +330,6 @@ export default function MoblieCrypto () {
     const [pageContent, setPageContent] = useState("Put Content Here");
 
     const [blogImage, setImage] = useState(IcelandBackground);
-
-    
 
 
     function updatePage(title, date, content, Image) {
@@ -379,14 +401,27 @@ export default function MoblieCrypto () {
                        > 
                        Visited Countreis </h2>
 
+            
             <RegionChoice>
-            <ul>
-                <li onClick={() => setRegion(All)} > (All) </li>
-                <li onClick={() => setRegion(Scandinavia)} > Scandinavia </li>
-                <li onClick={() => setRegion(WesternEurope)} > Western Europe </li>
-                <li onClick={() => setRegion(EasternEurop)} > Eastern Europe</li>
-            </ul>
+          
+                <RegionButton>
+                    <p onClick={() => setRegion(All)} > All </p>
+                </RegionButton>
+
+                <RegionButton>
+                    <p onClick={() => setRegion(Scandinavia)} > Scandinavia </p>
+                </RegionButton>
+
+                <RegionButton>
+                    <p onClick={() => setRegion(WesternEurope)} > Western Europe </p>
+                </RegionButton>
+
+                <RegionButton>
+                    <p onClick={() => setRegion(EasternEurop)} > Eastern Europe</p>
+                </RegionButton>
+           
             </RegionChoice>
+            
 
             {region.map( data => (
                 <BlogPost Image={data.image} 
