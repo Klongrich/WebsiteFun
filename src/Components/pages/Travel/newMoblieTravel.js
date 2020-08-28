@@ -5,7 +5,7 @@ import MoblieTravel from './moblieTravel'
 
 import Footer from '../../footerComponets/Footer'
 
-import {PageContent} from '../Crypto/blogpage'
+import {PageContent} from './blogpage'
 
 import IcelandFlag from './pics/Iceland.png'
 import NetherelandsFlag from './pics/netherland.png'
@@ -14,10 +14,31 @@ import FranceFlag from './pics/france.png'
 import SwitzerlandFlag from './pics/switzerland.png'
 import ItalyFlag from './pics/italy.png'
 
+import DenmarkFlag from './pics/denmark.png'
 
-const postData = [
+import IcelandBackground from './iceland/icelandbackground.jpg'
+import NetherlandBackground from './netherlands/netherlands-background.jpg'
+
+
+import GernmanyFlag from './pics/germany.jpeg'
+import SwedenFlag from './pics/sweden.png'
+import NorwayFlag from './pics/norway.png'
+
+import PolandFlag from './pics/poland.png'
+import AustraiFlag from './pics/austria.jpeg'
+import SlovkiaFlag from './pics/slovakia.png'
+import CzehcFlag from './pics/czechrepublic.jpg'
+import HungaryFlag from './pics/hungary.jpeg'
+import CortiaFlag from './pics/cortia.png'
+import SloveniaFlag from './pics/slovenia.png'
+import LiechenstineFlag from './pics/liechenstine.png'
+import UkFlag from './pics/uk.png'
+import IrelandFlag from './pics/ireland.jpg'
+
+const All = [
     {
         title: "Iceland",
+        blogBackground: IcelandBackground,
         image: IcelandFlag
     },
     {
@@ -26,6 +47,7 @@ const postData = [
     },
     {
         title: "Netherlands",
+        blogBackground: NetherlandBackground,
         image: NetherelandsFlag
     },
     {
@@ -39,17 +61,161 @@ const postData = [
     {
         title: "Italy",
         image: ItalyFlag
+    },
+    {
+        title: "Germany",
+        image: GernmanyFlag
+    },
+    {
+        title: "Denmark",
+        image: DenmarkFlag
+    },
+    {
+        title: "Sweden",
+        image: SwedenFlag
+    },
+    {
+        title: "Norway",
+        image: NorwayFlag
+    },
+    {
+        title: "Poland",
+        image: PolandFlag
+    },
+    {
+        title: "Austria",
+        image: AustraiFlag
+    },
+    {
+        title: "Slovkia",
+        image: SlovkiaFlag
+    },
+    {
+        title: "Czech Republic",
+        image: CzehcFlag
+    },
+    {
+        title: "Hungary",
+        image: HungaryFlag
+    },
+    {
+        title: "Cortia",
+        image: CortiaFlag
+    },
+    {
+        title: "Slovenia",
+        image: SloveniaFlag
+    },
+    {
+        title: "Liechnstine",
+        image: LiechenstineFlag
+    },
+    {
+        title: "United Kingdom",
+        image: UkFlag
+    },
+    {
+        title: "Ireland",
+        image: IrelandFlag
     }
+    
+]
 
+const Scandinavia = [
+    {
+        title: "Iceland",
+        blogBackground: IcelandBackground,
+        image: IcelandFlag
+    },
+    {
+        title: "Denmark",
+        image: DenmarkFlag
+    },
+    {
+        title: "Sweden",
+        image: SwedenFlag
+    },
+    {
+        title: "Norway",
+        image: NorwayFlag
+    }
+]
+
+const WesternEurope = [
+    {
+        title: "Belguim", 
+        image: BelguimFlag
+    },
+    {
+        title: "Netherlands",
+        blogBackground: NetherlandBackground,
+        image: NetherelandsFlag
+    },
+    {
+        title: "France", 
+        image: FranceFlag
+    },
+    {
+        title: "Switzerland",
+        image: SwitzerlandFlag
+    },
+    {
+        title: "Italy",
+        image: ItalyFlag
+    },
+    {
+        title: "Germany",
+        image: GernmanyFlag
+    },
+    {
+        title: "United Kingdom",
+        image: UkFlag
+    },
+    {
+        title: "Ireland",
+        image: IrelandFlag
+    }
+]
+
+const EasternEurop = [
+    {
+        title: "Slovkia",
+        image: SlovkiaFlag
+    },
+    {
+        title: "Czech Republic",
+        image: CzehcFlag
+    },
+    {
+        title: "Poland",
+        image: PolandFlag
+    },
+    {
+        title: "Austria",
+        image: AustraiFlag
+    },
+    {
+        title: "Hungary",
+        image: HungaryFlag
+    },
+    {
+        title: "Cortia",
+        image: CortiaFlag
+    },
+    {
+        title: "Slovenia",
+        image: SloveniaFlag
+    }
 ]
 
 export const Container = styled.div`
 
     background-color: #3ebd6b;
     border: 1px black #309152;
-    height: 3270px;
+    height: 110%;
 
     padding-top: 15px;
+    padding-bottom: 80px;
 
 `
 
@@ -107,17 +273,44 @@ export const BlogPost = styled.div`
    
 `
 
+export const RegionChoice = styled.div`
+
+    background-color: grey;
+
+    height: 330px;
+    width: 100%;
+
+    text-align: center;
+
+    ul{
+        font-size: 60px;
+        list-style-type: none;
+        margin-right: 60px;
+    }
+
+    li {
+        padding-top: 10px;
+    }
+
+`
+
 export default function MoblieCrypto () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
 
+    const [region, setRegion] = useState(All);
+
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
     const [pageContent, setPageContent] = useState("Put Content Here");
 
+    const [blogImage, setImage] = useState(IcelandBackground);
 
-    function updatePage(title, date, content) {
+    
+
+
+    function updatePage(title, date, content, Image) {
 
         if (veiwingPage) {
             setVeiwingPage(false);
@@ -125,6 +318,7 @@ export default function MoblieCrypto () {
             setPageTitle(title);
             setPageDate(date);
             setPageContent(content);
+            setImage(Image);
             
             setVeiwingPage(true);
         }
@@ -139,6 +333,7 @@ export default function MoblieCrypto () {
         }
     }
 
+
     if (veiwingPage) {
         return (
             <>
@@ -151,7 +346,7 @@ export default function MoblieCrypto () {
                 Go back
             </button>
 
-            <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
+            <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
 
             <Footer />
             </>
@@ -178,13 +373,28 @@ export default function MoblieCrypto () {
 
             <Container>
     
-            <h2 Style="font-size: 80px; text-align: center; color: #163320;"> Visited Countreis </h2>
-            {postData.map( data => (
+            <h2 Style="font-size: 80px; 
+                       text-align: center;
+                       color: #163320;"
+                       > 
+                       Visited Countreis </h2>
+
+            <RegionChoice>
+            <ul>
+                <li onClick={() => setRegion(All)} > (All) </li>
+                <li onClick={() => setRegion(Scandinavia)} > Scandinavia </li>
+                <li onClick={() => setRegion(WesternEurope)} > Western Europe </li>
+                <li onClick={() => setRegion(EasternEurop)} > Eastern Europe</li>
+            </ul>
+            </RegionChoice>
+
+            {region.map( data => (
                 <BlogPost Image={data.image} 
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            "Content coming soon ........"
+                            "Content coming soon ........",
+                            data.blogBackground
                           )} >
     
                     <BlogPostTitles fontSize="14px"
