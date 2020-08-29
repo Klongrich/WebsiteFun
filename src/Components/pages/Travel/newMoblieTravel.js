@@ -18,6 +18,7 @@ import DenmarkFlag from './pics/denmark.png'
 
 import IcelandBackground from './iceland/icelandbackground.jpg'
 import NetherlandBackground from './netherlands/netherlands-background.jpg'
+import SwitzerlandBackground from './pics/switzerlandBlog.jpg'
 
 
 import GernmanyFlag from './pics/germany.jpeg'
@@ -35,7 +36,15 @@ import LiechenstineFlag from './pics/liechenstine.png'
 import UkFlag from './pics/uk.png'
 import IrelandFlag from './pics/ireland.jpg'
 
+
+
+
 const All = [
+    {
+        title: "Switzerland",
+        blogBackground: SwitzerlandBackground,
+        image: SwitzerlandFlag
+    },
     {
         title: "Iceland",
         blogBackground: IcelandBackground,
@@ -53,10 +62,6 @@ const All = [
     {
         title: "France", 
         image: FranceFlag
-    },
-    {
-        title: "Switzerland",
-        image: SwitzerlandFlag
     },
     {
         title: "Italy",
@@ -269,8 +274,8 @@ export const BlogPost = styled.div`
     margin-top: 15%;
 
     background-image: url(${props => props.Image});
-    background-size: 100% 100%;
-   
+    background-size: 100% 100%;   
+
 `
 
 export const RegionChoice = styled.div`
@@ -297,7 +302,7 @@ export const RegionButton = styled.div`
 
     background-color: #2d8029;
     color: white;
-    font-size: 48px;
+    font-size: 38px;
     
     margin-bottom: 45px;
     margin-left: 60px;
@@ -305,7 +310,7 @@ export const RegionButton = styled.div`
     height: 90px;
 
     p {
-        margin-top: 15px;
+        margin-top: 25px;
     }
 
     &:hover {
@@ -337,12 +342,16 @@ export default function MoblieCrypto () {
         if (veiwingPage) {
             setVeiwingPage(false);
         } else {
+
             setPageTitle(title);
             setPageDate(date);
             setPageContent(content);
             setImage(Image);
             
             setVeiwingPage(true);
+
+            window.scrollTo(0, 0)
+            
         }
     
     }
@@ -367,7 +376,7 @@ export default function MoblieCrypto () {
             <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
                 Go back
             </button>
-
+         
             <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
 
             <Footer />
@@ -400,6 +409,13 @@ export default function MoblieCrypto () {
                        color: #163320;"
                        > 
                        Visited Countreis </h2>
+
+            <h2 Style="font-size: 50px; 
+                       text-align: center;
+                       color: #163320;
+                       margin-top: -30px"
+                       > 
+                       (Regions) </h2>
 
             
             <RegionChoice>
@@ -440,10 +456,19 @@ export default function MoblieCrypto () {
     
                 </BlogPost>
             ))}
-
             </Container>
+
+            <div Style="visible: false;
+                        transition: width 2s, height 2s, transform 2s;"
+                        > 
+
+                <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
+                    Go back
+                </button>
+                <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
+            </div>
         <Footer />
-            </>
+         </>
         );
     }
 }

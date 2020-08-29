@@ -8,10 +8,9 @@ export const Container = styled.div`
     background-image: url(${props => props.Image});
     background-size: 100% 100%;
     border: 1px solid black;
-    height: 1500px;
+    height: 100%;
 
     margin-top: -33px;
-
 `
 
 export const Content = styled.div`
@@ -43,6 +42,7 @@ export const PageContent = ({title, date, content, image}) => {
             <Content> 
                 <h2> {title} </h2>
                 <p Style="margin-left: 30px; font-size: 40px">  {content} </p>
+                testing
             </Content>
         </Container>
         </>
