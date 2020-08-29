@@ -13,6 +13,8 @@ export const BackgroundImage = styled.div`
      @media only screen and (max-device-width: 480px) {
       margin-top: 0px;
     }
+
+    font-family: Helvetica;
 `;
 
 
@@ -23,9 +25,14 @@ export const Container = styled.div`
   margin-bottom: 5%;
   max-width: 100%;
   flex-wrap: nowrap;
+
+  font-family: Helvetica;
 `;
 
 export const Box = styled.div`
+
+font-family: Helvetica;
+
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
 

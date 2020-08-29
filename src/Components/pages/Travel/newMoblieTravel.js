@@ -457,16 +457,6 @@ export default function MoblieCrypto () {
                 </BlogPost>
             ))}
             </Container>
-
-            <div Style="visible: false;
-                        transition: width 2s, height 2s, transform 2s;"
-                        > 
-
-                <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
-                    Go back
-                </button>
-                <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
-            </div>
         <Footer />
          </>
         );
