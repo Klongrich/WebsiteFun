@@ -13,11 +13,19 @@ import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
+import DeFiCurrentState from './articles/DeFiCurrentState'
+
+const allfontSizes = {
+    h2: "50px",
+    p: "30px",
+    li: "30px"
+}
 
 const postData = [
     {
         title: "DeFi and It's Current State",
         date: "09/6/2020",
+        content: DeFiCurrentState,
         image: DeFiPic
     },
     {
@@ -130,7 +138,7 @@ export default function MoblieCrypto () {
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
-    const [pageContent, setPageContent] = useState("Put Content Here");
+    const [pageContent, setPageContent] = useState(DeFiCurrentState);
 
 
     function updatePage(title, date, content) {
@@ -159,7 +167,7 @@ export default function MoblieCrypto () {
                 Go back
             </button>
 
-            <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
+            <PageContent title={pageTitle} date={pageDate} content={pageContent} fontSize="30px" headerSize="50px" />
 
             <Footer />
             </>
@@ -179,6 +187,7 @@ export default function MoblieCrypto () {
                           onClick={() => updatePage(
                             data.title,
                             data.date,
+                            data.content,
                             "Content coming soon ........"
                           )} >
     

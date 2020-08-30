@@ -21,21 +21,24 @@ export const Content = styled.div`
     margin-bottom: -50px;
     
     border-top: none; 
-    
+
     border: 1px #525252 solid;
 
     h2 {
         text-align: center;
+        font-size: ${props => props.HeaderSize}
     }
 
     h1 {
         text-align: center;
+        font-size: ${props => props.HeaderSize}
     }
 
     p{
         line-height: 2;
         margin-left: 20px;
         margin-right: 20px;
+        font-size: ${props => props.FontSize}
     }
 
     ul {
@@ -44,17 +47,20 @@ export const Content = styled.div`
 
     li {
         padding-top: 10px;
+        font-size: ${props => props.FontSize}
     }
 
     background-color: white;
 
 `
 
-export const PageContent = ({title, date, content}) => {
+export const PageContent = ({title, date, content, fontSize, headerSize}) => {
     return (
         <>
         <Container> 
-            <Content> 
+            <Content FontSize={fontSize}
+                     HeaderSize={headerSize}
+                     > 
                 <h1> {title} </h1>
                 <h2> {date} </h2>
                 <div>

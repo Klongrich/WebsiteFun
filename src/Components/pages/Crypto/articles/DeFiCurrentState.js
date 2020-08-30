@@ -73,7 +73,7 @@ export default function DeFiCurrentState () {
         larger platform. 
         </p>
 
-        <h2> Stable coins / collateralized lending </h2>
+        <h2> Stable Coins / Collateralized Lending </h2>
 
         <p> This is another really good project that is coming out of the DeFi space 
             right now. MakerDAO allows anyone to have access to 50% margin on ETH which 
