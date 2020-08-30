@@ -14,10 +14,13 @@ import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
+import DeFiCurrentState from './articles/DeFiCurrentState'
+
 
 const mainPost = {
     title: "DeFi and It's Current State",
     date: "09/6/2020",
+    content: DeFiCurrentState,
     image: DeFiPic
 }
 
@@ -141,7 +144,7 @@ export default function DesktopCrypto () {
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
-    const [pageContent, setPageContent] = useState("Put Content Here");
+    const [pageContent, setPageContent] = useState(DeFiCurrentState);
 
 
     function updatePage(title, date, content) {
@@ -172,7 +175,7 @@ export default function DesktopCrypto () {
 
             <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
-            <Footer />
+
             </>
         );
     } else {
@@ -191,7 +194,7 @@ export default function DesktopCrypto () {
                       onClick={() => updatePage(
                         mainPost.title,
                         mainPost.date,
-                        "Content coming soon ........"
+                        mainPost.content,
                       )} 
                       >
                 <BlogPostTitles> 

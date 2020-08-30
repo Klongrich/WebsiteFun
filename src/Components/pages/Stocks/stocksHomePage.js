@@ -304,14 +304,14 @@ export default function stocksHomePage () {
                 <li>MarketCap: </li> <p>Total amount the company is worth</p>
                 <li>Volume: </li> <p> Total amount of shares being bought and sold</p>
                 <li>Float: </li> <p>Amount of Shares that are aviable to be tradded publicly</p>
-                <li>Short </li> <p>Taking a negative position on a stock (betting it will go down)</p>
+                <li>Short: </li> <p>Taking a negative position on a stock (betting it will go down)</p>
             </ul>
 
             <ul Style="display: inline-block; margin-left: 50px;">
-                <li>Options</li> <p>  Derivatives based on the value of underlying securities such as stocks. </p>
-                <li>Equites</li> <p> Shares of value issued by a companies. </p>
-                <li>Forex</li> <p> Marketplace where various national currencies are traded</p>
-                <li>Comodittes</li> <p>Materials or primary agricultural products such as copper or coffee.</p>
+                <li>Options: </li> <p>  Derivatives based on the value of underlying securities such as stocks. </p>
+                <li>Equites: </li> <p> Shares of value issued by a companies. </p>
+                <li>Forex: </li> <p> Marketplace where various national currencies are traded</p>
+                <li>Comodittes: </li> <p>Materials or primary agricultural products such as copper or coffee.</p>
             </ul>
             </BasicTerminology>
 
@@ -350,7 +350,7 @@ export default function stocksHomePage () {
                             padding-top: 30px;
                             padding-bottom: 30px;
                             margin-bottom: 20px; 
-                            width: 1500px;"
+                            width: 1250px;"
                             >
                     <li> STOCH: </li>
                         <img Style="margin-top: 30px;
@@ -371,7 +371,7 @@ export default function stocksHomePage () {
                                     margin-bottom: 30px;
                                     margin-left: 50px;
                                     border: 2px black solid;" src={stochExample} />
-                    <li>Link to code: https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java</li>
+                    <li>Link to code: <a href="https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java" > https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java </a> </li>
 
                 </div>
 
@@ -404,6 +404,10 @@ export default function stocksHomePage () {
             </ul>
 
         </BasicInformation>
+
+        <Conclusion>
+            <h1>More To Come ....</h1>
+        </Conclusion>
  
         </>
     )

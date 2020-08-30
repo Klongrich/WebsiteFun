@@ -10,14 +10,19 @@ export const Container = styled.div`
 
 export const Content = styled.div`
 
+    font-family:  Montserrat;
+
     margin-top: 0;
     margin-bottom: 5%;
     margin-left: 10%;
     width: 80%;
-    height: 800px;
+    height: 100%;
 
     margin-bottom: -50px;
-    border: 1px black solid;
+    
+    border-top: none; 
+    
+    border: 1px #525252 solid;
 
     h2 {
         text-align: center;
@@ -25,6 +30,20 @@ export const Content = styled.div`
 
     h1 {
         text-align: center;
+    }
+
+    p{
+        line-height: 2;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        padding-top: 10px;
     }
 
     background-color: white;
@@ -38,7 +57,9 @@ export const PageContent = ({title, date, content}) => {
             <Content> 
                 <h1> {title} </h1>
                 <h2> {date} </h2>
-                <p Style="margin-left: 30px;">  {content} </p>
+                <div>
+                    {content}
+                </div>
             </Content>
         </Container>
         </>
