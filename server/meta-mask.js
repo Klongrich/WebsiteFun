@@ -24,7 +24,7 @@ connector.start().then(() => {
             console.log(balance + " ETH");
         }
     });
-    
+
     cryptoAPI.price('ETH', 'USD')
     .then(prices => {
         eth_price = prices.USD;
@@ -33,5 +33,3 @@ connector.start().then(() => {
     })
     .catch(console.error)
 });
-
-
