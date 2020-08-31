@@ -28,7 +28,7 @@ app.get('/LogIn', function(req, res, next) {
                 })
             } else {
                 
-                bcrypt.compare(req.query.Password, result[0].Password, function(err, isMatch)) {
+                bcrypt.compare(req.query.Password, result[0].Password, function(err, isMatch) {
                     if (err) {
                         throw err;
                     } else if (!isMatch) {
@@ -42,7 +42,7 @@ app.get('/LogIn', function(req, res, next) {
                             match: "Valid"
                         })
                     }
-                }
+                });
             }
             db.close();
         })
