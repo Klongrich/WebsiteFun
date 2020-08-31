@@ -1,19 +1,21 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import styled from "styled-components";
 
-import teslaPic from './TeslaChart2.png'
-import candleStick from './CandelStick.png'
+import teslaPic from './pics/TeslaChart2.png'
+import candleStick from './pics/CandelStick.png'
 
-import macd from './MACD.png'
-import rsi from './RSI.png'
-import stoch from './STOCH.png'
-import coppock from './CoppuckCurve.png'
-import atr from './ATR.png'
+import macd from './pics/MACD.png'
+import rsi from './pics/RSI.png'
+import stoch from './pics/STOCH.png'
+import coppock from './pics/CoppuckCurve.png'
+import atr from './pics/ATR.png'
 
-import stochForumal from "./stochForumal.png"
-import stochExample from "./stochExample.png"
+import stochForumal from "./pics/stochForumal.png"
+import stochExample from "./pics/stochExample.png"
 
-import level2 from './level2.jpg'
+import level2 from './pics/level2.jpg'
+
+import SignUp from './SignUp'
 
 export const Header = styled.div`
  
@@ -228,15 +230,46 @@ export const TeslaChart = styled.div`
 
 `
 
-export default function stocksHomePage () {
+export default function StocksHomePage () {
+
+
+    function setName() {
+        localStorage.setItem('name','testing a new name');
+    }
+
+    function checkName() {
+        let myName = localStorage.getItem('name');
+
+        if (myName) {
+            return (true);
+        } else {
+            return (false);
+        }
+    }
+
+    function GetName() {
+        let myName = localStorage.getItem('name');
+        return (
+            <h2> {myName} </h2>
+        );
+    }
+
+    useEffect( () =>  {
+        if (!checkName()){
+            setName();
+        }
+    });
 
     return (
         <> 
+        
+            <GetName />
+
         <Header>
             <h2>Nav Bar</h2>
 
             <ul>
-                <li> Stocks </li>
+                <li> <a href="/stocks/signup"> SignUp </a> </li>
                 <li> Basic Information </li>
                 <li> Terminology </li>
             </ul>
