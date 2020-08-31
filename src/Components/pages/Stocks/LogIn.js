@@ -21,11 +21,10 @@ export const TextAera = styled.input`
 `
 export default function SignUp () {
 
-    const [email, setEmail] = useState("Enter Email Here");
-    const [password, setPassword] = useState("Enter Password Here");
-    const [hashPassword, setHashPassword] = useState("");
-
-    const [usernameTaken, setUsernameTaken] = useState("");
+    const [email, setEmail] = useState("Email");
+    const [password, setPassword] = useState("Password");
+    
+    const [logInStatus, setLogInStatus] = useState("");
 
 
 
@@ -39,20 +38,22 @@ export default function SignUp () {
         }
     }
 
-    function updateAccountCreation(status) {
+    function updatePage(status) {
 
-        if (status == "Taken") {
-            setUsernameTaken("Taken");
+        if (status == "Vaild") {
+          
+        } else if (status == "Invaild Password") {
+
         } else {
-            setUsernameTaken("Account Created!");
+            
         }
 
     }
 
     function sendUserInfo() {
-        fetch('http://longrichk.com:3012/SignUp?Username=' + email + '&Password=' + password)
+        fetch('http://longrichk.com:3012/LogIn?Username=' + email + '&Password=' + password)
         .then(res => res.json())
-        .then(data => updateAccountCreation(data.Username));
+        .then(data => console.log(setLogInStatus(data.match)));
         
     }
 
@@ -60,12 +61,30 @@ export default function SignUp () {
 
     })
 
-    return (
-        <>
+    if (logInStatus == "Valid"){
+        
+        return (
+            <>
+                <h2>Congrats, Your Logged In!</h2>
 
-        <h2 Style="margin-left: 50px;"> Welcome to SignUp Page</h2>
+                <p Style="font-style: bold">Username: {email}</p>
 
-            <TextAera type="text"
+                <p>
+                    Thank you for creating an account early! Stay tunned for more content.
+                </p>
+
+                <p>
+                    Thank you again.
+                </p>
+            </>
+        )
+
+    } else {
+        return (
+            <>
+                <h2 Style="margin-left: 50px;"> Log In</h2>
+
+        <TextAera   type="text"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       />
@@ -80,10 +99,10 @@ export default function SignUp () {
         <SubmitButton  onClick={() => sendUserInfo() }>
             Submit
         </SubmitButton>
-
-        <h2 Style="margin-left: 50px"> {hashPassword} </h2>
-        <h2 Style="margin-left: 50px">{usernameTaken}</h2>
+        
+        <h2 Style="margin-left: 50px">{logInStatus}</h2>
 
         </>
     )
+    }
 }

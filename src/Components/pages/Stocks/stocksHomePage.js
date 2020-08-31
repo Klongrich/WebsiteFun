@@ -262,15 +262,12 @@ export default function StocksHomePage () {
 
     return (
         <> 
-        
-            <GetName />
-
         <Header>
             <h2>Nav Bar</h2>
 
             <ul>
-                <li> <a href="/stocks/signup"> SignUp </a> </li>
-                <li> Basic Information </li>
+                <li> <a href="/stocks/signup"> Sign Up </a> </li>
+                <li> <a href="/stocks/login"> Log In </a> </li>
                 <li> Terminology </li>
             </ul>
         </Header>

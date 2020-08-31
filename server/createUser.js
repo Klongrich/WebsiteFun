@@ -7,6 +7,8 @@ const cors = require('cors');
 
 const app = express();
 
+require('dotenv').config();
+
 app.use(bodyParser.urlencoded( {extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -19,18 +21,25 @@ function createUser(username, password) {
         var dbo = db.db(process.env.USER_DATABASE);
         console.log("connected");
 
-        dbo.collection(proccess.env.USER_COLLECTION).insertOne({
-            Username: username,
-            Password: password
-        }),
-        function(err, result) {
-            if (err) throw err;
-                result.json(result);
-        }
+        bcrypt.hash(password, 10, (err, hashPassword) => {
+            if (err) {
+                console.error(err);
+                return
+            }
+
+            dbo.collection(proccess.env.USER_COLLECTION).insertOne({
+                Username: username,
+                Password: hashPassword
+            }),
+            function(err, result) {
+                if (err) throw err;
+                    result.json(result);
+            }
+        });
     });
 }
 
-app.get('/checkUser', function(req, res, next) {
+app.get('/SignUp', function(req, res, next) {
 
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
@@ -45,14 +54,13 @@ app.get('/checkUser', function(req, res, next) {
                     });
                 } else {
                     console.log("Username Not Take");
-
                     createUser(req.query.Username, req.query.Password);
-
                     res.send({
                         Username: "Not Taken"
                     })
                 }
             });
+            db.close();
     });
 });
 
