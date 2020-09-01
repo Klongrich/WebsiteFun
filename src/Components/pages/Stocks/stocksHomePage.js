@@ -15,7 +15,6 @@ import stochExample from "./pics/stochExample.png"
 
 import level2 from './pics/level2.jpg'
 
-import SignUp from './SignUp'
 
 export const Header = styled.div`
  
@@ -266,8 +265,8 @@ export default function StocksHomePage () {
             <h2>Nav Bar</h2>
 
             <ul>
-                <li> <a href="/stocks/signup"> Sign Up </a> </li>
-                <li> <a href="/stocks/login"> Log In </a> </li>
+                <li> <a href="/signup"> Sign Up </a> </li>
+                <li> <a href="/login"> Log In </a> </li>
                 <li> Terminology </li>
             </ul>
         </Header>

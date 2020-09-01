@@ -21,8 +21,10 @@ import Crypto from './pages/Crypto/crypto'
 
 import MainPage from './pages/HomePage/main'
 
-import signup from './pages/Stocks/SignUp'
-import login from './pages/Stocks/LogIn'
+import signup from './pages/User/SignUp'
+import login from './pages/User/LogIn'
+
+import email_confrimed from './pages/User/email_confrim_forum'
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -43,8 +45,11 @@ function App (){
 
 
             <Route path="/stocks" exact component={stocks}/>
-            <Route path="/stocks/signup" exact component={signup}/>
-            <Route path="/stocks/login" exact component={login}/>
+
+            <Route path="/signup" exact component={signup}/>
+            <Route path="/login" exact component={login}/>
+            <Route path="/confrim" exact component={email_confrimed}/>
+
 
 
         

@@ -17,17 +17,22 @@ export const TextAera = styled.input`
     font-size: 20px;
     margin-bottom: 30px;
 
-
 `
+
+export const LoginLink = styled.div`
+
+    visibility: ${props => props.link};
+    margin-left: 50px;
+`
+
 export default function SignUp () {
 
     const [email, setEmail] = useState("Enter Email Here");
     const [password, setPassword] = useState("Enter Password Here");
     const [hashPassword, setHashPassword] = useState("");
+    const [logInLink, setLogInlink] = useState("hidden");
 
     const [usernameTaken, setUsernameTaken] = useState("");
-
-
 
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -45,6 +50,7 @@ export default function SignUp () {
             setUsernameTaken("Username Taken");
         } else {
             setUsernameTaken("Account Created!");
+            setLogInlink("visible");
         }
 
     }
@@ -83,7 +89,11 @@ export default function SignUp () {
 
         <h2 Style="margin-left: 50px"> {hashPassword} </h2>
         <h2 Style="margin-left: 50px">{usernameTaken}</h2>
-
+        
+        <LoginLink link={logInLink}>
+            <a href='/login' >Go To Login Page</a>
+        </LoginLink>
+        
         </>
     )
 }
