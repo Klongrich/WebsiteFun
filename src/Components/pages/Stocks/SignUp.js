@@ -50,7 +50,7 @@ export default function SignUp () {
     }
 
     function sendUserInfo() {
-        fetch('https://longrichk.com:3012/SignUp?Username=' + email + '&Password=' + password)
+        fetch('http://longrichk.com:3012/SignUp?Username=' + email + '&Password=' + password)
         .then(res => res.json())
         .then(data => updateAccountCreation(data.Username));
         
