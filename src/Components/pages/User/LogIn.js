@@ -95,6 +95,8 @@ export default function SignUp () {
         
         <h2 Style="margin-left: 50px">{logInStatus}</h2>
 
+        <a href='/ForgotPassword' Style="margin-left: 50px">Forgot Password?</a>
+
         </>
     )
     }

@@ -21,6 +21,7 @@ export default function SignUp () {
     const [password2, setPassword2] = useState("Re-type Password");
     
     const [status, setStatus] = useState("");
+    const [logIn, setLogIn] = useState("");
 
     function sendNewPassword() {
 
@@ -33,6 +34,7 @@ export default function SignUp () {
         .then(data => console.log(data));
 
         setStatus("Password Reset");
+        setLogIn("Go Back To LogIn Page");
     }
 
     function clearPassword() {
@@ -66,6 +68,7 @@ export default function SignUp () {
         </SubmitButton>
         
         <h2 Style="margin-left: 50px">{status}</h2>
+        <a href="/login" Style="margin-left: 50px"> {logIn} </a>
 
         </>
     )
