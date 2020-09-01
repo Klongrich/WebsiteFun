@@ -1,10 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
-
-import axios from 'axios';
-
-
 export const SubmitButton = styled.button`
     margin-left: 180px;
     width: 100px;

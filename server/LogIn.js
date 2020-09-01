@@ -38,9 +38,16 @@ app.get('/LogIn', function(req, res, next) {
                         })
                     } else {
                         console.log("Passwords Match!");
-                        res.send({
-                            match: "Valid"
-                        })
+                        
+                        if (result[0].emailVerified) {
+                            res.send({
+                                match: "Email Not Verifed"
+                            });
+                        } else {
+                            res.send({
+                                match: "Vaild"
+                            })
+                        }
                     }
                 });
             }

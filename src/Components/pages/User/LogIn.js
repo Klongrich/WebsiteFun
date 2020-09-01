@@ -1,10 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
-
-import axios from 'axios';
-
-
 export const SubmitButton = styled.button`
     margin-left: 180px;
     width: 100px;
@@ -26,8 +22,6 @@ export default function SignUp () {
     
     const [logInStatus, setLogInStatus] = useState("");
 
-
-
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             console.log("true")
@@ -36,18 +30,6 @@ export default function SignUp () {
             console.log("false")
             return(false)
         }
-    }
-
-    function updatePage(status) {
-
-        if (status == "Vaild") {
-          
-        } else if (status == "Invaild Password") {
-
-        } else {
-            
-        }
-
     }
 
     function sendUserInfo() {
