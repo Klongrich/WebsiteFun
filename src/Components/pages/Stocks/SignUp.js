@@ -42,7 +42,7 @@ export default function SignUp () {
     function updateAccountCreation(status) {
 
         if (status == "Taken") {
-            setUsernameTaken("Taken");
+            setUsernameTaken("Username Taken");
         } else {
             setUsernameTaken("Account Created!");
         }
@@ -50,7 +50,7 @@ export default function SignUp () {
     }
 
     function sendUserInfo() {
-        fetch('http://longrichk.com:3012/SignUp?Username=' + email + '&Password=' + password)
+        fetch('https://longrichk.com:3012/SignUp?Username=' + email + '&Password=' + password)
         .then(res => res.json())
         .then(data => updateAccountCreation(data.Username));
         

@@ -48,3 +48,12 @@ app.get('/LogIn', function(req, res, next) {
         })
     })
 })
+
+Https.createServer({
+    key: fs.readFileSync(process.env.KEY_PEM),
+    cert: fs.readFileSync(process.env.CERT_PEM),
+    ca: fs.readFileSync(process.env.CA_PEM)
+
+}, app).listen(3012, () => {
+    console.log('Started Server on port 3012');
+})

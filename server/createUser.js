@@ -1,6 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = process.env.MONGO_URL
 
+const fs = require('fs');
+const https = require('https');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -64,4 +67,11 @@ app.get('/SignUp', function(req, res, next) {
     });
 });
 
-app.listen(3012 ,() => console.log("Started server on port 3012"))
+Https.createServer({
+    key: fs.readFileSync(process.env.KEY_PEM),
+    cert: fs.readFileSync(process.env.CERT_PEM),
+    ca: fs.readFileSync(process.env.CA_PEM)
+
+}, app).listen(3012, () => {
+    console.log('Started Server on port 3012');
+})
