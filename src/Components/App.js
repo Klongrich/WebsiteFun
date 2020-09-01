@@ -25,6 +25,7 @@ import signup from './pages/User/SignUp'
 import login from './pages/User/LogIn'
 
 import email_confrimed from './pages/User/email_confrim_forum'
+import password_rest from './pages/User/reset_password'
 
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
@@ -49,6 +50,7 @@ function App (){
             <Route path="/signup" exact component={signup}/>
             <Route path="/login" exact component={login}/>
             <Route path="/confrim" exact component={email_confrimed}/>
+            <Route path="/SetNewPassword" exact component={password_rest} />
 
 
 

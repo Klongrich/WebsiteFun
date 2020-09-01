@@ -35,9 +35,9 @@ export default function Email_confrim_forum () {
          <>
             <h2>Email Confrimed!</h2>
             <h2>Thank You</h2>
-            <button onClick={() => check_token()}>
-                Check token 
-            </button>
+            <a href="/login" >
+                Go To LogIn Page
+            </a>
             <br />
             <br />
             <h2> {confrimedState} </h2>

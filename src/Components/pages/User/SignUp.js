@@ -58,6 +58,14 @@ export default function SignUp () {
         
     }
 
+    function clearEmail(){
+        setEmail("");
+    }
+
+    function clearPassword() {
+        setPassword("");
+    }
+
     useEffect(() => {
 
     })
@@ -69,12 +77,14 @@ export default function SignUp () {
 
             <TextAera type="text"
                       value={email}
+                      onClick={() => clearEmail()}
                       onChange={e => setEmail(e.target.value)}
                       />
 
         <br />
         <TextAera type="text"
                       value={password}
+                      onClick={() => clearPassword()}
                       onChange={e => setPassword(e.target.value)}
                       />
         <br />
