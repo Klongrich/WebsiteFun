@@ -207,6 +207,57 @@ app.get('/checkToken', function(req, res, next) {
     })
 })
 
+app.get('/SetNewPassword', function(req, res, next) {
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db(process.env.USER_DATABASE);
+
+        bcrypt.hash(req.query.password, 10, (err, hashPassword) => {
+            dbo.collection(process.env.USER_COLLECTION).update({ reset_password_token: req.query.token } , {$set: {Password: hashPassword, reset_password_token: null}});
+        
+            console.log("New Password set: " + hashPassword);
+        })
+    });
+
+});
+
+app.get('/ResetPassword', function(req, res, next) {
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db(process.env.USER_DATABASE);
+
+        const token = jwt.sign(
+            { userID: username },
+            'Reset_user_password',
+            { expiresIn: '24h'});
+
+        dbo.collection(process.env.USER_COLLECTION).update({ Username: req.query.username},{$set: {reset_password_token: token}});
+        
+        var mailToSender = {
+            from: 'Longrichk@gmail.com',
+            to: email,
+            subject: "Reset Password",
+            text: "You have requested to reset your password. Click on the link below to reset: \n\nhttps://longrichk.com/ResetPassword?token=" + token
+        }
+            
+        transporterToSender.sendMail(mailToSender, (err, data) => {
+            if (err) {
+                res.json({
+                status: 'fail'
+            })
+            } else {
+                res.json({
+                status: 'success'
+                })
+            }
+        })
+
+        db.close();
+    });
+});
+
 Https.createServer({
     key: fs.readFileSync(process.env.KEY_PEM),
     cert: fs.readFileSync(process.env.CERT_PEM),
