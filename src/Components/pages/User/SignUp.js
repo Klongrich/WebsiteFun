@@ -105,7 +105,7 @@ export default function SignUp () {
     const [usernameTaken, setUsernameTaken] = useState("");
     const [signUpState, setSignUpState] = useState("Submit Email");
 
-    const [currentText, setCurrnetText] = useState("Email");
+    const [currentText, setCurrnetText] = useState("Enter Email");
     const [inputType, setInputType] = useState("text");
 
     function ValidateEmail(mail)  {
@@ -152,6 +152,8 @@ export default function SignUp () {
 
         } else {
             setPassword(currentText);
+            setSignUpState("Account Created");
+            sendUserInfo();
         }
     }
 
@@ -178,19 +180,22 @@ export default function SignUp () {
         <br />
 
         <div>
+        
+        <a href="/">
         <MoblieButton>
              Go Back
         </MoblieButton>
+        </a>
         
         <MoblieButton  onClick={() => updateUserInfo() }>
             {signUpState}
         </MoblieButton>
+        
         </div>
         
         <br />
 
-        <h2 Style="margin-left: 50px"> Email: {email} </h2>
-        <h2 Style="margin-left: 50px"> Password: {password} </h2>
+
 
         <h2 Style="margin-left: 50px"> {hashPassword} </h2>
         <h2 Style="margin-left: 50px">{usernameTaken}</h2>
