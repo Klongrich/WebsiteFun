@@ -1,6 +1,8 @@
 import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
+import DashBoard from './dashboard'
+
 export const SubmitButton = styled.button`
     margin-left: 180px;
     width: 100px;
@@ -8,11 +10,92 @@ export const SubmitButton = styled.button`
 
 export const TextAera = styled.input`
 
-    border-radius: 5px;
-    margin-left: 50px;
-    font-size: 20px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 30px;
+    width: 63%;
 
+    margin-left: 200px;
+    float: left;
+
+    border-radius: 80px;
+    border: 7px #6685ff solid;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    padding-left: 10px;
+
+    :focus{
+        outline: 0;
+        box-shadow: 0 0 10px blue;
+      }
+
+
+`
+
+export const LoginLink = styled.div`
+
+    visibility: ${props => props.link};
+    margin-left: 50px;
+`
+
+export const Container = styled.div`
+
+    border: 3px #6685ff solid;
+
+    border-radius: 15px;
+    text-align:center;
+
+    font-size: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 4%;
+
+    background-color: #d9e0ff;
+
+    Height: 570px;
+
+    font-family: sans-serif;
+
+
+
+`
+
+export const MoblieButton = styled.div`
+
+  margin-top: 60px;
+  margin-left: 180px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  font-size: 20px;
+  text-align: center;
+
+  width: 25%;
+
+  height: 20px;
+
+  border-radius: 10px;
+  border: 3px #6685ff solid;
+
+  font-family: sans-serif;
+
+  color: #0a3cff;
+  background-color: #a8baff;
+  box-shadow: 1px 2px;
+
+  float:left;
+  
+
+`
+
+export const Background = styled.div`
+
+    background-color: #ebeeff;
+    margin-top: -110px;
+    padding-top: 100px;
+    height: 680px;
 
 `
 export default function SignUp () {
@@ -51,6 +134,12 @@ export default function SignUp () {
         setPassword("");
     }
 
+    return (
+        <>
+            <DashBoard />
+        </>
+    );
+    {/*
 
     if (logInStatus == "Valid"){
         
@@ -73,7 +162,9 @@ export default function SignUp () {
     } else {
         return (
             <>
-                <h2 Style="margin-left: 50px;"> Log In</h2>
+        <Background>
+        <Container>       
+        <h2 Style="margin-top: 60px; padding-bottom:-50px;"> Log In</h2>
 
         <TextAera   type="text"
                       value={email}
@@ -89,15 +180,30 @@ export default function SignUp () {
                       />
         <br />
 
-        <SubmitButton  onClick={() => sendUserInfo() }>
-            Submit
-        </SubmitButton>
+
+            <div>
+        <a href="/">
+        <MoblieButton>
+             Go Back
+        </MoblieButton>
+        </a>
         
-        <h2 Style="margin-left: 50px">{logInStatus}</h2>
 
-        <a href='/ForgotPassword' Style="margin-left: 50px">Forgot Password?</a>
+        <MoblieButton  onClick={() => sendUserInfo() }>
+            Log In
+        </MoblieButton>
+        </div>
+        
+        <div Style="margin-top: 280px;">
+        <h2>{logInStatus}</h2>
 
+        <a href='/ForgotPassword' >Forgot Password?</a>
+        </div>
+
+        </Container>
+        </Background>
         </>
     )
     }
+*/}
 }

@@ -31,9 +31,10 @@ export const TextAera = styled.input`
 
     padding-left: 10px;
 
-    ::{
-        color:black;
-    }
+    :focus{
+        outline: 0;
+        box-shadow: 0 0 10px blue;
+      }
 
 `
 
@@ -55,7 +56,7 @@ export const Container = styled.div`
     margin-right: 10%;
     margin-top: 8%;
 
-    background-color: #c4c4c4;
+    background-color: #d9e0ff;
 
     Height: 450px;
 
@@ -94,6 +95,14 @@ export const MoblieButton = styled.div`
 
 `
 
+export const Background = styled.div`
+
+    background-color: #ebeeff;
+    margin-top: -110px;
+    padding-top: 110px;
+
+`
+
 export default function SignUp () {
 
     const [email, setEmail] = useState("Email");
@@ -107,6 +116,11 @@ export default function SignUp () {
 
     const [currentText, setCurrnetText] = useState("Enter Email");
     const [inputType, setInputType] = useState("text");
+
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+      });
 
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -160,16 +174,20 @@ export default function SignUp () {
 
     useEffect(() => {
 
+      
+
     })
 
     return (
         <>
         
+        <Background>
         <Container>
         <h2 Style="margin-left: 50px;"> Create Account</h2>
 
         <TextAera   type={inputType}
                     value={currentText}
+                    borderColor={"purple"}
                     onClick={() => clearText()}
                     onChange={e => setCurrnetText(e.target.value)}
                     />
@@ -193,7 +211,7 @@ export default function SignUp () {
         
         </div>
         
-        <br />
+        <br /> <br />
 
 
 
@@ -205,6 +223,7 @@ export default function SignUp () {
         </LoginLink>
         
         </Container>
+        </Background>
         </>
-    )
+        ) 
 }
