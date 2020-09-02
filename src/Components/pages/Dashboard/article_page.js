@@ -54,7 +54,7 @@ export const Content = styled.div`
 
 `
 
-export const Article_Page = ({title, date, content, fontSize, headerSize}) => {
+export const Article_Page = ({title, content, fontSize, headerSize}) => {
     return (
         <>
         <Container> 

@@ -2,10 +2,11 @@ import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
 import {User} from '@styled-icons/boxicons-solid/User'
-
 import {Home} from '@styled-icons/entypo/Home'
 
 import DeFiPic from '../Crypto/DeFi.jpg'
+
+import AccountInfo from './account_info'
 
 
 export const Background = styled.div`
@@ -39,7 +40,7 @@ export const Header = styled.div`
 
 `
 
-export const SideNavBar = styled.div`
+export const SideNavBarContainer = styled.div`
 
 
     background-color: #ebeeff;
@@ -157,45 +158,77 @@ export const StockPicks = styled.div`
       }
 
 `
+const articles_data = [
+    {
+        title: "09/06/2020",
+        content: "Content Comming Soon......"
+    },
+    {
+        title: "08/15/2020",
+        content: "Content Comming Soon......"
+    },
+    {
+        title: "05/12/2020",
+        content: "Content Comming Soon......"
+    },
+    {
+        title: "12/36/2020",
+        content: "Content Comming Soon......"
+    },
+
+]
 
 export default function DashBoard () {
 
-    const [pageState, setPageState] = useState("Home");
+    const [pageState, setPageState] = useState("Account Info");
     const [articleTitle, setArticleTitle] = useState("");
 
+
+    const TopOfPage = () => {
+        return (
+            <Header>
+                <ul>
+                    <li Style="font-size: 30px; padding-left: 10px; hover{color:black};">Dashboard</li>
+                    <li Style="margin-left: 800px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
+                    <li onClick={() => setPageState("Account Info")}> <User size="20px" /> Account</li>
+                </ul>
+            </Header>
+        )
+    }   
+
+    const SideNavBar = () => {
+        return (
+            <SideNavBarContainer>
+                   <h2> Articles </h2>
+                   <ul>
+                       {articles_data.map(data => 
+                        <li onClick={ () => updatePage(data.title)}> {data.title}</li>
+                       )}
+                   </ul>
+                </SideNavBarContainer>
+        )
+    } 
 
     function updatePage(title){
         setPageState("Article");
         setArticleTitle(title);
     }
 
+    if (pageState == "Account Info"){
+        return (
+            <>
+                <TopOfPage />
+                <AccountInfo />
+                </>
+        )
+    }
+
     if (pageState == "Article") {
         
         return (
             <>
-            <Header>
-                <ul>
-                    <li Style="font-size: 30px; padding-left: 10px;">Dashboard</li>
-                    <li Style="margin-left: 800px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
-                    <li> <User size="20px" /> Account</li>
-                </ul>
-            </Header>
-            
-                <SideNavBar>
-                   <h2> Articles </h2>
-
-                   <ul>
-                       <li onClick={ () => updatePage("08/09/2020")}> 08/09/2020</li>
-
-                       <li> 06/29/2020</li>
-
-                       <li> 05/10/2020</li>
-
-                       <li> 03/12/2020</li>
-
-                       <li> 01/02/2020</li>
-                   </ul>
-                </SideNavBar>
+            <TopOfPage />
+            <SideNavBar />
 
                 <MiddleContent>
                     <h2> {articleTitle} </h2>
@@ -206,31 +239,11 @@ export default function DashBoard () {
         }
     return (
         <>
-            <Header>
-                 <ul>
-                    <li Style="font-size: 30px; padding-left: 10px;">Dashboard</li>
-                    <li Style="margin-left: 800px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
-                    <li> <User size="20px" /> Account</li>
-                </ul>
-            </Header>
+            <TopOfPage />
             
             <Background>
-                <SideNavBar>
-                   <h2> Articles </h2>
-
-                   <ul>
-                       <li onClick={ () => updatePage("08/09/2020")}> 08/09/2020</li>
-
-                       <li> 06/29/2020</li>
-
-                       <li> 05/10/2020</li>
-
-                       <li> 03/12/2020</li>
-
-                       <li> 01/02/2020</li>
-                   </ul>
-                </SideNavBar>
-
+            <SideNavBar />
+               
                 <MiddleContent>
                    
                    <h1> Exclusive Content </h1>
