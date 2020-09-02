@@ -134,18 +134,21 @@ export default function SignUp () {
         setPassword("");
     }
 
+    {/*
     return (
         <>
             <DashBoard />
         </>
     );
-    {/*
+    */}
+
+    
 
     if (logInStatus == "Valid"){
         
         return (
             <>
-                <Dashboard />
+                <DashBoard />
             </>
         )
 
@@ -195,5 +198,5 @@ export default function SignUp () {
         </>
     )
     }
-*/}
+
 }

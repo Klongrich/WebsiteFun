@@ -1,73 +1,30 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
-export const Container = styled.div`
-
-    background-color: #759ce6;
-    margin-top: -33px;
-
-`
-
 export const Content = styled.div`
 
-    font-family:  Montserrat;
+    text-align: center;
+    background-color: #a1afff;
 
-    margin-top: 0;
-    margin-bottom: 5%;
-    margin-left: 10%;
-    width: 80%;
-    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
 
-    margin-bottom: -50px;
-    
-    border-top: none; 
 
-    border: 1px #525252 solid;
-
-    h2 {
-        text-align: center;
-        font-size: ${props => props.HeaderSize}
+    h2{
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
     }
-
-    h1 {
-        text-align: center;
-        font-size: ${props => props.HeaderSize}
-    }
-
-    p{
-        line-height: 2;
-        margin-left: 20px;
-        margin-right: 20px;
-        font-size: ${props => props.FontSize}
-    }
-
-    ul {
-        list-style-type: none;
-    }
-
-    li {
-        padding-top: 10px;
-        font-size: ${props => props.FontSize}
-    }
-
-    background-color: white;
-
 `
 
-export const Article_Page = ({title, content, fontSize, headerSize}) => {
+export default function Article_Page(title) {
     return (
         <>
-        <Container> 
-            <Content FontSize={fontSize}
-                     HeaderSize={headerSize}
-                     > 
+            <Content> 
                 <h1> {title} </h1>
-                <h2> {date} </h2>
                 <div>
-                    {content}
+                    Stuffs....
                 </div>
             </Content>
-        </Container>
         </>
     );
 }

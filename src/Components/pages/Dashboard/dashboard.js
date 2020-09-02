@@ -7,6 +7,7 @@ import {Home} from '@styled-icons/entypo/Home'
 import DeFiPic from '../Crypto/DeFi.jpg'
 
 import AccountInfo from './account_info'
+import ArticlePage from './article_page'
 
 
 export const Background = styled.div`
@@ -32,9 +33,11 @@ export const Header = styled.div`
 
     li:hover {
         color: red;
+        cursor: pointer;
     }
 
-    background-color:#d9e0ff;
+    background-color: #a1afff;
+
     border-bottom: 3px #6380ff solid;
 
 
@@ -62,6 +65,7 @@ export const SideNavBarContainer = styled.div`
 
     li:hover{
         color: red;
+        cursor: pointer;
     }
 
     float: left;
@@ -72,19 +76,19 @@ export const SideNavBarContainer = styled.div`
 export const MiddleContent = styled.div`
 
     text-align: center;
-    background-color: #a1afff;
+    background-color: #bbc5fc;
 
     padding-top: 20px;
     padding-bottom: 40px;
 
+    height: 550px;
 
     h2{
         border-bottom: 2px solid black;
         padding-bottom: 10px;
     }
 
-
-    
+    background-color:#d9e0ff;
 
 `
 
@@ -180,7 +184,7 @@ const articles_data = [
 
 export default function DashBoard () {
 
-    const [pageState, setPageState] = useState("Account Info");
+    const [pageState, setPageState] = useState("Home");
     const [articleTitle, setArticleTitle] = useState("");
 
 
@@ -189,7 +193,7 @@ export default function DashBoard () {
             <Header>
                 <ul>
                     <li Style="font-size: 30px; padding-left: 10px; hover{color:black};">Dashboard</li>
-                    <li Style="margin-left: 800px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
+                    <li Style="margin-left: 780px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
                     <li onClick={() => setPageState("Account Info")}> <User size="20px" /> Account</li>
                 </ul>
             </Header>
@@ -230,8 +234,10 @@ export default function DashBoard () {
             <TopOfPage />
             <SideNavBar />
 
+
                 <MiddleContent>
                     <h2> {articleTitle} </h2>
+                    <p> Content coming soon .....</p>
                 </MiddleContent>
 
             </>
@@ -246,7 +252,7 @@ export default function DashBoard () {
                
                 <MiddleContent>
                    
-                   <h1> Exclusive Content </h1>
+                   <h1> Awesome Content </h1>
                    <BlogPost Image={DeFiPic}
                       width="18%"
                       height="170px"

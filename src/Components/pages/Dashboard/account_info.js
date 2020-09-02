@@ -4,13 +4,24 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-    background-color: #a1afff;
+    background-color:#d9e0ff;
+
     height: 600px;
     font-size: 18px;
 
     margin-top: 0px;
-    padding-top: 30px;
+    
+    padding-top: 15px;
     padding-left: 20px;
+
+    ul{
+        list-style-type: none;
+    }
+
+    li {
+        padding-bottom: 10px;
+        font-size: 18px
+    }
 
 `
 
@@ -18,17 +29,17 @@ export default function Account_Info_Page() {
     return (
         <>
         <Container>
-            <h2> Account Info </h2>
+            <h2 Style="font-size: 24px;"> Account Info </h2>
             <ul>
-                <li>Creation Date: 09/02/2020</li>
-                <li>Subscribed: No</li>
-                <li>Email Verified: Yes</li>
+                <li> Creation Date: <b> 09/02/2020 </b></li>
+                <li>Subscribed: <b> No </b> </li>
+                <li>Email Verified: <b> Yes </b></li>
                 <li>Credit Card:</li>
             </ul>
 
             <ul>
-                <li>Email: Longrichk@gmail.com</li>
-                <li>Password: **********</li>
+                <li>Email: <b> Longrichk@gmail.com </b> </li>
+                <li>Password: <b> *************** </b></li>
             </ul>
         </Container>
         </>

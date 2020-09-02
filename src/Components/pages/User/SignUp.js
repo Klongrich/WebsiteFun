@@ -108,13 +108,13 @@ export default function SignUp () {
     const [email, setEmail] = useState("Email");
     const [password, setPassword] = useState("Password");
     const [password2, setPassword2] = useState("Re-Type Password");
-    const [hashPassword, setHashPassword] = useState("");
+
     const [logInLink, setLogInlink] = useState("hidden");
-
     const [usernameTaken, setUsernameTaken] = useState("");
-    const [signUpState, setSignUpState] = useState("Submit Email");
 
+    const [signUpState, setSignUpState] = useState("Submit Email");
     const [currentText, setCurrnetText] = useState("Enter Email");
+
     const [inputType, setInputType] = useState("text");
 
     const [windowSize, setWindowSize] = useState({
@@ -213,13 +213,10 @@ export default function SignUp () {
         
         <br /> <br />
 
-
-
-        <h2 Style="margin-left: 50px"> {hashPassword} </h2>
-        <h2 Style="margin-left: 50px">{usernameTaken}</h2>
+        <h2 Style="margin-left: 50px; margin-top: 20px;">{usernameTaken}</h2>
         
         <LoginLink link={logInLink}>
-            <a href='/login' >Go To Login Page</a>
+            <a href='/login' Style="font-size: 30px;" >Go To Login Page</a>
         </LoginLink>
         
         </Container>
