@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+    background-color: #a1afff;
+
     background-color:#d9e0ff;
 
     height: 600px;

@@ -29,7 +29,7 @@ export default function SignUp () {
         
         var token = Temp[1];
 
-        fetch('http://longrichk.com:3012/SetNewPassword?token=' + token + '&password=' + password)
+        fetch('https://longrichk.com:3012/SetNewPassword?token=' + token + '&password=' + password)
         .then(res => res.json())
         .then(data => console.log(data));
 

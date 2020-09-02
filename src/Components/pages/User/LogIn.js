@@ -116,7 +116,7 @@ export default function SignUp () {
     }
 
     function sendUserInfo() {
-        fetch('http://longrichk.com:3012/LogIn?Username=' + email + '&Password=' + password)
+        fetch('https://longrichk.com:3012/LogIn?Username=' + email + '&Password=' + password)
         .then(res => res.json())
         .then(data => console.log(setLogInStatus(data.match)));
         
@@ -134,16 +134,16 @@ export default function SignUp () {
         setPassword("");
     }
 
-    {/*
+
     return (
         <>
             <DashBoard />
         </>
     );
-    */}
+
 
     
-
+{/*
     if (logInStatus == "Valid"){
         
         return (
@@ -195,8 +195,10 @@ export default function SignUp () {
 
         </Container>
         </Background>
+
         </>
     )
+        
     }
-
+*/}
 }

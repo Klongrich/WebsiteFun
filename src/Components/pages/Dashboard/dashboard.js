@@ -4,6 +4,11 @@ import styled from "styled-components";
 import {User} from '@styled-icons/boxicons-solid/User'
 import {Home} from '@styled-icons/entypo/Home'
 
+import {LogOutCircle} from '@styled-icons/boxicons-regular/LogOutCircle'
+import {LogoutBox} from '@styled-icons/remix-line/LogoutBox'
+import {LogOut} from '@styled-icons/boxicons-regular/LogOut'
+
+
 import DeFiPic from '../Crypto/DeFi.jpg'
 
 import AccountInfo from './account_info'
@@ -195,6 +200,8 @@ export default function DashBoard () {
                     <li Style="font-size: 30px; padding-left: 10px; hover{color:black};">Dashboard</li>
                     <li Style="margin-left: 780px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
                     <li onClick={() => setPageState("Account Info")}> <User size="20px" /> Account</li>
+
+
                 </ul>
             </Header>
         )
@@ -252,7 +259,7 @@ export default function DashBoard () {
                
                 <MiddleContent>
                    
-                   <h1> Awesome Content </h1>
+                   <h1> Market Overview </h1>
                    <BlogPost Image={DeFiPic}
                       width="18%"
                       height="170px"

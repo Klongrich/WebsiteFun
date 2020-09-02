@@ -26,7 +26,7 @@ export default function Email_confrim_forum () {
 
     function check_token(token)
     {
-        fetch('http://longrichk.com:3012/checkToken?token=' + token)
+        fetch('https://longrichk.com:3012/checkToken?token=' + token)
         .then(res => res.json())
         .then(data => console.log(check_data(data)));
     }

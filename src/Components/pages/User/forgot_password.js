@@ -32,7 +32,7 @@ export default function Forgot_password () {
 
 
     function sendResetPasswordEmail() {
-        fetch('http://longrichk.com:3012/ResetPassword?username=' + email )
+        fetch('https://longrichk.com:3012/ResetPassword?username=' + email )
         .then(res => res.json())
         .then(data => console.log(data));
         
