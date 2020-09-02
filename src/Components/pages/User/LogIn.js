@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
-import DashBoard from './dashboard'
+import DashBoard from '../Dashboard/dashboard'
 
 export const SubmitButton = styled.button`
     margin-left: 180px;
@@ -145,17 +145,7 @@ export default function SignUp () {
         
         return (
             <>
-                <h2>Congrats, Your Logged In!</h2>
-
-                <p Style="font-style: bold">Username: {email}</p>
-
-                <p>
-                    Thank you for creating an account early! Stay tunned for more content.
-                </p>
-
-                <p>
-                    Thank you again.
-                </p>
+                <Dashboard />
             </>
         )
 
