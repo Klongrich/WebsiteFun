@@ -13,7 +13,7 @@ app.use(cors());
 // Set your secret key. Remember to switch to your live secret key in production!
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')('sk_test_51HN56YDU0KM7WRE6151IUWkvsSffdHAIgdhm2bhQVvS7xoxu41yk9mPobJKsyuH0kpvgBAfEgVmOrdHp6uYe65Wp00kFUu1VWG');
 
 app.get('/secret', async (req, res) => {
   

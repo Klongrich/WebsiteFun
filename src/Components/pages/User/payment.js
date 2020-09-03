@@ -3,6 +3,9 @@ import React , {useEffect, useState} from 'react'
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
+import styled from "styled-components";
+
+
 
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 
@@ -11,7 +14,7 @@ import './cardStyles.css'
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe('pk_test_51HN56YDU0KM7WRE6u7DqgRNnrMvVWencqPgmaW5ZWiFJpdA6GKeAUPG0ENxkjoWxrbeLCADHu7FLivGjUtow8ZQ8002mQQjoxY');
 
 
 const CARD_OPTIONS = {
@@ -37,7 +40,7 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const [status, setStatus] = useState("Waitting...");
+    const [status, setStatus] = useState("");
   
     const handleSubmit = async (event) => {
       // We don't want to let default form submission happen here,
@@ -68,7 +71,7 @@ const CheckoutForm = () => {
       if (result.error) {
         // Show error to your customer (e.g., insufficient funds)
 
-        setStatus("results.error.message");
+        setStatus(result.error.message);
         console.log(result.error.message);
       } else {
         // The payment has been processed!
@@ -79,7 +82,7 @@ const CheckoutForm = () => {
           // payment_intent.succeeded event that handles any business critical
           // post-payment actions.
 
-          setStatus("Payment Succceded!")
+          setStatus("Payment Succceded! Thank You For Subscribing")
         }
       }
 
@@ -96,28 +99,54 @@ const CheckoutForm = () => {
             <CardElement options={CARD_OPTIONS} />
       
         <br />
-        <button disabled={!stripe}>
-          Subscribe
+        <button Style="padding:5px; 
+                       padding-left: 20px; 
+                       padding-right: 20px;
+                       border-radius: 5px;
+                       font-family: sans-serif" disabled={!stripe}>
+          Subscribe: $10 / Month
         </button>
       </form>
-
       <h2> {status} </h2>
       </>
     );
   };
 
+const Background = styled.div`
 
+    background-color:#d9e0ff;
+    height: 580px;
+    padding-top: 10px;
+
+    ul{
+       margin-left: 40px;
+    }
+
+    li {
+        padding-bottom: 10px;
+    }
+`
 
 export default function Payment() {
 
     return (
         <>
+           <Background>
+
+            <h2 Style="margin-left: 40px;"> Why Subscribe? </h2>
+
+            <ul>
+                <li>Weekly / Monthly News Letters</li>
+                <li>Access To Past Trades</li>
+                <li>Exclusive Stock and Crypto Picks</li>
+                <li>Updates On Which Direction I Think The Market Will Go</li>
+            </ul>
+
             <Elements stripe={stripePromise}> 
-                <div Style="height: 230px; 
-                            width: 500px; 
+                <div Style="height: 240px; 
+                            width: 550px; 
                             border: 2px solid black;
-                            margin-left: 100px;
-                            margin-top: 200px;
+                            margin-left: 50px;
                             padding-top: 0px;
                             padding-left: 30px;
                             padding-right: 60px;
@@ -126,6 +155,8 @@ export default function Payment() {
                     <CheckoutForm />
                 </div>
             </Elements>
+
+            </Background>
         </>
         
     );

@@ -7,12 +7,15 @@ import {Home} from '@styled-icons/entypo/Home'
 import {LogOutCircle} from '@styled-icons/boxicons-regular/LogOutCircle'
 import {LogoutBox} from '@styled-icons/remix-line/LogoutBox'
 import {LogOut} from '@styled-icons/boxicons-regular/LogOut'
+import {Payments} from '@styled-icons/material-outlined/Payments'
 
 
 import DeFiPic from '../Crypto/DeFi.jpg'
 
 import AccountInfo from './account_info'
 import ArticlePage from './article_page'
+
+import PaymentPage from '../User/payment'
 
 
 export const Background = styled.div`
@@ -189,7 +192,7 @@ const articles_data = [
 
 export default function DashBoard () {
 
-    const [pageState, setPageState] = useState("Home");
+    const [pageState, setPageState] = useState("Payment");
     const [articleTitle, setArticleTitle] = useState("");
 
 
@@ -197,11 +200,10 @@ export default function DashBoard () {
         return (
             <Header>
                 <ul>
-                    <li Style="font-size: 30px; padding-left: 10px; hover{color:black};">Dashboard</li>
-                    <li Style="margin-left: 780px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
+                    <li Style="font-size: 30px; padding-left: 10px; :hover{color:black};">Dashboard</li>
+                    <li Style="margin-left: 620px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
                     <li onClick={() => setPageState("Account Info")}> <User size="20px" /> Account</li>
-
-
+                    <li onClick={() => setPageState("Payment")}> <Payments size="20px" /> Subscribe </li>
                 </ul>
             </Header>
         )
@@ -223,6 +225,15 @@ export default function DashBoard () {
     function updatePage(title){
         setPageState("Article");
         setArticleTitle(title);
+    }
+
+    if (pageState == "Payment" ) {
+        return (
+            <>
+                <TopOfPage />
+                <PaymentPage />
+            </>
+        )
     }
 
     if (pageState == "Account Info"){
