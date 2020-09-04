@@ -114,15 +114,11 @@ export default function SignUp () {
     const [logInLink, setLogInlink] = useState("hidden");
     const [usernameTaken, setUsernameTaken] = useState("");
 
-    const [signUpState, setSignUpState] = useState("Submit Email");
+    const [signUpState, setSignUpState] = useState("Enter Email");
     const [currentText, setCurrnetText] = useState("Enter Email");
 
     const [inputType, setInputType] = useState("text");
 
-    const [windowSize, setWindowSize] = useState({
-        width: undefined,
-        height: undefined,
-      });
 
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -137,7 +133,8 @@ export default function SignUp () {
     function updateAccountCreation(status) {
 
         if (status == "Taken") {
-            setUsernameTaken("Username Taken");
+            setUsernameTaken("Email Taken");
+            go_back();
         } else {
             setUsernameTaken("Account Created!");
             setLogInlink("visible");
@@ -156,56 +153,58 @@ export default function SignUp () {
         setCurrnetText("");
     }
 
+    function go_back() {
+            setSignUpState("Enter Email");
+            updateUserInfo("Start");
+            setLogInlink("hidden");
+            setInputType("text");
+    }
 
-    function updateUserInfo() {
-        if (signUpState == "Submit Email"){            
+
+    function updateUserInfo(signUp) {
+
+        if (signUp == "Start") {
+                setSignUpState("Enter Email");
+                setCurrnetText("Enter Email");
+
+                setInputType("text");
+        } 
+        else if (signUp == "Enter Email"){            
             
-            setSignUpState("Submit Password");
-            setEmail(currentText);
+            setSignUpState("Password");
             setCurrnetText("Password");
+
+            setInputType("password");
+
+            setEmail(currentText);
             
-            //setInputType("password");
+        } 
+        else if (signUp == "Password")
+        {
+            setSignUpState("Confrim Password");
+            setCurrnetText("Confrim Password");
 
-        } else {
+            setInputType("password");
+
             setPassword(currentText);
-            setSignUpState("Account Created");
-            sendUserInfo();
+            
         }
-    }
+        else {
 
-
-    function useKey(key) {
-        // Keep track of key state
-        const [pressed, setPressed] = useState(false)
-    
-        // Does an event match the key we're watching?
-        const match = event => key.toLowerCase() == event.key.toLowerCase()
-    
-        // Event handlers
-        const onDown = event => {
-            if (match(event)) setPressed(true)
-        }
-    
-        const onUp = event => {
-            if (match(event)) setPressed(false)
-        }
-    
-        // Bind and unbind events
-        useEffect(() => {
-            window.addEventListener("keydown", onDown)
-            window.addEventListener("keyup", onUp)
-            return () => {
-                window.removeEventListener("keydown", onDown)
-                window.removeEventListener("keyup", onUp)
+            if (currentText == password) {
+                setSignUpState("Account Created");
+                sendUserInfo();
+            } else {
+                setUsernameTaken("Passwords Do Not Match");
             }
-        }, [key])
-    
-        return pressed
+
+        }
     }
+
     
     function checkKey(key){
         if (key == 13) {
-            updateUserInfo();
+            updateUserInfo(signUpState);
         }
     }
     
@@ -218,6 +217,8 @@ export default function SignUp () {
         <Container>
         <h2 Style="margin-left: 50px;"> Create Account</h2>
 
+        <p Style="margin-left: 50px;
+                  font-weight: bold;">{signUpState}</p>
         <TextAera   type={inputType}
                     value={currentText}
                     borderColor={"purple"}
@@ -233,13 +234,11 @@ export default function SignUp () {
 
         <div>
         
-        <a href="/">
-        <MoblieButton>
+        <MoblieButton onClick={() => go_back()}>
              Go Back
         </MoblieButton>
-        </a>
         
-        <MoblieButton  onClick={() => updateUserInfo() }>
+        <MoblieButton  onClick={() => updateUserInfo(signUpState) }>
             {signUpState}
         </MoblieButton>
         

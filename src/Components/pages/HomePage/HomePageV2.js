@@ -18,6 +18,33 @@ import {GetAreasOfIntrest} from './AreasOfInteresLinks'
 import {TestHeader} from './Header'
 import {ClientInfo} from './clientInfo'
 
+const MoblieHomePageButton = styled.button`
+  
+  text-algin: center;
+
+  background-color: black;
+  color: white;
+  font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  margin-top: 60px;
+
+  margin-left: ${props => props.left};
+
+  &:disabled {
+    color: grey;
+    opacity: 0.7;
+    cursor: default;
+  }
+
+  float:left;
+
+`;
 
 const HomePageButton = styled.button`
   
@@ -182,9 +209,9 @@ export default function HomePage() {
     } else {
       return(
         <>
-        <div Style="height: 1271.2px; 
+        <div Style="height: 1371.2px; 
                     text-align:center; 
-                    margin-top: 300.8px; 
+                    margin-top: 100.8px; 
                     padding-top:40px">
           
           <FadeIn transitionDuration="1600" delay="600"> 
@@ -194,6 +221,21 @@ export default function HomePage() {
           </p>
           <div Style="margin-top: 0px;">
           <ChevronDownCircle size="158.5px" color="#e0e0e0" onClick={scrollMoblie} />
+
+          <div Style="margin-top: 100px">
+            <a href="/login">
+              <MoblieHomePageButton left="105px;">
+                Log In
+              </MoblieHomePageButton>
+            </a>
+
+            <a href="/signup">
+              <MoblieHomePageButton left="160px;"> 
+                Sign Up
+              </MoblieHomePageButton>
+            </a>
+          </div>
+    
           
           </div>
           </FadeIn>

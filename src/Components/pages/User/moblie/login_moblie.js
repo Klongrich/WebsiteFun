@@ -7,7 +7,8 @@ import DashBoard from '../../Dashboard/dashboard'
 export const TextAera = styled.input`
 
 
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    margin-top: -20px;
 
     font-size: 50px;
     width: 83%;
@@ -52,7 +53,7 @@ export const Container = styled.div`
 
     background-color: #d9e0ff;
 
-    Height: 1350px;
+    Height: 1150px;
 
     font-family: sans-serif;
 
@@ -96,7 +97,7 @@ export const Background = styled.div`
     background-color: #ebeeff;
     margin-top: -110px;
     padding-top: 100px;
-    height: 1740px;
+    height: 1470px;
 
     p{
         text-align: left;
@@ -155,6 +156,12 @@ export default function LogIn_Moblie () {
     function clearPassword() {
         setPassword("");
     }
+    
+    function checkKey(key){
+        if (key == 13) {
+            sendUserInfo();
+        }
+    }
 
     if (accountInfo.match == "Valid"){
 
@@ -172,7 +179,7 @@ export default function LogIn_Moblie () {
             <>
         <Background>
         <Container>       
-        <h2 Style="margin-top: 60px; padding-bottom:-50px; font-size: 80px"> Log In</h2>
+        <h2 Style="margin-top: 20px; padding-bottom:-50px; font-size: 80px"> Log In</h2>
 
         <p>Username </p>
         <TextAera   type="text"
@@ -188,6 +195,7 @@ export default function LogIn_Moblie () {
                       value={password}
                       onClick={() => clearPassword()}
                       onChange={e => setPassword(e.target.value)}
+                      onKeyDown={e => checkKey(e.keyCode)}
                       />
         <br />
 
@@ -205,7 +213,7 @@ export default function LogIn_Moblie () {
         </MoblieButton>
         </div>
         
-        <div Style="margin-top: 280px;">
+        <div Style="margin-top: 210px;">
             <h2 Style="font-size: 75px;"> {accountInfo.match} </h2>
 
         <a href='/ForgotPassword' >Forgot Password?</a>
