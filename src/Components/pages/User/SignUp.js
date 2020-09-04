@@ -60,9 +60,11 @@ export const Container = styled.div`
 
     background-color: #d9e0ff;
 
-    Height: 450px;
+    Height: 500px;
 
     font-family: sans-serif;
+
+    padding-right: 50px;
 
 
 
@@ -101,7 +103,7 @@ export const Background = styled.div`
 
     background-color: #ebeeff;
     margin-top: -110px;
-    padding-top: 110px;
+    padding-top: 90px;
 
 `
 
@@ -120,7 +122,7 @@ export default function SignUp () {
     const [inputType, setInputType] = useState("text");
 
 
-    function ValidateEmail(mail)  {
+    function ValidateEmail(email)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             console.log("true")
             return (true)
@@ -164,29 +166,47 @@ export default function SignUp () {
     function updateUserInfo(signUp) {
 
         if (signUp == "Start") {
+            
                 setSignUpState("Enter Email");
-                setCurrnetText("Enter Email");
+                setCurrnetText("Email");
 
                 setInputType("text");
         } 
         else if (signUp == "Enter Email"){            
             
+            console.log("Current Text: " + currentText);
+
+            if (ValidateEmail(currentText)) {
+                
+                setSignUpState("Password");
+                setEmail(currentText);
+
+                setCurrnetText("");
+                setInputType("password");
+    
+            
+            } else {
+
+                setUsernameTaken("Email Not Vaild");
+                updateUserInfo("Start");
+            }
+
+            
+        } 
+        else if (signUp == "Password-retry"){
+                            
             setSignUpState("Password");
-            setCurrnetText("Password");
+            setCurrnetText("");
 
             setInputType("password");
 
-            setEmail(currentText);
-            
-        } 
+        }
         else if (signUp == "Password")
         {
             setSignUpState("Confrim Password");
-            setCurrnetText("Confrim Password");
-
-            setInputType("password");
-
             setPassword(currentText);
+            setCurrnetText("");
+            setInputType("password");
             
         }
         else {
@@ -195,7 +215,8 @@ export default function SignUp () {
                 setSignUpState("Account Created");
                 sendUserInfo();
             } else {
-                setUsernameTaken("Passwords Do Not Match");
+                setUsernameTaken("Passwords Don't Match - Try Again");
+                updateUserInfo("Password-retry");
             }
 
         }
@@ -218,6 +239,7 @@ export default function SignUp () {
         <h2 Style="margin-left: 50px;"> Create Account</h2>
 
         <p Style="margin-left: 50px;
+                  margin-top: -20px;
                   font-weight: bold;">{signUpState}</p>
         <TextAera   type={inputType}
                     value={currentText}
@@ -246,7 +268,7 @@ export default function SignUp () {
         
         <br /> <br />
 
-        <h2 Style="margin-left: 50px; margin-top: 20px;">{usernameTaken}</h2>
+        <h2 Style="margin-left: 70px; margin-top: 20px;">{usernameTaken}</h2>
         
         <LoginLink link={logInLink}>
             <a href='/login' Style="font-size: 30px;" >Go To Login Page</a>
