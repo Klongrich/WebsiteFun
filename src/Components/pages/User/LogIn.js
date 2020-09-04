@@ -2,22 +2,16 @@ import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
 import DashBoard from '../Dashboard/dashboard'
-
 import Login_Moblie from './moblie/login_moblie'
-
-export const SubmitButton = styled.button`
-    margin-left: 180px;
-    width: 100px;
-`
 
 export const TextAera = styled.input`
 
-    margin-top: 30px;
+    margin-bottom: 0px;
     font-size: 30px;
-    width: 63%;
+    width: 67%;
 
-    margin-left: 200px;
-    float: left;
+    margin-left: 40px;
+  
 
     border-radius: 80px;
     border: 7px #6685ff solid;
@@ -48,10 +42,10 @@ export const Container = styled.div`
     border-radius: 15px;
     text-align:center;
 
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 4%;
+    
 
     background-color: #d9e0ff;
 
@@ -65,7 +59,7 @@ export const Container = styled.div`
 
 export const MoblieButton = styled.div`
 
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 180px;
 
   padding-top: 10px;
@@ -95,14 +89,25 @@ export const MoblieButton = styled.div`
 export const Background = styled.div`
 
     background-color: #ebeeff;
-    margin-top: -110px;
-    padding-top: 100px;
     height: 680px;
+
+    padding-top: 30px;
+
+    p{
+        text-align: left;
+        font-weight: bold;
+        margin-left: 190px;
+    }
 
 `
 
+export const Meta_Info = styled.div`
+    margin-top: 120px;
+    visibility: ${props => props.visible}
+`
+
 const account_details = {
-    match: false,
+    match: "null",
     username: 'null',
     account_creation: 'null'
 }
@@ -112,9 +117,10 @@ export default function SignUp () {
 
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [password, setPassword] = useState(localStorage.getItem('password'));
-    const [accountCreationDate, setAccountCreationDate] = useState("");
-    
+
     const [accountInfo, setAccountInfo] = useState(account_details);
+
+    const [metaInfo, setMetaInfo] = useState("hidden");
 
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -132,16 +138,13 @@ export default function SignUp () {
         .then(data => {
             console.log(setAccountInfo(data));
 
+            setMetaInfo("visible");
             localStorage.setItem('username', data.username); 
             localStorage.setItem('AccountCreation', data.account_creation);    
         });
 
         
     }
-
-    useEffect(() => {
-
-    })
 
     function clearEmail(){
         setEmail("");
@@ -175,44 +178,42 @@ export default function SignUp () {
         return (
             <>
         <Background>
-        <Container>       
-        <h2 Style="margin-top: 60px; padding-bottom:-50px;"> Log In</h2>
+            <Container>       
+                <h2 Style="margin-bottom: -10px;" > Log In</h2>
+                
+                <p>Email</p>
+                <TextAera   type="text"
+                            value={email}
+                            onClick={() => clearEmail()}
+                            onChange={e => setEmail(e.target.value)}
+                            />
 
-        <TextAera   type="text"
-                      value={email}
-                      onClick={() => clearEmail()}
-                      onChange={e => setEmail(e.target.value)}
-                      />
+                <br />
 
-        <br />
-        <TextAera type="password"
-                      value={password}
-                      onClick={() => clearPassword()}
-                      onChange={e => setPassword(e.target.value)}
-                      />
-        <br />
+                <p>Password</p>
+                <TextAera type="password"
+                            value={password}
+                            onClick={() => clearPassword()}
+                            onChange={e => setPassword(e.target.value)}
+                            />
+                <br />
 
+                <a href="/">
+                    <MoblieButton>
+                        Go Back
+                    </MoblieButton>
+                </a>
+                
+                <MoblieButton  onClick={() => sendUserInfo()}>
+                    Log In
+                </MoblieButton>
+                
+                <Meta_Info visible={metaInfo}>
+                    <h2> {accountInfo.match} </h2> 
+                    <a href='/ForgotPassword' >Forgot Password?</a>
+                </Meta_Info>
 
-            <div>
-        <a href="/">
-        <MoblieButton>
-             Go Back
-        </MoblieButton>
-        </a>
-        
-
-        <MoblieButton  onClick={() => sendUserInfo() }>
-            Log In
-        </MoblieButton>
-        </div>
-        
-        <div Style="margin-top: 280px;">
-            <h2> {accountInfo.match} </h2>
-
-        <a href='/ForgotPassword' >Forgot Password?</a>
-        </div>
-
-        </Container>
+            </Container>
         </Background>
 
         </>

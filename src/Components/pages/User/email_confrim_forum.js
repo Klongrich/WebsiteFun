@@ -25,11 +25,17 @@ export const Container = styled.div`
 
 `
 
+
+export const Meta_Info = styled.div`
+    visibility: ${props => props.visible}
+`
+
 export default function Email_confrim_forum () {
 
     //const [confrimedState, setConfrimedState] = useState("Confriming......");
 
-    const [confrimedState, setConfrimedState] = useState("Email Confrimed!");
+    const [confrimedState, setConfrimedState] = useState("Confriming......");
+    const [showMeta, setShowMeta] = useState("hidden")
 
 
     useEffect( () => {
@@ -38,7 +44,7 @@ export default function Email_confrim_forum () {
         var Temp = window.location.href.split("=");
         var token = Temp[1];
 
-       // check_token(token);
+        check_token(token);
     })
     
     function check_data(data){
@@ -47,7 +53,8 @@ export default function Email_confrim_forum () {
         if (data == undefined || data == 0){
                 setConfrimedState("Invalid User");
         } else {
-            setConfrimedState("Email Confrimed!");   
+            setConfrimedState("Email Confrimed!");  
+            setShowMeta("visible"); 
         }
         
     }
@@ -71,6 +78,7 @@ export default function Email_confrim_forum () {
             
             <h2> {confrimedState} </h2>
 
+        <Meta_Info visible={showMeta}>
             <Verified size="85px" color="green" />
             <h2>Thank You</h2>
             <a href="/login" >
@@ -78,6 +86,7 @@ export default function Email_confrim_forum () {
             </a>
             <br />
             <br />
+        </Meta_Info>
         </Container>
         </div>
            
