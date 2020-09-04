@@ -8,7 +8,7 @@ export const ClientInfoWrapper = styled.div`
 
   color: #149414;
   height: 150px;
-  margin-top: 55px;
+  margin-top: 45px;
   padding-bottom: 10px;
   text-align: center;
 
@@ -65,17 +65,7 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
             <>
               <ClientInfoWrapper> 
 
-                <h2> Client Info</h2>
-                  <ul> 
-                      <li> Broswer: <b>{browserInfo.browser} </b> </li> 
-                      <li> Version: <b> {browserInfo.version} </b> </li>
-                      <li> OS: <b> {browserInfo.os} </b> </li> 
-                      <li> IP: <b> {ipAdress} </b> </li>
-                      <li> State: <b> {ipInfo.region} </b> </li>
-                      <li> City: <b> {ipInfo.city} </b> </li> 
-                  </ul>
-
-              {/* 
+              
               <FadeIn transitionDuration="1600" delay="1250">
                 <h2> Client Info</h2>
                 </FadeIn>
@@ -104,7 +94,7 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
                     <li> City: <b> {ipInfo.city} </b> </li> 
                     </FadeIn>
                   </ul>
-              */}
+              
               </ClientInfoWrapper> 
             </>
           );

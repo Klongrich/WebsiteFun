@@ -30,7 +30,7 @@ const HomePageButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
 
-  margin-top: 45px;
+  margin-top: 60px;
 
   margin-left: ${props => props.left};
 
@@ -138,41 +138,36 @@ export default function HomePage() {
         <>
         <div Style="height: 330px; text-align:center;">
 
-       {/*  <FadeIn transitionDuration="1600" delay="600"> */}
-
-          <p Style="color:white; font-size: 50px;
-                    margin-top: 10px;
-                    ">
+        <FadeIn transitionDuration="1600" delay="600"> 
+          <p Style="color:white;
+                    font-size: 50px;
+                    margin-top: 30px;">
             Welcome To My Site
           </p>
-          <p Style="color:white; font-size: 30px;
-                    margin-top: -10px;
-                    margin-bottom: 30px;
-                    ">
-            Log In or Sign Up for V3
-            </p>
 
 
-          <div>
-          <ChevronDownCircle size="65px" 
-                              color="white" 
-                              onClick={scrollTop}
-                              />
-          </div>
+          <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
 
         <a href="/login">
-          <HomePageButton left="395px">
+          <HomePageButton left="392px;">
             Log In
           </HomePageButton>
         </a>
 
-
         <a href="/signup">
-          <HomePageButton left="140px">
+          <HomePageButton left="140px;"> 
             Sign Up
           </HomePageButton>
         </a>
+    
 
+          </FadeIn>
+
+          <FadeIn transitionDuration="1600" delay="600"> 
+
+     
+
+        </FadeIn>
        
        </div>
 
@@ -216,8 +211,10 @@ export default function HomePage() {
 
     <BackgroundImage>
     
-    <TestHeader width={windowSize.width} height={windowSize.height}/>
-   
+    <FadeIn transitionDuration="1600" delay="0">
+      <TestHeader width={windowSize.width} height={windowSize.height}/>
+    </FadeIn>
+
     <MiddleInfo />
 
     </BackgroundImage>
