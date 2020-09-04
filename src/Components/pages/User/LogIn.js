@@ -127,7 +127,7 @@ export default function SignUp () {
     }
 
     function sendUserInfo() {
-        fetch('http://longrichk.com:3013/LogIn?Username=' + email.toLowerCase() + '&Password=' + password)
+        fetch('https://longrichk.com:3012/LogIn?Username=' + email.toLowerCase() + '&Password=' + password)
         .then(res => res.json())
         .then(data => {
             console.log(setAccountInfo(data));
@@ -185,7 +185,7 @@ export default function SignUp () {
                       />
 
         <br />
-        <TextAera type="text"
+        <TextAera type="password"
                       value={password}
                       onClick={() => clearPassword()}
                       onChange={e => setPassword(e.target.value)}

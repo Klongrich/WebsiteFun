@@ -51,11 +51,11 @@ export const Container = styled.div`
 
     background-color: #d9e0ff;
 
-    Height: 1350px;
+    Height: 1050px;
 
     font-family: sans-serif;
 
-    padding-top: 150px;
+    padding-top: 50px;
 
 
 
