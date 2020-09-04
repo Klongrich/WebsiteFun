@@ -3,8 +3,6 @@ import styled from "styled-components";
 
 import {Verified} from '@styled-icons/material-outlined/Verified'
 
-import Confrim_Moblie from './moblie/confrim_moblie'
-
 export const Container = styled.div`
 
     border: 3px solid black;
@@ -12,11 +10,10 @@ export const Container = styled.div`
 
     text-align: center;
 
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
 
-
-    font-size: 25px;
+    font-size: 55px;
 
     a {
         font-size: 20px;
@@ -33,8 +30,6 @@ export const Meta_Info = styled.div`
 `
 
 export default function Email_confrim_forum () {
-
-    //const [confrimedState, setConfrimedState] = useState("Confriming......");
 
     const [confrimedState, setConfrimedState] = useState("Confriming......");
     const [showMeta, setShowMeta] = useState("hidden")
@@ -68,38 +63,29 @@ export default function Email_confrim_forum () {
         .then(data => console.log(check_data(data)));
     }
 
-    if (window.innerWidth > 999) {
     return (
          <>
 
-         <div Style="background-color: #ebeeff;
-             background-color: #d9e0ff;
-
-                     height: 800px;
-                     padding-top: 10%;">
+         <div Style="background-color: #d9e0ff;
+                     height: 1470px;
+                     padding-top: 15%;">
          <Container>
-            
+        
             <h2> {confrimedState} </h2>
 
-        <Meta_Info visible={showMeta}>
-            <Verified size="85px" color="green" />
-            <h2>Thank You</h2>
-            <a href="/login" >
-                Go To LogIn Page
-            </a>
+            <Meta_Info visible={showMeta}>
+                <Verified size="135px" color="green" />
+                <h2>Thank You</h2>
+                <a Style="font-size: 55px;" href="/login" >
+                    Go To LogIn Page
+                </a>
             <br />
             <br />
-        </Meta_Info>
+            </Meta_Info>
+        
         </Container>
         </div>
            
         </>
     )
-    } else {
-        return (
-            <>
-                <Confrim_Moblie />
-            </>
-        )
-    }
 }
