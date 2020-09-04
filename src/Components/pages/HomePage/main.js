@@ -57,7 +57,7 @@ export default function MainPage () {
 
 
             <Version color={color}>{vText}</Version>
-            <ImageSlider show={leftSlider}>
+            <ImageSlider show={leftSlider} onClick={() => switchHomePage()}>
                 <ToggleLeft size="40px" color={color} onClick={() => switchHomePage()}/>
             </ImageSlider>
 

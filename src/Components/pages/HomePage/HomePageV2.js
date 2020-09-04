@@ -18,6 +18,32 @@ import {GetAreasOfIntrest} from './AreasOfInteresLinks'
 import {TestHeader} from './Header'
 import {ClientInfo} from './clientInfo'
 
+
+const HomePageButton = styled.button`
+  
+  text-algin: center;
+
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  margin-top: 45px;
+
+  margin-left: ${props => props.left};
+
+  &:disabled {
+    color: grey;
+    opacity: 0.7;
+    cursor: default;
+  }
+
+  float:left;
+
+`;
+
 export default function HomePage() {
 
   const [browserInfo, setclientInfo] = useState([]);
@@ -95,6 +121,14 @@ export default function HomePage() {
             });
           }
           }).catch(error => alert("Hmm Thats Weird"));
+
+{/*
+
+    fetch('https://longrichk.com:3013/LogVisit')
+    .then(res => res.json())
+  
+*/}
+
   }, []);
 
   const MiddleInfo = () => {
@@ -102,15 +136,44 @@ export default function HomePage() {
     if (windowSize.width > 999) {
       return (
         <>
-          <div Style="height: 330px; text-align:center;">
+        <div Style="height: 330px; text-align:center;">
 
-        <FadeIn transitionDuration="1600" delay="600"> 
-          <p Style="color:white; font-size: 50px;">
+       {/*  <FadeIn transitionDuration="1600" delay="600"> */}
+
+          <p Style="color:white; font-size: 50px;
+                    margin-top: 10px;
+                    ">
             Welcome To My Site
           </p>
+          <p Style="color:white; font-size: 30px;
+                    margin-top: -10px;
+                    margin-bottom: 30px;
+                    ">
+            Log In or Sign Up for V3
+            </p>
 
-          <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
-        </FadeIn>
+
+          <div>
+          <ChevronDownCircle size="65px" 
+                              color="white" 
+                              onClick={scrollTop}
+                              />
+          </div>
+
+        <a href="/login">
+          <HomePageButton left="395px">
+            Log In
+          </HomePageButton>
+        </a>
+
+
+        <a href="/signup">
+          <HomePageButton left="140px">
+            Sign Up
+          </HomePageButton>
+        </a>
+
+       
        </div>
 
        <ClientInfo width={windowSize.width} 
@@ -153,10 +216,8 @@ export default function HomePage() {
 
     <BackgroundImage>
     
-    <FadeIn transitionDuration="1600" delay="0">
-      <TestHeader width={windowSize.width} height={windowSize.height}/>
-    </FadeIn>
-
+    <TestHeader width={windowSize.width} height={windowSize.height}/>
+   
     <MiddleInfo />
 
     </BackgroundImage>
