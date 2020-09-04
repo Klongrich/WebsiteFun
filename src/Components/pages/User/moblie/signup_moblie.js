@@ -5,24 +5,15 @@ import {RightArrowAlt} from '@styled-icons/boxicons-regular/RightArrowAlt'
 
 import {ArrowReturnRight} from '@styled-icons/bootstrap/ArrowReturnRight'
 
-import Signup_Moblie from './moblie/signup_moblie'
 
-export const SubmitButton = styled.button`
-    margin-left: 180px;
-    width: 25%;
-    font-size: 20px;
-    padding: 20px;
-    border-radius: 15px;
-
-`
 
 export const TextAera = styled.input`
 
 
-    font-size: 30px;
-    width: 63%;
+    font-size: 50px;
+    width: 83%;
 
-    margin-left: 200px;
+    margin-left: 50px;
     float: left;
 
     border-radius: 80px;
@@ -38,12 +29,11 @@ export const TextAera = styled.input`
         box-shadow: 0 0 10px blue;
       }
 
+
 `
 
 export const LoginLink = styled.div`
-
     visibility: ${props => props.link};
-    margin-left: 50px;
 `
 
 export const Container = styled.div`
@@ -53,16 +43,20 @@ export const Container = styled.div`
     border-radius: 15px;
     text-align:center;
 
-    font-size: 30px;
-    margin-left: 10%;
-    margin-right: 10%;
+    font-size: 65px;
+
+    margin-left: 8%;
+    margin-right: 8%;
     margin-top: 8%;
 
     background-color: #d9e0ff;
 
-    Height: 450px;
+    Height: 1350px;
 
     font-family: sans-serif;
+
+    padding-top: 150px;
+
 
 
 
@@ -70,18 +64,20 @@ export const Container = styled.div`
 
 export const MoblieButton = styled.div`
 
-  margin-top: 10px;
-  margin-left: 180px;
+  margin-top: 100px;
+  margin-left: 50px;
 
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 
-  font-size: 20px;
+  font-size: 35px;
   text-align: center;
 
-  width: 25%;
+  width: 35%;
 
-  height: 20px;
+  height: 50px;
 
   border-radius: 10px;
   border: 3px #6685ff solid;
@@ -103,9 +99,11 @@ export const Background = styled.div`
     margin-top: -110px;
     padding-top: 110px;
 
+    height: 1740px;
+
 `
 
-export default function SignUp () {
+export default function SignUp_Moblie () {
 
     const [email, setEmail] = useState("Email");
     const [password, setPassword] = useState("Password");
@@ -119,10 +117,7 @@ export default function SignUp () {
 
     const [inputType, setInputType] = useState("text");
 
-    const [windowSize, setWindowSize] = useState({
-        width: undefined,
-        height: undefined,
-      });
+
 
     function ValidateEmail(mail)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -210,13 +205,14 @@ export default function SignUp () {
     }
     
 
-    if (window.innerWidth > 999 ) {
-    return (
-        <>
+
+        return (
+            <>
+        
         
         <Background>
         <Container>
-        <h2 Style="margin-left: 50px;"> Create Account</h2>
+        <h2 Style="padding-bottom: 20px;"> Create Account</h2>
 
         <TextAera   type={inputType}
                     value={currentText}
@@ -226,9 +222,7 @@ export default function SignUp () {
                     onChange={e => setCurrnetText(e.target.value)}
                     />
 
-        <div Style="padding-right: 50px; margin-top: -5px;">
-           Enter <ArrowReturnRight size="35px" />
-        </div>
+
         <br />
 
         <div>
@@ -247,22 +241,19 @@ export default function SignUp () {
         
         <br /> <br />
 
-        <h2 Style="margin-left: 50px; margin-top: 20px;">{usernameTaken}</h2>
+        <h2 Style="margin-top: 170px; font-size: 80px">{usernameTaken}</h2>
         
         <LoginLink link={logInLink}>
-            <a href='/login' Style="font-size: 30px;" >Go To Login Page</a>
+            <a href='/login' Style="font-size: 70px;
+                                    text-decoration: none;
+                                    margin-top: 40px;
+                                    margin-left: -25px;" >
+                                    Go To Login Page</a>
         </LoginLink>
         
         </Container>
         </Background>
         </>
-        )
-    } else {
-
-        return (
-            <>
-                <Signup_Moblie />
-            </>
-        )
-    } 
-}
+           
+        );
+} 

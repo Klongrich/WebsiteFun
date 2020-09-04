@@ -1,22 +1,18 @@
 import React , {useEffect, useState} from 'react'
 import styled from "styled-components";
 
-import DashBoard from '../Dashboard/dashboard'
+import DashBoard from '../../Dashboard/dashboard'
 
-import Login_Moblie from './moblie/login_moblie'
-
-export const SubmitButton = styled.button`
-    margin-left: 180px;
-    width: 100px;
-`
 
 export const TextAera = styled.input`
 
-    margin-top: 30px;
-    font-size: 30px;
-    width: 63%;
 
-    margin-left: 200px;
+    margin-bottom: 80px;
+
+    font-size: 50px;
+    width: 83%;
+
+    margin-left: 50px;
     float: left;
 
     border-radius: 80px;
@@ -48,35 +44,38 @@ export const Container = styled.div`
     border-radius: 15px;
     text-align:center;
 
-    font-size: 30px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 4%;
+    font-size: 65px;
+
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 8%;
 
     background-color: #d9e0ff;
 
-    Height: 570px;
+    Height: 1350px;
 
     font-family: sans-serif;
 
-
+    padding-top: 30px;
 
 `
 
 export const MoblieButton = styled.div`
 
-  margin-top: 60px;
-  margin-left: 180px;
 
-  padding-top: 10px;
+  margin-left: 50px;
+
+  padding-top: 15px;
   padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 
-  font-size: 20px;
+  font-size: 35px;
   text-align: center;
 
-  width: 25%;
+  width: 35%;
 
-  height: 20px;
+  height: 50px;
 
   border-radius: 10px;
   border: 3px #6685ff solid;
@@ -97,7 +96,14 @@ export const Background = styled.div`
     background-color: #ebeeff;
     margin-top: -110px;
     padding-top: 100px;
-    height: 680px;
+    height: 1740px;
+
+    p{
+        text-align: left;
+        margin-left: 58px;
+        font-size: 50px;
+        font-weight: bold;
+    }
 
 `
 
@@ -108,11 +114,10 @@ const account_details = {
 }
 
 
-export default function SignUp () {
+export default function LogIn_Moblie () {
 
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [password, setPassword] = useState(localStorage.getItem('password'));
-    const [accountCreationDate, setAccountCreationDate] = useState("");
     
     const [accountInfo, setAccountInfo] = useState(account_details);
 
@@ -151,16 +156,6 @@ export default function SignUp () {
         setPassword("");
     }
 
-
-{/*}
-    return (
-        <>
-            <DashBoard />
-        </>
-    );
-    */}
-
-    
     if (accountInfo.match == "Valid"){
 
         localStorage.setItem('email', email);
@@ -171,13 +166,15 @@ export default function SignUp () {
             </>
         )
 
-    } else if ( window.innerWidth > 999 ) {
+    } else { 
+
         return (
             <>
         <Background>
         <Container>       
-        <h2 Style="margin-top: 60px; padding-bottom:-50px;"> Log In</h2>
+        <h2 Style="margin-top: 60px; padding-bottom:-50px; font-size: 80px"> Log In</h2>
 
+        <p>Username </p>
         <TextAera   type="text"
                       value={email}
                       onClick={() => clearEmail()}
@@ -185,6 +182,8 @@ export default function SignUp () {
                       />
 
         <br />
+
+        <p>Password </p>
         <TextAera type="text"
                       value={password}
                       onClick={() => clearPassword()}
@@ -207,7 +206,7 @@ export default function SignUp () {
         </div>
         
         <div Style="margin-top: 280px;">
-            <h2> {accountInfo.match} </h2>
+            <h2 Style="font-size: 75px;"> {accountInfo.match} </h2>
 
         <a href='/ForgotPassword' >Forgot Password?</a>
         </div>
@@ -216,13 +215,7 @@ export default function SignUp () {
         </Background>
 
         </>
-    )} else {
-
-        return (
-            <>
-                <Login_Moblie />
-            </>
-        )
-    }
-        
+    )
+        }
+    
 }

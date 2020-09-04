@@ -12,7 +12,7 @@ import {Payments} from '@styled-icons/material-outlined/Payments'
 
 import DeFiPic from '../Crypto/DeFi.jpg'
 
-import AccountInfo from './account_info'
+import {AccountInfo} from './account_info'
 import ArticlePage from './article_page'
 
 import PaymentPage from '../User/payment'
@@ -190,9 +190,9 @@ const articles_data = [
 
 ]
 
-export default function DashBoard () {
+export default function DashBoard (accountInfo) {
 
-    const [pageState, setPageState] = useState("Payment");
+    const [pageState, setPageState] = useState("Home");
     const [articleTitle, setArticleTitle] = useState("");
 
 
@@ -240,7 +240,7 @@ export default function DashBoard () {
         return (
             <>
                 <TopOfPage />
-                <AccountInfo />
+                <AccountInfo  />
                 </>
         )
     }

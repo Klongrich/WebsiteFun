@@ -27,20 +27,25 @@ export const Container = styled.div`
 
 `
 
-export default function Account_Info_Page() {
+export const  AccountInfo = () => {
+
+    useEffect(() => {
+        
+    })
+
     return (
         <>
         <Container>
             <h2 Style="font-size: 24px;"> Account Info </h2>
             <ul>
-                <li> Creation Date: <b> 09/02/2020 </b></li>
+                <li> Creation Date: <b>  {localStorage.getItem('AccountCreation')} </b></li>
                 <li>Subscribed: <b> No </b> </li>
                 <li>Email Verified: <b> Yes </b></li>
                 <li>Credit Card:</li>
             </ul>
 
             <ul>
-                <li>Email: <b> Longrichk@gmail.com </b> </li>
+                <li>Email: <b>  {localStorage.getItem('username')} </b> </li>
                 <li>Password: <b> *************** </b></li>
             </ul>
         </Container>
