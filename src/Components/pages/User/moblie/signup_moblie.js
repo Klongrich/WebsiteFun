@@ -112,19 +112,17 @@ export default function SignUp_Moblie () {
     const [logInLink, setLogInlink] = useState("hidden");
     const [usernameTaken, setUsernameTaken] = useState("");
 
-    const [signUpState, setSignUpState] = useState("Submit Email");
+    const [signUpState, setSignUpState] = useState("Enter Email");
     const [currentText, setCurrnetText] = useState("Enter Email");
 
     const [inputType, setInputType] = useState("text");
 
 
 
-    function ValidateEmail(mail)  {
+    function ValidateEmail(email)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            console.log("true")
             return (true)
         } else {
-            console.log("false")
             return(false)
         }
     }
@@ -132,7 +130,8 @@ export default function SignUp_Moblie () {
     function updateAccountCreation(status) {
 
         if (status == "Taken") {
-            setUsernameTaken("Username Taken");
+            setUsernameTaken("Email Taken");
+            go_back();
         } else {
             setUsernameTaken("Account Created!");
             setLogInlink("visible");
@@ -152,60 +151,78 @@ export default function SignUp_Moblie () {
     }
 
 
-    function updateUserInfo() {
-        if (signUpState == "Submit Email"){            
-            
-            setSignUpState("Submit Password");
-            setEmail(currentText);
-            setCurrnetText("Password");
-            
-            //setInputType("password");
+    function go_back() {
+        setSignUpState("Enter Email");
+        updateUserInfo("Start");
+        setLogInlink("hidden");
+        setInputType("text");
+}
 
+
+function updateUserInfo(signUp) {
+
+    if (signUp == "Start") {
+        
+            setSignUpState("Enter Email");
+            setCurrnetText("Email");
+
+            setInputType("text");
+    } 
+    else if (signUp == "Enter Email"){            
+        
+        if (ValidateEmail(currentText)) {
+            
+            setUsernameTaken("");
+            setSignUpState("Password");
+            setEmail(currentText);
+
+            setCurrnetText("");
+            setInputType("password");
+
+        
         } else {
-            setPassword(currentText);
+
+            setUsernameTaken("Email Not Vaild");
+            updateUserInfo("Start");
+        }
+
+        
+    } 
+    else if (signUp == "Password-retry"){
+                        
+        setSignUpState("Password");
+        setCurrnetText("");
+
+        setInputType("password");
+
+    }
+    else if (signUp == "Password")
+    {
+        setSignUpState("Confrim Password");
+        setPassword(currentText);
+        setCurrnetText("");
+        setInputType("password");
+        
+    }
+    else {
+
+        if (currentText == password) {
             setSignUpState("Account Created");
             sendUserInfo();
+        } else {
+            setUsernameTaken("Passwords Don't Match - Try Again");
+            updateUserInfo("Password-retry");
         }
-    }
 
-
-    function useKey(key) {
-        // Keep track of key state
-        const [pressed, setPressed] = useState(false)
-    
-        // Does an event match the key we're watching?
-        const match = event => key.toLowerCase() == event.key.toLowerCase()
-    
-        // Event handlers
-        const onDown = event => {
-            if (match(event)) setPressed(true)
-        }
-    
-        const onUp = event => {
-            if (match(event)) setPressed(false)
-        }
-    
-        // Bind and unbind events
-        useEffect(() => {
-            window.addEventListener("keydown", onDown)
-            window.addEventListener("keyup", onUp)
-            return () => {
-                window.removeEventListener("keydown", onDown)
-                window.removeEventListener("keyup", onUp)
-            }
-        }, [key])
-    
-        return pressed
     }
+}
     
     function checkKey(key){
         if (key == 13) {
-            updateUserInfo();
+            updateUserInfo(signUpState);
         }
     }
     
-
-
         return (
             <>
         
@@ -213,6 +230,10 @@ export default function SignUp_Moblie () {
         <Background>
         <Container>
         <h2 Style="padding-bottom: 20px;"> Create Account</h2>
+
+        <p Style="margin-left: 50px;
+                  margin-top: -20px;
+                  font-weight: bold;">{signUpState}</p>
 
         <TextAera   type={inputType}
                     value={currentText}
@@ -227,13 +248,11 @@ export default function SignUp_Moblie () {
 
         <div>
         
-        <a href="/">
-        <MoblieButton>
-             Go Back
+        <MoblieButton onClick={() => go_back()} >
+            Go Back
         </MoblieButton>
-        </a>
         
-        <MoblieButton  onClick={() => updateUserInfo() }>
+        <MoblieButton  onClick={() => updateUserInfo(signUpState) }>
             {signUpState}
         </MoblieButton>
         

@@ -124,10 +124,8 @@ export default function SignUp () {
 
     function ValidateEmail(email)  {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            console.log("true")
             return (true)
         } else {
-            console.log("false")
             return(false)
         }
     }
@@ -145,6 +143,7 @@ export default function SignUp () {
     }
 
     function sendUserInfo() {
+
         fetch('https://longrichk.com:3012/SignUp?Username=' + email.toLowerCase() + '&Password=' + password)
         .then(res => res.json())
         .then(data => updateAccountCreation(data.Username));
@@ -174,8 +173,6 @@ export default function SignUp () {
         } 
         else if (signUp == "Enter Email"){            
             
-            console.log("Current Text: " + currentText);
-
             if (ValidateEmail(currentText)) {
                 
                 setSignUpState("Password");
