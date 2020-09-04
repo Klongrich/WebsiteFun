@@ -15,33 +15,39 @@ import stochExample from "./pics/stochExample.png"
 
 import level2 from './pics/level2.jpg'
 
-import StocksMoblie from './stocks_moblie'
-
 
 export const Header = styled.div`
  
     border: 3px black solid;
     background-color: black;
     color:white;
-    padding-left: 10px;
 
-    height: 50px;
+    height: 150px;
+
+    h2 {
+        font-size: 60px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
 
     ul {
         list-style-type: none;
-        margin-left: 60%;
+        margin-left: 25%;
         padding-bottom: 40px;
-        margin-top: -40px;
+        margin-top: -95px;
     }
 
     li {
         float: left;
-        padding-left: 50px;
+        margin-left: 40px;
+        font-size: 30px;
     }
 
     li:hover {
         color: red;
     }
+
+ 
   
 `
 
@@ -55,9 +61,19 @@ export const TopPage = styled.div`
 
     font-family: Helvetica;
 
+    h1 {
+        font-size: 50px;
+    }
+
+    h2{
+        font-size: 50px;
+    }
+
     p {
     
+        font-size: 40px;
         margin-left: 40px;
+        margin-right: 40px;
     }
 
   
@@ -66,6 +82,8 @@ export const TopPage = styled.div`
 export const HowToReadAChart= styled.div`
     
     border: 1px black solid;
+
+    font-size: 40px;
   
 
     ul {
@@ -78,6 +96,12 @@ export const HowToReadAChart= styled.div`
 
     p {
         margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    img{
+        margin-left: 140px;
+        border: 3px black solid;
     }
 
 
@@ -94,6 +118,8 @@ export const BasicTerminology = styled.div`
     
     border: 1px black solid;
 
+    font-size: 40px;
+
     ul {
         list-style-type: none;
     }
@@ -104,6 +130,7 @@ export const BasicTerminology = styled.div`
 
     p {
         margin-left: 30px;
+        margin-right: 30px;
     }
 
     padding-left: 20px;
@@ -119,6 +146,7 @@ export const BasicTerminology = styled.div`
 export const BasicInformation = styled.div`
     
     border: 1px black solid;
+    font-size: 40px;
 
     ul {
         list-style-type: none;
@@ -130,6 +158,7 @@ export const BasicInformation = styled.div`
 
     p {
         margin-left: 30px;
+        margin-right: 30px;
     }
 
     padding-left: 20px;
@@ -146,6 +175,7 @@ export const BasicInformation = styled.div`
 export const Indicators = styled.div`
     
     border: 1px black solid;
+    font-size: 40px;
 
     ul {
         list-style-type: none;
@@ -157,6 +187,7 @@ export const Indicators = styled.div`
 
     p {
         margin-left: 30px;
+        margin-right: 30px;
     }
 
     padding-left: 20px;
@@ -165,13 +196,12 @@ export const Indicators = styled.div`
     background-color: #C2B9B0;
 
     font-family: Helvetica;
-
-
 `
 
 export const LevelTwoData = styled.div`
     
     border: 1px black solid;
+    font-size: 40px;
 
     ul {
         list-style-type: none;
@@ -183,6 +213,7 @@ export const LevelTwoData = styled.div`
 
     p {
         margin-left: 30px;
+        margin-right: 30px;
     }
 
     padding-left: 20px;
@@ -198,6 +229,7 @@ export const LevelTwoData = styled.div`
 export const Conclusion = styled.div`
     
     border: 1px black solid;
+    font-size: 40px;
 
     ul {
         list-style-type: none;
@@ -224,9 +256,9 @@ export const Conclusion = styled.div`
 export const TeslaChart = styled.div`
 
     background-image: url(${teslaPic});
-    background-size: 100% 100%;
+    background-size: 900px 1000px;
 
-    height: 800px;
+    height: 1000px;
 
 
 `
@@ -261,7 +293,6 @@ export default function StocksHomePage () {
         }
     });
 
-    if(window.innerWidth > 999) {
     return (
         <> 
         <Header>
@@ -288,28 +319,28 @@ export default function StocksHomePage () {
         <HowToReadAChart>
             <h1>How To Read A Chart</h1>
 
-        <div Style="float: left; margin-left: 200px">
+        <div>
             <h2 Style="text-align: center">Candel Stick</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Candlestick_chart_scheme_03-en.svg/1024px-Candlestick_chart_scheme_03-en.svg.png"
-                 height="250px" 
-                 width="350px"
+                 height="450px" 
+                 width="650px"
                  />
             </div>
 
-        <div Style="margin-left: 100px; display: inline-block">
+        <div>
             <h2 Style="text-align: center">Bar Chart</h2>
             <img src="https://www.investopedia.com/thmb/6RaK4nNDuSPrG3laTgLMZQkYDIE=/1136x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/UpDownBar-2af5f78967fa448d871890653220d74c.JPG"
-                 height="250px" 
-                 width="350px"
+                 height="450px" 
+                 width="650px"
                  />
         </div>
 
-        <ul Style="float: left; margin-left: 120px;">
+        <ul>
             <li>High: </li> <p>The Highest Price the stock hit in a given time frame</p>
             <li>Open: </li> <p>The Price at which the stock started at in the given time frame</p>
         </ul>
 
-        <ul Style="display: inline-block">
+        <ul>
             <li>Low: </li> <p>The Lowest Price the stock hit in a given time frame</p>
             <li>Close: </li> <p>The Last price of the stock within the given time frame</p>
         </ul>
@@ -332,14 +363,14 @@ export default function StocksHomePage () {
         <BasicTerminology>
             <h1>Basic Terminology</h1>
             
-            <ul Style="float: left">
+            <ul>
                 <li>MarketCap: </li> <p>Total amount the company is worth</p>
                 <li>Volume: </li> <p> Total amount of shares being bought and sold</p>
                 <li>Float: </li> <p>Amount of Shares that are aviable to be tradded publicly</p>
                 <li>Short: </li> <p>Taking a negative position on a stock (betting it will go down)</p>
             </ul>
 
-            <ul Style="display: inline-block; margin-left: 50px;">
+            <ul>
                 <li>Options: </li> <p>  Derivatives based on the value of underlying securities such as stocks. </p>
                 <li>Equites: </li> <p> Shares of value issued by a companies. </p>
                 <li>Forex: </li> <p> Marketplace where various national currencies are traded</p>
@@ -352,7 +383,7 @@ export default function StocksHomePage () {
         <BasicInformation>
             <h1>Basic Information</h1>
 
-            <ul Style="float: left; padding-bottom: 10px;">
+            <ul>
                 <li>US Brokerages</li> 
                         <li Style="padding-bottom: 20px; padding-top: 20px;"> 1.) Interactive Brokers</li>
                         <li Style="padding-bottom: 20px;"> 2.) E-Trade</li>
@@ -361,7 +392,7 @@ export default function StocksHomePage () {
                         <li Style="padding-bottom: 20px;"> 6.) TD Ameritrade</li>
             </ul> 
 
-                    <ul Style="display: inline-block; margin-left: 200px">
+                    <ul>
                         <li>How To Place A Trade</li> <br />
                         <li>Limit Order</li> <p>Order place to buy at or below / sell at or above a certain price (preferred)</p>
                         <li>Marekt Order</li> <p>Buys or Sells at current going market rate</p>
@@ -382,7 +413,7 @@ export default function StocksHomePage () {
                             padding-top: 30px;
                             padding-bottom: 30px;
                             margin-bottom: 20px; 
-                            width: 1250px;"
+                            width: 940px;"
                             >
                     <li> STOCH: </li>
                         <img Style="margin-top: 30px;
@@ -393,7 +424,9 @@ export default function StocksHomePage () {
                         <img  Style="margin-top: 30px;
                                     margin-bottom: 30px;
                                     margin-left: 50px;
-                                    border: 2px black solid;" src={stochForumal} />
+                                    border: 2px black solid;
+                                    height: 200px;
+                                    width: 650px;" src={stochForumal} />
                     <li>Explained:</li>
                         <p>H = The "High" of the time period</p>
                         <p>L = The "Low" of the time period</p>
@@ -402,8 +435,10 @@ export default function StocksHomePage () {
                         <img  Style="margin-top: 30px;
                                     margin-bottom: 30px;
                                     margin-left: 50px;
-                                    border: 2px black solid;" src={stochExample} />
-                    <li>Link to code: <a href="https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java" > https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java </a> </li>
+                                    border: 2px black solid;
+                                    height: 700px;
+                                    width: 800px;" src={stochExample} />
+                    <li><a href="https://github.com/Klongrich/ChartingSoftware/blob/master/src/indicators/listtwo.java" > Link To Code </a> </li>
 
                 </div>
 
@@ -422,15 +457,21 @@ export default function StocksHomePage () {
 
         <BasicInformation>
             <h1> Level 2 Data</h1>
-            <div Style="margin-left: 350px; margin-bottom: 20px;">
-                <p Style="font-weight: bold; padding-left: 120px">(Example of Level 2 data)</p>
-                <img Style="border: 2px black solid; width: 500px;" src={level2} />
+            <div Style="margin-left: 70px;">
+                <p Style="margin-left: 170px;">(Example of Level 2 data)</p>
+                <img Style="border: 2px black solid; 
+                            width: 800px;
+                            height: 500px;"
+                            src={level2}
+                            />
             </div>
-            <ul Style="float: left; margin-left: 200px; margin-top:">
+
+            <ul>
                 <li>Bid: </li> <p>Orders That are placed to buy</p>
                 <li>Ask: </li> <p>Order that are placed to sell </p>
             </ul>
-            <ul Style="display: inline-block; margin-left: 200px;">
+
+            <ul>
                 <li>ID: </li> <p>Exchange your are order is being routed to</p>
                 <li>Size: </li> <p>Amount of shares for sale or purchase at that price</p>
             </ul>
@@ -443,12 +484,4 @@ export default function StocksHomePage () {
  
         </>
     )
-    } else {
-
-        return(
-            <>
-                <StocksMoblie />
-            </>
-        )
-    }
 }
