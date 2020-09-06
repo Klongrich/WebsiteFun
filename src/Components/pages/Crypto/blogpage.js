@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 
     background-color: #759ce6;
-    margin-top: -150px;
+    margin-top: 0px;
 
 `
 
@@ -12,7 +12,7 @@ export const Content = styled.div`
 
     font-family:  Montserrat;
 
-    margin-top: 0;
+    margin-top: 0px;
     margin-bottom: 5%;
     margin-left: 10%;
     width: 80%;

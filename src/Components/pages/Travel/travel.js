@@ -4,7 +4,7 @@ import 'animate.css'
 import {Header, NotVisited, Visited, TravelContainer} from './styles/travelStyles'
 
 import MoblieTravel from './moblieTravel'
-import DesktopTravel from './desktopTravel'
+import DesktopTravel from './newDesktopTravel'
 
 import NewMoblieTravel from './newMoblieTravel'
 

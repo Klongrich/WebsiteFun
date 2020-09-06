@@ -155,17 +155,16 @@ export const ConfrimCopyText = styled.div`
     border-radius: 5px;
     width: 200px;
 
+    background-color: grey;
+
     margin-bottom: 20px;
-    padding:10px;
-    text-align:center;
-    margin-left: 20px;
 
 
 `
 
 export default function DesktopCrypto () {
 
-    const [veiwingPage, setVeiwingPage] = useState(false);
+    const [veiwingPage, setVeiwingPage] = useState(true);
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
@@ -224,18 +223,37 @@ export default function DesktopCrypto () {
                 <p> V1 </p>
             </Header>
 
+            <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
 
-            <p Style="margin-left: 5px" onClick={() => CopyText(pageLink)}> Share Article <Share size="25px" color="green" />  </p>
 
+            <div Style="margin-top: 50px;
+                        border: 1px solid black;
+                        color: white;
+                        background-color: black;
+                        font-size: 30px" >
+
+            <p Style="margin-left: 15%;" 
+                onClick={() => CopyText(pageLink)}
+                >
+                 Share This Article 
+                 <Share size="35px" color="green" />  
+                
+            </p>
+
+        
             <ConfrimCopyText show={showLinkCopied}>
-                Copied To Clipboard!
+                Copied!
             </ConfrimCopyText>
-            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
+
+            <button Style="margin-left: 72%; 
+                           margin-top: -150px;
+                           width: 250px;
+                           font-size: 25px;" onClick={() => updatePage()}>
                 Go back
             </button>
 
-            <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
+            </div>
 
 
             </>
