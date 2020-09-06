@@ -152,7 +152,11 @@ export default function DesktopCrypto () {
         var Temp = window.location.href.split("=");
         var token = Temp[1];
 
-        setPageContent(token);
+        if (token) {
+            
+            console.log(token);
+            setPageContent(token);
+        }
     })
 
     function updatePage(title, date, content) {

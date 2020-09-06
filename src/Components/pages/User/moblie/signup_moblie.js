@@ -110,12 +110,14 @@ export default function SignUp_Moblie () {
     const [password2, setPassword2] = useState("Re-Type Password");
 
     const [logInLink, setLogInlink] = useState("hidden");
-    const [usernameTaken, setUsernameTaken] = useState("");
+    const [errorText, setErrorText] = useState("");
 
     const [signUpState, setSignUpState] = useState("Enter Email");
     const [currentText, setCurrnetText] = useState("Enter Email");
 
     const [inputType, setInputType] = useState("text");
+
+    const [inputError, setInputError] = useState(false);
 
 
 
@@ -130,12 +132,14 @@ export default function SignUp_Moblie () {
     function updateAccountCreation(status) {
 
         if (status == "Taken") {
-            setUsernameTaken("Email Taken");
+            setErrorText("Email Taken");
             go_back();
         } else {
-            setUsernameTaken("Account Created!");
+            setErrorText("Account Created!");
             setLogInlink("visible");
         }
+
+        setInputError(true);
 
     }
 
@@ -170,9 +174,10 @@ function updateUserInfo(signUp) {
     } 
     else if (signUp == "Enter Email"){            
         
+
         if (ValidateEmail(currentText)) {
             
-            setUsernameTaken("");
+            setErrorText("");
             setSignUpState("Password");
             setEmail(currentText);
 
@@ -182,7 +187,8 @@ function updateUserInfo(signUp) {
         
         } else {
 
-            setUsernameTaken("Email Not Vaild");
+            setErrorText("Email Not Vaild");
+            setInputError(true);
             updateUserInfo("Start");
         }
 
@@ -210,17 +216,24 @@ function updateUserInfo(signUp) {
             setSignUpState("Account Created");
             sendUserInfo();
         } else {
-            setUsernameTaken("Passwords Don't Match - Try Again");
+            setErrorText("Passwords Don't Match - Try Again");
+            setInputError(true);
             updateUserInfo("Password-retry");
         }
 
     }
 }
     
-    function checkKey(key){
-        if (key == 13) {
+    function checkKey(e){
+        if (e.keyCode == 13) {
             updateUserInfo(signUpState);
         }
+
+        if (inputError) {
+            e.target.blur();
+            setInputError(false);
+        }
+
     }
     
         return (
@@ -239,7 +252,7 @@ function updateUserInfo(signUp) {
                     value={currentText}
                     borderColor={"purple"}
                     onClick={() => clearText()}
-                    onKeyDown={e => checkKey(e.keyCode)}
+                    onKeyDown={e => checkKey(e)}
                     onChange={e => setCurrnetText(e.target.value)}
                     />
 
@@ -260,7 +273,7 @@ function updateUserInfo(signUp) {
         
         <br /> <br />
 
-        <h2 Style="margin-top: 170px; font-size: 80px">{usernameTaken}</h2>
+        <h2 Style="margin-top: 170px; font-size: 80px">{errorText}</h2>
         
         <LoginLink link={logInLink}>
             <a href='/login' Style="font-size: 70px;
