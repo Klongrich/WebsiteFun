@@ -146,8 +146,14 @@ export default function DesktopCrypto () {
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
-    const [pageContent, setPageContent] = useState(DeFiCurrentState);
+    const [pageContent, setPageContent] = useState("");
 
+    useEffect(() => {
+        var Temp = window.location.href.split("=");
+        var token = Temp[1];
+
+        setPageContent(token);
+    })
 
     function updatePage(title, date, content) {
 
@@ -206,6 +212,7 @@ export default function DesktopCrypto () {
             </BlogPost>
     
             {secondPost.map( data => (
+                
                 <BlogPost Image={data.image} 
                           width="35%"
                           height="150px"
