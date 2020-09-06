@@ -14,6 +14,7 @@ import Footer from '../../footerComponets/Footer'
 import {PageContent} from './blogpage'
 
 import DeFiCurrentState from './articles/DeFiCurrentState'
+import MiningExplained from './articles/MiningExplained'
 
 const allfontSizes = {
     h2: "50px",
@@ -27,6 +28,12 @@ const postData = [
         date: "09/6/2020",
         content: DeFiCurrentState,
         image: DeFiPic
+    },
+    {
+        title: "Mining Explained",
+        date: "05/23/2020",
+        content: MiningExplained,
+        image: miningPic
     },
     {
         title: "The ICO Craze Of 2017", 
@@ -47,11 +54,6 @@ const postData = [
         title: "What is $YAM?",
         date: "07/12/2020",
         image: yamETH
-    },
-    {
-        title: "Mining Explained",
-        date: "05/23/2020",
-        image: miningPic
     },
     {
         title: "Bitcoin",

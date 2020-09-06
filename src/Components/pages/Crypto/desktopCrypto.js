@@ -15,6 +15,7 @@ import Footer from '../../footerComponets/Footer'
 import {PageContent} from './blogpage'
 
 import DeFiCurrentState from './articles/DeFiCurrentState'
+import MiningExplained from './articles/MiningExplained'
 
 
 const mainPost = {
@@ -51,6 +52,7 @@ const thridPost = [
     {
         title: "Mining Explained",
         date: "05/23/2020",
+        content: MiningExplained,
         image: miningPic
     },
     {
@@ -211,7 +213,7 @@ export default function DesktopCrypto () {
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            "Content coming soon ........"
+                            data.content
                           )} >
     
                     <BlogPostTitles fontSize="14px"
@@ -231,7 +233,7 @@ export default function DesktopCrypto () {
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            "Content coming soon ........"
+                            data.content
                           )}>
     
                     <BlogPostTitles fontSize="12px"
