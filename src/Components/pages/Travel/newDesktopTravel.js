@@ -7,209 +7,28 @@ import Footer from '../../footerComponets/Footer'
 import {PageContent} from './blogpage'
 import OldDesktopTravel from './desktopTravel'
 
-import IcelandFlag from './pics/Iceland.png'
-import NetherelandsFlag from './pics/netherland.png'
-import BelguimFlag from './pics/belguim.png'
-import FranceFlag from './pics/france.png'
-import SwitzerlandFlag from './pics/switzerland.png'
-import ItalyFlag from './pics/italy.png'
-
-import DenmarkFlag from './pics/denmark.png'
 
 import IcelandBackground from './iceland/icelandbackground.jpg'
-import NetherlandBackground from './netherlands/netherlands-background.jpg'
-import SwitzerlandBackground from './pics/switzerlandBlog.jpg'
 
 
-import GernmanyFlag from './pics/germany.jpeg'
-import SwedenFlag from './pics/sweden.png'
-import NorwayFlag from './pics/norway.png'
+import {All, Scandinavia, WesternEurope, EasternEurope} from './EuropeCountries'
 
-import PolandFlag from './pics/poland.png'
-import AustraiFlag from './pics/austria.jpeg'
-import SlovkiaFlag from './pics/slovakia.png'
-import CzehcFlag from './pics/czechrepublic.jpg'
-import HungaryFlag from './pics/hungary.jpeg'
-import CortiaFlag from './pics/cortia.png'
-import SloveniaFlag from './pics/slovenia.png'
-import LiechenstineFlag from './pics/liechenstine.png'
-import UkFlag from './pics/uk.png'
-import IrelandFlag from './pics/ireland.jpg'
-
-
-
-
-const All = [
+const AllStates = [
     {
-        title: "Switzerland",
-        blogBackground: SwitzerlandBackground,
-        image: SwitzerlandFlag
+        title: "Ohio",
+        image: null
     },
     {
-        title: "Iceland",
-        blogBackground: IcelandBackground,
-        image: IcelandFlag
+        title: "California",
+        image: null
     },
     {
-        title: "Belguim", 
-        image: BelguimFlag
+        title: "Neveda",
+        image: null
     },
     {
-        title: "Netherlands",
-        blogBackground: NetherlandBackground,
-        image: NetherelandsFlag
-    },
-    {
-        title: "France", 
-        image: FranceFlag
-    },
-    {
-        title: "Italy",
-        image: ItalyFlag
-    },
-    {
-        title: "Germany",
-        image: GernmanyFlag
-    },
-    {
-        title: "Denmark",
-        image: DenmarkFlag
-    },
-    {
-        title: "Sweden",
-        image: SwedenFlag
-    },
-    {
-        title: "Norway",
-        image: NorwayFlag
-    },
-    {
-        title: "Poland",
-        image: PolandFlag
-    },
-    {
-        title: "Austria",
-        image: AustraiFlag
-    },
-    {
-        title: "Slovkia",
-        image: SlovkiaFlag
-    },
-    {
-        title: "Czech Republic",
-        image: CzehcFlag
-    },
-    {
-        title: "Hungary",
-        image: HungaryFlag
-    },
-    {
-        title: "Cortia",
-        image: CortiaFlag
-    },
-    {
-        title: "Slovenia",
-        image: SloveniaFlag
-    },
-    {
-        title: "Liechnstine",
-        image: LiechenstineFlag
-    },
-    {
-        title: "United Kingdom",
-        image: UkFlag
-    },
-    {
-        title: "Ireland",
-        image: IrelandFlag
-    }
-    
-]
-
-const Scandinavia = [
-    {
-        title: "Iceland",
-        blogBackground: IcelandBackground,
-        image: IcelandFlag
-    },
-    {
-        title: "Denmark",
-        image: DenmarkFlag
-    },
-    {
-        title: "Sweden",
-        image: SwedenFlag
-    },
-    {
-        title: "Norway",
-        image: NorwayFlag
-    }
-]
-
-const WesternEurope = [
-    {
-        title: "Belguim", 
-        image: BelguimFlag
-    },
-    {
-        title: "Netherlands",
-        blogBackground: NetherlandBackground,
-        image: NetherelandsFlag
-    },
-    {
-        title: "France", 
-        image: FranceFlag
-    },
-    {
-        title: "Switzerland",
-        image: SwitzerlandFlag
-    },
-    {
-        title: "Italy",
-        image: ItalyFlag
-    },
-    {
-        title: "Germany",
-        image: GernmanyFlag
-    },
-    {
-        title: "United Kingdom",
-        image: UkFlag
-    },
-    {
-        title: "Ireland",
-        image: IrelandFlag
-    }
-]
-
-const EasternEurop = [
-    {
-        title: "Slovkia",
-        image: SlovkiaFlag
-    },
-    {
-        title: "Czech Republic",
-        image: CzehcFlag
-    },
-    {
-        title: "Poland",
-        image: PolandFlag
-    },
-    {
-        title: "Austria",
-        image: AustraiFlag
-    },
-    {
-        title: "Hungary",
-        image: HungaryFlag
-    },
-    {
-        title: "Cortia",
-        image: CortiaFlag
-    },
-    {
-        title: "Slovenia",
-        image: SloveniaFlag
+        title: "Utah",
+        image: null
     }
 ]
 
@@ -234,6 +53,22 @@ export const Header = styled.div`
     border: 1px #525252 solid;
 
     margin-top: -10px;
+
+    ul {
+        list-style-type: none;
+        padding-left: 900px;
+        margin-top: -45px;
+        font-size: 20px;
+    }
+
+    li {
+        float: left;
+        margin-left: 50px;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
 
     h2 { 
         margin-left: 15px;
@@ -332,6 +167,11 @@ export const RegionButton = styled.div`
 
 export default function DesktopTravel () {
 
+
+
+
+    const [pageHeader, setPageHeader] = useState("Visited Countries");
+
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
 
@@ -362,7 +202,17 @@ export default function DesktopTravel () {
         }
     }
     
-    
+    function switchToStates() {
+        setRegion(AllStates)
+        setPageHeader("Visited States (47 / 50)")
+
+    }
+
+    function switchToEurope () {
+        setRegion(All);
+        setPageHeader("Visited Countries");
+
+    }
 
     function switchVersion () {
         if (oldTravelPage) {
@@ -370,6 +220,54 @@ export default function DesktopTravel () {
         } else {
             setOldTravelPage(true);
         }
+    }
+
+    function GetRegionButtons () {
+
+        if (pageHeader == "Visited Countries") {
+            return (
+                <>
+                    <RegionButton onClick={() => setRegion(All)} >
+                        <p> All </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(Scandinavia)}>
+                        <p> Scandinavia </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(WesternEurope)} >
+                        <p> Western Europe </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(EasternEurope)}>
+                        <p> Eastern Europe</p>
+                    </RegionButton>
+                </>
+            )
+        } else {
+            return (
+                <>
+
+                    <RegionButton onClick={() => setRegion(All)} >
+                        <p> Midwest </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(Scandinavia)}>
+                        <p> North East </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(WesternEurope)} >
+                        <p> The South </p>
+                    </RegionButton>
+
+                    <RegionButton onClick={() => setRegion(EasternEurope)}>
+                        <p> West </p>
+                    </RegionButton>
+
+                </>
+            )
+        }
+
     }
 
     if (veiwingPage) {
@@ -406,7 +304,12 @@ export default function DesktopTravel () {
 
             <Header>
                 <h2> Travel Blog </h2>
-                <p onClick={() => switchVersion()}> V2</p>
+
+                <ul>
+                    <li onClick={ () => switchToStates()}>Untied States</li>
+                    <li onClick={ () => switchToEurope()} > Europe </li>
+                    <li onClick={() => switchVersion()}> V2</li>
+                </ul>
             </Header>
 
 <Container>
@@ -416,7 +319,7 @@ export default function DesktopTravel () {
                text-align: center;
                color: #163320;"
                > 
-               Visited Countreis </h2>
+               {pageHeader} </h2>
 
     <h2 Style="font-size: 20px; 
                text-align: center;
@@ -428,21 +331,7 @@ export default function DesktopTravel () {
     
     <RegionChoice>
   
-        <RegionButton onClick={() => setRegion(All)} >
-            <p> All </p>
-        </RegionButton>
-
-        <RegionButton onClick={() => setRegion(Scandinavia)}>
-            <p> Scandinavia </p>
-        </RegionButton>
-
-        <RegionButton onClick={() => setRegion(WesternEurope)} >
-            <p> Western Europe </p>
-        </RegionButton>
-
-        <RegionButton onClick={() => setRegion(EasternEurop)}>
-            <p> Eastern Europe</p>
-        </RegionButton>
+        <GetRegionButtons />
    
     </RegionChoice>
     
