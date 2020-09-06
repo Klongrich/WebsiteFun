@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
+import copy from "copy-to-clipboard";
+import { useHistory } from "react-router-dom";
+
+
+
 
 import DeFiPic from './DeFi.jpg'
 import ICOpic from './ICO2.jpeg'
@@ -14,6 +19,8 @@ import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
+import {Share} from '@styled-icons/boxicons-regular/Share'
+
 import DeFiCurrentState from './articles/DeFiCurrentState'
 import MiningExplained from './articles/MiningExplained'
 
@@ -22,6 +29,7 @@ const mainPost = {
     title: "DeFi and It's Current State",
     date: "09/6/2020",
     content: DeFiCurrentState,
+    link: "http:localhost:3000/Crypto?Article=DeFiCurrentState",
     image: DeFiPic
 }
 
@@ -140,37 +148,72 @@ export const BlogPost = styled.div`
       transform: scale(1);
 `
 
+export const ConfrimCopyText = styled.div`
+
+    visibility: ${props => props.show};
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 200px;
+
+    margin-bottom: 20px;
+    padding:10px;
+    text-align:center;
+    margin-left: 20px;
+
+
+`
+
 export default function DesktopCrypto () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
-    const [pageContent, setPageContent] = useState("");
+    const [pageContent, setPageContent] = useState(mainPost.content);
+    const [pageLink, setPageLink] = useState("Link");
+
+    const [showLinkCopied, setShowLinkCopied] = useState("hidden");
+
+    const [usedLink, setUsedLink] = useState(false);
 
     useEffect(() => {
         var Temp = window.location.href.split("=");
         var token = Temp[1];
 
         if (token) {
-            
-            console.log(token);
-            setPageContent(token);
+            setPageContent(mainPost.content);
+            setVeiwingPage(true);
+            setUsedLink(true);
         }
+
+
     })
 
-    function updatePage(title, date, content) {
+    function updatePage(title, date, content, link) {
+
 
         if (veiwingPage) {
             setVeiwingPage(false);
+
+            if (usedLink) {
+                window.location = '/Crypto';
+                setUsedLink(false);    
+            }
+
         } else {
             setPageTitle(title);
             setPageDate(date);
-            setPageContent(content);
+            setPageLink(link);
             
             setVeiwingPage(true);
         }
     
+    }
+
+    function CopyText (text) {
+        copy(text);
+
+        setShowLinkCopied("visible");
     }
 
     if (veiwingPage) {
@@ -181,6 +224,13 @@ export default function DesktopCrypto () {
                 <p> V1 </p>
             </Header>
 
+
+
+            <p Style="margin-left: 5px" onClick={() => CopyText(pageLink)}> Share Article <Share size="25px" color="green" />  </p>
+
+            <ConfrimCopyText show={showLinkCopied}>
+                Copied To Clipboard!
+            </ConfrimCopyText>
             <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
                 Go back
             </button>
@@ -207,6 +257,7 @@ export default function DesktopCrypto () {
                         mainPost.title,
                         mainPost.date,
                         mainPost.content,
+                        mainPost.link
                       )} 
                       >
                 <BlogPostTitles> 
@@ -224,7 +275,8 @@ export default function DesktopCrypto () {
                           onClick={() => updatePage(
                             data.title,
                             data.date,
-                            data.content
+                            data.content,
+                            data.Link
                           )} >
     
                     <BlogPostTitles fontSize="14px"
