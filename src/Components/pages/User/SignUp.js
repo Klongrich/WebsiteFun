@@ -117,7 +117,7 @@ export default function SignUp () {
     const [usernameTaken, setUsernameTaken] = useState("");
 
     const [signUpState, setSignUpState] = useState("Enter Email");
-    const [currentText, setCurrnetText] = useState("Enter Email");
+    const [currentText, setCurrnetText] = useState("");
 
     const [inputType, setInputType] = useState("text");
 

@@ -1,4 +1,6 @@
 import React , {useEffect, useState} from 'react'
+import {Keyboard} from 'react-native';
+
 import styled from "styled-components";
 
 import {RightArrowAlt} from '@styled-icons/boxicons-regular/RightArrowAlt'
@@ -107,17 +109,15 @@ export default function SignUp_Moblie () {
 
     const [email, setEmail] = useState("Email");
     const [password, setPassword] = useState("Password");
-    const [password2, setPassword2] = useState("Re-Type Password");
 
     const [logInLink, setLogInlink] = useState("hidden");
     const [errorText, setErrorText] = useState("");
 
     const [signUpState, setSignUpState] = useState("Enter Email");
-    const [currentText, setCurrnetText] = useState("Enter Email");
+    const [currentText, setCurrnetText] = useState("");
 
     const [inputType, setInputType] = useState("text");
 
-    const [inputError, setInputError] = useState(false);
 
 
 
@@ -129,7 +129,7 @@ export default function SignUp_Moblie () {
         }
     }
 
-    function updateAccountCreation(status) {
+    function checkAccountSumbition(status) {
 
         if (status == "Taken") {
             setErrorText("Email Taken");
@@ -138,15 +138,16 @@ export default function SignUp_Moblie () {
             setErrorText("Account Created!");
             setLogInlink("visible");
         }
-
-        setInputError(true);
-
     }
 
-    function sendUserInfo() {
+    function sendUserInfo(e) {
         fetch('https://longrichk.com:3012/SignUp?Username=' + email.toLowerCase() + '&Password=' + password)
         .then(res => res.json())
-        .then(data => updateAccountCreation(data.Username));
+        .then(data => checkAccountSumbition(data.Username));
+
+        if (e) {
+            e.target.blur();
+        }
         
     }
 
@@ -163,14 +164,13 @@ export default function SignUp_Moblie () {
 }
 
 
-function updateUserInfo(signUp) {
+function updateUserInfo(signUp, e) {
 
     if (signUp == "Start") {
         
             setSignUpState("Enter Email");
-            setCurrnetText("Email");
-
             setInputType("text");
+
     } 
     else if (signUp == "Enter Email"){            
         
@@ -188,7 +188,11 @@ function updateUserInfo(signUp) {
         } else {
 
             setErrorText("Email Not Vaild");
-            setInputError(true);
+
+
+            if (e) {
+                e.target.blur();
+            }
             updateUserInfo("Start");
         }
 
@@ -214,10 +218,13 @@ function updateUserInfo(signUp) {
 
         if (currentText == password) {
             setSignUpState("Account Created");
-            sendUserInfo();
+            sendUserInfo(e);
         } else {
             setErrorText("Passwords Don't Match - Try Again");
-            setInputError(true);
+
+            if (e) {
+                e.target.blur();
+            }
             updateUserInfo("Password-retry");
         }
 
@@ -226,14 +233,8 @@ function updateUserInfo(signUp) {
     
     function checkKey(e){
         if (e.keyCode == 13) {
-            updateUserInfo(signUpState);
+            updateUserInfo(signUpState, e);
         }
-
-        if (inputError) {
-            e.target.blur();
-            setInputError(false);
-        }
-
     }
     
         return (
@@ -250,8 +251,6 @@ function updateUserInfo(signUp) {
 
         <TextAera   type={inputType}
                     value={currentText}
-                    borderColor={"purple"}
-                    onClick={() => clearText()}
                     onKeyDown={e => checkKey(e)}
                     onChange={e => setCurrnetText(e.target.value)}
                     />
