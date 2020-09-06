@@ -10,7 +10,7 @@ export default function DesktopTravel (){
             <TravelContainer>
 
                 <Header>
-                    <h2 Styles="margin-bottom:-20px"> Traveling </h2>
+                    <h2 Styles="margin-bottom: 0px"> Traveling </h2>
                     <h2 id="number" class="animated bounce "> 22 / 195 Countries </h2>
                 </Header>
 

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
+import OldDesktopTravel from './desktopTravel'
 
 import IcelandFlag from './pics/Iceland.png'
 import NetherelandsFlag from './pics/netherland.png'
@@ -217,7 +218,7 @@ export const Container = styled.div`
 
     background-color: #5ca848;
     border: 1px black #309152;
-    height: 1250px;
+    height: 1150px;
 
     padding-top: 15px;
     padding-bottom: 80px;
@@ -266,7 +267,7 @@ export const BlogPost = styled.div`
     text-align: center;
     width: 12%;
 
-    height: 70px;
+    height: 80px;
     border: 3px black solid;
     border-radius: 5px;
 
@@ -277,7 +278,10 @@ export const BlogPost = styled.div`
 
     background-image: url(${props => props.Image});
     background-size: 100% 100%;   
-
+    
+    :hover {
+        cursor: pointer;
+    }
 `
 
 export const RegionChoice = styled.div`
@@ -306,7 +310,7 @@ export const RegionButton = styled.div`
     color: white;
     font-size: 18px;
     
-    margin-bottom: 45px;
+    margin-bottom: 15px;
     margin-left: 100px;
 
     height: 45px;
@@ -317,6 +321,7 @@ export const RegionButton = styled.div`
 
     &:hover {
         background-color: #42bf3d;
+        cursor: pointer;
     }
 
     width: 15%;
@@ -325,7 +330,7 @@ export const RegionButton = styled.div`
 
 `
 
-export default function DesktopTravel (){
+export default function DesktopTravel () {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
@@ -355,8 +360,9 @@ export default function DesktopTravel (){
             window.scrollTo(0, 0)
             
         }
-    
     }
+    
+    
 
     function switchVersion () {
         if (oldTravelPage) {
@@ -365,6 +371,35 @@ export default function DesktopTravel (){
             setOldTravelPage(true);
         }
     }
+
+    if (veiwingPage) {
+        return (
+            <>
+            <Header>
+                <h2> Travel Blog </h2>
+                <p onClick={() => switchVersion()}> V2 </p>
+            </Header>
+
+            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
+                Go back
+            </button>
+         
+            <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
+
+            <Footer />
+            </>
+        )
+    } else if (oldTravelPage) {       
+        return (
+            <>
+            <Header>
+                <h2> Travel Blog </h2>
+                <p onClick={() => switchVersion()}> V1</p>
+            </Header>
+            <OldDesktopTravel />
+        </>
+        )
+    }  else {
    
       return (
           <>
@@ -376,7 +411,8 @@ export default function DesktopTravel (){
 
 <Container>
     
-    <h2 Style="font-size: 30px; 
+    <h2 Style="font-size: 30px;
+                margin-top: 0px; 
                text-align: center;
                color: #163320;"
                > 
@@ -392,20 +428,20 @@ export default function DesktopTravel (){
     
     <RegionChoice>
   
-        <RegionButton>
-            <p onClick={() => setRegion(All)} > All </p>
+        <RegionButton onClick={() => setRegion(All)} >
+            <p> All </p>
         </RegionButton>
 
-        <RegionButton>
-            <p onClick={() => setRegion(Scandinavia)} > Scandinavia </p>
+        <RegionButton onClick={() => setRegion(Scandinavia)}>
+            <p> Scandinavia </p>
         </RegionButton>
 
-        <RegionButton>
-            <p onClick={() => setRegion(WesternEurope)} > Western Europe </p>
+        <RegionButton onClick={() => setRegion(WesternEurope)} >
+            <p> Western Europe </p>
         </RegionButton>
 
-        <RegionButton>
-            <p onClick={() => setRegion(EasternEurop)} > Eastern Europe</p>
+        <RegionButton onClick={() => setRegion(EasternEurop)}>
+            <p> Eastern Europe</p>
         </RegionButton>
    
     </RegionChoice>
@@ -428,7 +464,9 @@ export default function DesktopTravel (){
 
         </BlogPost>
     ))}
-    </Container>                   
+    </Container>   
+    <Footer />                
         </>
       );
-}
+    }
+ }

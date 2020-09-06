@@ -420,20 +420,20 @@ export default function MoblieCrypto () {
             
             <RegionChoice>
           
-                <RegionButton>
-                    <p onClick={() => setRegion(All)} > All </p>
+                <RegionButton onClick={() => setRegion(All)} >
+                    <p> All </p>
                 </RegionButton>
 
-                <RegionButton>
-                    <p onClick={() => setRegion(Scandinavia)} > Scandinavia </p>
+                <RegionButton onClick={() => setRegion(Scandinavia)}>
+                    <p> Scandinavia </p>
                 </RegionButton>
 
-                <RegionButton>
-                    <p onClick={() => setRegion(WesternEurope)} > Western Europe </p>
+                <RegionButton onClick={() => setRegion(WesternEurope)} >
+                    <p> Western Europe </p>
                 </RegionButton>
 
-                <RegionButton>
-                    <p onClick={() => setRegion(EasternEurop)} > Eastern Europe</p>
+                <RegionButton onClick={() => setRegion(EasternEurop)}>
+                    <p> Eastern Europe</p>
                 </RegionButton>
            
             </RegionChoice>

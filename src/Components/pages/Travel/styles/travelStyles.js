@@ -6,7 +6,7 @@ export const TravelContainer = styled.div`
     background-image: url(${mapPic});
     height: 670px;
 
-    margin-top: -2%;
+    margin-top: 0px;
     padding-top: 2%;
     background-size: cover;
     text-align: center;
