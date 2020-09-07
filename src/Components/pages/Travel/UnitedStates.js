@@ -4,6 +4,36 @@ import ArizonaFlag from './USflags/Arizona.png'
 import ArkansasFlag from './USflags/Arkansas.jpg'
 import CaliforniaFlag from './USflags/California.png'
 
+import ColoradoFlag from './USflags/Colorado.png'
+import ConnecticutFlag from './USflags/Connecticut.png' //Not Working
+import DelawareFlag from './USflags/Delaware.png'
+import FloridaFlag from './USflags/Florida.jpg'
+
+import GeorgiaFlag from './USflags/Georgia.jpg' //White Lines
+import IdahoFlag from './USflags/Idaho.png' //White Lines
+import IllinoisFlag from './USflags/Illinois.jpeg'
+import IndianaFlag from './USflags/Indiana.png'
+
+import IowaFlag from './USflags/Iowa.png'
+import KansasFlag from './USflags/Kanasa.png'
+import KentuckyFlag from './USflags/Kentucky.png'
+import LouisianaFlag from './USflags/Louisiana.png'
+
+import MaineFlag from './USflags/Maine.png'
+import MarylandFlag from './USflags/Maryland.png'
+import MassachusettsFlag from './USflags/Massachusetts.png'
+import MichiganFlag from './USflags/Michigan.png'
+
+import MinnesotaFlag from './USflags/Minnesota.png'
+import MissiouriFlag from './USflags/Missiouri.png'
+import MississippiFlag from './USflags/Mississippi.png'
+import MontanaFlag from './USflags/Montana.png'
+
+import NebraskaFlag from './USflags/Nebraska.png' //White Lines
+import NevadaFlag from './USflags/Nevada.png'
+import NewHampshire from './USflags/NewHampshire.png' //White Lines
+import NewJersey from './USflags/NewJersey.png'
+
 
 
 export const AllStates = [
@@ -25,99 +55,99 @@ export const AllStates = [
     },
     {
         title: "Colorado",
-        image: null
+        image: ColoradoFlag
     },
     {
         title: "Connecticut",
-        image: null
+        image: ConnecticutFlag
     },
     {
         title: "Delaware",
-        image: null
+        image: DelawareFlag
     },
     {
         title: "Florida",
-        image: null
+        image: FloridaFlag
     },
     {
         title: "Georgia",
-        image: null
+        image: GeorgiaFlag
     },
     {
         title: "Idaho",
-        image: null
+        image: IdahoFlag
     },
     {
         title: "Illinois",
-        image: null
+        image: IllinoisFlag
     },
     {
         title: "Indiana",
-        image: null
+        image: IndianaFlag
     },
     {
         title: "Iowa",
-        image: null
+        image: IowaFlag
     },
     {
         title: "Kansas",
-        image: null
+        image: KansasFlag
     },
     {
         title: "Kentucky",
-        image: null
+        image: KentuckyFlag
     },
     {
         title: "Louisiana",
-        image: null
+        image: LouisianaFlag
     },
     {
         title: "Maine",
-        image: null
+        image: MaineFlag
     },
     {
         title: "Maryland",
-        image: null
+        image: MarylandFlag
     },
     {
         title: "Massachusetts",
-        image: null
+        image: MassachusettsFlag
     },
     {
         title: "Michigan",
-        image: null
+        image: MichiganFlag
     },
     {
         title: "Minnesota",
-        image: null
+        image: MinnesotaFlag
     },
     {
         title: "Mississippi",
-        image: null
+        image: MississippiFlag
     },
     {
         title: "Missouri",
-        image: null
+        image: MissiouriFlag
     },
     {
         title: "Montana",
-        image: null
+        image: MontanaFlag
     },
     {
         title: "Nebraska",
-        image: null
+        image: NebraskaFlag
     },
     {
         title: "Nevada",
-        image: null
+        image: NevadaFlag
     },
     {
         title: "New Hampshire",
-        image: null
+        image: NewHampshire
     },
     {
         title: "New Jersey",
-        image: null
+        image: NewJersey
     },
     {
         title: "New Mexico",
