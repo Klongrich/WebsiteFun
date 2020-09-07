@@ -10,7 +10,7 @@ import Iceland from './pages/Travel/iceland/iceland'
 import netherlands from './pages/Travel/netherlands/netherlands'
 
 
-import articles from './pages/Articles/articles'
+import articles from './pages/Dashboard/dashboard'
 import about from './pages/About/about'
 
 import stocks from './pages/Stocks/stocksHomePage'
