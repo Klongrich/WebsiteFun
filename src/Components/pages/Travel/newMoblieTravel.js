@@ -7,211 +7,12 @@ import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
-import IcelandFlag from './pics/Iceland.png'
-import NetherelandsFlag from './pics/netherland.png'
-import BelguimFlag from './pics/belguim.png'
-import FranceFlag from './pics/france.png'
-import SwitzerlandFlag from './pics/switzerland.png'
-import ItalyFlag from './pics/italy.png'
-
-import DenmarkFlag from './pics/denmark.png'
-
 import IcelandBackground from './iceland/icelandbackground.jpg'
-import NetherlandBackground from './netherlands/netherlands-background.jpg'
-import SwitzerlandBackground from './pics/switzerlandBlog.jpg'
+import {All, Scandinavia, WesternEurope, EasternEurope} from './EuropeCountries'
 
 
-import GernmanyFlag from './pics/germany.jpeg'
-import SwedenFlag from './pics/sweden.png'
-import NorwayFlag from './pics/norway.png'
+var URLlink = "https://www.longrichk.com/travel?page="; 
 
-import PolandFlag from './pics/poland.png'
-import AustraiFlag from './pics/austria.jpeg'
-import SlovkiaFlag from './pics/slovakia.png'
-import CzehcFlag from './pics/czechrepublic.jpg'
-import HungaryFlag from './pics/hungary.jpeg'
-import CortiaFlag from './pics/cortia.png'
-import SloveniaFlag from './pics/slovenia.png'
-import LiechenstineFlag from './pics/liechenstine.png'
-import UkFlag from './pics/uk.png'
-import IrelandFlag from './pics/ireland.jpg'
-
-
-
-
-const All = [
-    {
-        title: "Switzerland",
-        blogBackground: SwitzerlandBackground,
-        image: SwitzerlandFlag
-    },
-    {
-        title: "Iceland",
-        blogBackground: IcelandBackground,
-        image: IcelandFlag
-    },
-    {
-        title: "Belguim", 
-        image: BelguimFlag
-    },
-    {
-        title: "Netherlands",
-        blogBackground: NetherlandBackground,
-        image: NetherelandsFlag
-    },
-    {
-        title: "France", 
-        image: FranceFlag
-    },
-    {
-        title: "Italy",
-        image: ItalyFlag
-    },
-    {
-        title: "Germany",
-        image: GernmanyFlag
-    },
-    {
-        title: "Denmark",
-        image: DenmarkFlag
-    },
-    {
-        title: "Sweden",
-        image: SwedenFlag
-    },
-    {
-        title: "Norway",
-        image: NorwayFlag
-    },
-    {
-        title: "Poland",
-        image: PolandFlag
-    },
-    {
-        title: "Austria",
-        image: AustraiFlag
-    },
-    {
-        title: "Slovkia",
-        image: SlovkiaFlag
-    },
-    {
-        title: "Czech Republic",
-        image: CzehcFlag
-    },
-    {
-        title: "Hungary",
-        image: HungaryFlag
-    },
-    {
-        title: "Cortia",
-        image: CortiaFlag
-    },
-    {
-        title: "Slovenia",
-        image: SloveniaFlag
-    },
-    {
-        title: "Liechnstine",
-        image: LiechenstineFlag
-    },
-    {
-        title: "United Kingdom",
-        image: UkFlag
-    },
-    {
-        title: "Ireland",
-        image: IrelandFlag
-    }
-    
-]
-
-const Scandinavia = [
-    {
-        title: "Iceland",
-        blogBackground: IcelandBackground,
-        image: IcelandFlag
-    },
-    {
-        title: "Denmark",
-        image: DenmarkFlag
-    },
-    {
-        title: "Sweden",
-        image: SwedenFlag
-    },
-    {
-        title: "Norway",
-        image: NorwayFlag
-    }
-]
-
-const WesternEurope = [
-    {
-        title: "Belguim", 
-        image: BelguimFlag
-    },
-    {
-        title: "Netherlands",
-        blogBackground: NetherlandBackground,
-        image: NetherelandsFlag
-    },
-    {
-        title: "France", 
-        image: FranceFlag
-    },
-    {
-        title: "Switzerland",
-        image: SwitzerlandFlag
-    },
-    {
-        title: "Italy",
-        image: ItalyFlag
-    },
-    {
-        title: "Germany",
-        image: GernmanyFlag
-    },
-    {
-        title: "United Kingdom",
-        image: UkFlag
-    },
-    {
-        title: "Ireland",
-        image: IrelandFlag
-    }
-]
-
-const EasternEurop = [
-    {
-        title: "Slovkia",
-        image: SlovkiaFlag
-    },
-    {
-        title: "Czech Republic",
-        image: CzehcFlag
-    },
-    {
-        title: "Poland",
-        image: PolandFlag
-    },
-    {
-        title: "Austria",
-        image: AustraiFlag
-    },
-    {
-        title: "Hungary",
-        image: HungaryFlag
-    },
-    {
-        title: "Cortia",
-        image: CortiaFlag
-    },
-    {
-        title: "Slovenia",
-        image: SloveniaFlag
-    }
-]
 
 export const Container = styled.div`
 
@@ -336,24 +137,36 @@ export default function MoblieCrypto () {
 
     const [blogImage, setImage] = useState(IcelandBackground);
 
+    useEffect(() => {
 
-    function updatePage(title, date, content, Image) {
+        var temp = window.location.href.split("=");
 
-        if (veiwingPage) {
-            setVeiwingPage(false);
-        } else {
+        console.log(temp[1]);
 
-            setPageTitle(title);
-            setPageDate(date);
-            setPageContent(content);
-            setImage(Image);
-            
-            setVeiwingPage(true);
-
-            window.scrollTo(0, 0)
-            
+        if (temp[1]){
+            updatePageById(temp[1]);
         }
+
+    }, [])
+
+    function updatePageById(title){
+       
+        var update = All.map(function (data) {
+            if (data.title == title) {
+
+                setPageTitle(data.title);
+                setPageDate(data.date);
+                setPageContent(data.content);
+                setImage(data.blogBackground);
+                
+                setVeiwingPage(true);
     
+                window.scrollTo(0, 0)
+     
+              }    
+            });
+
+        return (update);
     }
 
     function switchVersion () {
@@ -372,10 +185,6 @@ export default function MoblieCrypto () {
                 <h2> Travel Blog </h2>
                 <p onClick={() => switchVersion()}> V2 </p>
             </Header>
-
-            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
-                Go back
-            </button>
          
             <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
 
@@ -432,7 +241,7 @@ export default function MoblieCrypto () {
                     <p> Western Europe </p>
                 </RegionButton>
 
-                <RegionButton onClick={() => setRegion(EasternEurop)}>
+                <RegionButton onClick={() => setRegion(EasternEurope)}>
                     <p> Eastern Europe</p>
                 </RegionButton>
            
@@ -441,12 +250,9 @@ export default function MoblieCrypto () {
 
             {region.map( data => (
                 <BlogPost Image={data.image} 
-                          onClick={() => updatePage(
-                            data.title,
-                            data.date,
-                            "Content coming soon ........",
-                            data.blogBackground
-                          )} >
+                          onClick={() => 
+                            window.location = URLlink + data.title
+                            } >
     
                     <BlogPostTitles fontSize="14px"
                                     >

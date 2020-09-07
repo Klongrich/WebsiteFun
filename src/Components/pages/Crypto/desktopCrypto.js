@@ -13,6 +13,8 @@ import {Share} from '@styled-icons/boxicons-regular/Share'
 
 import {mainPost, secondPost, thridPost, AllPost} from './data/cryptoBlogData'
 
+var URLlink = "https://www.longrichk.com/Crypto?articleID="; 
+
 export const Container = styled.div`
 
     background-color: #759ce6;
@@ -207,7 +209,7 @@ export default function DesktopCrypto () {
                       height="340px"
                       marginLeft="8%"
                       onClick={() => 
-                        window.location = 'http://localhost:3000/Crypto?articleID=' + mainPost.id
+                        window.location = URLlink + mainPost.id
                       } 
                       >
                 <BlogPostTitles> 
@@ -223,7 +225,7 @@ export default function DesktopCrypto () {
                           height="150px"
                           marginLeft="8%"
                           onClick={() =>
-                            window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                            window.location = URLlink + data.id
                         } >
     
                     <BlogPostTitles fontSize="14px"
@@ -241,7 +243,7 @@ export default function DesktopCrypto () {
                           height="150px"
                           marginLeft="8%"
                           onClick={() =>                           
-                              window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                              window.location = URLlink + data.id
                             }>
     
                     <BlogPostTitles fontSize="12px"

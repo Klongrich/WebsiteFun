@@ -18,9 +18,9 @@ import {AllStates} from './UnitedStates'
 
 import USAMap from "react-usa-map";
 
+var URLlink = "https://www.longrichk.com/travel?page="; 
+
 //height: 2450px for all states, about 1150px for all european countries
-
-
 export const Container = styled.div`
 
     background-color: #5ca848;
@@ -354,7 +354,7 @@ export default function DesktopTravel () {
     {region.map( data => (
         <BlogPost Image={data.image} 
                   onClick={() => 
-                  window.location = 'http://localhost:3000/travel?page=' + data.title
+                  window.location = URLlink + data.title
                   } >
 
             <BlogPostTitles fontSize="14px"

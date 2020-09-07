@@ -7,6 +7,8 @@ import {PageContent} from './blogpage'
 
 import {AllPost} from './data/cryptoBlogData'
 
+var URLlink = "https://www.longrichk.com/Crypto?articleID="; 
+
 export const Container = styled.div`
 
     background-color: #759ce6;
@@ -142,7 +144,7 @@ export default function MoblieCrypto () {
             {AllPost.map( data => (
                 <BlogPost Image={data.image} 
                           onClick={() =>                             
-                            window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                            window.location = URLlink + data.id
                         } >
     
                     <BlogPostTitles fontSize="14px"
