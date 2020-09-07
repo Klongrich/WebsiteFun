@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 
     background-color: #759ce6;
-    margin-top: -22px;
+    margin-top: 0px;
 
 `
 

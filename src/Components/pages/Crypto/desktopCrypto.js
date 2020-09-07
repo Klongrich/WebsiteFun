@@ -11,7 +11,7 @@ import {PageContent} from './blogpage'
 
 import {Share} from '@styled-icons/boxicons-regular/Share'
 
-import {mainPost, secondPost, thridPost} from './data/cryptoBlogData'
+import {mainPost, secondPost, thridPost, AllPost} from './data/cryptoBlogData'
 
 export const Container = styled.div`
 
@@ -112,46 +112,36 @@ export default function DesktopCrypto () {
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
     const [pageContent, setPageContent] = useState(mainPost.content);
-    const [pageLink, setPageLink] = useState("Link");
 
     const [showLinkCopied, setShowLinkCopied] = useState("hidden");
 
-    const [usedLink, setUsedLink] = useState(false);
 
     useEffect(() => {
 
         var Temp = window.location.href.split("=");
-        var token = Temp[1];
+        var id = Temp[1];
 
-        if (token) {
-            setPageContent(mainPost.content);
-            setVeiwingPage(true);
-            setUsedLink(true);
+        if (id) {
+            updatePageById(parseInt(id, 10))
         }
-
-
     }, [])
 
-    function updatePage(title, date, content, link) {
+    function updatePageById(id){
+       
+        var update = AllPost.map(function (data) {
+            if (data.id == id) {
 
+                setPageTitle(data.title);
+                setPageDate(data.date);
+                setPageContent(data.content);
+                
+                setVeiwingPage(true);
+                window.scrollTo(0, 0)
+     
+              }    
+            });
 
-        if (veiwingPage) {
-            setVeiwingPage(false);
-
-            if (usedLink) {
-                window.location = '/Crypto';
-                setUsedLink(false);    
-            }
-
-        } else {
-            setPageTitle(title);
-            setPageDate(date);
-            setPageLink(link);
-            setPageContent(content);
-            
-            setVeiwingPage(true);
-        }
-    
+        return (update);
     }
 
     function CopyText (text) {
@@ -166,10 +156,6 @@ export default function DesktopCrypto () {
                 <h2> Crypto Blog </h2>
                 <p> V1 </p>
             </Header>
-
-            <button Style="margin-top: -40px;" onClick={() => updatePage()}>
-                Go back
-            </button>
 
             <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
@@ -220,12 +206,9 @@ export default function DesktopCrypto () {
                       width="40%"
                       height="340px"
                       marginLeft="8%"
-                      onClick={() => updatePage(
-                        mainPost.title,
-                        mainPost.date,
-                        mainPost.content,
-                        mainPost.link
-                      )} 
+                      onClick={() => 
+                        window.location = 'http://localhost:3000/Crypto?articleID=' + mainPost.id
+                      } 
                       >
                 <BlogPostTitles> 
                     <h2>DeFi and It's Current State</h2>
@@ -239,12 +222,9 @@ export default function DesktopCrypto () {
                           width="35%"
                           height="150px"
                           marginLeft="8%"
-                          onClick={() => updatePage(
-                            data.title,
-                            data.date,
-                            data.content,
-                            data.Link
-                          )} >
+                          onClick={() =>
+                            window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                        } >
     
                     <BlogPostTitles fontSize="14px"
                                     >
@@ -260,11 +240,9 @@ export default function DesktopCrypto () {
                           width="15%"
                           height="150px"
                           marginLeft="8%"
-                          onClick={() => updatePage(
-                            data.title,
-                            data.date,
-                            data.content
-                          )}>
+                          onClick={() =>                           
+                              window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                            }>
     
                     <BlogPostTitles fontSize="12px"
                                     >

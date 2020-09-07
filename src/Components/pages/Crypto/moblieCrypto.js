@@ -87,19 +87,34 @@ export default function MoblieCrypto () {
     const [pageContent, setPageContent] = useState(AllPost.DeFiCurrentState);
 
 
-    function updatePage(title, date, content) {
+    useEffect(() => {
 
-        if (veiwingPage) {
-            setVeiwingPage(false);
-        } else {
-            setPageTitle(title);
-            setPageDate(date);
-            setPageContent(content);
-            
-            setVeiwingPage(true);
+        var Temp = window.location.href.split("=");
+        var id = Temp[1];
+
+        if (id) {
+            updatePageById(parseInt(id, 10))
         }
-    
+    }, [])
+
+    function updatePageById(id){
+       
+        var update = AllPost.map(function (data) {
+            if (data.id == id) {
+
+                setPageTitle(data.title);
+                setPageDate(data.date);
+                setPageContent(data.content);
+                
+                setVeiwingPage(true);
+                window.scrollTo(0, 0)
+     
+              }    
+            });
+
+        return (update);
     }
+
 
     if (veiwingPage) {
         return (
@@ -108,10 +123,6 @@ export default function MoblieCrypto () {
                 <h2> Crypto Blog </h2>
                 <p> V1 </p>
             </Header>
-
-            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
-                Go back
-            </button>
 
             <PageContent title={pageTitle} date={pageDate} content={pageContent} fontSize="30px" headerSize="50px" />
 
@@ -130,12 +141,9 @@ export default function MoblieCrypto () {
     
             {AllPost.map( data => (
                 <BlogPost Image={data.image} 
-                          onClick={() => updatePage(
-                            data.title,
-                            data.date,
-                            data.content,
-                            "Content coming soon ........"
-                          )} >
+                          onClick={() =>                             
+                            window.location = 'http://localhost:3000/Crypto?articleID=' + data.id
+                        } >
     
                     <BlogPostTitles fontSize="14px"
                                     >
