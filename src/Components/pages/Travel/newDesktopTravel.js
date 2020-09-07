@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
 
 import './map.css'
@@ -168,22 +168,36 @@ export default function DesktopTravel () {
 
     const [blogImage, setImage] = useState(IcelandBackground);
 
-    function updatePage(title, date, content, Image) {
+    useEffect(() => {
 
-        if (veiwingPage) {
-            setVeiwingPage(false);
-        } else {
+        var temp = window.location.href.split("=");
 
-            setPageTitle(title);
-            setPageDate(date);
-            setPageContent(content);
-            setImage(Image);
-            
-            setVeiwingPage(true);
+        console.log(temp[1]);
 
-            window.scrollTo(0, 0)
-            
+        if (temp[1]){
+            updatePageById(temp[1]);
         }
+
+    }, [])
+
+    function updatePageById(title){
+       
+        var update = All.map(function (data) {
+            if (data.title == title) {
+
+                setPageTitle(data.title);
+                setPageDate(data.date);
+                setPageContent(data.content);
+                setImage(data.blogBackground);
+                
+                setVeiwingPage(true);
+    
+                window.scrollTo(0, 0)
+     
+              }    
+            });
+
+        return (update);
     }
     
     function switchToStates() {
@@ -339,12 +353,9 @@ export default function DesktopTravel () {
 
     {region.map( data => (
         <BlogPost Image={data.image} 
-                  onClick={() => updatePage(
-                    data.title,
-                    data.date,
-                    data.content,
-                    data.blogBackground
-                  )} >
+                  onClick={() => 
+                  window.location = 'http://localhost:3000/travel?page=' + data.title
+                  } >
 
             <BlogPostTitles fontSize="14px"
                             >

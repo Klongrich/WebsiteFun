@@ -34,38 +34,46 @@ import {SwitzerlandTLDR} from './articles/tldr'
 
 export const All = [
     {
+        id: 1,
         title: "Switzerland",
         blogBackground: SwitzerlandBackground,
         content: SwitzerlandTLDR,
         image: SwitzerlandFlag
     },
     {
+        id: 2,
         title: "Iceland",
         blogBackground: IcelandBackground,
         image: IcelandFlag
     },
     {
+        id: 3,
         title: "Belguim", 
         image: BelguimFlag
     },
     {
+        id: 4,
         title: "Netherlands",
         blogBackground: NetherlandBackground,
         image: NetherelandsFlag
     },
     {
+        id: 5,
         title: "France", 
         image: FranceFlag
     },
     {
+        id: 6,
         title: "Italy",
         image: ItalyFlag
     },
     {
+        id: 7,
         title: "Germany",
         image: GernmanyFlag
     },
     {
+        id: 8,
         title: "Denmark",
         image: DenmarkFlag
     },
