@@ -10,7 +10,7 @@ import {LogOut} from '@styled-icons/boxicons-regular/LogOut'
 import {Payments} from '@styled-icons/material-outlined/Payments'
 
 
-import DeFiPic from '../Crypto/DeFi.jpg'
+import DeFiPic from '../Crypto/pics/DeFi.jpg'
 
 import {AccountInfo} from './account_info'
 import ArticlePage from './article_page'

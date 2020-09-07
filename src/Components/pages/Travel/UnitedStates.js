@@ -5,7 +5,7 @@ import ArkansasFlag from './USflags/Arkansas.jpg'
 import CaliforniaFlag from './USflags/California.png'
 
 import ColoradoFlag from './USflags/Colorado.png'
-import ConnecticutFlag from './USflags/Connecticut.png' //Not Working
+import ConnecticutFlag from './USflags/Connecticut.jpg' //Not Working
 import DelawareFlag from './USflags/Delaware.png'
 import FloridaFlag from './USflags/Florida.jpg'
 

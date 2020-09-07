@@ -12,6 +12,7 @@ import DenmarkFlag from './pics/denmark.png'
 import IcelandBackground from './iceland/icelandbackground.jpg'
 import NetherlandBackground from './netherlands/netherlands-background.jpg'
 import SwitzerlandBackground from './pics/switzerlandBlog.jpg'
+import BelguimBackground from './pics/BelguimBlog.jpg'
 
 
 import GernmanyFlag from './pics/germany.jpeg'
@@ -31,6 +32,8 @@ import IrelandFlag from './pics/ireland.jpg'
 
 
 import {SwitzerlandTLDR} from './articles/tldr'
+import {BelguimTLDR} from './articles/tldr'
+
 
 export const All = [
     {
@@ -49,6 +52,8 @@ export const All = [
     {
         id: 3,
         title: "Belguim", 
+        blogBackground: BelguimBackground,
+        content: BelguimTLDR,
         image: BelguimFlag
     },
     {

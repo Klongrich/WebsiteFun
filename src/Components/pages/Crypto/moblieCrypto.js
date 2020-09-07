@@ -1,67 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
-import DeFiPic from './DeFi.jpg'
-import ICOpic from './ICO2.jpeg'
-import ETHpic from './ETH2.jpeg'
-import yamETH from './yamETH3.jpeg'
-import miningPic from './mining.jpeg'
-import chainlinkPic from './chainlink4.jpg'
-import btcPic from './btc.jpeg'
-
 import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
-import DeFiCurrentState from './articles/DeFiCurrentState'
-import MiningExplained from './articles/MiningExplained'
-
-const allfontSizes = {
-    h2: "50px",
-    p: "30px",
-    li: "30px"
-}
-
-const postData = [
-    {
-        title: "DeFi and It's Current State",
-        date: "09/6/2020",
-        content: DeFiCurrentState,
-        image: DeFiPic
-    },
-    {
-        title: "Mining Explained",
-        date: "05/23/2020",
-        content: MiningExplained,
-        image: miningPic
-    },
-    {
-        title: "The ICO Craze Of 2017", 
-        date: "08/10/2020",
-        image: ICOpic
-    },
-    {
-        title: "What is $LINK?",
-        date: "07/12/2020",
-        image: chainlinkPic
-    },
-    {
-        title: "Ethereum", 
-        date: "08/10/2020",
-        image: ETHpic
-    },
-    {
-        title: "What is $YAM?",
-        date: "07/12/2020",
-        image: yamETH
-    },
-    {
-        title: "Bitcoin",
-        date: "05/23/2020",
-        image: btcPic
-    }
-
-]
+import {AllPost} from './data/cryptoBlogData'
 
 export const Container = styled.div`
 
@@ -140,7 +84,7 @@ export default function MoblieCrypto () {
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
-    const [pageContent, setPageContent] = useState(DeFiCurrentState);
+    const [pageContent, setPageContent] = useState(AllPost.DeFiCurrentState);
 
 
     function updatePage(title, date, content) {
@@ -184,7 +128,7 @@ export default function MoblieCrypto () {
 
             <Container>
     
-            {postData.map( data => (
+            {AllPost.map( data => (
                 <BlogPost Image={data.image} 
                           onClick={() => updatePage(
                             data.title,

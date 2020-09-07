@@ -5,70 +5,13 @@ import copy from "copy-to-clipboard";
 import { useHistory } from "react-router-dom";
 
 
-
-
-import DeFiPic from './DeFi.jpg'
-import ICOpic from './ICO2.jpeg'
-import ETHpic from './ETH2.jpeg'
-import yamETH from './yamETH3.jpeg'
-import miningPic from './mining.jpeg'
-import chainlinkPic from './chainlink4.jpg'
-import btcPic from './btc.jpeg'
-
 import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
 import {Share} from '@styled-icons/boxicons-regular/Share'
 
-import DeFiCurrentState from './articles/DeFiCurrentState'
-import MiningExplained from './articles/MiningExplained'
-
-
-const mainPost = {
-    title: "DeFi and It's Current State",
-    date: "09/6/2020",
-    content: DeFiCurrentState,
-    link: "http:localhost:3000/Crypto?Article=DeFiCurrentState",
-    image: DeFiPic
-}
-
-const secondPost = [ 
-    {
-        title: "Mining Explained",
-        date: "08/23/2020",
-        content: MiningExplained,
-        image: miningPic
-    },
-    {
-        title: "What is $LINK?",
-        date: "Coming Soon",
-        image: chainlinkPic
-    }
-]
-
-const thridPost = [
-    {
-        title: "Ethereum", 
-        date: "Coming Soon",
-        image: ETHpic
-    },
-    {
-        title: "What is $YAM?",
-        date: "Coming Soon",
-        image: yamETH
-    },
-    {
-        title: "The ICO Craze Of 2017", 
-        date: "Coming soon",
-        image: ICOpic
-    },
-    {
-        title: "Bitcoin",
-        date: "Coming Soon",
-        image: btcPic
-    }
-]
+import {mainPost, secondPost, thridPost} from './data/cryptoBlogData'
 
 export const Container = styled.div`
 
@@ -176,6 +119,7 @@ export default function DesktopCrypto () {
     const [usedLink, setUsedLink] = useState(false);
 
     useEffect(() => {
+
         var Temp = window.location.href.split("=");
         var token = Temp[1];
 
@@ -186,7 +130,7 @@ export default function DesktopCrypto () {
         }
 
 
-    })
+    }, [])
 
     function updatePage(title, date, content, link) {
 
@@ -272,7 +216,7 @@ export default function DesktopCrypto () {
             </Header>
 
             <Container>
-            <BlogPost Image={DeFiPic}
+            <BlogPost Image={mainPost.image}
                       width="40%"
                       height="340px"
                       marginLeft="8%"

@@ -8,7 +8,6 @@ export const Container = styled.div`
     background-image: url(${props => props.Image});
     background-size: 100% 100%;
     border: 1px solid black;
-    height: 100%;
 
     margin-top: 0px;
 `

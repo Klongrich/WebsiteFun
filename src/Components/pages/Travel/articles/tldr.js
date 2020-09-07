@@ -44,13 +44,20 @@ export const SwitzerlandTLDR = () => {
     );
 }
 
-export default function DeFiCurrentState () {
+export const BelguimTLDR = () => {
 
-    return(
+    return (
         <>
+        <Container> 
+        <h2> TLDR: </h2>
+            <ul>
+                <li> - They have good waffles.</li> 
+                <li> - Belgian beer is really good.</li>
+                <li> - There is a central area with a big castle. </li>
+            </ul>
+        </Container>
 
-        <p>Hello World</p>
-        
+        <p> Extended Story Comming soon....</p>
         </>
     );
 }
