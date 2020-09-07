@@ -164,7 +164,7 @@ export const ConfrimCopyText = styled.div`
 
 export default function DesktopCrypto () {
 
-    const [veiwingPage, setVeiwingPage] = useState(true);
+    const [veiwingPage, setVeiwingPage] = useState(false);
 
     const [pageTitle, setPageTitle] = useState("Title");
     const [pageDate, setPageDate] = useState("Date");
@@ -203,6 +203,7 @@ export default function DesktopCrypto () {
             setPageTitle(title);
             setPageDate(date);
             setPageLink(link);
+            setPageContent(content);
             
             setVeiwingPage(true);
         }
@@ -211,7 +212,6 @@ export default function DesktopCrypto () {
 
     function CopyText (text) {
         copy(text);
-
         setShowLinkCopied("visible");
     }
 
@@ -223,10 +223,14 @@ export default function DesktopCrypto () {
                 <p> V1 </p>
             </Header>
 
+            <button Style="margin-top: -40px;" onClick={() => updatePage()}>
+                Go back
+            </button>
+
             <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
 
 
-
+            {/*
             <div Style="margin-top: 50px;
                         border: 1px solid black;
                         color: white;
@@ -254,6 +258,7 @@ export default function DesktopCrypto () {
             </button>
 
             </div>
+            */}
 
 
             </>

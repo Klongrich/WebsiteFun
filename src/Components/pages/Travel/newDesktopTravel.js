@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 
+import './map.css'
+
 
 import Footer from '../../footerComponets/Footer'
 
@@ -10,34 +12,20 @@ import OldDesktopTravel from './desktopTravel'
 
 import IcelandBackground from './iceland/icelandbackground.jpg'
 
-
 import {All, Scandinavia, WesternEurope, EasternEurope} from './EuropeCountries'
 
-const AllStates = [
-    {
-        title: "Ohio",
-        image: null
-    },
-    {
-        title: "California",
-        image: null
-    },
-    {
-        title: "Neveda",
-        image: null
-    },
-    {
-        title: "Utah",
-        image: null
-    }
-]
+import {AllStates} from './UnitedStates'
+
+import USAMap from "react-usa-map";
+
+//height: 2450px for all states, about 1150px for all european countries
 
 
 export const Container = styled.div`
 
     background-color: #5ca848;
     border: 1px black #309152;
-    height: 1150px;
+    height: 2450px;
 
     padding-top: 15px;
     padding-bottom: 80px;
@@ -167,9 +155,6 @@ export const RegionButton = styled.div`
 
 export default function DesktopTravel () {
 
-
-
-
     const [pageHeader, setPageHeader] = useState("Visited Countries");
 
     const [veiwingPage, setVeiwingPage] = useState(false);
@@ -182,7 +167,6 @@ export default function DesktopTravel () {
     const [pageContent, setPageContent] = useState("Put Content Here");
 
     const [blogImage, setImage] = useState(IcelandBackground);
-
 
     function updatePage(title, date, content, Image) {
 
@@ -222,6 +206,25 @@ export default function DesktopTravel () {
         }
     }
 
+    function mapHandler (event) {
+        alert(event.target.dataset.name);
+      };
+
+    function statesCustomConfig () {
+        return {
+          "NJ": {
+            fill: "navy",
+            title: "NJ",
+            clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+          },
+          "NY": {
+            fill: "#CC0000",
+            title: "New York"
+          }
+        };
+    }
+
+
     function GetRegionButtons () {
 
         if (pageHeader == "Visited Countries") {
@@ -247,6 +250,8 @@ export default function DesktopTravel () {
         } else {
             return (
                 <>
+                   {/* <USAMap customize={statesCustomConfig()}
+                           onClick={ e => mapHandler(e) } /> */}
 
                     <RegionButton onClick={() => setRegion(All)} >
                         <p> Midwest </p>
@@ -304,12 +309,16 @@ export default function DesktopTravel () {
 
             <Header>
                 <h2> Travel Blog </h2>
+                {/* <p onClick={() => switchVersion()}> V1</p> */}
 
+                
                 <ul>
                     <li onClick={ () => switchToStates()}>Untied States</li>
                     <li onClick={ () => switchToEurope()} > Europe </li>
                     <li onClick={() => switchVersion()}> V2</li>
                 </ul>
+               
+
             </Header>
 
 <Container>
