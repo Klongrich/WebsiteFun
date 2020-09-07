@@ -35,13 +35,14 @@ const mainPost = {
 
 const secondPost = [ 
     {
-        title: "The ICO Craze Of 2017", 
-        date: "08/10/2020",
-        image: ICOpic
+        title: "Mining Explained",
+        date: "08/23/2020",
+        content: MiningExplained,
+        image: miningPic
     },
     {
         title: "What is $LINK?",
-        date: "07/12/2020",
+        date: "Coming Soon",
         image: chainlinkPic
     }
 ]
@@ -49,23 +50,22 @@ const secondPost = [
 const thridPost = [
     {
         title: "Ethereum", 
-        date: "08/10/2020",
+        date: "Coming Soon",
         image: ETHpic
     },
     {
         title: "What is $YAM?",
-        date: "07/12/2020",
+        date: "Coming Soon",
         image: yamETH
     },
     {
-        title: "Mining Explained",
-        date: "05/23/2020",
-        content: MiningExplained,
-        image: miningPic
+        title: "The ICO Craze Of 2017", 
+        date: "Coming soon",
+        image: ICOpic
     },
     {
         title: "Bitcoin",
-        date: "05/23/2020",
+        date: "Coming Soon",
         image: btcPic
     }
 ]
@@ -285,7 +285,7 @@ export default function DesktopCrypto () {
                       >
                 <BlogPostTitles> 
                     <h2>DeFi and It's Current State</h2>
-                    <p>09/24/2020</p>
+                    <p> {mainPost.date} </p>
                 </BlogPostTitles>
             </BlogPost>
     

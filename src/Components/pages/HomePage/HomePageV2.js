@@ -175,7 +175,7 @@ export default function HomePage() {
 
           <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
 
-        <a href="/login">
+        {/* <a href="/login">
           <HomePageButton left="392px;">
             Log In
           </HomePageButton>
@@ -185,7 +185,7 @@ export default function HomePage() {
           <HomePageButton left="140px;"> 
             Sign Up
           </HomePageButton>
-        </a>
+        </a> */}
     
 
           </FadeIn>
@@ -222,7 +222,7 @@ export default function HomePage() {
           <div Style="margin-top: 0px;">
           <ChevronDownCircle size="158.5px" color="#e0e0e0" onClick={scrollMoblie} />
 
-          <div Style="margin-top: 100px">
+          {/* <div Style="margin-top: 100px">
             <a href="/login">
               <MoblieHomePageButton left="105px;">
                 Log In
@@ -234,7 +234,7 @@ export default function HomePage() {
                 Sign Up
               </MoblieHomePageButton>
             </a>
-          </div>
+          </div> */}
     
           
           </div>
