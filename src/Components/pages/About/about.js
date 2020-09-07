@@ -4,15 +4,7 @@ import styled from "styled-components";
 
 import {Header, BackgroundImage} from './styles/aboutStyles'
 
-import myPhoto from './styles/myPhoto.JPG'
-import grandTeton from './grandTeton.JPG'
-import laJolla from './laJolla.JPG'
-import wallStreet from './wallStree.JPG'
-
 import TahoeBackground from './TahoeBackground.jpg'
-
-
-import SimpleImageSlider from "react-simple-image-slider"
 
 
 const Container = styled.div`
@@ -47,13 +39,6 @@ const Container = styled.div`
 `
 
 export default function About () {
-    
-    const images = [
-        { url: myPhoto },
-        { url: laJolla},
-        { url: grandTeton},
-        { url: wallStreet}
-    ];
     
     return (
         <>  
@@ -102,7 +87,7 @@ export default function About () {
         <h2> Fun Facts </h2>
             <li> Placed 9th In Ohio State for polevalut </li>
             <li> Landed a backflip on a snowboard </li>
-            <li> Back Packed Multiplue National Parks </li>
+            <li> Back Packed Multiple National Parks </li>
             <li> I'm only 22 </li>
         </ul>
     </div>

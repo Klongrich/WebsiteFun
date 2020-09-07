@@ -14,20 +14,17 @@ import * as Scroll from 'react-scroll';
 
 export const projectData = [
     {
-        id: 0,
-        name: "Name: JavaStockProject",
-        impact: "($1.1+ Million in Live Trading Volume)",
-        discripton: "A project that I built in 2017. It is a fully functional charting \
-        software written from scratch in Java. I built webscrapers for most of the live data, \
-        used a few APIs for historical data, programed each indicator from scratch, and drew the main chart pixel by pixel! \
-        You can create and save daily watchlist for any stocks of your chosing as well. The scanner was \
-        customly programmed to look for stocks that I would have an interest in tradding that day based on \
-        paramters I inputed. Custom OverLays where aloud as well allowing you to pick the variable amounts \
-        for each indicator / overlay. Multiple stock time frames where posted as well as volume of each \
-        meauserment of time. Was able to eventually hook up a few brokerages to the back end allowing some \
-        real time tradding to your account using an API key.",
-        image: JavaStockImage,
-        link: "https://github.com/Klongrich/ChartingSoftware"
+        id: 2,
+        name: "Name: MiniShell",
+        impact: "(Useless)",
+        discripton: "Project that was completed as part of the 42 curriculum. A recreation of the computer shell \
+        Includes a fully programed libaray of functions from scracth, supports creating and removing envoriment \
+        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manages \
+        memeory from each input from user with out leaks, and built in exit() function. Most other functions just fork \
+        a proccess from the /usr/bin folder (Or anywhere else in the $PATH) like a normal shell would",
+        language: "Programming Language: C",
+        image: MinishellImage,
+        link: "https://github.com/Klongrich/minishell"
     },
     {
         id: 1,
@@ -45,40 +42,47 @@ export const projectData = [
         link: "https://github.com/Klongrich/tradingbot"
     },
     {
-        id: 2,
-        name: "Name: MiniShell",
-        impact: "(Useless)",
-        discripton: "Project that was completed as part of the 42 curriculum. A recreation of the computer shell \
-        Includes a fully programed libaray of functions from scracth, supports creating and removing envoriment \
-        variables, Reads each line from $PATH, Updates $PWD and $OLDPWD, recreated cd function, manages \
-        memeory from each input from user with out leaks, and built in exit() function. Most other functions just fork \
-        a proccess from the /usr/bin folder (Or anywhere else in the $PATH) like a normal shell would",
-        language: "Programming Language: C",
-        image: MinishellImage,
-        link: "https://github.com/Klongrich/minishell"
+        id: 0,
+        name: "Name: JavaStockProject",
+        impact: "($1.1+ Million in Live Trading Volume)",
+        discripton: "A project that I built in 2017. It is a fully functional charting \
+        software written from scratch in Java. I built webscrapers for most of the live data, \
+        used a few APIs for historical data, programed each indicator from scratch, and drew the main chart pixel by pixel! \
+        You can create and save daily watchlist for any stocks of your chosing as well. The scanner was \
+        customly programmed to look for stocks that I would have an interest in tradding that day based on \
+        paramters I inputed. Custom OverLays where aloud as well allowing you to pick the variable amounts \
+        for each indicator / overlay. Multiple stock time frames where posted as well as volume of each \
+        meauserment of time. Was able to eventually hook up a few brokerages to the back end allowing some \
+        real time tradding to your account using an API key.",
+        image: JavaStockImage,
+        link: "https://github.com/Klongrich/ChartingSoftware"
     }
   ];
 
 export const NavBar = styled.div`
     
   ul {
+        list-style-type: none;
         position: fixed;
         padding-left: 60%;
-        padding-bottom: 5%;
+        padding-bottom: 7%;
+        padding-top: 25px;
         top: 0px;
   }
 
   li {
 
-    text-decoration: underline;
+      text-decoration: none;;
       color:white;
       font-size: 17.5px;
       float:left;
-      padding-left: 15.5%;
+      padding-left: 12.5%;
   }
 
   li:hover {
       color: red;
+      cursor: pointer;
+
   }
 
 `
@@ -87,15 +91,15 @@ export const NavBar = styled.div`
 export default function software () {
 
     const scrollToJavaStockProject = () => {
-        window.scrollTo({top: 75, behavior: 'smooth'});
+        window.scrollTo({top: 1950, behavior: 'smooth'});
       };
 
     const scrollToTradingBot = () => {
-        window.scrollTo({top: 1092, behavior: 'smooth'});
+        window.scrollTo({top: 1025, behavior: 'smooth'});
     };
 
     const scrollToMinishell = () => {
-        window.scrollTo({top: 2015, behavior: 'smooth'});
+        window.scrollTo({top: 75, behavior: 'smooth'});
     };
 
     return (
@@ -108,9 +112,9 @@ export default function software () {
 
             <NavBar>
                 <ul>
-                    <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
-                    <li onClick={scrollToTradingBot}>TradingBot</li>
                     <li onClick={scrollToMinishell}>MiniShell</li>
+                    <li onClick={scrollToTradingBot}>TradingBot</li>
+                    <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
                 </ul>
             </NavBar>
 
