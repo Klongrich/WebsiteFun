@@ -10,16 +10,16 @@ export const Container = styled.div`
     border: 1px solid black;
     height: 100%;
 
-    margin-top: -33px;
+    margin-top: 0px;
 `
 
 export const Content = styled.div`
 
-    margin-top: 70px;
+    margin-top: 20px;
 
     h2 {
         text-align: center;
-        font-size: 70px;
+        font-size: 50px;
     }
 
     h1 {
@@ -29,7 +29,7 @@ export const Content = styled.div`
     margin-left:80px;
     margin-right:80px;
     height: 1300px;
-    background-color: rgb(225,225,225,0.4);
+    background-color: rgb(225,225,225,0.6);
 
     padding-top: 1px;
 
@@ -42,7 +42,6 @@ export const PageContent = ({title, date, content, image}) => {
             <Content> 
                 <h2> {title} </h2>
                 <p Style="margin-left: 30px; font-size: 40px">  {content} </p>
-                testing
             </Content>
         </Container>
         </>

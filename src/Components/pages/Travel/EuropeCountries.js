@@ -29,10 +29,14 @@ import LiechenstineFlag from './pics/liechenstine.png'
 import UkFlag from './pics/uk.png'
 import IrelandFlag from './pics/ireland.jpg'
 
+
+import {SwitzerlandTLDR} from './articles/tldr'
+
 export const All = [
     {
         title: "Switzerland",
         blogBackground: SwitzerlandBackground,
+        content: SwitzerlandTLDR,
         image: SwitzerlandFlag
     },
     {

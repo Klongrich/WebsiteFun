@@ -278,14 +278,6 @@ export default function DesktopTravel () {
     if (veiwingPage) {
         return (
             <>
-            <Header>
-                <h2> Travel Blog </h2>
-                <p onClick={() => switchVersion()}> V2 </p>
-            </Header>
-
-            <button Style="margin-left: 10px; margin-top: 10px;" onClick={() => updatePage()}>
-                Go back
-            </button>
          
             <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
 
@@ -350,7 +342,7 @@ export default function DesktopTravel () {
                   onClick={() => updatePage(
                     data.title,
                     data.date,
-                    "Content coming soon ........",
+                    data.content,
                     data.blogBackground
                   )} >
 
