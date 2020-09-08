@@ -8,12 +8,15 @@ import miningPic from '../pics/mining.jpeg'
 import chainlinkPic from '../pics/chainlink4.jpg'
 import btcPic from '../pics/btc.jpeg'
 
+import QF from '../pics/QF.gif'
+
 
 import DeFiCurrentState from '../articles/DeFiCurrentState'
 import MiningExplained from '../articles/MiningExplained'
 import Bitcoin from '../articles/Bitcoin'
 import Ethereum from '../articles/Ethereum'
 import WhatIsLink from '../articles/WhatIsLink'
+import IcoCraze from '../articles/IcoCrazeOf2017'
 
 export const mainPost = {
     id: 1,
@@ -50,14 +53,15 @@ export const thridPost = [
     },
     {
         id: 5,
-        title: "What is $YAM?",
+        title: "What is Quadratic Funding",
         date: "Coming Soon",
-        image: yamETH
+        image: QF
     },
     {
         id: 6,
         title: "The ICO Craze Of 2017", 
-        date: "Coming soon",
+        date: "09/04/2020",
+        content: IcoCraze,
         image: ICOpic
     },
     {
@@ -73,7 +77,7 @@ export const AllPost = [
     {
         id: 1,
         title: "DeFi and It's Current State",
-        date: "09/6/2020",
+        date: "09/06/2020",
         content: DeFiCurrentState,
         image: DeFiPic
     },
@@ -87,7 +91,8 @@ export const AllPost = [
     {
         id: 6,
         title: "The ICO Craze Of 2017", 
-        date: "Coming Soon...",
+        date: "09/04/2020",
+        content: IcoCraze,
         image: ICOpic
     },
     {
@@ -106,9 +111,9 @@ export const AllPost = [
     },
     {
         id: 5,
-        title: "What is $YAM?",
+        title: "What is Quadratic Funding?",
         date: "Coming Soon...",
-        image: yamETH
+        image: QF
     },
     {
         id: 7,
