@@ -10,7 +10,7 @@ import DelawareFlag from './USflags/Delaware.png'
 import FloridaFlag from './USflags/Florida.jpg'
 
 import GeorgiaFlag from './USflags/Georgia.jpg' //White Lines
-import IdahoFlag from './USflags/Idaho.png' //White Lines
+import IdahoFlag from './USflags/Idaho.jpg' //White Lines
 import IllinoisFlag from './USflags/Illinois.jpeg'
 import IndianaFlag from './USflags/Indiana.png'
 
@@ -29,12 +29,35 @@ import MissiouriFlag from './USflags/Missiouri.png'
 import MississippiFlag from './USflags/Mississippi.png'
 import MontanaFlag from './USflags/Montana.png'
 
-import NebraskaFlag from './USflags/Nebraska.png' //White Lines
+import NebraskaFlag from './USflags/Nebraska.jpg' //White Lines
 import NevadaFlag from './USflags/Nevada.png'
-import NewHampshire from './USflags/NewHampshire.png' //White Lines
-import NewJersey from './USflags/NewJersey.png'
+import NewHampshireFlag from './USflags/NewHampshire.gif' //White Lines
+import NewJerseyFlag from './USflags/NewJersey.png'
 
+import NewMexicoFlag from './USflags/NewMexico.jpg'
+import NewYorkFlag from './USflags/NewYork.jpg'
+import NorthCarolinaFlag from './USflags/NorthCarolina.png'
+import OhioFlag from './USflags/Ohio.png'
 
+import OklahmoaFlag from './USflags/Oklahoma.jpg'
+import OregonFlag from './USflags/Oregon.jpg'
+import PennsylvaniaFlag from './USflags/Pennsylvania.jpg'
+import RhodeIslandFlag from './USflags/RhodeIsland.jpg'
+
+import SouthCarolinaFlag from './USflags/SouthCarolina.jpg'
+import SouthDakotaFlag from './USflags/SouthDakota.jpg'
+import TexasFlag from './USflags/Texas.jpg'
+import UtahFlag from './USflags/Utah.png'
+
+import VermontFlag from './USflags/Vermont.png'
+import VirginiaFlag from './USflags/Virginia.jpg'
+import WashingtonFlag from './USflags/Washington.jpg'
+import WisconsinFlag from './USflags/Wisconsin.jpg'
+
+import WestVirginiaFlag from './USflags/WestVirginia.jpg'
+import WyomingFlag from './USflags/Wyoming.jpg'
+
+import TennesseeFlag from './USflags/Tennesse.jpg'
 
 export const AllStates = [
     {
@@ -143,91 +166,87 @@ export const AllStates = [
     },
     {
         title: "New Hampshire",
-        image: NewHampshire
+        image: NewHampshireFlag
     },
     {
         title: "New Jersey",
-        image: NewJersey
+        image: NewJerseyFlag
     },
     {
         title: "New Mexico",
-        image: null
+        image: NewMexicoFlag
     },
     {
         title: "New York",
-        image: null
+        image: NewYorkFlag
     },
     {
         title: "North Carolina",
-        image: null
+        image: NorthCarolinaFlag
     },
     {
         title: "Ohio",
-        image: null
+        image: OhioFlag
     }
     ,
     {
         title: "Oklahoma",
-        image: null
+        image: OklahmoaFlag
     },
     {
         title: "Oregon",
-        image: null
+        image: OregonFlag
     },
     {
         title: "Pennsylvania",
-        image: null
+        image: PennsylvaniaFlag
     },
     {
         title: "Rhode Island",
-        image: null
+        image: RhodeIslandFlag
     },
     {
         title: "South Carolina",
-        image: null
+        image: SouthCarolinaFlag
     },
     {
         title: "South Dakota",
-        image: null
+        image: SouthDakotaFlag
     },
     {
         title: "Tennessee",
-        image: null
+        image: TennesseeFlag
     },
     {
         title: "Texas",
-        image: null
+        image: TexasFlag
     },
     {
         title: "Utah",
-        image: null
+        image: UtahFlag
     },
     {
         title: "Vermont",
-        image: null
+        image: VermontFlag
     },
     {
         title: "Virgina",
-        image: null
-    },
-    {
-        title: "Colorado",
-        image: null
+        image: VirginiaFlag
     },
     {
         title: "Washingtion",
-        image: null
+        image: WashingtonFlag
     },
     {
         title: "West Virginia",
-        image: null
+        image: WestVirginiaFlag
     },
     {
         title: "Wisconsin",
-        image: null
+        image: WisconsinFlag
     },
     {
         title: "Wyoming",
-        image: null
+        image: WyomingFlag
     }
 ]

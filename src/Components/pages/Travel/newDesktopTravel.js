@@ -78,7 +78,7 @@ export const BlogPostTitles = styled.div`
     width: 100%;
 
     font-size: 12px;
-    margin-top: -70px;
+    margin-top: -50px;
 
 
 `
