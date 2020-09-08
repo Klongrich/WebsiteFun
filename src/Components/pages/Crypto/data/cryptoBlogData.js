@@ -13,6 +13,7 @@ import DeFiCurrentState from '../articles/DeFiCurrentState'
 import MiningExplained from '../articles/MiningExplained'
 import Bitcoin from '../articles/Bitcoin'
 import Ethereum from '../articles/Ethereum'
+import WhatIsLink from '../articles/WhatIsLink'
 
 export const mainPost = {
     id: 1,
@@ -33,7 +34,8 @@ export const secondPost = [
     {
         id: 3,
         title: "What is $LINK?",
-        date: "Coming Soon",
+        date: "09/08/2020",
+        conetent: WhatIsLink,
         image: chainlinkPic
     }
 ]
@@ -85,13 +87,14 @@ export const AllPost = [
     {
         id: 6,
         title: "The ICO Craze Of 2017", 
-        date: "08/10/2020",
+        date: "Coming Soon...",
         image: ICOpic
     },
     {
         id: 3,
         title: "What is $LINK?",
-        date: "07/12/2020",
+        date: "09/08/2020",
+        content: WhatIsLink,
         image: chainlinkPic
     },
     {
@@ -104,7 +107,7 @@ export const AllPost = [
     {
         id: 5,
         title: "What is $YAM?",
-        date: "07/12/2020",
+        date: "Coming Soon...",
         image: yamETH
     },
     {
