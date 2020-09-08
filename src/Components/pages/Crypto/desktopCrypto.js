@@ -13,7 +13,7 @@ import {Share} from '@styled-icons/boxicons-regular/Share'
 
 import {mainPost, secondPost, thridPost, AllPost} from './data/cryptoBlogData'
 
-var URLlink = "https://www.longrichk.com/Crypto?articleID="; 
+var URLlink = "http://localhost:3000/Crypto?articleID="; 
 
 export const Container = styled.div`
 

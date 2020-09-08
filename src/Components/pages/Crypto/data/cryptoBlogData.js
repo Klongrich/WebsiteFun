@@ -11,6 +11,8 @@ import btcPic from '../pics/btc.jpeg'
 
 import DeFiCurrentState from '../articles/DeFiCurrentState'
 import MiningExplained from '../articles/MiningExplained'
+import Bitcoin from '../articles/Bitcoin'
+import Ethereum from '../articles/Ethereum'
 
 export const mainPost = {
     id: 1,
@@ -40,7 +42,8 @@ export const thridPost = [
     {
         id: 4,
         title: "Ethereum", 
-        date: "Coming Soon",
+        date: "04/18/2020",
+        content: Ethereum,
         image: ETHpic
     },
     {
@@ -58,7 +61,8 @@ export const thridPost = [
     {
         id: 7,
         title: "Bitcoin",
-        date: "Coming Soon",
+        date: "04/18/2020",
+        content: Bitcoin,
         image: btcPic
     }
 ]
@@ -93,7 +97,8 @@ export const AllPost = [
     {
         id: 4,
         title: "Ethereum", 
-        date: "08/10/2020",
+        date: "04/18/2020",
+        content: Ethereum,
         image: ETHpic
     },
     {
@@ -105,7 +110,8 @@ export const AllPost = [
     {
         id: 7,
         title: "Bitcoin",
-        date: "05/23/2020",
+        date: "04/18/2020",
+        content: Bitcoin,
         image: btcPic
     }
 

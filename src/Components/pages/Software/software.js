@@ -51,11 +51,9 @@ export const NavBar = styled.div`
     
   ul {
         list-style-type: none;
-        position: fixed;
         padding-left: 60%;
         padding-bottom: 7%;
-        padding-top: 25px;
-        top: 0px;
+        margin-top: -55px;
   }
 
   li {
