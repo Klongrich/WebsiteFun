@@ -56,7 +56,35 @@ export const ClientInfoMoblie = styled.div`
 
 `
 
+const ShowInfo = styled.div`
+  visibility: ${props => props.show}
+`
+
+const Testli = styled.li`
+visibility: ${props => props.show}
+`
+
 export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
+
+      const [showIP, setShowIP] = useState(false);
+
+      function getIP() {
+
+        if (!showIP) {
+          return (
+            <>
+            <li> Show IP </li>
+            </>
+          )
+        } else {
+          return (
+            <>
+            <li> IP: {ipAdress} </li>
+            </>
+          )
+        }
+
+      }
 
         var fontsize = "42.08px"
     
@@ -83,7 +111,7 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="2000">
-                    <li> IP: <b> {ipAdress} </b> </li>
+                       <li onClick={() => setShowIP(true)}> {getIP()} </li>                     
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="2250">
