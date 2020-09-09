@@ -25,6 +25,10 @@ export const ClientInfoWrapper = styled.div`
     padding-left: 5.5%;
   }
 
+  li:hover {
+    cursor: pointer;
+  }
+
 `
 
 export const ClientInfoMoblie = styled.div`
@@ -54,6 +58,8 @@ export const ClientInfoMoblie = styled.div`
     padding-top: 42.4px;
   }
 
+
+
 `
 
 const ShowInfo = styled.div`
@@ -65,8 +71,14 @@ visibility: ${props => props.show}
 `
 
 export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
+  
+      const [showOS, setShowOS] = useState(false);
+      const [showBrowser, setShowBrowser] = useState(false);
+      const [showBrowserVersion, setShowBrowserVerison] = useState(false);
 
       const [showIP, setShowIP] = useState(false);
+      const [showState, setShowState] = useState(false);
+      const [showCity, setShowCity] = useState(false);
 
       function getIP() {
 
@@ -83,9 +95,117 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
              IP: {ipAdress}
             </>
           )
+  
         }
 
       }
+
+      function getState() {
+      if (!showState) {
+        return (
+          <div Style="text-decoration: underline;
+                      width: 105px;">
+            Show State
+          </div>   
+        )
+      } else {
+        return (
+          <>
+          <div Style="width: 105px"> 
+           State: <b> {ipInfo.region} </b>
+           </div>
+          </>
+        )
+
+      }
+
+    }
+
+    function getCity() {
+      if (!showCity) {
+        return (
+          <div Style="text-decoration: underline;
+                      width: 105px;">
+            Show City
+          </div>   
+        )
+      } else {
+        return (
+          <>
+          <div Style="width: 100%"> 
+            City: <b> {ipInfo.city} </b>
+          </div>
+          </>
+        )
+
+      }
+
+    }
+
+    function getOS() {
+      if (!showOS) {
+        return (
+          <div Style="text-decoration: underline;
+                      width: 120px;
+                      padding-left: 20px;">
+            Show OS
+          </div>   
+        )
+      } else {
+        return (
+          <>
+          <div Style="width: 120px;
+                      padding-left: 20px;"> 
+            OS: <b> {browserInfo.os} </b> 
+          </div>
+          </>
+        )
+
+      }
+
+    }
+
+    function getBroswer() {
+      if (!showBrowser) {
+        return (
+          <div Style="text-decoration: underline;
+                      width: 140px;">
+            Show Browser
+          </div>   
+        )
+      } else {
+        return (
+          <>
+          <div Style="width: 140px"> 
+          Browser: <b>{browserInfo.browser} </b>
+          </div>
+          </>
+        )
+
+      }
+
+    }
+
+    function getBrowserVersion() {
+      if (!showBrowserVersion) {
+        return (
+          <div Style="text-decoration: underline;
+                      width: 140px;">
+            Browser Version
+          </div>   
+        )
+      } else {
+        return (
+          <>
+          <div Style="width: 140px"> 
+            Version: <b> {browserInfo.version} </b>
+          </div>
+          </>
+        )
+
+      }
+
+    }
 
         var fontsize = "42.08px"
     
@@ -100,15 +220,15 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
                 </FadeIn>
                   <ul>
                     <FadeIn transitionDuration="1600" delay="1250">
-                      <li> Broswer: <b>{browserInfo.browser} </b> </li> 
+                      <li onClick={() => setShowBrowser(true)}> {getBroswer()}  </li> 
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="1500">
-                      <li> Version: <b> {browserInfo.version} </b> </li>
+                      <li onClick={() => setShowBrowserVerison(true)}> {getBrowserVersion()} </li>
                     </FadeIn> 
 
                     <FadeIn transitionDuration="1600" delay="1750">
-                    <li> OS: <b> {browserInfo.os} </b> </li> 
+                      <li onClick={() => setShowOS(true)}> {getOS()} </li> 
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="2000">
@@ -116,11 +236,11 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="2250">
-                    <li> State: <b> {ipInfo.region} </b> </li>
+                    <li onClick={() => setShowState(true)}> {getState()} </li>
                     </FadeIn>
 
                     <FadeIn transitionDuration="1600" delay="2500">
-                    <li> City: <b> {ipInfo.city} </b> </li> 
+                    <li onClick={() => setShowCity(true)}> {getCity()} </li> 
                     </FadeIn>
                   </ul>
               
