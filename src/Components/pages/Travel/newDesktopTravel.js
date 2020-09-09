@@ -25,12 +25,10 @@ export const Container = styled.div`
 
     background-color: #5ca848;
     border: 1px black #309152;
-    height: 110%;
+    height: 2450px;
 
     padding-top: 15px;
     padding-bottom: 80px;
-
-    display: inline-block;
 
 `
 

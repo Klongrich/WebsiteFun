@@ -60,7 +60,7 @@ export default function About () {
             Born and raised outside of Cleveland, Ohio. Found interest in the stock market and 
             coding at ages 16 - 17. After Highschool I decided to travel the US and visited 47 
             different states. Then decided to pursue education in the computer science field at 
-            a school called “42 Silicon Valley”. Got accepted Fall of 2016 and spent the better 
+            a school called “42”. Got accepted Fall of 2016 and spent the better 
             part of 2 years there. I learned low level C programming along with more aspects 
             about computer science. Later branched off into more Object Oriented programming with 
             Java and Python then eventually ventured into WebDev with ReactJS, Node, etc. While 
