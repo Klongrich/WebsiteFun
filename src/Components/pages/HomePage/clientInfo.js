@@ -72,14 +72,15 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
 
         if (!showIP) {
           return (
-            <>
-            <li> Show IP </li>
-            </>
+            <div Style="text-decoration: underline;
+                        width: 148px;">
+              Show IP
+            </div>   
           )
         } else {
           return (
             <>
-            <li> IP: {ipAdress} </li>
+             IP: {ipAdress}
             </>
           )
         }
