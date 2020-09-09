@@ -10,11 +10,11 @@ import {PageContent} from './blogpage'
 import OldDesktopTravel from './desktopTravel'
 
 
-import IcelandBackground from './iceland/icelandbackground.jpg'
+import IcelandBackground from './pics/BlogBackgrounds/icelandbackground.jpg'
 
-import {All, Scandinavia, WesternEurope, EasternEurope} from './EuropeCountries'
+import {All, Scandinavia, WesternEurope, EasternEurope} from './data/EuropeCountries'
 
-import {AllStates} from './UnitedStates'
+import {AllStates} from './data/UnitedStates'
 
 import USAMap from "react-usa-map";
 

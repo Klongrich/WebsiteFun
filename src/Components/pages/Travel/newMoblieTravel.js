@@ -7,8 +7,8 @@ import Footer from '../../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
-import IcelandBackground from './iceland/icelandbackground.jpg'
-import {All, Scandinavia, WesternEurope, EasternEurope} from './EuropeCountries'
+import IcelandBackground from './pics/BlogBackgrounds/icelandbackground.jpg'
+import {All, Scandinavia, WesternEurope, EasternEurope} from './data/EuropeCountries'
 
 
 var URLlink = "https://www.longrichk.com/travel?page="; 

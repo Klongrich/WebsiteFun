@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import mapPic from "../pics/worldmap.jpg"
+import mapPic from "../pics/EuroFlags/worldmap.jpg"
 
 export const TravelContainer = styled.div`
 

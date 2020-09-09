@@ -6,9 +6,6 @@ import './pages/HomePage/HomePageV2'
 import Footer from './footerComponets/Footer';
 
 import TravelPage from './pages/Travel/travel'
-import Iceland from './pages/Travel/iceland/iceland'  
-import netherlands from './pages/Travel/netherlands/netherlands'
-
 
 import articles from './pages/Articles/articles'
 import about from './pages/About/about'
@@ -41,10 +38,7 @@ function App (){
             <Route path="/" exact component={MainPage}/>
        
             <Route path="/travel" exact component={TravelPage}/>
-              <Route path="/travel/iceland" exact component={Iceland}/>
-              <Route path="/travel/netherlands" exact component={netherlands}/>
             
-
             <Route path="/Crypto" exact component={Crypto}/>
 
 

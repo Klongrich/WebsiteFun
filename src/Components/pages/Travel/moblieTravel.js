@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 import 'animate.css'
 
-import mapPic from './pics/worldmap.png'
-
+import mapPic from './pics/EuroFlags/worldmap.png'
 
 export const TravelContainer = styled.div`
 

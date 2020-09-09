@@ -1,45 +1,39 @@
-import OldDesktopTravel from './desktopTravel'
+import IcelandFlag from '../pics/EuroFlags/Iceland.png'
+import NetherelandsFlag from '../pics/EuroFlags/netherland.png'
+import BelguimFlag from '../pics/EuroFlags/belguim.png'
+import FranceFlag from '../pics/EuroFlags/france.png'
+import SwitzerlandFlag from '../pics/EuroFlags/switzerland.png'
+import ItalyFlag from '../pics/EuroFlags/italy.png'
 
-import IcelandFlag from './pics/Iceland.png'
-import NetherelandsFlag from './pics/netherland.png'
-import BelguimFlag from './pics/belguim.png'
-import FranceFlag from './pics/france.png'
-import SwitzerlandFlag from './pics/switzerland.png'
-import ItalyFlag from './pics/italy.png'
+import DenmarkFlag from '../pics/EuroFlags/denmark.png'
 
-import DenmarkFlag from './pics/denmark.png'
+import IcelandBackground from '../pics/BlogBackgrounds/icelandbackground.jpg'
+import NetherlandBackground from '../pics/BlogBackgrounds/netherlands-background.jpg'
 
-import IcelandBackground from './iceland/icelandbackground.jpg'
-import NetherlandBackground from './netherlands/netherlands-background.jpg'
-import SwitzerlandBackground from './pics/switzerlandBlog.jpg'
-import BelguimBackground from './pics/BelguimBlog.jpg'
+import GernmanyFlag from '../pics/EuroFlags/germany.jpeg'
+import SwedenFlag from '../pics/EuroFlags/sweden.png'
+import NorwayFlag from '../pics/EuroFlags/norway.png'
 
-
-import GernmanyFlag from './pics/germany.jpeg'
-import SwedenFlag from './pics/sweden.png'
-import NorwayFlag from './pics/norway.png'
-
-import PolandFlag from './pics/poland.png'
-import AustraiFlag from './pics/austria.jpeg'
-import SlovkiaFlag from './pics/slovakia.png'
-import CzehcFlag from './pics/czechrepublic.jpg'
-import HungaryFlag from './pics/hungary.jpeg'
-import CortiaFlag from './pics/cortia.png'
-import SloveniaFlag from './pics/slovenia.png'
-import LiechenstineFlag from './pics/liechenstine.png'
-import UkFlag from './pics/uk.png'
-import IrelandFlag from './pics/ireland.jpg'
+import PolandFlag from '../pics/EuroFlags/poland.png'
+import AustraiFlag from '../pics/EuroFlags/austria.jpeg'
+import SlovkiaFlag from '../pics/EuroFlags/slovakia.png'
+import CzehcFlag from '../pics/EuroFlags/czechrepublic.jpg'
+import HungaryFlag from '../pics/EuroFlags/hungary.jpeg'
+import CortiaFlag from '../pics/EuroFlags/cortia.png'
+import SloveniaFlag from '../pics/EuroFlags/slovenia.png'
+import LiechenstineFlag from '../pics/EuroFlags/liechenstine.png'
+import UkFlag from '../pics/EuroFlags/uk.png'
+import IrelandFlag from '../pics/EuroFlags/ireland.jpg'
 
 
-import {SwitzerlandTLDR} from './articles/tldr'
-import {BelguimTLDR} from './articles/tldr'
+import {SwitzerlandTLDR} from '../articles/tldr'
+import {BelguimTLDR} from '../articles/tldr'
 
 
 export const All = [
     {
         id: 1,
         title: "Switzerland",
-        blogBackground: SwitzerlandBackground,
         content: SwitzerlandTLDR,
         image: SwitzerlandFlag
     },
@@ -52,7 +46,6 @@ export const All = [
     {
         id: 3,
         title: "Belguim", 
-        blogBackground: BelguimBackground,
         content: BelguimTLDR,
         image: BelguimFlag
     },

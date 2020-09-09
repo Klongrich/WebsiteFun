@@ -1,63 +1,63 @@
 
-import AlabamaFlag from './USflags/Alabama.jpg'
-import ArizonaFlag from './USflags/Arizona.png'
-import ArkansasFlag from './USflags/Arkansas.jpg'
-import CaliforniaFlag from './USflags/California.png'
+import AlabamaFlag from '../pics/USflags/Alabama.jpg'
+import ArizonaFlag from '../pics/USflags/Arizona.png'
+import ArkansasFlag from '../pics/USflags/Arkansas.jpg'
+import CaliforniaFlag from '../pics/USflags/California.png'
 
-import ColoradoFlag from './USflags/Colorado.png'
-import ConnecticutFlag from './USflags/Connecticut.jpg' //Not Working
-import DelawareFlag from './USflags/Delaware.png'
-import FloridaFlag from './USflags/Florida.jpg'
+import ColoradoFlag from '../pics/USflags/Colorado.png'
+import ConnecticutFlag from '../pics/USflags/Connecticut.jpg' //Not Working
+import DelawareFlag from '../pics/USflags/Delaware.png'
+import FloridaFlag from '../pics/USflags/Florida.jpg'
 
-import GeorgiaFlag from './USflags/Georgia.jpg' //White Lines
-import IdahoFlag from './USflags/Idaho.jpg' //White Lines
-import IllinoisFlag from './USflags/Illinois.jpeg'
-import IndianaFlag from './USflags/Indiana.png'
+import GeorgiaFlag from '../pics/USflags/Georgia.jpg' //White Lines
+import IdahoFlag from '../pics/USflags/Idaho.jpg' //White Lines
+import IllinoisFlag from '../pics/USflags/Illinois.jpeg'
+import IndianaFlag from '../pics/USflags/Indiana.png'
 
-import IowaFlag from './USflags/Iowa.png'
-import KansasFlag from './USflags/Kanasa.png'
-import KentuckyFlag from './USflags/Kentucky.png'
-import LouisianaFlag from './USflags/Louisiana.png'
+import IowaFlag from '../pics/USflags/Iowa.png'
+import KansasFlag from '../pics/USflags/Kanasa.png'
+import KentuckyFlag from '../pics/USflags/Kentucky.png'
+import LouisianaFlag from '../pics/USflags/Louisiana.png'
 
-import MaineFlag from './USflags/Maine.png'
-import MarylandFlag from './USflags/Maryland.png'
-import MassachusettsFlag from './USflags/Massachusetts.png'
-import MichiganFlag from './USflags/Michigan.png'
+import MaineFlag from '../pics/USflags/Maine.png'
+import MarylandFlag from '../pics/USflags/Maryland.png'
+import MassachusettsFlag from '../pics/USflags/Massachusetts.png'
+import MichiganFlag from '../pics/USflags/Michigan.png'
 
-import MinnesotaFlag from './USflags/Minnesota.png'
-import MissiouriFlag from './USflags/Missiouri.png'
-import MississippiFlag from './USflags/Mississippi.png'
-import MontanaFlag from './USflags/Montana.png'
+import MinnesotaFlag from '../pics/USflags/Minnesota.png'
+import MissiouriFlag from '../pics/USflags/Missiouri.png'
+import MississippiFlag from '../pics/USflags/Mississippi.png'
+import MontanaFlag from '../pics/USflags/Montana.png'
 
-import NebraskaFlag from './USflags/Nebraska.jpg' //White Lines
-import NevadaFlag from './USflags/Nevada.png'
-import NewHampshireFlag from './USflags/NewHampshire.gif' //White Lines
-import NewJerseyFlag from './USflags/NewJersey.png'
+import NebraskaFlag from '../pics/USflags/Nebraska.jpg' //White Lines
+import NevadaFlag from '../pics/USflags/Nevada.png'
+import NewHampshireFlag from '../pics/USflags/NewHampshire.gif' //White Lines
+import NewJerseyFlag from '../pics/USflags/NewJersey.png'
 
-import NewMexicoFlag from './USflags/NewMexico.jpg'
-import NewYorkFlag from './USflags/NewYork.jpg'
-import NorthCarolinaFlag from './USflags/NorthCarolina.png'
-import OhioFlag from './USflags/Ohio.png'
+import NewMexicoFlag from '../pics/USflags/NewMexico.jpg'
+import NewYorkFlag from '../pics/USflags/NewYork.jpg'
+import NorthCarolinaFlag from '../pics/USflags/NorthCarolina.png'
+import OhioFlag from '../pics/USflags/Ohio.png'
 
-import OklahmoaFlag from './USflags/Oklahoma.jpg'
-import OregonFlag from './USflags/Oregon.jpg'
-import PennsylvaniaFlag from './USflags/Pennsylvania.jpg'
-import RhodeIslandFlag from './USflags/RhodeIsland.jpg'
+import OklahmoaFlag from '../pics/USflags/Oklahoma.jpg'
+import OregonFlag from '../pics/USflags/Oregon.jpg'
+import PennsylvaniaFlag from '../pics/USflags/Pennsylvania.jpg'
+import RhodeIslandFlag from '../pics/USflags/RhodeIsland.jpg'
 
-import SouthCarolinaFlag from './USflags/SouthCarolina.jpg'
-import SouthDakotaFlag from './USflags/SouthDakota.jpg'
-import TexasFlag from './USflags/Texas.jpg'
-import UtahFlag from './USflags/Utah.png'
+import SouthCarolinaFlag from '../pics/USflags/SouthCarolina.jpg'
+import SouthDakotaFlag from '../pics/USflags/SouthDakota.jpg'
+import TexasFlag from '../pics/USflags/Texas.jpg'
+import UtahFlag from '../pics/USflags/Utah.png'
 
-import VermontFlag from './USflags/Vermont.png'
-import VirginiaFlag from './USflags/Virginia.jpg'
-import WashingtonFlag from './USflags/Washington.jpg'
-import WisconsinFlag from './USflags/Wisconsin.jpg'
+import VermontFlag from '../pics/USflags/Vermont.png'
+import VirginiaFlag from '../pics/USflags/Virginia.jpg'
+import WashingtonFlag from '../pics/USflags/Washington.jpg'
+import WisconsinFlag from '../pics/USflags/Wisconsin.jpg'
 
-import WestVirginiaFlag from './USflags/WestVirginia.jpg'
-import WyomingFlag from './USflags/Wyoming.jpg'
+import WestVirginiaFlag from '../pics/USflags/WestVirginia.jpg'
+import WyomingFlag from '../pics/USflags/Wyoming.jpg'
 
-import TennesseeFlag from './USflags/Tennesse.jpg'
+import TennesseeFlag from '../pics/USflags/Tennesse.jpg'
 
 export const AllStates = [
     {
