@@ -8,6 +8,7 @@ import Footer from '../../footerComponets/Footer'
 import {PageContent} from './blogpage'
 
 import IcelandBackground from './pics/BlogBackgrounds/icelandbackground.jpg'
+
 import {All, Scandinavia, WesternEurope, EasternEurope} from './data/EuropeCountries'
 
 

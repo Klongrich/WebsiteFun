@@ -3,7 +3,6 @@
 import DeFiPic from '../pics/DeFi.jpg'
 import ICOpic from '../pics/ICO2.jpeg'
 import ETHpic from '../pics/ETH2.jpeg'
-import yamETH from '../pics/yamETH3.jpeg'
 import miningPic from '../pics/mining.jpeg'
 import chainlinkPic from '../pics/chainlink4.jpg'
 import btcPic from '../pics/btc.jpeg'
