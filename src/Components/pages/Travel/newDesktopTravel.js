@@ -25,10 +25,12 @@ export const Container = styled.div`
 
     background-color: #5ca848;
     border: 1px black #309152;
-    height: 2450px;
+    height: 110%;
 
     padding-top: 15px;
     padding-bottom: 80px;
+
+    display: inline-block;
 
 `
 
@@ -155,7 +157,7 @@ export const RegionButton = styled.div`
 
 export default function DesktopTravel () {
 
-    const [pageHeader, setPageHeader] = useState("Visited Countries");
+    const [pageHeader, setPageHeader] = useState("Visited States (47 / 50)");
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
@@ -208,7 +210,7 @@ export default function DesktopTravel () {
 
     function switchToEurope () {
         setRegion(All);
-        setPageHeader("Visited Countries");
+        setPageHeader("Visited Countries (22 / 195)");
 
     }
 
@@ -241,7 +243,7 @@ export default function DesktopTravel () {
 
     function GetRegionButtons () {
 
-        if (pageHeader == "Visited Countries") {
+        if (pageHeader == "Visited Countries (22 / 195)") {
             return (
                 <>
                     <RegionButton onClick={() => setRegion(All)} >
