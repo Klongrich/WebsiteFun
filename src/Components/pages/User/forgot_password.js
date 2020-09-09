@@ -39,7 +39,7 @@ export const Container = styled.div`
 
     font-family: sans-serif;
 
-    padding-top: 100px;
+    padding-top: 70px;
 
 
 
@@ -142,17 +142,22 @@ export default function Forgot_password () {
                         onChange={e => setEmail(e.target.value)}
                         />
 
-            <MoblieButton  onClick={() => sendResetPasswordEmail() }>
+            <a href="/login"> 
+            <MoblieButton>
                 Go Back
             </MoblieButton>
+            </a>
 
             <MoblieButton  onClick={() => sendResetPasswordEmail() }>
                 Submit
             </MoblieButton>
             
+            <div Style="margin-top: 160px;">
             <h2 Style="margin-left: 50px" 
                         onClick={() => sendResetPasswordEmail()}
                         > {userText} </h2>
+
+            </div>
 
             
             </Container>
