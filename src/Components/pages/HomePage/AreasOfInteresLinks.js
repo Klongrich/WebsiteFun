@@ -23,8 +23,8 @@ export const areaOfIntrestData= [
     {
       id: 0,
       title: "Travel",
-      text: "Check out some Travel Stories!",
-      moblieText: "Travel Stories",
+      text: "Check out some Travel Notes",
+      moblieText: "Travel Notes",
       bgColor: "#D5CAFA",
       hoverColor: "#e3dcfa",
       image: travelImage,

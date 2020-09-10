@@ -155,7 +155,7 @@ export const RegionButton = styled.div`
 
 export default function DesktopTravel () {
 
-    const [pageHeader, setPageHeader] = useState("Visited States (47 / 50)");
+    const [pageHeader, setPageHeader] = useState("Visited Countries (22 / 195)");
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
@@ -302,7 +302,7 @@ export default function DesktopTravel () {
         return (
             <>
             <Header>
-                <h2> Travel Blog </h2>
+                <h2> Travel Articles </h2>
                 <p onClick={() => switchVersion()}> V1</p>
             </Header>
             <OldDesktopTravel />
@@ -314,7 +314,7 @@ export default function DesktopTravel () {
           <>
 
             <Header>
-                <h2> Travel Blog </h2>
+                <h2> Travel Notes </h2>
                 {/* <p onClick={() => switchVersion()}> V1</p> */}
 
                 

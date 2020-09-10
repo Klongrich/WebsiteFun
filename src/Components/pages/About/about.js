@@ -85,9 +85,9 @@ export default function About () {
         <ul Style="display: inline-block;
                     margin-left: 100px;">
         <h2> Fun Facts </h2>
-            <li> Placed 9th In Ohio State for polevalut </li>
+            <li> Was a Polevaulter in Track and Feild </li>
             <li> Landed a backflip on a snowboard </li>
-            <li> Back Packed Multiple National Parks </li>
+            <li> Backpacked Multiple National Parks </li>
             <li> I'm only 22 </li>
         </ul>
     </div>

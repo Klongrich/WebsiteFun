@@ -57,6 +57,7 @@ const Container = styled.div`
     h3:hover{
         color: black;
         text-decoration: underline;
+        cursor: pointer;
     }
 `
 
