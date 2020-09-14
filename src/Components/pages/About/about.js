@@ -5,6 +5,8 @@ import styled from "styled-components";
 import {Header, BackgroundImage} from './styles/aboutStyles'
 
 import TahoeBackground from './TahoeBackground.jpg'
+import LakeTahoe from './LakeTahoe.jpg'
+
 
 
 const Container = styled.div`
@@ -42,7 +44,8 @@ const MoblieContainer = styled.div`
 
 
     background-image:url(${TahoeBackground});
-    height: 1470px;
+    background-size: 100% 100%;
+    height: 3870px;
 
     Color: black;
 
@@ -137,12 +140,11 @@ export default function About () {
                 <MoblieContainer> 
 
                 <div Style="background-color: white; 
-                            opacity: 0.8;
-                            padding-left: 50px;
-                            padding-right: 50px;
-                            border: 1px solid black;
-                            ">
-
+                    opacity: 0.8;
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    border: 1px solid black;
+                    ">
                 
                 <h2> About </h2>
 
