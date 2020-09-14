@@ -79,21 +79,44 @@ export const ArticleBox = styled.div`
 
 export default function articles () {
 
-    return (
-        <>
-        <Container> 
-        <h2> Articles </h2>
+    if (window.innerWidth > 999) {
+        return (
+            <>
+            <Container> 
+            <h2> Articles </h2>
 
-            {blogData.map(data => (
-                <ArticleBox> 
-                   
-                   <p Style="color: #9fa8a3;"> {data.date}</p>
+                {blogData.map(data => (
+                    <ArticleBox> 
+                    
+                    <p Style="color: #9fa8a3;"> {data.date}</p>
 
-                   <h3> {data.title} </h3>
-                
-                </ArticleBox>
-            ))}
-        </Container>
-        </>
-    );
+                    <h3> {data.title} </h3>
+                    
+                    </ArticleBox>
+                ))}
+            </Container>
+            </>
+        );
+    } else {
+
+        return (
+            <>
+            <Container> 
+            <h2 Style="font-size: 90px;"> Articles </h2>
+
+                {blogData.map(data => (
+                    <ArticleBox> 
+                    
+                    <p Style="color: #9fa8a3;
+                              font-size: 40px"> {data.date}</p>
+
+                    <h3 Style="font-size: 50px;"> {data.title} </h3>
+                    
+                    </ArticleBox>
+                ))}
+            </Container>
+
+            </>
+        );
+    }
 }
