@@ -169,14 +169,16 @@ export const ClientInfo = ( {width, browserInfo, ipAdress, ipInfo}) => {
       if (!showBrowser) {
         return (
           <div Style="text-decoration: underline;
-                      width: 140px;">
+                      width: 140px;
+                      margin-left: -30px;">
             Show Browser
           </div>   
         )
       } else {
         return (
           <>
-          <div Style="width: 140px"> 
+          <div Style="width: 140px;
+                      margin-left: -30px;"> 
           Browser: <b>{browserInfo.browser} </b>
           </div>
           </>
