@@ -1,5 +1,7 @@
-import React from "react";
+import React , {useState} from "react";
 import styled from "styled-components";
+
+import DeFi from "./Content/DeFi"
 
 const blogData = [
     {
@@ -77,9 +79,27 @@ export const ArticleBox = styled.div`
 `;
 
 
-export default function articles () {
+
+export default function Articles () {
+
+    const [pageState, setPageState] = useState("Home");
+
+    function update_page(article) {
+
+    }
 
     if (window.innerWidth > 999) {
+
+        if (pageState == "Viewing") {
+            
+            return (
+                <>
+                    <DeFi />
+                </>
+            )
+
+        } else {
+
         return (
             <>
             <Container> 
@@ -90,13 +110,14 @@ export default function articles () {
                     
                     <p Style="color: #9fa8a3;"> {data.date}</p>
 
-                    <h3> {data.title} </h3>
+                    <h3 onClick={() => setPageState("Viewing")}> {data.title} </h3>
                     
                     </ArticleBox>
                 ))}
             </Container>
             </>
         );
+                }
     } else {
 
         return (
