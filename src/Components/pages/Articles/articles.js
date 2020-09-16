@@ -1,40 +1,12 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 import styled from "styled-components";
 
 import DeFi from "./Content/DeFi"
 
-const blogData = [
-    {
-        id: 0,
-        title: "Future of Education and the Economy",
-        link: "null",
-        date: "04/20/2020"
-    } ,
-    {
-        id: 1,
-        title: "Look at employment in the US",
-        link: "null",
-        date: "04/19/2020"
-    },
-    {
-        id: 3,
-        title: "Future of the Crypto Economy",
-        link: "null",
-        date: "04/12/2020"
-    },
-    {
-        id: 4,
-        title: "Inflation Rates and Average Job Salaries",
-        link: "null",
-        date: "04/08/2020"
-    },
-    {
-        id: 5,
-        title: "More To Come",
-        link: "null",
-        date: "07/14/2020"
-    }
-]
+import {AllPost} from '../Crypto/data/cryptoBlogData.js'
+import {PageContent} from '../Crypto/blogpage'
+
+var URLlink = "http://localhost:3000/articles?articleID="; 
 
 const Container = styled.div`
 
@@ -84,17 +56,45 @@ export default function Articles () {
 
     const [pageState, setPageState] = useState("Home");
 
-    function update_page(article) {
+    const [pageTitle, setPageTitle] = useState("Title");
+    const [pageDate, setPageDate] = useState("Date");
+    const [pageContent, setPageContent] = useState("");
 
+
+    useEffect(() => {
+
+        var Temp = window.location.href.split("=");
+        var id = Temp[1];
+
+        if (id) {
+            updatePageById(parseInt(id, 10))
+        }
+    }, [])
+
+    function updatePageById(id){
+       
+        var update = AllPost.map(function (data) {
+            if (data.id == id) {
+
+                setPageTitle(data.title);
+                setPageDate(data.date);
+                setPageContent(data.content);
+                
+                window.scrollTo(0, 0)
+                setPageState("Viewing");
+     
+              }    
+            });
+
+        return (update);
     }
-
     if (window.innerWidth > 999) {
 
         if (pageState == "Viewing") {
             
             return (
                 <>
-                    <DeFi />
+                    <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
                 </>
             )
 
@@ -105,12 +105,12 @@ export default function Articles () {
             <Container> 
             <h2> Articles </h2>
 
-                {blogData.map(data => (
+                {AllPost.map(data => (
                     <ArticleBox> 
                     
                     <p Style="color: #9fa8a3;"> {data.date}</p>
 
-                    <h3 onClick={() => setPageState("Viewing")}> {data.title} </h3>
+                    <h3 onClick={() =>  window.location = URLlink + data.id}> {data.title} </h3>
                     
                     </ArticleBox>
                 ))}
@@ -125,7 +125,7 @@ export default function Articles () {
             <Container> 
             <h2 Style="font-size: 90px;"> Articles </h2>
 
-                {blogData.map(data => (
+                {AllPost.map(data => (
                     <ArticleBox> 
                     
                     <p Style="color: #9fa8a3;
