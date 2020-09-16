@@ -4,7 +4,7 @@ import styled from "styled-components";
 import DeFi from "./Content/DeFi"
 
 import {AllPost} from '../Crypto/data/cryptoBlogData.js'
-import {PageContent} from '../Crypto/blogpage'
+import {PageContent} from './Content/blogPage'
 
 var URLlink = "http://localhost:3000/articles?articleID="; 
 
@@ -120,24 +120,37 @@ export default function Articles () {
                 }
     } else {
 
-        return (
-            <>
-            <Container> 
-            <h2 Style="font-size: 90px;"> Articles </h2>
+        if (pageState == "Viewing") {
+            
+            return (
+                <>
+                    <PageContent title={pageTitle} date={pageDate} content={pageContent} fontSize="30px" headerSize="50px" />
+                </>
+            )
 
-                {AllPost.map(data => (
-                    <ArticleBox> 
-                    
-                    <p Style="color: #9fa8a3;
-                              font-size: 40px"> {data.date}</p>
+        } else {
 
-                    <h3 Style="font-size: 50px;"> {data.title} </h3>
-                    
-                    </ArticleBox>
-                ))}
-            </Container>
+            return (
+                <>
+                <Container> 
+                <h2 Style="font-size: 90px;"> Articles </h2>
 
-            </>
-        );
+                    {AllPost.map(data => (
+                        <ArticleBox> 
+                        
+                        <p Style="color: #9fa8a3;
+                                font-size: 40px"> {data.date}</p>
+
+                        <h3 Style="font-size: 50px;"
+                            onClick={() =>  window.location = URLlink + data.id}
+                            > {data.title} </h3>
+                        
+                        </ArticleBox>
+                    ))}
+                </Container>
+
+                </>
+            );
+        }
     }
 }
