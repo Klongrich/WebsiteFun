@@ -2,12 +2,9 @@ import React from 'react'
 import styled from "styled-components";
 
 
-import {Header, BackgroundImage} from './styles/aboutStyles'
+import {Header} from './styles/aboutStyles'
 
 import TahoeBackground from './TahoeBackground.jpg'
-import LakeTahoe from './LakeTahoe.jpg'
-
-
 
 const Container = styled.div`
 

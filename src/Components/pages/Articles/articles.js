@@ -1,12 +1,10 @@
 import React , {useState, useEffect} from "react";
 import styled from "styled-components";
 
-import DeFi from "./Content/DeFi"
-
 import {AllPost} from '../Crypto/data/cryptoBlogData.js'
 import {PageContent} from './Content/blogPage'
 
-var URLlink = "http://localhost:3000/articles?articleID="; 
+var URLlink = "https://www.longrichk.com/articles?articleID="; 
 
 const Container = styled.div`
 
