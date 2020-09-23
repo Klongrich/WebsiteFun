@@ -241,7 +241,7 @@ export default function DesktopTravel () {
 
     function GetRegionButtons () {
 
-        if (pageHeader == "Visited Countries (22 / 195)") {
+        if (pageHeader == "Visited Countries (20 / 44)") {
             return (
                 <>
                     <RegionButton onClick={() => setRegion(All)} >
