@@ -4,7 +4,7 @@ import styled from "styled-components";
 import './map.css'
 
 
-import Footer from '../../footerComponets/Footer'
+import Footer from '../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 import OldDesktopTravel from './desktopTravel'

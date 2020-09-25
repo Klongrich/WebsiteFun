@@ -1,16 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
-
 import copy from "copy-to-clipboard";
 import { useHistory } from "react-router-dom";
-
-
 import Footer from '../footerComponets/Footer'
-
 import {PageContent} from './blogpage'
-
 import {Share} from '@styled-icons/boxicons-regular/Share'
-
 import {mainPost, secondPost, thridPost, AllPost} from './data/cryptoBlogData'
 
 var URLlink = "https://www.longrichk.com/Crypto?articleID="; 

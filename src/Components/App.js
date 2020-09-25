@@ -1,20 +1,20 @@
 import React from 'react';
 import './App.css';
-import './pages/HomePage/HomePageV2'
+import './HomePage/HomePageV2'
 
-import TravelPage from './pages/Travel/travel'
+import TravelPage from './Travel/travel'
 import articles from './Articles/articles'
 import about from './About/about'
-import stocks from './pages/Stocks/stocksHomePage'
-import softwarePage from './pages/Software/software'
+import stocks from './Stocks/stocksHomePage'
+import softwarePage from './Software/software'
 import Crypto from './Crypto/crypto'
-import MainPage from './pages/HomePage/main'
-import signup from './pages/User/SignUp'
-import login from './pages/User/LogIn'
-import email_confrimed from './pages/User/email_confrim_forum'
-import password_rest from './pages/User/reset_password'
-import forgot_password from './pages/User/forgot_password'
-import payment from './pages/User/payment'
+import MainPage from './HomePage/main'
+import signup from './User/SignUp'
+import login from './User/LogIn'
+import email_confrimed from './User/email_confrim_forum'
+import password_rest from './User/reset_password'
+import forgot_password from './User/forgot_password'
+import payment from './User/payment'
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 
 function App (){

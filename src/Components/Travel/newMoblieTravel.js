@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import MoblieTravel from './moblieTravel'
 
-import Footer from '../../footerComponets/Footer'
+import Footer from '../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 

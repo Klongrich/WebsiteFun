@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from "react";
 
-import Global from "../../../styles/global";
+import Global from "../../styles/global";
 import styled from "styled-components";
 import * as Scroll from 'react-scroll';
 
@@ -10,7 +10,7 @@ import FadeIn from 'react-fade-in';
 
 import {BackgroundImage} from "./stylesV2/HomeStyles"
 
-import Footer from "../../footerComponets/Footer"
+import Footer from "../footerComponets/Footer"
 
 import {GlobeAmericas} from '@styled-icons/fa-solid/GlobeAmericas'
 

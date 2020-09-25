@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import px2vw from "../../../../utils/px2vw";
+import px2vw from "../../../utils/px2vw";
 
 import spacepic from "./background.jpg";
 import test from "./test2.jpeg"
