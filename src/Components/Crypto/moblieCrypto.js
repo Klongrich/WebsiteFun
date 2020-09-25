@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components";
 
-import Footer from '../../footerComponets/Footer'
+import Footer from '../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
@@ -14,7 +14,6 @@ export const Container = styled.div`
     background-color: #759ce6;
     border: 1px black #525252;
     height: 3270px;
-
     padding-top: 15px;
 
 `

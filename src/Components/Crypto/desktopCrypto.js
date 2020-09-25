@@ -5,7 +5,7 @@ import copy from "copy-to-clipboard";
 import { useHistory } from "react-router-dom";
 
 
-import Footer from '../../footerComponets/Footer'
+import Footer from '../footerComponets/Footer'
 
 import {PageContent} from './blogpage'
 
