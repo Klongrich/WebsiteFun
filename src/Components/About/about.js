@@ -8,8 +8,6 @@ import TahoeBackground from './TahoeBackground.jpg'
 
 const Container = styled.div`
 
-    
-
     background-image:url(${TahoeBackground});
     background-size: 100% 100%;
     height: 640px;
@@ -113,7 +111,7 @@ export default function About () {
                 <li> Hiking </li>
                 <li> Snowboarding </li>
                 <li> Programming </li>
-                <li> Day Tradding </li>
+                <li> Day Trading </li>
             </ul>
 
             <ul Style="display: inline-block;
