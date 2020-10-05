@@ -280,7 +280,7 @@ export default function DesktopTravel () {
                     </RegionButton>
 
                     <RegionButton onClick={() => setRegion(EasternEurope)}>
-                        <p> West </p>
+                        <p> West.. coming soon</p>
                     </RegionButton>
 
                 </>
