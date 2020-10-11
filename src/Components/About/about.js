@@ -89,19 +89,23 @@ export default function About () {
 
             <p Style="padding-left:50px; padding-right:50px; line-height:2;">
 
-            Born and raised outside of Cleveland, Ohio, Discovered an interest in the stock market and coding at ages 16-17. After high school, I traveled to the US and visited 47 states.
+            Born and raised outside of Cleveland, Ohio. Discovered an interest in the stock market and coding at ages 16-17. After high school, I traveled to the US and visited 47 states.
 
-Pursuing education in the computer science field; in Fall 2016, I was accepted at “42”, a school in California. During approximately two years, I learned low level C programming, along with additional aspects of computer science. 
+            Pursuing education in the computer science field; in Fall 2016, I was accepted at “42”, a
+            school in California. During approximately two years, I learned low level C programming, 
+            along with additional aspects of computer science. 
 
-Following more object-oriented programming with Java and Python, I ventured into WebDev with ReactJS, Node, etc. 
+            Following more object-oriented programming with Java and Python, I ventured into WebDev 
+            with ReactJS, Node, etc. 
 
-I spent the next three years in the crypto field pursuing an interest in Bitcoin and other crypto-currencies.
+            I spent the next three years in the crypto field pursuing an interest in Bitcoin and other 
+            crypto-currencies.
 
-Following moving back to Ohio, I traveled to Europe for six months. While visiting 20 countries, I met many awesome people.
+            Following moving back to Ohio, I traveled to Europe for six months. While visiting 20 
+            countries, I met many awesome people.
 
-Currently I am living in Ohio, close to family and friends.
-Excited for what the future holds!
-
+            Currently I am living in Ohio, close to family and friends.
+            Excited for what the future holds!
 
             </p>
 
