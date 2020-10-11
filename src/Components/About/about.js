@@ -89,18 +89,19 @@ export default function About () {
 
             <p Style="padding-left:50px; padding-right:50px; line-height:2;">
 
-            Born and raised outside of Cleveland, Ohio. Found interest in the stock market and 
-            coding at ages 16 - 17. After Highschool I decided to travel the US and visited 47 
-            different states. Then decided to pursue education in the computer science field at 
-            a school called “42”. Got accepted Fall of 2016 and spent the better 
-            part of 2 years there. I learned low level C programming along with more aspects 
-            about computer science. Later branched off into more Object Oriented programming with 
-            Java and Python then eventually ventured into WebDev with ReactJS, Node, etc. While 
-            studying computer science I gained an Interest in Bitcoin and other crypto-currencies. 
-            Ended up pursuing the crypto field for well over 3 years. Moved back to Ohio then 
-            decided to travel to Europe for 6 months. Ended up visiting 20 different countries 
-            and meeting a lot of awesome people along the way. Currently living back in Ohio close 
-            to friends and family. Excited for what the future holds! 
+            Born and raised outside of Cleveland, Ohio, Discovered an interest in the stock market and coding at ages 16-17. After high school, I traveled to the US and visited 47 states.
+
+Pursuing education in the computer science field; in Fall 2016, I was accepted at “42”, a school in California. During approximately two years, I learned low level C programming, along with additional aspects of computer science. 
+
+Following more object-oriented programming with Java and Python, I ventured into WebDev with ReactJS, Node, etc. 
+
+I spent the next three years in the crypto field pursuing an interest in Bitcoin and other crypto-currencies.
+
+Following moving back to Ohio, I traveled to Europe for six months. While visiting 20 countries, I met many awesome people.
+
+Currently I am living in Ohio, close to family and friends.
+Excited for what the future holds!
+
 
             </p>
 
