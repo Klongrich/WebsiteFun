@@ -60,7 +60,7 @@ export default function MiningExplained () {
 
             <p> 
                 When a computer guesses the correct number / combination that computer 
-                is given what is called a “block” from the bitcoin network. A block is a list of 
+                is given what is called a “block” from the bitcoin network. A block is a list of transactions
                 that are being made between people in the Bitcoin network. This computer then takes 
                 the list of transactions and stores them in a database called “the ledger” (note database 
                 may be kind of a bad word to use). The computer also gets rewarded with Bitcoin.
