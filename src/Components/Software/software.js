@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Container, Header, ProjectInfo, ProjectHeaders, SourceLink} from './styles/softwareStyles'
+import { Container, Header, ProjectInfo, ProjectHeaders, SourceLink } from './styles/softwareStyles'
 
 import JavaStockImage from "./pics/stockSoftWare.png"
 import MinishellImage from "./pics/minishell.png"
@@ -43,9 +43,9 @@ export const projectData = [
         impact: "($1.1+ Million in Live Trading Volume)",
         discripton: "A project that I built in 2017. I used the Yahoo Finance API and a few web scrapers I built to obtain stock data.  You can create and save a daily watchlist for any stocks of your choosing as well.  Custom OverLays where you could pick the variable amounts for each indicator / overlay. Multiple stock time frames were posted as well as volume of each measurement of time.",
         image: JavaStockImage,
-        link: "https://github.com/Klongrich/ChartingSoftware"
+        link: "https://github.com/Klongrich/JavaStockProject"
     }
-  ];
+];
 
 export const NavBar = styled.div`
     
@@ -76,55 +76,55 @@ export const NavBar = styled.div`
 `
 
 
-export default function software () {
+export default function software() {
 
     const scrollToJavaStockProject = () => {
-        window.scrollTo({top: 1950, behavior: 'smooth'});
-      };
+        window.scrollTo({ top: 1950, behavior: 'smooth' });
+    };
 
     const scrollToTradingBot = () => {
-        window.scrollTo({top: 1025, behavior: 'smooth'});
+        window.scrollTo({ top: 1025, behavior: 'smooth' });
     };
 
     const scrollToMinishell = () => {
-        window.scrollTo({top: 75, behavior: 'smooth'});
+        window.scrollTo({ top: 75, behavior: 'smooth' });
     };
 
     return (
-        <>  
-        <Container>
+        <>
+            <Container>
 
-        <Header>
-                Software
+                <Header>
+                    Software
         </Header>
 
-            <NavBar>
-                <ul>
-                    <li onClick={scrollToMinishell}>MiniShell</li>
-                    <li onClick={scrollToTradingBot}>TradingBot</li>
-                    <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
-                </ul>
-            </NavBar>
+                <NavBar>
+                    <ul>
+                        <li onClick={scrollToMinishell}>MiniShell</li>
+                        <li onClick={scrollToTradingBot}>TradingBot</li>
+                        <li onClick={scrollToJavaStockProject}>JavaStockProject</li>
+                    </ul>
+                </NavBar>
 
 
-            {projectData.map(data => (
-            <ProjectInfo>
-                <ProjectHeaders>
-                    <h3> {data.name} </h3> 
-                    <h3> {data.impact} </h3>
-                    <h3>Descripton: </h3> <p> {data.discripton} </p>
-                </ProjectHeaders>
-            
-                <img src={data.image} width="100%" height="100%"/>
-    
-                <SourceLink href={data.link}> <br/> <br/> Source Code </SourceLink>
-            </ProjectInfo>
-            ))}
+                {projectData.map(data => (
+                    <ProjectInfo>
+                        <ProjectHeaders>
+                            <h3> {data.name} </h3>
+                            <h3> {data.impact} </h3>
+                            <h3>Descripton: </h3> <p> {data.discripton} </p>
+                        </ProjectHeaders>
 
-        </Container>
+                        <img src={data.image} width="100%" height="100%" />
 
-        <div Style="background-color:black; margin-top:-30px">
-            ads
+                        <SourceLink href={data.link}> <br /> <br /> Source Code </SourceLink>
+                    </ProjectInfo>
+                ))}
+
+            </Container>
+
+            <div Style="background-color:black; margin-top:-30px">
+                ads
         </div>
         </>
     )
