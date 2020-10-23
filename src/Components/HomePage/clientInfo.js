@@ -262,7 +262,7 @@ export const ClientInfo = ({ width, browserInfo, ipAdress, ipInfo }) => {
 
           <ul>
             <li> IP: <b> {ipAdress} </b> </li>
-            <li> State: <b> {ipInfo.region} </b> </li>
+            <li> Region: <b> {ipInfo.region} </b> </li>
             <li> City: <b> {ipInfo.city} </b> </li>
           </ul>
         </ClientInfoMoblie>
