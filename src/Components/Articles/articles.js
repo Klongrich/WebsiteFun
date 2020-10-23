@@ -1,10 +1,10 @@
-import React , {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import {AllPost} from '../Crypto/data/cryptoBlogData.js'
-import {PageContent} from './Content/blogPage'
+import { AllPost } from '../Crypto/data/cryptoBlogData.js'
+import { PageContent } from './Content/blogPage'
 
-var URLlink = "https://www.longrichk.com/articles?articleID="; 
+var URLlink = "https://www.longrichk.com/articles?articleID=";
 
 const Container = styled.div`
 
@@ -50,7 +50,7 @@ export const ArticleBox = styled.div`
 
 
 
-export default function Articles () {
+export default function Articles() {
 
     const [pageState, setPageState] = useState("Home");
 
@@ -69,57 +69,57 @@ export default function Articles () {
         }
     }, [])
 
-    function updatePageById(id){
-       
+    function updatePageById(id) {
+
         var update = AllPost.map(function (data) {
             if (data.id == id) {
 
                 setPageTitle(data.title);
                 setPageDate(data.date);
                 setPageContent(data.content);
-                
+
                 window.scrollTo(0, 0)
                 setPageState("Viewing");
-     
-              }    
-            });
+
+            }
+        });
 
         return (update);
     }
     if (window.innerWidth > 999) {
 
         if (pageState == "Viewing") {
-            
+
             return (
                 <>
-                    <PageContent title={pageTitle} date={pageDate} content={pageContent}/>
+                    <PageContent title={pageTitle} date={pageDate} content={pageContent} />
                 </>
             )
 
         } else {
 
-        return (
-            <>
-            <Container> 
-            <h2> Articles </h2>
+            return (
+                <>
+                    <Container>
+                        <h2> Articles </h2>
 
-                {AllPost.map(data => (
-                    <ArticleBox> 
-                    
-                    <p Style="color: #9fa8a3;"> {data.date}</p>
+                        {AllPost.map(data => (
+                            <ArticleBox>
 
-                    <h3 onClick={() =>  window.location = URLlink + data.id}> {data.title} </h3>
-                    
-                    </ArticleBox>
-                ))}
-            </Container>
-            </>
-        );
-                }
+                                <p Style="color: #9fa8a3;"> {data.date}</p>
+
+                                <h3 onClick={() => window.location = URLlink + data.id}> {data.title} </h3>
+
+                            </ArticleBox>
+                        ))}
+                    </Container>
+                </>
+            );
+        }
     } else {
 
         if (pageState == "Viewing") {
-            
+
             return (
                 <>
                     <PageContent title={pageTitle} date={pageDate} content={pageContent} fontSize="30px" headerSize="50px" />
@@ -130,22 +130,22 @@ export default function Articles () {
 
             return (
                 <>
-                <Container> 
-                <h2 Style="font-size: 90px;"> Articles </h2>
+                    <Container>
+                        <h2 Style="font-size: 90px;"> Articles </h2>
 
-                    {AllPost.map(data => (
-                        <ArticleBox> 
-                        
-                        <p Style="color: #9fa8a3;
+                        {AllPost.map(data => (
+                            <ArticleBox>
+
+                                <p Style="color: #9fa8a3;
                                 font-size: 40px"> {data.date}</p>
 
-                        <h3 Style="font-size: 50px;"
-                            onClick={() =>  window.location = URLlink + data.id}
-                            > {data.title} </h3>
-                        
-                        </ArticleBox>
-                    ))}
-                </Container>
+                                <h3 Style="font-size: 50px;"
+                                    onClick={() => window.location = URLlink + data.id}
+                                > {data.title} </h3>
+
+                            </ArticleBox>
+                        ))}
+                    </Container>
 
                 </>
             );
