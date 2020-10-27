@@ -1,30 +1,21 @@
-import React , {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 
-import {User} from '@styled-icons/boxicons-solid/User'
-import {Home} from '@styled-icons/entypo/Home'
+import { User } from '@styled-icons/boxicons-solid/User'
+import { Home } from '@styled-icons/entypo/Home'
 
-import {LogOutCircle} from '@styled-icons/boxicons-regular/LogOutCircle'
-import {LogoutBox} from '@styled-icons/remix-line/LogoutBox'
-import {LogOut} from '@styled-icons/boxicons-regular/LogOut'
-import {Payments} from '@styled-icons/material-outlined/Payments'
+import { LogOutCircle } from '@styled-icons/boxicons-regular/LogOutCircle'
+import { LogoutBox } from '@styled-icons/remix-line/LogoutBox'
+import { LogOut } from '@styled-icons/boxicons-regular/LogOut'
+import { Payments } from '@styled-icons/material-outlined/Payments'
 
 
 import DeFiPic from '../Crypto/pics/DeFi.jpg'
 
-import {AccountInfo} from './account_info'
+import { AccountInfo } from './account_info'
 import ArticlePage from './article_page'
 
-import PaymentPage from '../User/payment'
-
-
-export const Background = styled.div`
-
-
-`
-
 export const Header = styled.div`
-
 
     ul{
         list-style-type: none;
@@ -190,7 +181,7 @@ const articles_data = [
 
 ]
 
-export default function DashBoard (accountInfo) {
+export default function DashBoard(accountInfo) {
 
     const [pageState, setPageState] = useState("Home");
     const [articleTitle, setArticleTitle] = useState("");
@@ -203,55 +194,44 @@ export default function DashBoard (accountInfo) {
                     <li Style="font-size: 30px; padding-left: 10px; :hover{color:black};">Dashboard</li>
                     <li Style="margin-left: 620px" onClick={() => setPageState("Home")}> <Home size="20px" /> Home</li>
                     <li onClick={() => setPageState("Account Info")}> <User size="20px" /> Account</li>
-                    <li onClick={() => setPageState("Payment")}> <Payments size="20px" /> Subscribe </li>
                 </ul>
             </Header>
         )
-    }   
+    }
 
     const SideNavBar = () => {
         return (
             <SideNavBarContainer>
-                   <h2> Articles </h2>
-                   <ul>
-                       {articles_data.map(data => 
-                        <li onClick={ () => updatePage(data.title)}> {data.title}</li>
-                       )}
-                   </ul>
-                </SideNavBarContainer>
+                <h2> Articles </h2>
+                <ul>
+                    {articles_data.map(data =>
+                        <li onClick={() => updatePage(data.title)}> {data.title}</li>
+                    )}
+                </ul>
+            </SideNavBarContainer>
         )
-    } 
+    }
 
-    function updatePage(title){
+    function updatePage(title) {
         setPageState("Article");
         setArticleTitle(title);
     }
 
-    if (pageState == "Payment" ) {
+    if (pageState == "Account Info") {
         return (
             <>
                 <TopOfPage />
-                <PaymentPage />
+                <AccountInfo />
             </>
         )
     }
 
-    if (pageState == "Account Info"){
+    if (pageState == "Article") {
+
         return (
             <>
                 <TopOfPage />
-                <AccountInfo  />
-                </>
-        )
-    }
-
-    if (pageState == "Article") {
-        
-        return (
-            <>
-            <TopOfPage />
-            <SideNavBar />
-
+                <SideNavBar />
 
                 <MiddleContent>
                     <h2> {articleTitle} </h2>
@@ -259,46 +239,46 @@ export default function DashBoard (accountInfo) {
                 </MiddleContent>
 
             </>
-            );
-        }
+        );
+    }
     return (
         <>
             <TopOfPage />
-            
+
             <Background>
-            <SideNavBar />
-               
+                <SideNavBar />
+
                 <MiddleContent>
-                   
-                   <h1> Market Overview </h1>
-                   <BlogPost Image={DeFiPic}
-                      width="18%"
-                      height="170px"
-                      marginLeft="8%"
-                      >
-                        <BlogPostTitles> 
+
+                    <h1> Market Overview </h1>
+                    <BlogPost Image={DeFiPic}
+                        width="18%"
+                        height="170px"
+                        marginLeft="8%"
+                    >
+                        <BlogPostTitles>
                             <h2>DeFi and It's Current State</h2>
                             <p>09/24/2020</p>
                         </BlogPostTitles>
                     </BlogPost>
 
                     <BlogPost Image={DeFiPic}
-                      width="18%"
-                      height="170px"
-                      marginLeft="8%"
-                      >
-                        <BlogPostTitles> 
+                        width="18%"
+                        height="170px"
+                        marginLeft="8%"
+                    >
+                        <BlogPostTitles>
                             <h2>DeFi and It's Current State</h2>
                             <p>09/24/2020</p>
                         </BlogPostTitles>
                     </BlogPost>
 
                     <BlogPost Image={DeFiPic}
-                      width="18%"
-                      height="170px"
-                      marginLeft="8%"
-                      >
-                        <BlogPostTitles> 
+                        width="18%"
+                        height="170px"
+                        marginLeft="8%"
+                    >
+                        <BlogPostTitles>
                             <h2>DeFi and It's Current State</h2>
                             <p>09/24/2020</p>
                         </BlogPostTitles>
