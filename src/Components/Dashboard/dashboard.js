@@ -245,7 +245,7 @@ export default function DashBoard(accountInfo) {
         <>
             <TopOfPage />
 
-            <Background>
+            <div>
                 <SideNavBar />
 
                 <MiddleContent>
@@ -315,8 +315,7 @@ export default function DashBoard(accountInfo) {
                     </StockPicks>
 
                 </MiddleContent>
-
-            </Background>
+            </div>
         </>
     )
 }

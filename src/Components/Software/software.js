@@ -8,10 +8,6 @@ import TradingBotImage from "./pics/tradingBot.png"
 
 import styled from "styled-components";
 
-import * as Scroll from 'react-scroll';
-
-
-
 export const projectData = [
     {
         id: 2,
@@ -96,7 +92,7 @@ export default function software() {
 
                 <Header>
                     Software
-        </Header>
+                </Header>
 
                 <NavBar>
                     <ul>

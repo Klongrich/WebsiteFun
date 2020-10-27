@@ -1,8 +1,8 @@
-import React , {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 
 import DashBoard from '../Dashboard/dashboard'
-import Login_Moblie from './moblie/login_moblie'
+import LoginMoblie from './moblie/login_moblie'
 
 export const TextAera = styled.input`
 
@@ -101,7 +101,7 @@ export const Background = styled.div`
 
 `
 
-export const Meta_Info = styled.div`
+export const MetaInfo = styled.div`
     margin-top: 120px;
     visibility: ${props => props.visible}
 `
@@ -113,7 +113,7 @@ const account_details = {
 }
 
 
-export default function SignUp () {
+export default function SignUp() {
 
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [password, setPassword] = useState(localStorage.getItem('password'));
@@ -122,31 +122,29 @@ export default function SignUp () {
 
     const [metaInfo, setMetaInfo] = useState("hidden");
 
-    function ValidateEmail(mail)  {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            console.log("true")
-            return (true)
-        } else {
-            console.log("false")
-            return(false)
-        }
-    }
+    // function ValidateEmail(mail) {
+    //     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    //         console.log("true")
+    //         return (true)
+    //     } else {
+    //         console.log("false")
+    //         return (false)
+    //     }
+    // }
 
     function sendUserInfo() {
         fetch('https://longrichk.com:3012/LogIn?Username=' + email.toLowerCase() + '&Password=' + password)
-        .then(res => res.json())
-        .then(data => {
-            console.log(setAccountInfo(data));
+            .then(res => res.json())
+            .then(data => {
+                console.log(setAccountInfo(data));
 
-            setMetaInfo("visible");
-            localStorage.setItem('username', data.username); 
-            localStorage.setItem('AccountCreation', data.account_creation);    
-        });
-
-        
+                setMetaInfo("visible");
+                localStorage.setItem('username', data.username);
+                localStorage.setItem('AccountCreation', data.account_creation);
+            });
     }
 
-    function clearEmail(){
+    function clearEmail() {
         setEmail("");
     }
 
@@ -154,52 +152,13 @@ export default function SignUp () {
         setPassword("");
     }
 
-    function useKey(key) {
-        // Keep track of key state
-        const [pressed, setPressed] = useState(false)
-    
-        // Does an event match the key we're watching?
-        const match = event => key.toLowerCase() == event.key.toLowerCase()
-    
-        // Event handlers
-        const onDown = event => {
-            if (match(event)) setPressed(true)
-        }
-    
-        const onUp = event => {
-            if (match(event)) setPressed(false)
-        }
-    
-        // Bind and unbind events
-        useEffect(() => {
-            window.addEventListener("keydown", onDown)
-            window.addEventListener("keyup", onUp)
-            return () => {
-                window.removeEventListener("keydown", onDown)
-                window.removeEventListener("keyup", onUp)
-            }
-        }, [key])
-    
-        return pressed
-    }
-    
-    function checkKey(key){
-        if (key == 13) {
+    function checkKey(key) {
+        if (key === 13) {
             sendUserInfo();
         }
     }
 
-
-{/*}
-    return (
-        <>
-            <DashBoard />
-        </>
-    );
-    */}
-
-    
-    if (accountInfo.match == "Valid"){
+    if (accountInfo.match === "Valid") {
 
         localStorage.setItem('email', email);
         localStorage.setItem('password', password);
@@ -209,57 +168,57 @@ export default function SignUp () {
             </>
         )
 
-    } else if ( window.innerWidth > 999 ) {
+    } else if (window.innerWidth > 999) {
         return (
             <>
-        <Background>
-            <Container>       
-                <h2 Style="margin-bottom: -10px;" > Log In</h2>
-                
-                <p>Email</p>
-                <TextAera   type="text"
+                <Background>
+                    <Container>
+                        <h2 Style="margin-bottom: -10px;" > Log In</h2>
+
+                        <p>Email</p>
+                        <TextAera type="text"
                             value={email}
                             onClick={() => clearEmail()}
                             onChange={e => setEmail(e.target.value)}
-                            />
+                        />
 
-                <br />
+                        <br />
 
-                <p>Password</p>
-                <TextAera type="password"
+                        <p>Password</p>
+                        <TextAera type="password"
                             value={password}
                             onClick={() => clearPassword()}
                             onChange={e => setPassword(e.target.value)}
                             onKeyDown={e => checkKey(e.keyCode)}
-                            />
-                <br />
+                        />
+                        <br />
 
-                <a href="/">
-                    <MoblieButton>
-                        Go Back
+                        <a href="/">
+                            <MoblieButton>
+                                Go Back
                     </MoblieButton>
-                </a>
-                
-                <MoblieButton  onClick={() => sendUserInfo()}>
-                    Log In
+                        </a>
+
+                        <MoblieButton onClick={() => sendUserInfo()}>
+                            Log In
                 </MoblieButton>
-                
-                <Meta_Info visible={metaInfo}>
-                    <h2> {accountInfo.match} </h2> 
-                    <a href='/ForgotPassword' >Forgot Password?</a>
-                </Meta_Info>
 
-            </Container>
-        </Background>
+                        <MetaInfo visible={metaInfo}>
+                            <h2> {accountInfo.match} </h2>
+                            <a href='/ForgotPassword' >Forgot Password?</a>
+                        </MetaInfo>
 
-        </>
-    )} else {
+                    </Container>
+                </Background>
 
+            </>
+        )
+    } else {
         return (
             <>
-                <Login_Moblie />
+                <LoginMoblie />
             </>
         )
     }
-        
+
 }
