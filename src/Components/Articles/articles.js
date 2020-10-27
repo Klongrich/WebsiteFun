@@ -70,25 +70,21 @@ export default function Articles() {
     }, [])
 
     function updatePageById(id) {
-
-        var update = AllPost.map(function (data) {
-            if (data.id == id) {
-
+        AllPost.map(data => {
+            if (data.id === id) {
                 setPageTitle(data.title);
                 setPageDate(data.date);
                 setPageContent(data.content);
 
                 window.scrollTo(0, 0)
                 setPageState("Viewing");
-
             }
-        });
-
-        return (update);
+        })
     }
+
     if (window.innerWidth > 999) {
 
-        if (pageState == "Viewing") {
+        if (pageState === "Viewing") {
 
             return (
                 <>
@@ -118,7 +114,7 @@ export default function Articles() {
         }
     } else {
 
-        if (pageState == "Viewing") {
+        if (pageState === "Viewing") {
 
             return (
                 <>
