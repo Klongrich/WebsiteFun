@@ -153,12 +153,12 @@ export default function SignUp() {
     }
 
     function checkKey(key) {
-        if (key === 13) {
+        if (key == 13) {
             sendUserInfo();
         }
     }
 
-    if (accountInfo.match === "Valid") {
+    if (accountInfo.match == "Valid") {
 
         localStorage.setItem('email', email);
         localStorage.setItem('password', password);
