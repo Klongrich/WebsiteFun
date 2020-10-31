@@ -71,7 +71,7 @@ export default function Articles() {
 
     function updatePageById(id) {
         AllPost.map(data => {
-            if (data.id === id) {
+            if (data.id == id) {
                 setPageTitle(data.title);
                 setPageDate(data.date);
                 setPageContent(data.content);
@@ -84,7 +84,7 @@ export default function Articles() {
 
     if (window.innerWidth > 999) {
 
-        if (pageState === "Viewing") {
+        if (pageState == "Viewing") {
 
             return (
                 <>
@@ -114,7 +114,7 @@ export default function Articles() {
         }
     } else {
 
-        if (pageState === "Viewing") {
+        if (pageState == "Viewing") {
 
             return (
                 <>
