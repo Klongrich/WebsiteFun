@@ -4,8 +4,6 @@ import styled from "styled-components";
 import { AllPost } from '../Crypto/data/cryptoBlogData.js'
 import { PageContent } from './Content/blogPage'
 
-var URLlink = "https://www.longrichk.com/articles?articleID=";
-
 const Container = styled.div`
 
     border: 1px solid white;
@@ -61,6 +59,8 @@ export default function Articles() {
 
     useEffect(() => {
 
+        console.log(window.location.href);
+        
         var Temp = window.location.href.split("=");
         var id = Temp[1];
 
@@ -104,7 +104,9 @@ export default function Articles() {
 
                                 <p Style="color: #9fa8a3;"> {data.date}</p>
 
-                                <h3 onClick={() => window.location = URLlink + data.id}> {data.title} </h3>
+                                <h3 onClick={() =>
+                                     window.location = window.location.href + '?articleID=' + data.id}
+                                     > {data.title} </h3>
 
                             </ArticleBox>
                         ))}
@@ -136,7 +138,7 @@ export default function Articles() {
                                 font-size: 40px"> {data.date}</p>
 
                                 <h3 Style="font-size: 50px;"
-                                    onClick={() => window.location = URLlink + data.id}
+                                    onClick={() => window.location = window.location.href + '?articleID=' + data.id}
                                 > {data.title} </h3>
 
                             </ArticleBox>
