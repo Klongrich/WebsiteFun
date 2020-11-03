@@ -149,12 +149,8 @@ export default function HomePage() {
           }
           }).catch(error => alert("Hmm Thats Weird"));
 
-{/*
-
-    fetch('https://longrichk.com:3013/LogVisit')
-    .then(res => res.json())
-  
-*/}
+    // fetch('https://longrichk.com:3013/LogVisit')
+    // .then(res => res.json())
 
   }, []);
 
