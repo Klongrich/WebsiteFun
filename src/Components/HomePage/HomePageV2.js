@@ -1,25 +1,25 @@
-import React , {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import Global from "../../styles/global";
 import styled from "styled-components";
-import * as Scroll from 'react-scroll';
+import * as Scroll from "react-scroll";
 
-import {ChevronDownCircle} from '@styled-icons/boxicons-regular/ChevronDownCircle'
+import { ChevronDownCircle } from "@styled-icons/boxicons-regular/ChevronDownCircle";
 
-import FadeIn from 'react-fade-in';
+import FadeIn from "react-fade-in";
 
-import {BackgroundImage} from "./stylesV2/HomeStyles"
+import { BackgroundImage } from "./stylesV2/HomeStyles";
 
-import Footer from "../footerComponets/Footer"
+import Footer from "../footerComponets/Footer";
 
-import {GlobeAmericas} from '@styled-icons/fa-solid/GlobeAmericas'
+import { GlobeAmericas } from "@styled-icons/fa-solid/GlobeAmericas";
 
-import {GetAreasOfIntrest} from './AreasOfInteresLinks'
-import {TestHeader} from './Header'
-import {ClientInfo} from './clientInfo'
+import { GetAreasOfIntrest } from "./AreasOfInteresLinks";
+import { TestHeader } from "./Header";
+import { ClientInfo } from "./clientInfo";
+import Cache from "./cache";
 
 const MoblieHomePageButton = styled.button`
-  
   text-algin: center;
 
   background-color: black;
@@ -34,7 +34,7 @@ const MoblieHomePageButton = styled.button`
 
   margin-top: 60px;
 
-  margin-left: ${props => props.left};
+  margin-left: ${(props) => props.left};
 
   &:disabled {
     color: grey;
@@ -42,12 +42,10 @@ const MoblieHomePageButton = styled.button`
     cursor: default;
   }
 
-  float:left;
-
+  float: left;
 `;
 
 const HomePageButton = styled.button`
-  
   text-algin: center;
 
   background-color: black;
@@ -59,7 +57,7 @@ const HomePageButton = styled.button`
 
   margin-top: 60px;
 
-  margin-left: ${props => props.left};
+  margin-left: ${(props) => props.left};
 
   &:disabled {
     color: grey;
@@ -67,12 +65,10 @@ const HomePageButton = styled.button`
     cursor: default;
   }
 
-  float:left;
-
+  float: left;
 `;
 
 export default function HomePage() {
-
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
@@ -84,15 +80,13 @@ export default function HomePage() {
     height: undefined,
   });
 
-
- 
   const scrollTop = () => {
-    window.scrollTo({top: 665, behavior: 'smooth'});
+    window.scrollTo({ top: 665, behavior: "smooth" });
   };
 
   const scrollMoblie = () => {
-    window.scrollTo({top: 1747, behavior: 'smooth'});
-  }
+    window.scrollTo({ top: 1747, behavior: "smooth" });
+  };
 
   function switchContentVersion() {
     if (contentVersion == true) {
@@ -102,76 +96,80 @@ export default function HomePage() {
       setContentVersion(true);
       setButtonText("Version2.1");
     }
-}
+  }
 
-  useEffect(() =>  {
-
+  useEffect(() => {
     function handleResize() {
-
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
-    });
-  }
+      });
+    }
 
     window.addEventListener("resize", handleResize);
 
     handleResize();
 
     fetch(process.env.REACT_APP_API_BROSWERINFO, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        Accept: 'application/json',
-          "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
-      },
-      ).then(response => {
-          if (response.ok) {
-            response.json().then(json => { 
+    })
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((json) => {
             setclientInfo(json);
-            });
-          }
-        }).catch(error => alert("Hmm Thats Weird"));
+          });
+        }
+      })
+      .catch((error) => alert("Hmm Thats Weird"));
 
     fetch(process.env.REACT_APP_API_IPINFO, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        Accept: 'application/json',
-        "Content-Type": "application/json"
-        },
-        },
-        ).then(response => {
-          if (response.ok) {
-            response.json().then(json => { 
-              setipInfo(json);
-              setipAdress(json.ip.substring(7))
-            });
-          }
-          }).catch(error => alert("Hmm Thats Weird"));
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((json) => {
+            setipInfo(json);
+            setipAdress(json.ip.substring(7));
+          });
+        }
+      })
+      .catch((error) => alert("Hmm Thats Weird"));
+
+    Cache("714");
 
     // fetch('https://longrichk.com:3013/LogVisit')
     // .then(res => res.json())
-
   }, []);
 
   const MiddleInfo = () => {
-
     if (windowSize.width > 999) {
       return (
         <>
-        <div Style="height: 330px; text-align:center;">
-
-        <FadeIn transitionDuration="1600" delay="600"> 
-          <p Style="color:white;
+          <div Style="height: 330px; text-align:center;">
+            <FadeIn transitionDuration="1600" delay="600">
+              <p
+                Style="color:white;
                     font-size: 50px;
-                    margin-top: 30px;">
-            Welcome To My Site
-          </p>
+                    margin-top: 30px;"
+              >
+                Welcome To My Site
+              </p>
 
+              <ChevronDownCircle
+                size="65px"
+                color="white"
+                onClick={scrollTop}
+              />
 
-          <ChevronDownCircle size="65px" color="white" onClick={scrollTop} />
-
-        {/* <a href="/login">
+              {/* <a href="/login">
           <HomePageButton left="392px;">
             Log In
           </HomePageButton>
@@ -182,43 +180,40 @@ export default function HomePage() {
             Sign Up
           </HomePageButton>
         </a> */}
-    
+            </FadeIn>
 
-          </FadeIn>
+            <FadeIn transitionDuration="1600" delay="600"></FadeIn>
+          </div>
 
-          <FadeIn transitionDuration="1600" delay="600"> 
-
-     
-
-        </FadeIn>
-       
-       </div>
-
-       <ClientInfo width={windowSize.width} 
-                   browserInfo={browserInfo} 
-                   ipAdress={ipAdress}
-                   ipInfo={ipInfo}
-                   />
-       </>
-
+          <ClientInfo
+            width={windowSize.width}
+            browserInfo={browserInfo}
+            ipAdress={ipAdress}
+            ipInfo={ipInfo}
+          />
+        </>
       );
     } else {
-      return(
+      return (
         <>
-        <div Style="height: 1371.2px; 
+          <div
+            Style="height: 1371.2px; 
                     text-align:center; 
                     margin-top: 100.8px; 
-                    padding-top:40px">
-          
-          <FadeIn transitionDuration="1600" delay="600"> 
+                    padding-top:40px"
+          >
+            <FadeIn transitionDuration="1600" delay="600">
+              <p Style="color:#e0e0e0; font-size: 90.2px;">
+                Welcome To My Site
+              </p>
+              <div Style="margin-top: 0px;">
+                <ChevronDownCircle
+                  size="158.5px"
+                  color="#e0e0e0"
+                  onClick={scrollMoblie}
+                />
 
-          <p Style="color:#e0e0e0; font-size: 90.2px;">
-            Welcome To My Site
-          </p>
-          <div Style="margin-top: 0px;">
-          <ChevronDownCircle size="158.5px" color="#e0e0e0" onClick={scrollMoblie} />
-
-          {/* <div Style="margin-top: 100px">
+                {/* <div Style="margin-top: 100px">
             <a href="/login">
               <MoblieHomePageButton left="105px;">
                 Log In
@@ -231,33 +226,26 @@ export default function HomePage() {
               </MoblieHomePageButton>
             </a>
           </div> */}
-    
-          
+              </div>
+            </FadeIn>
           </div>
-          </FadeIn>
-       </div>
-       </>
+        </>
       );
     }
-
-  }
+  };
 
   return (
-
     <>
-    <div class="background">
+      <div class="background">
+        <BackgroundImage>
+          <FadeIn transitionDuration="1600" delay="0">
+            <TestHeader width={windowSize.width} height={windowSize.height} />
+          </FadeIn>
 
-    <BackgroundImage>
-    
-    <FadeIn transitionDuration="1600" delay="0">
-      <TestHeader width={windowSize.width} height={windowSize.height}/>
-    </FadeIn>
+          <MiddleInfo />
+        </BackgroundImage>
 
-    <MiddleInfo />
-
-    </BackgroundImage>
-
-{/*
+        {/*
     <div Style="margin-bottom:-32px; margin-left:91%">
       <a Style="color: blue; text-decoration:underline; margin-top:2px;" onClick={() => switchContentVersion()}>
         {buttonText}
@@ -265,15 +253,16 @@ export default function HomePage() {
     </div>
 */}
 
-    <GetAreasOfIntrest width={windowSize.width} 
-                       contentVersion={contentVersion}
-                       ipInfo={ipInfo}
-                       ipAdress={ipAdress}
-                       browserInfo={browserInfo} />
+        <GetAreasOfIntrest
+          width={windowSize.width}
+          contentVersion={contentVersion}
+          ipInfo={ipInfo}
+          ipAdress={ipAdress}
+          browserInfo={browserInfo}
+        />
 
-    <Footer />
-
-    </div>
+        <Footer />
+      </div>
     </>
   );
 }
