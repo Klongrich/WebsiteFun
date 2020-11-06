@@ -17,6 +17,9 @@ import { GlobeAmericas } from "@styled-icons/fa-solid/GlobeAmericas";
 import { GetAreasOfIntrest } from "./AreasOfInteresLinks";
 import { TestHeader } from "./Header";
 import { ClientInfo } from "./clientInfo";
+
+import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 import Cache from "./cache";
 
 const MoblieHomePageButton = styled.button`
@@ -74,6 +77,8 @@ export default function HomePage() {
   const [ipAdress, setipAdress] = useState(0);
   const [contentVersion, setContentVersion] = useState(true);
   const [buttonText, setButtonText] = useState("Version 2.1");
+
+  const [new_cookie, setCookie] = useCookies(["name"]);
 
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -143,8 +148,12 @@ export default function HomePage() {
       })
       .catch((error) => alert("Hmm Thats Weird"));
 
+    if (Cookies.get("user_id")) {
+      console.log(Cookies.get("user_id"));
+    } else {
+      setCookie("user_id", "Xf86T957", { path: "/" });
+    }
     Cache("714");
-
     // fetch('https://longrichk.com:3013/LogVisit')
     // .then(res => res.json())
   }, []);
