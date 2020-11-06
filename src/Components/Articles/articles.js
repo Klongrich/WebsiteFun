@@ -93,7 +93,7 @@ export default function Articles() {
             <h2> Articles </h2>
 
             {AllPost.map((data) => (
-              <ArticleBox>
+              <ArticleBox key={data.id}>
                 <p Style="color: #9fa8a3;"> {data.date}</p>
 
                 <h3
