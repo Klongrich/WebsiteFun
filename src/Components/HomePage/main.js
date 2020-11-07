@@ -7,15 +7,14 @@ import { ToggleLeft } from "@styled-icons/boxicons-solid/ToggleLeft";
 import { ToggleRight } from "@styled-icons/boxicons-solid/ToggleRight";
 
 import styled from "styled-components";
-import { StyledIconBase } from "@styled-icons/styled-icon";
 
-export const ImageSlider = styled.div`
+const ImageSlider = styled.div`
   padding-left: 90%;
   margin-bottom: -45px;
   visibility: ${(props) => props.show};
 `;
 
-export const Version = styled.p`
+const Version = styled.p`
   margin-bottom: -24px;
   text-align: right;
   padding-right: 11%;
