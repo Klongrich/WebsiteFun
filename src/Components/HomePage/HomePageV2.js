@@ -5,6 +5,7 @@ import styled from "styled-components";
 import * as Scroll from "react-scroll";
 
 import { ChevronDownCircle } from "@styled-icons/boxicons-regular/ChevronDownCircle";
+import { MessageAltDetail } from "@styled-icons/boxicons-regular/MessageAltDetail";
 
 import FadeIn from "react-fade-in";
 
@@ -15,8 +16,9 @@ import Footer from "../footerComponets/Footer";
 import { GlobeAmericas } from "@styled-icons/fa-solid/GlobeAmericas";
 
 import { GetAreasOfIntrest } from "./AreasOfInteresLinks";
-import { TestHeader } from "./Header";
 import { ClientInfo } from "./clientInfo";
+
+import Header from "./Header";
 
 import { useCookies } from "react-cookie";
 import Cookies from "js-cookie";
@@ -71,19 +73,22 @@ const HomePageButton = styled.button`
   float: left;
 `;
 
+const ChatBox = styled.div`
+  padding-left: 90%;
+  margin-top: -12%;
+  padding-bottom: 8%;
+
+  &:hover {
+  }
+`;
+
 export default function HomePage() {
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
   const [contentVersion, setContentVersion] = useState(true);
-  const [buttonText, setButtonText] = useState("Version 2.1");
 
   const [new_cookie, setCookie] = useCookies(["name"]);
-
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
 
   const scrollTop = () => {
     window.scrollTo({ top: 665, behavior: "smooth" });
@@ -93,35 +98,8 @@ export default function HomePage() {
     window.scrollTo({ top: 1747, behavior: "smooth" });
   };
 
-  function switchContentVersion() {
-    if (contentVersion == true) {
-      setContentVersion(false);
-      setButtonText("Version2.2");
-    } else {
-      setContentVersion(true);
-      setButtonText("Version2.1");
-    }
-  }
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    fetch(process.env.REACT_APP_API_BROSWERINFO, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+  function get_broswer_info() {
+    fetch(process.env.REACT_APP_API_BROSWERINFO)
       .then((response) => {
         if (response.ok) {
           response.json().then((json) => {
@@ -130,14 +108,10 @@ export default function HomePage() {
         }
       })
       .catch((error) => alert("Hmm Thats Weird"));
+  }
 
-    fetch(process.env.REACT_APP_API_IPINFO, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+  function get_ip_info() {
+    fetch(process.env.REACT_APP_API_IPINFO)
       .then((response) => {
         if (response.ok) {
           response.json().then((json) => {
@@ -147,6 +121,11 @@ export default function HomePage() {
         }
       })
       .catch((error) => alert("Hmm Thats Weird"));
+  }
+
+  useEffect(() => {
+    get_broswer_info();
+    get_ip_info();
 
     if (Cookies.get("user_id")) {
       console.log(Cookies.get("user_id"));
@@ -159,7 +138,7 @@ export default function HomePage() {
   }, []);
 
   const MiddleInfo = () => {
-    if (windowSize.width > 999) {
+    if (window.innerWidth > 999) {
       return (
         <>
           <div Style="height: 330px; text-align:center;">
@@ -177,25 +156,13 @@ export default function HomePage() {
                 color="white"
                 onClick={scrollTop}
               />
-
-              {/* <a href="/login">
-          <HomePageButton left="392px;">
-            Log In
-          </HomePageButton>
-        </a>
-
-        <a href="/signup">
-          <HomePageButton left="140px;"> 
-            Sign Up
-          </HomePageButton>
-        </a> */}
             </FadeIn>
 
             <FadeIn transitionDuration="1600" delay="600"></FadeIn>
           </div>
 
           <ClientInfo
-            width={windowSize.width}
+            width={window.innerWidth}
             browserInfo={browserInfo}
             ipAdress={ipAdress}
             ipInfo={ipInfo}
@@ -221,20 +188,6 @@ export default function HomePage() {
                   color="#e0e0e0"
                   onClick={scrollMoblie}
                 />
-
-                {/* <div Style="margin-top: 100px">
-            <a href="/login">
-              <MoblieHomePageButton left="105px;">
-                Log In
-              </MoblieHomePageButton>
-            </a>
-
-            <a href="/signup">
-              <MoblieHomePageButton left="160px;"> 
-                Sign Up
-              </MoblieHomePageButton>
-            </a>
-          </div> */}
               </div>
             </FadeIn>
           </div>
@@ -248,28 +201,20 @@ export default function HomePage() {
       <div class="background">
         <BackgroundImage>
           <FadeIn transitionDuration="1600" delay="0">
-            <TestHeader width={windowSize.width} height={windowSize.height} />
+            <Header width={window.innerWidth} />
           </FadeIn>
-
           <MiddleInfo />
+          <ChatBox>
+            <MessageAltDetail color="white" size="45px" />
+          </ChatBox>
         </BackgroundImage>
-
-        {/*
-    <div Style="margin-bottom:-32px; margin-left:91%">
-      <a Style="color: blue; text-decoration:underline; margin-top:2px;" onClick={() => switchContentVersion()}>
-        {buttonText}
-      </a>
-    </div>
-*/}
-
         <GetAreasOfIntrest
-          width={windowSize.width}
+          width={window.innerWidth}
           contentVersion={contentVersion}
           ipInfo={ipInfo}
           ipAdress={ipAdress}
           browserInfo={browserInfo}
         />
-
         <Footer />
       </div>
     </>

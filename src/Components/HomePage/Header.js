@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-export const Header = styled.div`
+const Container = styled.div`
   padding-top: 36px;
   padding-left: 32px;
 
@@ -12,7 +12,7 @@ export const Header = styled.div`
   font-size: 42px;
 `;
 
-export const HeaderLinks = styled.div`
+const HeaderLinks = styled.div`
   margin-left: 48%;
   margin-bottom: 42px;
   margin-top: -3px;
@@ -25,7 +25,7 @@ export const HeaderLinks = styled.div`
   }
 `;
 
-export const MoblieHeader = styled.div`
+const MoblieHeader = styled.div`
   padding-top: 59.5px;
   padding-left: 35.7px;
 
@@ -35,7 +35,7 @@ export const MoblieHeader = styled.div`
   font-weigth: 900;
 `;
 
-export const MoblieLinks = styled.div`
+const MoblieLinks = styled.div`
   float: left;
   padding-top: 71.4px;
   padding-bottom: 71.4px;
@@ -63,16 +63,16 @@ const Links = () => {
   );
 };
 
-export const TestHeader = ({ width, height }) => {
+export default function Header({ width }) {
   if (width > 999) {
     return (
       <>
-        <Header>
+        <Container>
           Kyle Longrich
           <HeaderLinks>
             <Links />
           </HeaderLinks>
-        </Header>
+        </Container>
       </>
     );
   } else {
@@ -86,4 +86,4 @@ export const TestHeader = ({ width, height }) => {
       </>
     );
   }
-};
+}
