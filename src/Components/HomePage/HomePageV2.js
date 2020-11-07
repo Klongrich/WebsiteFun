@@ -90,7 +90,7 @@ export default function HomePage() {
 
   const [new_cookie, setCookie] = useCookies(["name"]);
 
-  const scrollTop = () => {
+  const scrollDesktop = () => {
     window.scrollTo({ top: 665, behavior: "smooth" });
   };
 
@@ -123,6 +123,18 @@ export default function HomePage() {
       .catch((error) => alert("Hmm Thats Weird"));
   }
 
+  // function createCookie(name, value, days) {
+  //   var date = new Date(),
+  //     expires = "";
+  //   if (days) {
+  //     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  //     expires = "; expires=" + date.toGMTString();
+  //   } else {
+  //     expires = "";
+  //   }
+  //   document.cookie = name + "=" + value + expires + "; path=/";
+  // }
+
   useEffect(() => {
     get_broswer_info();
     get_ip_info();
@@ -130,9 +142,13 @@ export default function HomePage() {
     if (Cookies.get("user_id")) {
       console.log(Cookies.get("user_id"));
     } else {
-      setCookie("user_id", "Xf86T957", { path: "/" });
+      var date = new Date();
+      date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000); // 10 days
+
+      setCookie("user_id", "Xf86T957", { expires: date }, { path: "/" });
     }
     Cache("714");
+
     // fetch('https://longrichk.com:3013/LogVisit')
     // .then(res => res.json())
   }, []);
@@ -154,7 +170,7 @@ export default function HomePage() {
               <ChevronDownCircle
                 size="65px"
                 color="white"
-                onClick={scrollTop}
+                onClick={scrollDesktop}
               />
             </FadeIn>
 
