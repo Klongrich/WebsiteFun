@@ -123,18 +123,6 @@ export default function HomePage() {
       .catch((error) => alert("Hmm Thats Weird"));
   }
 
-  // function createCookie(name, value, days) {
-  //   var date = new Date(),
-  //     expires = "";
-  //   if (days) {
-  //     date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  //     expires = "; expires=" + date.toGMTString();
-  //   } else {
-  //     expires = "";
-  //   }
-  //   document.cookie = name + "=" + value + expires + "; path=/";
-  // }
-
   useEffect(() => {
     get_broswer_info();
     get_ip_info();
