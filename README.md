@@ -2,7 +2,7 @@
 
 Live: https://www.longrichk.com/
 
-A personal website I built for fun. Goal is to use it for blogging here and there about different topics. 
+A personal website I built for fun.
 
 # Things to Do
 - Unlimited
