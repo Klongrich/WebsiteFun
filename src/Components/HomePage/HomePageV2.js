@@ -22,7 +22,7 @@ import Header from "./Header";
 
 import { useCookies } from "react-cookie";
 import Cookies from "js-cookie";
-import Cache from "./cache";
+import IndexCache from "./cache";
 
 const MoblieHomePageButton = styled.button`
   text-algin: center;
@@ -87,6 +87,7 @@ export default function HomePage() {
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
   const [contentVersion, setContentVersion] = useState(true);
+  const [isMoblie, setIsMoblie] = useState(false);
 
   const [new_cookie, setCookie] = useCookies(["name"]);
 
@@ -107,7 +108,7 @@ export default function HomePage() {
           });
         }
       })
-      .catch((error) => alert("Hmm Thats Weird"));
+      .catch((error) => console.log("Hmm Thats Weird"));
   }
 
   function get_ip_info() {
@@ -120,13 +121,10 @@ export default function HomePage() {
           });
         }
       })
-      .catch((error) => alert("Hmm Thats Weird"));
+      .catch((error) => console.log("Hmm Thats Weird"));
   }
 
-  useEffect(() => {
-    get_broswer_info();
-    get_ip_info();
-
+  function get_cookies() {
     if (Cookies.get("user_id")) {
       console.log(Cookies.get("user_id"));
     } else {
@@ -135,14 +133,26 @@ export default function HomePage() {
 
       setCookie("user_id", "Xf86T957", { expires: date }, { path: "/" });
     }
-    Cache("714");
+  }
+
+  useEffect(() => {
+    if (window.innerWidth > 999) {
+      setIsMoblie(false);
+    } else {
+      setIsMoblie(true);
+    }
+    get_broswer_info();
+    get_ip_info();
+    get_cookies();
+
+    IndexCache("714");
 
     // fetch('https://longrichk.com:3013/LogVisit')
     // .then(res => res.json())
   }, []);
 
   const MiddleInfo = () => {
-    if (window.innerWidth > 999) {
+    if (!isMoblie) {
       return (
         <>
           <div Style="height: 330px; text-align:center;">
@@ -208,9 +218,9 @@ export default function HomePage() {
             <Header width={window.innerWidth} />
           </FadeIn>
           <MiddleInfo />
-          <ChatBox>
+          {/* <ChatBox>
             <MessageAltDetail color="white" size="45px" />
-          </ChatBox>
+          </ChatBox> */}
         </BackgroundImage>
         <GetAreasOfIntrest
           width={window.innerWidth}
