@@ -23,6 +23,7 @@
     "get-eth-price": "^1.0.0",
     "gh-pages": "^2.1.1",
     "http-proxy-middleware": "^1.0.5",
+    "js-cookie": "^2.2.1",
     "ngrok": "^3.2.7",
     "node-metamask": "^1.1.2",
     "node-sass": "^4.14.1",

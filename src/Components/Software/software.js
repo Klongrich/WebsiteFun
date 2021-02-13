@@ -21,7 +21,7 @@ export const projectData = [
     {
         id: 1,
         name: "Name: TradingBot",
-        impact: "(Over $20,000 generated in 2017)",
+        impact: "Almost Worked",
         discripton: "A trading bot written when Poloniex was still cool. I used their API to pull \
         data and cacluate real time the slippage between tradding pairs. For example Let's say BTC/USD \
         @ $2,000, ETH/BTC @ 0.085, and ETH/USD @ $200. If we multiple 0.085 * $2,000 (price of BTC) we \
@@ -36,7 +36,7 @@ export const projectData = [
     {
         id: 0,
         name: "Name: JavaStockProject",
-        impact: "($1.1+ Million in Live Trading Volume)",
+        impact: "Built from sctrach in java with out charting libs",
         discripton: "A project that I built in 2017. I used the Yahoo Finance API and a few web scrapers I built to obtain stock data.  You can create and save a daily watchlist for any stocks of your choosing as well.  Custom OverLays where you could pick the variable amounts for each indicator / overlay. Multiple stock time frames were posted as well as volume of each measurement of time.",
         image: JavaStockImage,
         link: "https://github.com/Klongrich/JavaStockProject"

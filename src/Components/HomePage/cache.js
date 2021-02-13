@@ -21,7 +21,7 @@ async function checkForUser(UserID) {
   return data;
 }
 
-export default async function Cache(UserID) {
+export default async function IndexCache(UserID) {
   db.version(1).stores({
     ClientInfo: "++id, &User, LastVisited",
   });
