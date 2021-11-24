@@ -20,7 +20,7 @@ import cryptoBackground from "./stylesV2/crypto1.jpg";
 import TravelPage from "../Travel/travel";
 
 import { ArrowForward } from "@styled-icons/evaicons-solid/ArrowForward";
-import { ClientInfo } from "./clientInfo";
+// import { ClientInfo } from "./clientInfo";
 
 export const areaOfIntrestData = [
   {
@@ -199,12 +199,12 @@ export const GetAreasOfIntrest = ({
           ))}
         </MoblieBackground>
 
-        <ClientInfo
+        {/* <ClientInfo
           width={width}
           browserInfo={browserInfo}
           ipAdress={ipAdress}
           ipInfo={ipInfo}
-        />
+        /> */}
       </>
     );
   } else if (contentVersion) {

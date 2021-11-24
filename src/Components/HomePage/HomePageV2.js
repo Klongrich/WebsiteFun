@@ -7,10 +7,11 @@ import { BackgroundImage } from "./stylesV2/HomeStyles";
 import Footer from "../footerComponets/Footer";
 
 import { GetAreasOfIntrest } from "./AreasOfInteresLinks";
-import { ClientInfo } from "./clientInfo";
 
 import Header from "./Header";
 import IndexCache from "./cache";
+
+// import { ClientInfo } from "./clientInfo";
 
 // import { useCookies } from "react-cookie";
 // import Cookies from "js-cookie";
@@ -173,12 +174,12 @@ export default function HomePage() {
             <FadeIn transitionDuration="1600" delay="600"></FadeIn>
           </div>
 
-          <ClientInfo
+          {/* <ClientInfo
             width={window.innerWidth}
             browserInfo={browserInfo}
             ipAdress={ipAdress}
             ipInfo={ipInfo}
-          />
+          /> */}
         </>
       );
     } else {
