@@ -1,13 +1,6 @@
-import React , {useEffect, useState} from 'react'
-import {Keyboard} from 'react-native';
+import React, { useState } from 'react'
 
 import styled from "styled-components";
-
-import {RightArrowAlt} from '@styled-icons/boxicons-regular/RightArrowAlt'
-
-import {ArrowReturnRight} from '@styled-icons/bootstrap/ArrowReturnRight'
-
-
 
 export const TextAera = styled.input`
 
@@ -105,7 +98,7 @@ export const Background = styled.div`
 
 `
 
-export default function SignUp_Moblie () {
+export default function SignUp_Moblie() {
 
     const [email, setEmail] = useState("Email");
     const [password, setPassword] = useState("Password");
@@ -121,17 +114,17 @@ export default function SignUp_Moblie () {
 
 
 
-    function ValidateEmail(email)  {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    function ValidateEmail(email) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return (true)
         } else {
-            return(false)
+            return (false)
         }
     }
 
     function checkAccountSumbition(status) {
 
-        if (status == "Taken") {
+        if (status === "Taken") {
             setErrorText("Email Taken");
             go_back();
         } else {
@@ -142,149 +135,143 @@ export default function SignUp_Moblie () {
 
     function sendUserInfo(e) {
         fetch('https://longrichk.com:3012/SignUp?Username=' + email.toLowerCase() + '&Password=' + password)
-        .then(res => res.json())
-        .then(data => checkAccountSumbition(data.Username));
+            .then(res => res.json())
+            .then(data => checkAccountSumbition(data.Username));
 
         if (e) {
             e.target.blur();
         }
-        
-    }
 
-    function clearText(){
-        setCurrnetText("");
     }
-
 
     function go_back() {
         setSignUpState("Enter Email");
         updateUserInfo("Start");
         setLogInlink("hidden");
         setInputType("text");
-}
+    }
 
 
-function updateUserInfo(signUp, e) {
+    function updateUserInfo(signUp, e) {
 
-    if (signUp == "Start") {
-        
+        if (signUp === "Start") {
+
             setSignUpState("Enter Email");
             setInputType("text");
 
-    } 
-    else if (signUp == "Enter Email"){            
-        
+        }
+        else if (signUp === "Enter Email") {
 
-        if (ValidateEmail(currentText)) {
-            
-            setErrorText("");
+
+            if (ValidateEmail(currentText)) {
+
+                setErrorText("");
+                setSignUpState("Password");
+                setEmail(currentText);
+
+                setCurrnetText("");
+                setInputType("password");
+
+
+            } else {
+
+                setErrorText("Email Not Vaild");
+
+
+                if (e) {
+                    e.target.blur();
+                }
+                updateUserInfo("Start");
+            }
+
+
+        }
+        else if (signUp === "Password-retry") {
+
             setSignUpState("Password");
-            setEmail(currentText);
+            setCurrnetText("");
 
+            setInputType("password");
+
+        }
+        else if (signUp === "Password") {
+            setSignUpState("Confrim Password");
+            setPassword(currentText);
             setCurrnetText("");
             setInputType("password");
 
-        
-        } else {
-
-            setErrorText("Email Not Vaild");
-
-
-            if (e) {
-                e.target.blur();
-            }
-            updateUserInfo("Start");
         }
+        else {
 
-        
-    } 
-    else if (signUp == "Password-retry"){
-                        
-        setSignUpState("Password");
-        setCurrnetText("");
+            if (currentText === password) {
+                setSignUpState("Account Created");
+                sendUserInfo(e);
+            } else {
+                setErrorText("Passwords Don't Match - Try Again");
 
-        setInputType("password");
-
-    }
-    else if (signUp == "Password")
-    {
-        setSignUpState("Confrim Password");
-        setPassword(currentText);
-        setCurrnetText("");
-        setInputType("password");
-        
-    }
-    else {
-
-        if (currentText == password) {
-            setSignUpState("Account Created");
-            sendUserInfo(e);
-        } else {
-            setErrorText("Passwords Don't Match - Try Again");
-
-            if (e) {
-                e.target.blur();
+                if (e) {
+                    e.target.blur();
+                }
+                updateUserInfo("Password-retry");
             }
-            updateUserInfo("Password-retry");
-        }
 
+        }
     }
-}
-    
-    function checkKey(e){
-        if (e.keyCode == 13) {
+
+    function checkKey(e) {
+        if (e.keyCode === 13) {
             updateUserInfo(signUpState, e);
         }
     }
-    
-        return (
-            <>
-        
-        
-        <Background>
-        <Container>
-        <h2 Style="padding-bottom: 20px;"> Create Account</h2>
 
-        <p Style="margin-left: 50px;
+    return (
+        <>
+
+
+            <Background>
+                <Container>
+                    <h2 Style="padding-bottom: 20px;"> Create Account</h2>
+
+                    <p Style="margin-left: 50px;
                   margin-top: -20px;
                   font-weight: bold;">{signUpState}</p>
 
-        <TextAera   type={inputType}
-                    value={currentText}
-                    onKeyDown={e => checkKey(e)}
-                    onChange={e => setCurrnetText(e.target.value)}
+                    <TextAera type={inputType}
+                        value={currentText}
+                        onKeyDown={e => checkKey(e)}
+                        onChange={e => setCurrnetText(e.target.value)}
                     />
 
 
-        <br />
+                    <br />
 
-        <div>
-        
-        <MoblieButton onClick={() => go_back()} >
-            Go Back
-        </MoblieButton>
-        
-        <MoblieButton  onClick={() => updateUserInfo(signUpState) }>
-            {signUpState}
-        </MoblieButton>
-        
-        </div>
-        
-        <br /> <br />
+                    <div>
 
-        <h2 Style="margin-top: 170px; font-size: 80px">{errorText}</h2>
-        
-        <LoginLink link={logInLink}>
-            <a href='/login' Style="font-size: 70px;
+                        <MoblieButton onClick={() => go_back()} >
+                            Go Back
+        </MoblieButton>
+
+                        <MoblieButton onClick={() => updateUserInfo(signUpState)}>
+                            {signUpState}
+                        </MoblieButton>
+
+                    </div>
+
+                    <br /> <br />
+
+                    <h2 Style="margin-top: 170px; font-size: 80px">{errorText}</h2>
+
+                    <LoginLink link={logInLink}>
+                        <a href='/login' Style="font-size: 70px;
                                     text-decoration: none;
                                     margin-top: 40px;
                                     margin-left: -25px;" >
-                                    Go To Login Page</a>
-        </LoginLink>
-        
-        </Container>
-        </Background>
+                            Go To Login Page</a>
+                    </LoginLink>
+
+                </Container>
+            </Background>
         </>
-           
-        );
-} 
+
+    );
+}

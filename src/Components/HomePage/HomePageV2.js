@@ -1,95 +1,93 @@
 import React, { useEffect, useState } from "react";
 
-import Global from "../../styles/global";
-import styled from "styled-components";
-import * as Scroll from "react-scroll";
-
 import { ChevronDownCircle } from "@styled-icons/boxicons-regular/ChevronDownCircle";
-import { MessageAltDetail } from "@styled-icons/boxicons-regular/MessageAltDetail";
-
 import FadeIn from "react-fade-in";
 
 import { BackgroundImage } from "./stylesV2/HomeStyles";
-
 import Footer from "../footerComponets/Footer";
-
-import { GlobeAmericas } from "@styled-icons/fa-solid/GlobeAmericas";
 
 import { GetAreasOfIntrest } from "./AreasOfInteresLinks";
 import { ClientInfo } from "./clientInfo";
 
 import Header from "./Header";
-
-import { useCookies } from "react-cookie";
-import Cookies from "js-cookie";
 import IndexCache from "./cache";
 
-const MoblieHomePageButton = styled.button`
-  text-algin: center;
+// import { useCookies } from "react-cookie";
+// import Cookies from "js-cookie";
+// import styled from "styled-components";
+// import { GlobeAmericas } from "@styled-icons/fa-solid/GlobeAmericas";
+// import { MessageAltDetail } from "@styled-icons/boxicons-regular/MessageAltDetail";
+// import * as Scroll from "react-scroll";
+// import Global from "../../styles/global";
 
-  background-color: black;
-  color: white;
-  font-size: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 80px;
-  padding-right: 80px;
-  border-radius: 5px;
-  cursor: pointer;
+// const MoblieHomePageButton = styled.button`
+//   text-algin: center;
 
-  margin-top: 60px;
+//   background-color: black;
+//   color: white;
+//   font-size: 50px;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   padding-left: 80px;
+//   padding-right: 80px;
+//   border-radius: 5px;
+//   cursor: pointer;
 
-  margin-left: ${(props) => props.left};
+//   margin-top: 60px;
 
-  &:disabled {
-    color: grey;
-    opacity: 0.7;
-    cursor: default;
-  }
+//   margin-left: ${(props) => props.left};
 
-  float: left;
-`;
+//   &:disabled {
+//     color: grey;
+//     opacity: 0.7;
+//     cursor: default;
+//   }
 
-const HomePageButton = styled.button`
-  text-algin: center;
+//   float: left;
+// `;
 
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  padding: 10px 60px;
-  border-radius: 5px;
-  cursor: pointer;
+// const HomePageButton = styled.button`
+//   text-algin: center;
 
-  margin-top: 60px;
+//   background-color: black;
+//   color: white;
+//   font-size: 20px;
+//   padding: 10px 60px;
+//   border-radius: 5px;
+//   cursor: pointer;
 
-  margin-left: ${(props) => props.left};
+//   margin-top: 60px;
 
-  &:disabled {
-    color: grey;
-    opacity: 0.7;
-    cursor: default;
-  }
+//   margin-left: ${(props) => props.left};
 
-  float: left;
-`;
+//   &:disabled {
+//     color: grey;
+//     opacity: 0.7;
+//     cursor: default;
+//   }
 
-const ChatBox = styled.div`
-  padding-left: 90%;
-  margin-top: -12%;
-  padding-bottom: 8%;
+//   float: left;
+// `;
 
-  &:hover {
-  }
-`;
+// const ChatBox = styled.div`
+//   padding-left: 90%;
+//   margin-top: -12%;
+//   padding-bottom: 8%;
+
+//   &:hover {
+//   }
+// `;
+
+const contentVersion = true;
 
 export default function HomePage() {
   const [browserInfo, setclientInfo] = useState([]);
   const [ipInfo, setipInfo] = useState([]);
   const [ipAdress, setipAdress] = useState(0);
-  const [contentVersion, setContentVersion] = useState(true);
   const [isMoblie, setIsMoblie] = useState(false);
 
-  const [new_cookie, setCookie] = useCookies(["name"]);
+  // const [contentVersion, setContentVersion] = useState(true);
+  // const [new_cookie, setCookie] = useCookies(["name"]);
 
   const scrollDesktop = () => {
     window.scrollTo({ top: 665, behavior: "smooth" });
@@ -124,16 +122,16 @@ export default function HomePage() {
       .catch((error) => console.log("Hmm Thats Weird"));
   }
 
-  function get_cookies() {
-    if (Cookies.get("user_id")) {
-      console.log(Cookies.get("user_id"));
-    } else {
-      var date = new Date();
-      date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000); // 10 days
+  // function get_cookies() {
+  //   if (Cookies.get("user_id")) {
+  //     console.log(Cookies.get("user_id"));
+  //   } else {
+  //     var date = new Date();
+  //     date.setTime(date.getTime() + 10 * 24 * 60 * 60 * 1000); // 10 days
 
-      setCookie("user_id", "Xf86T957", { expires: date }, { path: "/" });
-    }
-  }
+  //     setCookie("user_id", "Xf86T957", { expires: date }, { path: "/" });
+  //   }
+  // }
 
   useEffect(() => {
     if (window.innerWidth > 999) {
@@ -143,7 +141,7 @@ export default function HomePage() {
     }
     get_broswer_info();
     get_ip_info();
-    get_cookies();
+    // get_cookies();
 
     IndexCache("714");
 

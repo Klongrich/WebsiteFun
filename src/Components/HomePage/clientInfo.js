@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import FadeIn from "react-fade-in";
@@ -55,13 +55,13 @@ export const ClientInfoMoblie = styled.div`
   }
 `;
 
-const ShowInfo = styled.div`
-  visibility: ${(props) => props.show};
-`;
+// const ShowInfo = styled.div`
+//   visibility: ${(props) => props.show};
+// `;
 
-const Testli = styled.li`
-  visibility: ${(props) => props.show};
-`;
+// const Testli = styled.li`
+//   visibility: ${(props) => props.show};
+// `;
 
 export const ClientInfo = ({ width, browserInfo, ipAdress, ipInfo }) => {
   const [showOS, setShowOS] = useState(false);

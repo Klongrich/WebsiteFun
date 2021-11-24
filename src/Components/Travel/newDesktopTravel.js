@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 import './map.css'
@@ -6,19 +6,19 @@ import './map.css'
 
 import Footer from '../footerComponets/Footer'
 
-import {PageContent} from './blogpage'
+import { PageContent } from './blogpage'
 import OldDesktopTravel from './desktopTravel'
 
 
 import IcelandBackground from './pics/BlogBackgrounds/icelandbackground.jpg'
 
-import {All, Scandinavia, WesternEurope, EasternEurope} from './data/EuropeCountries'
+import { All, Scandinavia, WesternEurope, EasternEurope } from './data/EuropeCountries'
 
-import {AllStates} from './data/UnitedStates'
+import { AllStates } from './data/UnitedStates'
 
-import USAMap from "react-usa-map";
+// import USAMap from "react-usa-map";
 
-var URLlink = "https://www.longrichk.com/travel?page="; 
+var URLlink = "https://www.longrichk.com/travel?page=";
 
 //height: 2450px for all states, about 1150px for all european countries
 export const Container = styled.div`
@@ -153,7 +153,7 @@ export const RegionButton = styled.div`
 
 `
 
-export default function DesktopTravel () {
+export default function DesktopTravel() {
 
     const [pageHeader, setPageHeader] = useState("Visited Countries (22 / 195)");
 
@@ -174,45 +174,46 @@ export default function DesktopTravel () {
 
         console.log(temp[1]);
 
-        if (temp[1]){
+        if (temp[1]) {
             updatePageById(temp[1]);
         }
 
     }, [])
 
-    function updatePageById(title){
-       
+    function updatePageById(title) {
+
         var update = All.map(function (data) {
-            if (data.title == title) {
+            if (data.title === title) {
 
                 setPageTitle(data.title);
                 setPageDate(data.date);
                 setPageContent(data.content);
                 setImage(data.blogBackground);
-                
+
                 setVeiwingPage(true);
-    
+
                 window.scrollTo(0, 0)
-     
-              }    
-            });
+
+            }
+            return (0);
+        });
 
         return (update);
     }
-    
+
     function switchToStates() {
         setRegion(AllStates)
         setPageHeader("Visited States (47 / 50)")
 
     }
 
-    function switchToEurope () {
+    function switchToEurope() {
         setRegion(All);
         setPageHeader("Visited Countries (22 / 195)");
 
     }
 
-    function switchVersion () {
+    function switchVersion() {
         if (oldTravelPage) {
             setOldTravelPage(false);
         } else {
@@ -220,28 +221,28 @@ export default function DesktopTravel () {
         }
     }
 
-    function mapHandler (event) {
-        alert(event.target.dataset.name);
-      };
+    // function mapHandler(event) {
+    //     alert(event.target.dataset.name);
+    // };
 
-    function statesCustomConfig () {
-        return {
-          "NJ": {
-            fill: "navy",
-            title: "NJ",
-            clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
-          },
-          "NY": {
-            fill: "#CC0000",
-            title: "New York"
-          }
-        };
-    }
+    // function statesCustomConfig() {
+    //     return {
+    //         "NJ": {
+    //             fill: "navy",
+    //             title: "NJ",
+    //             clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+    //         },
+    //         "NY": {
+    //             fill: "#CC0000",
+    //             title: "New York"
+    //         }
+    //     };
+    // }
 
 
-    function GetRegionButtons () {
+    function GetRegionButtons() {
 
-        if (pageHeader == "Visited Countries (20 / 44)") {
+        if (pageHeader === "Visited Countries (20 / 44)") {
             return (
                 <>
                     <RegionButton onClick={() => setRegion(All)} >
@@ -264,7 +265,7 @@ export default function DesktopTravel () {
         } else {
             return (
                 <>
-                   {/* <USAMap customize={statesCustomConfig()}
+                    {/* <USAMap customize={statesCustomConfig()}
                            onClick={ e => mapHandler(e) } /> */}
 
                     <RegionButton onClick={() => setRegion(All)} >
@@ -292,82 +293,82 @@ export default function DesktopTravel () {
     if (veiwingPage) {
         return (
             <>
-         
-            <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
 
-            <Footer />
+                <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent} />
+
+                <Footer />
             </>
         )
-    } else if (oldTravelPage) {       
+    } else if (oldTravelPage) {
         return (
             <>
-            <Header>
-                <h2> Travel Articles </h2>
-                <p onClick={() => switchVersion()}> V1</p>
-            </Header>
-            <OldDesktopTravel />
-        </>
+                <Header>
+                    <h2> Travel Articles </h2>
+                    <p onClick={() => switchVersion()}> V1</p>
+                </Header>
+                <OldDesktopTravel />
+            </>
         )
-    }  else {
-   
-      return (
-          <>
+    } else {
 
-            <Header>
-                <h2> Travel Notes </h2>
-                {/* <p onClick={() => switchVersion()}> V1</p> */}
+        return (
+            <>
 
-                
-                <ul>
-                    <li onClick={ () => switchToStates()}>Untied States</li>
-                    <li onClick={ () => switchToEurope()} > Europe </li>
-                    <li onClick={() => switchVersion()}> V2</li>
-                </ul>
-               
+                <Header>
+                    <h2> Travel Notes </h2>
+                    {/* <p onClick={() => switchVersion()}> V1</p> */}
 
-            </Header>
 
-<Container>
-    
-    <h2 Style="font-size: 30px;
+                    <ul>
+                        <li onClick={() => switchToStates()}>Untied States</li>
+                        <li onClick={() => switchToEurope()} > Europe </li>
+                        <li onClick={() => switchVersion()}> V2</li>
+                    </ul>
+
+
+                </Header>
+
+                <Container>
+
+                    <h2 Style="font-size: 30px;
                 margin-top: 0px; 
                text-align: center;
                color: #163320;"
-               > 
-               {pageHeader} </h2>
+                    >
+                        {pageHeader} </h2>
 
-    <h2 Style="font-size: 20px; 
+                    <h2 Style="font-size: 20px; 
                text-align: center;
                color: #163320;
                margin-top: -10px"
-               > 
-               (Regions) </h2>
+                    >
+                        (Regions) </h2>
 
-    
-    <RegionChoice>
-  
-        <GetRegionButtons />
-   
-    </RegionChoice>
-    
 
-    {region.map( data => (
-        <BlogPost Image={data.image} 
-                  onClick={() => 
-                  window.location = URLlink + data.title
-                  } >
+                    <RegionChoice>
 
-            <BlogPostTitles fontSize="14px"
+                        <GetRegionButtons />
+
+                    </RegionChoice>
+
+
+                    {region.map(data => (
+                        <BlogPost Image={data.image}
+                            onClick={() =>
+                                window.location = URLlink + data.title
+                            } >
+
+                            <BlogPostTitles fontSize="14px"
                             >
-                <h2>{data.title}</h2>
-                <p>{data.date}</p>
-            </BlogPostTitles>
+                                <h2>{data.title}</h2>
+                                <p>{data.date}</p>
+                            </BlogPostTitles>
 
-        </BlogPost>
-    ))}
-    </Container>   
-    <Footer />                
-        </>
-      );
+                        </BlogPost>
+                    ))}
+                </Container>
+                <Footer />
+            </>
+        );
     }
- }
+}

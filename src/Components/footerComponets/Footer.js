@@ -1,42 +1,44 @@
 import React from 'react';
 import './Footer.css'
 
-import {Github} from "@styled-icons/boxicons-logos/Github";
-import {Twitter} from "@styled-icons/boxicons-logos/Twitter";
-import {Twitch} from "@styled-icons/boxicons-logos/Twitch";
-import {Instagram} from "@styled-icons/boxicons-logos/Instagram";
-import {Snapchat} from "@styled-icons/boxicons-logos/Snapchat";
+import { Github } from "@styled-icons/boxicons-logos/Github";
+import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
+import { Twitch } from "@styled-icons/boxicons-logos/Twitch";
+import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 
-import {IconStyleWrapper, SocialLink} from "./styles/iconStyle"
+// import { Snapchat } from "@styled-icons/boxicons-logos/Snapchat";
+
+import { IconStyleWrapper, SocialLink } from "./styles/iconStyle"
 
 class Footer extends React.Component {
-    render () {
-        return(
-            <>  
+    render() {
+        return (
+            <>
                 <IconStyleWrapper>
                     <SocialLink href="https://github.com/klongrich">
-                        <Github color="white"/>
+                        <Github color="white" />
                     </SocialLink>
 
                     <a href="https://twitter.com/longrichk?lang=en">
-                        <Twitter color="#00acee"/>
+                        <Twitter color="#00acee" />
                     </a>
 
-                    <a href="https://www.twitch.tv/slyle714/">
+                    <a href="https://www.twitch.tv/">
                         <Twitch color="#6441A4 " />
                     </a>
 
                     <a href="https://www.instagram.com/longrichk">
-                        <Instagram color="white"/>
+                        <Instagram color="white" />
                     </a>
 
-                    <a href="">
+                    {/* <a href="">
                         <Snapchat color="#fffc00" />
-                    </a>
+                    </a> */}
+
                 </IconStyleWrapper>
             </>
         );
     }
-  }
+}
 
 export default Footer;

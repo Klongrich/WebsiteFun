@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import copy from "copy-to-clipboard";
-import { useHistory } from "react-router-dom";
+// import copy from "copy-to-clipboard";
+// import { useHistory } from "react-router-dom";
 import Footer from "../footerComponets/Footer";
 import { PageContent } from "./blogpage";
-import { Share } from "@styled-icons/boxicons-regular/Share";
+// import { Share } from "@styled-icons/boxicons-regular/Share";
 import {
   mainPost,
   secondPost,
@@ -101,7 +101,7 @@ export default function DesktopCrypto() {
   const [pageDate, setPageDate] = useState("Date");
   const [pageContent, setPageContent] = useState(mainPost.content);
 
-  const [showLinkCopied, setShowLinkCopied] = useState("hidden");
+  // const [showLinkCopied, setShowLinkCopied] = useState("hidden");
 
   useEffect(() => {
     var Temp = window.location.href.split("=");
@@ -114,7 +114,7 @@ export default function DesktopCrypto() {
 
   function updatePageById(id) {
     var update = AllPost.map(function (data) {
-      if (data.id == id) {
+      if (data.id === id) {
         setPageTitle(data.title);
         setPageDate(data.date);
         setPageContent(data.content);
@@ -122,15 +122,16 @@ export default function DesktopCrypto() {
         setVeiwingPage(true);
         window.scrollTo(0, 0);
       }
+      return (0);
     });
 
     return update;
   }
 
-  function CopyText(text) {
-    copy(text);
-    setShowLinkCopied("visible");
-  }
+  // function CopyText(text) {
+  //   copy(text);
+  //   setShowLinkCopied("visible");
+  // }
 
   if (veiwingPage) {
     return (

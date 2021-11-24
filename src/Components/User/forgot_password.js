@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 
 export const SubmitButton = styled.button`
@@ -98,27 +98,27 @@ export const MoblieButton = styled.div`
   
 `
 
-export default function Forgot_password () {
+export default function Forgot_password() {
 
     const [email, setEmail] = useState("Please Enter Your Email");
     const [userText, setUserText] = useState("");
-    
-    function ValidateEmail(mail)  {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            console.log("true")
-            return (true)
-        } else {
-            console.log("false")
-            return(false)
-        }
-    }
+
+    // function ValidateEmail(mail)  {
+    //     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    //         console.log("true")
+    //         return (true)
+    //     } else {
+    //         console.log("false")
+    //         return(false)
+    //     }
+    // }
 
 
     function sendResetPasswordEmail() {
-        fetch('https://longrichk.com:3012/ResetPassword?username=' + email )
-        .then(res => res.json())
-        .then(data => console.log(data));
-        
+        fetch('https://longrichk.com:3012/ResetPassword?username=' + email)
+            .then(res => res.json())
+            .then(data => console.log(data));
+
         setUserText("Reset Link Sent, Check Your Email");
     }
 
@@ -126,43 +126,43 @@ export default function Forgot_password () {
 
     })
 
-    function clearEmail(){
+    function clearEmail() {
         setEmail("");
     }
 
     return (
         <>
-        <Background> 
-            <Container> 
-            <h2 Style="margin-left: 50px;"> Forgot Password? </h2>
+            <Background>
+                <Container>
+                    <h2 Style="margin-left: 50px;"> Forgot Password? </h2>
 
-            <TextAera    type="text"
+                    <TextAera type="text"
                         value={email}
                         onClick={() => clearEmail()}
                         onChange={e => setEmail(e.target.value)}
-                        />
+                    />
 
-            <a href="/login"> 
-            <MoblieButton>
-                Go Back
+                    <a href="/login">
+                        <MoblieButton>
+                            Go Back
             </MoblieButton>
-            </a>
+                    </a>
 
-            <MoblieButton  onClick={() => sendResetPasswordEmail() }>
-                Submit
+                    <MoblieButton onClick={() => sendResetPasswordEmail()}>
+                        Submit
             </MoblieButton>
-            
-            <div Style="margin-top: 160px;">
-            <h2 Style="margin-left: 50px" 
-                        onClick={() => sendResetPasswordEmail()}
+
+                    <div Style="margin-top: 160px;">
+                        <h2 Style="margin-left: 50px"
+                            onClick={() => sendResetPasswordEmail()}
                         > {userText} </h2>
 
-            </div>
+                    </div>
 
-            
-            </Container>
-        </Background>
+
+                </Container>
+            </Background>
         </>
     )
-    
+
 }

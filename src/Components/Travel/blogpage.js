@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from "styled-components";
-import { ImageAdd } from 'styled-icons/remix-fill';
+
+// import { ImageAdd } from 'styled-icons/remix-fill';
 
 
 export const Container = styled.div`
@@ -34,15 +35,15 @@ export const Content = styled.div`
 
 `
 
-export const PageContent = ({title, date, content, image}) => {
+export const PageContent = ({ title, date, content, image }) => {
     return (
         <>
-        <Container Image={image}> 
-            <Content> 
-                <h2> {title} </h2>
-                <p Style="margin-left: 30px; font-size: 40px">  {content} </p>
-            </Content>
-        </Container>
+            <Container Image={image}>
+                <Content>
+                    <h2> {title} </h2>
+                    <p Style="margin-left: 30px; font-size: 40px">  {content} </p>
+                </Content>
+            </Container>
         </>
     );
 }

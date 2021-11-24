@@ -1,9 +1,9 @@
-import React , {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 
-import {Verified} from '@styled-icons/material-outlined/Verified'
+import { Verified } from '@styled-icons/material-outlined/Verified'
 
-import Confrim_Moblie from './moblie/confrim_moblie'
+import ConfrimMoblie from './moblie/confrim_moblie'
 
 export const Container = styled.div`
 
@@ -28,11 +28,11 @@ export const Container = styled.div`
 `
 
 
-export const Meta_Info = styled.div`
+export const MetaInfo = styled.div`
     visibility: ${props => props.visible}
 `
 
-export default function Email_confrim_forum () {
+export default function Email_confrim_forum() {
 
     //const [confrimedState, setConfrimedState] = useState("Confriming......");
 
@@ -40,7 +40,7 @@ export default function Email_confrim_forum () {
     const [showMeta, setShowMeta] = useState("hidden")
 
 
-    useEffect( () => {
+    useEffect(() => {
 
         //Getting Token Value
         var Temp = window.location.href.split("=");
@@ -48,57 +48,56 @@ export default function Email_confrim_forum () {
 
         check_token(token);
     })
-    
-    function check_data(data){
+
+    function check_data(data) {
 
         console.log(data);
-        if (data == undefined || data == 0){
-                setConfrimedState("Invalid User");
+        if (data === undefined || data === 0) {
+            setConfrimedState("Invalid User");
         } else {
-            setConfrimedState("Email Confrimed!");  
-            setShowMeta("visible"); 
+            setConfrimedState("Email Confrimed!");
+            setShowMeta("visible");
         }
-        
+
     }
 
-    function check_token(token)
-    {
+    function check_token(token) {
         fetch('https://longrichk.com:3012/checkToken?token=' + token)
-        .then(res => res.json())
-        .then(data => console.log(check_data(data)));
+            .then(res => res.json())
+            .then(data => console.log(check_data(data)));
     }
 
     if (window.innerWidth > 999) {
-    return (
-         <>
+        return (
+            <>
 
-         <div Style="background-color: #ebeeff;
+                <div Style="background-color: #ebeeff;
              background-color: #d9e0ff;
 
                      height: 800px;
                      padding-top: 10%;">
-         <Container>
-            
-            <h2> {confrimedState} </h2>
+                    <Container>
 
-        <Meta_Info visible={showMeta}>
-            <Verified size="85px" color="green" />
-            <h2>Thank You</h2>
-            <a href="/login" >
-                Go To LogIn Page
+                        <h2> {confrimedState} </h2>
+
+                        <MetaInfo visible={showMeta}>
+                            <Verified size="85px" color="green" />
+                            <h2>Thank You</h2>
+                            <a href="/login" >
+                                Go To LogIn Page
             </a>
-            <br />
-            <br />
-        </Meta_Info>
-        </Container>
-        </div>
-           
-        </>
-    )
+                            <br />
+                            <br />
+                        </MetaInfo>
+                    </Container>
+                </div>
+
+            </>
+        )
     } else {
         return (
             <>
-                <Confrim_Moblie />
+                <ConfrimMoblie />
             </>
         )
     }

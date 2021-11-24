@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -25,7 +25,7 @@ export const Container = styled.div`
 `;
 
 export const AccountInfo = () => {
-  useEffect(() => {});
+  useEffect(() => { });
 
   return (
     <>

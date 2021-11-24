@@ -1,11 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from "styled-components";
 
 export const Container = styled.div`
-
-
     margin-top: 0px;
-
 `
 
 export const Content = styled.div`
@@ -52,20 +49,20 @@ export const Content = styled.div`
 
 `
 
-export const PageContent = ({title, date, content, fontSize, headerSize}) => {
+export const PageContent = ({ title, date, content, fontSize, headerSize }) => {
     return (
         <>
-        <Container> 
-            <Content FontSize={fontSize}
-                     HeaderSize={headerSize}
-                     > 
-                <h1> {title} </h1>
-                <h2> {date} </h2>
-                <div>
-                    {content}
-                </div>
-            </Content>
-        </Container>
+            <Container>
+                <Content FontSize={fontSize}
+                    HeaderSize={headerSize}
+                >
+                    <h1> {title} </h1>
+                    <h2> {date} </h2>
+                    <div>
+                        {content}
+                    </div>
+                </Content>
+            </Container>
         </>
     );
 }

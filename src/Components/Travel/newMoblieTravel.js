@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 
 import MoblieTravel from './moblieTravel'
 
 import Footer from '../footerComponets/Footer'
 
-import {PageContent} from './blogpage'
+import { PageContent } from './blogpage'
 
 import IcelandBackground from './pics/BlogBackgrounds/icelandbackground.jpg'
 
-import {All, Scandinavia, WesternEurope, EasternEurope} from './data/EuropeCountries'
+import { All, Scandinavia, WesternEurope, EasternEurope } from './data/EuropeCountries'
 
 
-var URLlink = "https://www.longrichk.com/travel?page="; 
+var URLlink = "https://www.longrichk.com/travel?page=";
 
 
 export const Container = styled.div`
@@ -125,7 +125,7 @@ export const RegionButton = styled.div`
 
 `
 
-export default function MoblieCrypto () {
+export default function MoblieCrypto() {
 
     const [veiwingPage, setVeiwingPage] = useState(false);
     const [oldTravelPage, setOldTravelPage] = useState(false);
@@ -144,33 +144,34 @@ export default function MoblieCrypto () {
 
         console.log(temp[1]);
 
-        if (temp[1]){
+        if (temp[1]) {
             updatePageById(temp[1]);
         }
 
     }, [])
 
-    function updatePageById(title){
-       
+    function updatePageById(title) {
+
         var update = All.map(function (data) {
-            if (data.title == title) {
+            if (data.title === title) {
 
                 setPageTitle(data.title);
                 setPageDate(data.date);
                 setPageContent(data.content);
                 setImage(data.blogBackground);
-                
+
                 setVeiwingPage(true);
-    
+
                 window.scrollTo(0, 0)
-     
-              }    
-            });
+
+            }
+            return (0);
+        });
 
         return (update);
     }
 
-    function switchVersion () {
+    function switchVersion() {
         if (oldTravelPage) {
             setOldTravelPage(false);
         } else {
@@ -182,14 +183,14 @@ export default function MoblieCrypto () {
     if (veiwingPage) {
         return (
             <>
-            <Header>
-                <h2> Travel Blog </h2>
-                <p onClick={() => switchVersion()}> V2 </p>
-            </Header>
-         
-            <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent}/>
+                <Header>
+                    <h2> Travel Blog </h2>
+                    <p onClick={() => switchVersion()}> V2 </p>
+                </Header>
 
-            <Footer />
+                <PageContent image={blogImage} title={pageTitle} date={pageDate} content={pageContent} />
+
+                <Footer />
             </>
         );
     } else if (oldTravelPage) {
@@ -207,65 +208,65 @@ export default function MoblieCrypto () {
     } else {
         return (
             <>
-            <Header>
-                <h2> Travel Blog </h2>
-                <p onClick={() => switchVersion()}> List</p>
-            </Header>
+                <Header>
+                    <h2> Travel Blog </h2>
+                    <p onClick={() => switchVersion()}> List</p>
+                </Header>
 
-            <Container>
-    
-            <h2 Style="font-size: 80px; 
+                <Container>
+
+                    <h2 Style="font-size: 80px; 
                        text-align: center;
                        color: #163320;"
-                       > 
-                       Visited Countreis </h2>
+                    >
+                        Visited Countreis </h2>
 
-            <h2 Style="font-size: 50px; 
+                    <h2 Style="font-size: 50px; 
                        text-align: center;
                        color: #163320;
                        margin-top: -30px"
-                       > 
-                       (Regions) </h2>
+                    >
+                        (Regions) </h2>
 
-            
-            <RegionChoice>
-          
-                <RegionButton onClick={() => setRegion(All)} >
-                    <p> All </p>
-                </RegionButton>
 
-                <RegionButton onClick={() => setRegion(Scandinavia)}>
-                    <p> Scandinavia </p>
-                </RegionButton>
+                    <RegionChoice>
 
-                <RegionButton onClick={() => setRegion(WesternEurope)} >
-                    <p> Western Europe </p>
-                </RegionButton>
+                        <RegionButton onClick={() => setRegion(All)} >
+                            <p> All </p>
+                        </RegionButton>
 
-                <RegionButton onClick={() => setRegion(EasternEurope)}>
-                    <p> Eastern Europe</p>
-                </RegionButton>
-           
-            </RegionChoice>
-            
+                        <RegionButton onClick={() => setRegion(Scandinavia)}>
+                            <p> Scandinavia </p>
+                        </RegionButton>
 
-            {region.map( data => (
-                <BlogPost Image={data.image} 
-                          onClick={() => 
-                            window.location = URLlink + data.title
+                        <RegionButton onClick={() => setRegion(WesternEurope)} >
+                            <p> Western Europe </p>
+                        </RegionButton>
+
+                        <RegionButton onClick={() => setRegion(EasternEurope)}>
+                            <p> Eastern Europe</p>
+                        </RegionButton>
+
+                    </RegionChoice>
+
+
+                    {region.map(data => (
+                        <BlogPost Image={data.image}
+                            onClick={() =>
+                                window.location = URLlink + data.title
                             } >
-    
-                    <BlogPostTitles fontSize="14px"
-                                    >
-                        <h2>{data.title}</h2>
-                        <p>{data.date}</p>
-                    </BlogPostTitles>
-    
-                </BlogPost>
-            ))}
-            </Container>
-        <Footer />
-         </>
+
+                            <BlogPostTitles fontSize="14px"
+                            >
+                                <h2>{data.title}</h2>
+                                <p>{data.date}</p>
+                            </BlogPostTitles>
+
+                        </BlogPost>
+                    ))}
+                </Container>
+                <Footer />
+            </>
         );
     }
 }

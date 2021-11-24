@@ -1,15 +1,12 @@
-import React , {useEffect, useState} from "react";
-import Global from "../../../styles/global";
-import styled from "styled-components";
-
+import React, { useEffect, useState } from "react";
 
 import travelImage from "./stylesV1/travelBackground2.png"
 import cryptoImage from "./stylesV1/cryptoBackground4.png"
 import stockImage from "./stylesV1/stockBackground.png"
 
-import {Container, Box, BoxTitle, BoxText, BackgroundImage, ClientInfo, ClientInfoWrapper} from "./stylesV1/HomeStyles"
-import {Header, HeaderLinks, HeaderText, HeaderOffSet} from "./stylesV1/HeaderStyles"
-import {InfoButton} from "./stylesV1/HomeStyles"
+import { Container, Box, BoxTitle, BoxText, ClientInfo, ClientInfoWrapper } from "./stylesV1/HomeStyles"
+import { Header, HeaderLinks, HeaderText, HeaderOffSet } from "./stylesV1/HeaderStyles"
+import { InfoButton } from "./stylesV1/HomeStyles"
 
 
 export const boxData = [
@@ -57,7 +54,7 @@ const headerData = [
     id: 0,
     text: "Articles",
     link: "/articles"
-  } ,
+  },
   {
     id: 1,
     text: "About",
@@ -78,91 +75,91 @@ export default function HomePageV1() {
   const [ipAdress, setipAdress] = useState(0);
 
   function toggleInfoBox() {
-      if (boxOpen == "hidden") {
-        setboxOpen("visible");
-      } else {
-        setboxOpen("hidden");
-      }
+    if (boxOpen === "hidden") {
+      setboxOpen("visible");
+    } else {
+      setboxOpen("hidden");
+    }
   }
-  
-  useEffect(() =>  {
+
+  useEffect(() => {
     fetch(process.env.REACT_APP_API_BROSWERINFO, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
-      },
-      ).then(response => {
-          if (response.ok) {
-            response.json().then(json => { 
-            setclientInfo(json);
-            });
-          }
-        }).catch(error => alert("Hmm Thats Weird"));
+    },
+    ).then(response => {
+      if (response.ok) {
+        response.json().then(json => {
+          setclientInfo(json);
+        });
+      }
+    }).catch(error => alert("Hmm Thats Weird"));
 
     fetch(process.env.REACT_APP_API_IPINFO, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         "Content-Type": "application/json"
-        },
-        },
-        ).then(response => {
-          if (response.ok) {
-            response.json().then(json => { 
-              setipInfo(json);
-              setipAdress(json.ip.substring(7))
-            });
-          }
-          }).catch(error => alert("Hmm Thats Weird"));
+      },
+    },
+    ).then(response => {
+      if (response.ok) {
+        response.json().then(json => {
+          setipInfo(json);
+          setipAdress(json.ip.substring(7))
+        });
+      }
+    }).catch(error => alert("Hmm Thats Weird"));
   }, []);
 
   return (
     <div class="background">
 
-  
-    
-    <Header>
-      <HeaderOffSet>
-      Kyle Longrich
+
+
+      <Header>
+        <HeaderOffSet>
+          Kyle Longrich
       </HeaderOffSet>
-      {headerData.map(data => (
-        <HeaderLinks>
-          <HeaderText key={data.id} as="a" href={data.link}> {data.text} </HeaderText>
-        </HeaderLinks>
-      ))}
+        {headerData.map(data => (
+          <HeaderLinks>
+            <HeaderText key={data.id} as="a" href={data.link}> {data.text} </HeaderText>
+          </HeaderLinks>
+        ))}
 
-    </Header>
-    <Container>
-      {boxData.map(box => (
-        <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
-          <BoxTitle >{box.title}</BoxTitle>
-          <BoxText>{box.text}</BoxText>
-        </Box>
-      ))}
-    </Container> 
+      </Header>
+      <Container>
+        {boxData.map(box => (
+          <Box key={box.id} bgColor={box.bgColor} img={box.image} as="a" href={box.link}>
+            <BoxTitle >{box.title}</BoxTitle>
+            <BoxText>{box.text}</BoxText>
+          </Box>
+        ))}
+      </Container>
 
-    <InfoButton onClick={() => toggleInfoBox()}>
+      <InfoButton onClick={() => toggleInfoBox()}>
         Show Your Info
     </InfoButton>
 
-    
-    <ClientInfoWrapper show={boxOpen} > 
+
+      <ClientInfoWrapper show={boxOpen} >
         <ClientInfo>
-        <p>Broswer: {browserInfo.browser} </p> 
-        <p> Version: {browserInfo.version} </p> 
-        <p> OS: {browserInfo.os} </p> <br/>
+          <p>Broswer: {browserInfo.browser} </p>
+          <p> Version: {browserInfo.version} </p>
+          <p> OS: {browserInfo.os} </p> <br />
         </ClientInfo>
 
         <ClientInfo>
-        <p>IP: {ipAdress} </p>
-        <p>State: {ipInfo.region} </p>
-        <p>City: {ipInfo.city} </p> 
-        </ClientInfo> 
-    </ClientInfoWrapper> 
+          <p>IP: {ipAdress} </p>
+          <p>State: {ipInfo.region} </p>
+          <p>City: {ipInfo.city} </p>
+        </ClientInfo>
+      </ClientInfoWrapper>
 
-    
+
 
     </div>
   );

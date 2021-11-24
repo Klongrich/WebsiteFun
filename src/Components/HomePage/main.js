@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import HomePageV2 from "./HomePageV2";
 import HomePageV1 from "./old/HomePageV1";
@@ -33,7 +33,7 @@ export default function MainPage() {
   };
 
   function switchHomePage() {
-    if (version == true) {
+    if (version === true) {
       setVersion(false);
       setColor("black");
       setVText("V1");

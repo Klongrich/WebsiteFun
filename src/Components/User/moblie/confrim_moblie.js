@@ -1,7 +1,7 @@
-import React , {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 
-import {Verified} from '@styled-icons/material-outlined/Verified'
+import { Verified } from '@styled-icons/material-outlined/Verified'
 
 export const Container = styled.div`
 
@@ -25,17 +25,17 @@ export const Container = styled.div`
 `
 
 
-export const Meta_Info = styled.div`
+export const MetaInfo = styled.div`
     visibility: ${props => props.visible}
 `
 
-export default function Email_confrim_forum () {
+export default function Email_confrim_forum() {
 
     const [confrimedState, setConfrimedState] = useState("Confriming......");
     const [showMeta, setShowMeta] = useState("hidden")
 
 
-    useEffect( () => {
+    useEffect(() => {
 
         //Getting Token Value
         var Temp = window.location.href.split("=");
@@ -43,49 +43,47 @@ export default function Email_confrim_forum () {
 
         check_token(token);
     })
-    
-    function check_data(data){
 
-        console.log(data);
-        if (data == undefined || data == 0){
-                setConfrimedState("Invalid User");
+    function check_data(data) {
+        //console.log(data);
+        if (data === undefined || data === 0) {
+            setConfrimedState("Invalid User");
         } else {
-            setConfrimedState("Email Confrimed!");  
-            setShowMeta("visible"); 
+            setConfrimedState("Email Confrimed!");
+            setShowMeta("visible");
         }
-        
+
     }
 
-    function check_token(token)
-    {
+    function check_token(token) {
         fetch('https://longrichk.com:3012/checkToken?token=' + token)
-        .then(res => res.json())
-        .then(data => console.log(check_data(data)));
+            .then(res => res.json())
+            .then(data => console.log(check_data(data)));
     }
 
     return (
-         <>
+        <>
 
-         <div Style="background-color: #d9e0ff;
+            <div Style="background-color: #d9e0ff;
                      height: 1470px;
                      padding-top: 15%;">
-         <Container>
-        
-            <h2> {confrimedState} </h2>
+                <Container>
 
-            <Meta_Info visible={showMeta}>
-                <Verified size="135px" color="green" />
-                <h2>Thank You</h2>
-                <a Style="font-size: 55px;" href="/login" >
-                    Go To LogIn Page
+                    <h2> {confrimedState} </h2>
+
+                    <MetaInfo visible={showMeta}>
+                        <Verified size="135px" color="green" />
+                        <h2>Thank You</h2>
+                        <a Style="font-size: 55px;" href="/login" >
+                            Go To LogIn Page
                 </a>
-            <br />
-            <br />
-            </Meta_Info>
-        
-        </Container>
-        </div>
-           
+                        <br />
+                        <br />
+                    </MetaInfo>
+
+                </Container>
+            </div>
+
         </>
     )
 }

@@ -22,13 +22,7 @@ export const projectData = [
         id: 1,
         name: "Name: TradingBot",
         impact: "Almost Worked",
-        discripton: "A trading bot written when Poloniex was still cool. I used their API to pull \
-        data and cacluate real time the slippage between tradding pairs. For example Let's say BTC/USD \
-        @ $2,000, ETH/BTC @ 0.085, and ETH/USD @ $200. If we multiple 0.085 * $2,000 (price of BTC) we \
-        would get $170 per ETH. If the price of ETH is at $200 at the time That's a 15% difference in pairs - \
-        (Diff). You could then essentainly Sell Your ETH into USD for $200, Buy $200 worth of BTC then make the \
-        BTC/ETH trade for 15% more ETH than you started with. Margins where not this big however. Most of the \
-        time anything above 2% was profitable",
+        discripton: "A trading bot written when Poloniex was still cool. I used their API to pull data and cacluate real time the slippage between tradding pairs. For example Let's say BTC/USD @ $2,000, ETH/BTC @ 0.085, and ETH/USD @ $200. If we multiple 0.085 * $2,000 (price of BTC) we would get $170 per ETH. If the price of ETH is at $200 at the time That's a 15% difference in pairs - (Diff). You could then essentainly Sell Your ETH into USD for $200, Buy $200 worth of BTC then make the BTC/ETH trade for 15% more ETH than you started with. Margins where not this big however. Most of the time anything above 2% was profitable",
         language: "Programming Language: Python",
         image: TradingBotImage,
         link: "https://github.com/Klongrich/tradingbot"
@@ -111,7 +105,7 @@ export default function software() {
                             <h3>Descripton: </h3> <p> {data.discripton} </p>
                         </ProjectHeaders>
 
-                        <img src={data.image} width="100%" height="100%" />
+                        <img src={data.image} width="100%" height="100%" alt="" />
 
                         <SourceLink href={data.link}> <br /> <br /> Source Code </SourceLink>
                     </ProjectInfo>

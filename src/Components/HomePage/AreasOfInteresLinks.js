@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import {
   Container,
   Box,
   BoxTitle,
-  BoxText,
-  BackgroundImage,
+  BoxText
 } from "./stylesV2/HomeStyles";
 
 import stockImage from "./stylesV2/stocks2.jpeg";

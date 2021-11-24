@@ -86,16 +86,17 @@ export default function MoblieCrypto() {
 
   function updatePageById(id) {
     var update = AllPost.map(function (data) {
-      if (data.id == id) {
+      if (data.id === id) {
         setPageTitle(data.title);
         setPageDate(data.date);
         setPageContent(data.content);
 
         setVeiwingPage(true);
         window.scrollTo(0, 0);
-      }
-    });
 
+      }
+      return (0);
+    });
     return update;
   }
 

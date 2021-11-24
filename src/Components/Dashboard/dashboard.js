@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { User } from "@styled-icons/boxicons-solid/User";
 import { Home } from "@styled-icons/entypo/Home";
 
-import { LogOutCircle } from "@styled-icons/boxicons-regular/LogOutCircle";
-import { LogoutBox } from "@styled-icons/remix-line/LogoutBox";
-import { LogOut } from "@styled-icons/boxicons-regular/LogOut";
-import { Payments } from "@styled-icons/material-outlined/Payments";
+// import { LogOutCircle } from "@styled-icons/boxicons-regular/LogOutCircle";
+// import { LogoutBox } from "@styled-icons/remix-line/LogoutBox";
+// import { LogOut } from "@styled-icons/boxicons-regular/LogOut";
+// import { Payments } from "@styled-icons/material-outlined/Payments";
 
 import DeFiPic from "../Crypto/pics/DeFi.jpg";
 
 import { AccountInfo } from "./account_info";
-import ArticlePage from "./article_page";
+// import ArticlePage from "./article_page";
 
 export const Header = styled.div`
   ul {
@@ -205,7 +205,7 @@ export default function DashBoard(accountInfo) {
     setArticleTitle(title);
   }
 
-  if (pageState == "Account Info") {
+  if (pageState === "Account Info") {
     return (
       <>
         <TopOfPage />
@@ -214,7 +214,7 @@ export default function DashBoard(accountInfo) {
     );
   }
 
-  if (pageState == "Article") {
+  if (pageState === "Article") {
     return (
       <>
         <TopOfPage />

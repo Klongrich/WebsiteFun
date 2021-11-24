@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 
 import DashBoard from '../../Dashboard/dashboard'
@@ -115,55 +115,55 @@ const account_details = {
 }
 
 
-export default function LogIn_Moblie () {
+export default function LogIn_Moblie() {
 
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [password, setPassword] = useState(localStorage.getItem('password'));
-    
+
     const [accountInfo, setAccountInfo] = useState(account_details);
 
-    function ValidateEmail(mail)  {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            console.log("true")
-            return (true)
-        } else {
-            console.log("false")
-            return(false)
-        }
-    }
+    // function ValidateEmail(mail)  {
+    //     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    //         console.log("true")
+    //         return (true)
+    //     } else {
+    //         console.log("false")
+    //         return(false)
+    //     }
+    // }
 
     function sendUserInfo() {
         fetch('https://longrichk.com:3012/LogIn?Username=' + email.toLowerCase() + '&Password=' + password)
-        .then(res => res.json())
-        .then(data => {
-            console.log(setAccountInfo(data));
+            .then(res => res.json())
+            .then(data => {
+                console.log(setAccountInfo(data));
 
-            localStorage.setItem('username', data.username); 
-            localStorage.setItem('AccountCreation', data.account_creation);    
-        });
+                localStorage.setItem('username', data.username);
+                localStorage.setItem('AccountCreation', data.account_creation);
+            });
 
-        
+
     }
 
     useEffect(() => {
 
     })
 
-    function clearEmail(){
+    function clearEmail() {
         setEmail("");
     }
 
     function clearPassword() {
         setPassword("");
     }
-    
-    function checkKey(key){
-        if (key == 13) {
+
+    function checkKey(key) {
+        if (key === 13) {
             sendUserInfo();
         }
     }
 
-    if (accountInfo.match == "Valid"){
+    if (accountInfo.match === "Valid") {
 
         localStorage.setItem('email', email);
         localStorage.setItem('password', password);
@@ -173,57 +173,57 @@ export default function LogIn_Moblie () {
             </>
         )
 
-    } else { 
+    } else {
 
         return (
             <>
-        <Background>
-        <Container>       
-        <h2 Style="margin-top: 20px; padding-bottom:-50px; font-size: 80px"> Log In</h2>
+                <Background>
+                    <Container>
+                        <h2 Style="margin-top: 20px; padding-bottom:-50px; font-size: 80px"> Log In</h2>
 
-        <p>Username </p>
-        <TextAera   type="text"
-                      value={email}
-                      onClick={() => clearEmail()}
-                      onChange={e => setEmail(e.target.value)}
-                      />
+                        <p>Username </p>
+                        <TextAera type="text"
+                            value={email}
+                            onClick={() => clearEmail()}
+                            onChange={e => setEmail(e.target.value)}
+                        />
 
-        <br />
+                        <br />
 
-        <p>Password </p>
-        <TextAera type="password"
-                      value={password}
-                      onClick={() => clearPassword()}
-                      onChange={e => setPassword(e.target.value)}
-                      onKeyDown={e => checkKey(e.keyCode)}
-                      />
-        <br />
+                        <p>Password </p>
+                        <TextAera type="password"
+                            value={password}
+                            onClick={() => clearPassword()}
+                            onChange={e => setPassword(e.target.value)}
+                            onKeyDown={e => checkKey(e.keyCode)}
+                        />
+                        <br />
 
 
-            <div>
-        <a href="/">
-        <MoblieButton>
-             Go Back
+                        <div>
+                            <a href="/">
+                                <MoblieButton>
+                                    Go Back
         </MoblieButton>
-        </a>
-        
+                            </a>
 
-        <MoblieButton  onClick={() => sendUserInfo() }>
-            Log In
+
+                            <MoblieButton onClick={() => sendUserInfo()}>
+                                Log In
         </MoblieButton>
-        </div>
-        
-        <div Style="margin-top: 210px;">
-            <h2 Style="font-size: 75px;"> {accountInfo.match} </h2>
+                        </div>
 
-        <a href='/ForgotPassword' >Forgot Password?</a>
-        </div>
+                        <div Style="margin-top: 210px;">
+                            <h2 Style="font-size: 75px;"> {accountInfo.match} </h2>
 
-        </Container>
-        </Background>
+                            <a href='/ForgotPassword' >Forgot Password?</a>
+                        </div>
 
-        </>
-    )
-        }
-    
+                    </Container>
+                </Background>
+
+            </>
+        )
+    }
+
 }

@@ -31,14 +31,10 @@ const Container = styled.div`
 `;
 
 export const ArticleBox = styled.div`
-  margin-left: 140px;
-  margin-right: 140px;
-
   margin-top: 60px;
   margin-bottom: 50px;
 
   padding-top: 20px;
-
   border-top: 2px solid #b1a6a4;
 
   text-align: center;
@@ -64,7 +60,7 @@ export default function Articles() {
 
   function updatePageById(id) {
     AllPost.map((data) => {
-      if (data.id == id) {
+      if (data.id === id) {
         setPageTitle(data.title);
         setPageDate(data.date);
         setPageContent(data.content);
@@ -72,11 +68,12 @@ export default function Articles() {
         window.scrollTo(0, 0);
         setPageState("Viewing");
       }
+      return (0);
     });
   }
 
   if (window.innerWidth > 999) {
-    if (pageState == "Viewing") {
+    if (pageState === "Viewing") {
       return (
         <>
           <PageContent
@@ -98,8 +95,8 @@ export default function Articles() {
 
                 <h3
                   onClick={() =>
-                    (window.location =
-                      window.location.href + "?articleID=" + data.id)
+                  (window.location =
+                    window.location.href + "?articleID=" + data.id)
                   }
                 >
                   {" "}
@@ -112,7 +109,7 @@ export default function Articles() {
       );
     }
   } else {
-    if (pageState == "Viewing") {
+    if (pageState === "Viewing") {
       return (
         <>
           <PageContent
@@ -143,8 +140,8 @@ export default function Articles() {
                 <h3
                   Style="font-size: 50px;"
                   onClick={() =>
-                    (window.location =
-                      window.location.href + "?articleID=" + data.id)
+                  (window.location =
+                    window.location.href + "?articleID=" + data.id)
                   }
                 >
                   {" "}

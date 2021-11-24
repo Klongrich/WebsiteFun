@@ -1,29 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import styled from "styled-components";
 
 export const Container = styled.div`
-
-    background-color: #759ce6;
     margin-top: 0px;
-
 `
 
 export const Content = styled.div`
-
     font-family:  Montserrat;
+    
+    padding: 10px;
 
     margin-top: 0px;
     margin-bottom: 5%;
-    margin-left: 10%;
-    width: 80%;
+
+    width: 100%;
     height: 100%;
 
     margin-bottom: -50px;
-    
     border-top: none; 
-
-    border: 1px #525252 solid;
-
+    
     h2 {
         text-align: center;
         font-size: ${props => props.HeaderSize}
@@ -54,20 +49,20 @@ export const Content = styled.div`
 
 `
 
-export const PageContent = ({title, date, content, fontSize, headerSize}) => {
+export const PageContent = ({ title, date, content, fontSize, headerSize }) => {
     return (
         <>
-        <Container> 
-            <Content FontSize={fontSize}
-                     HeaderSize={headerSize}
-                     > 
-                <h1> {title} </h1>
-                <h2> {date} </h2>
-                <div>
-                    {content}
-                </div>
-            </Content>
-        </Container>
+            <Container>
+                <Content FontSize={fontSize}
+                    HeaderSize={headerSize}
+                >
+                    <h1> {title} </h1>
+                    <h2> {date} </h2>
+                    <div>
+                        {content}
+                    </div>
+                </Content>
+            </Container>
         </>
     );
 }
